@@ -1,66 +1,32 @@
-# Active Vida Leve — Etapa 01
+# Active Vida Leve — Topo + Carrossel V02
 
-Primeira entrega do front-end da página inicial.
+Nesta etapa foi reconstruída somente a parte superior da página.
 
-## Escopo desta etapa
+## Alterações
+- remoção da animação antiga do topo
+- logo horizontal correta da Active Vida Leve
+- atalhos: Início, Como funciona, Conteúdos e Benefícios
+- botões Entrar e Cadastro
+- menu hambúrguer em tablets/celulares
+- carrossel com 3 destaques:
+  - Alimentação
+  - Exercícios
+  - Sucos & Receitas
+- autoplay a cada 6 segundos
+- setas e indicadores
+- swipe por toque em celulares e tablets
+- pausa ao passar o mouse ou usar teclado
+- respeito a `prefers-reduced-motion`
+- imagens SVG locais e leves, sem dependência externa
 
-- Cabeçalho da página
-- Identidade visual aplicada
-- Menu principal
-- Botões Entrar e Começar agora
-- Banner/hero principal
-- Prévia visual dos três pilares do portal
-- Responsividade básica para desktop, tablet e celular
-- Menu mobile modularizado
-
-## Importante
-
-As páginas `login.html` e `cadastro.html` ainda não foram criadas. Os links já estão definidos
-para que possam ser adicionadas nas próximas etapas sem precisar alterar a estrutura do topo.
-
-As seções "Como funciona", "Conteúdos" e "Benefícios" também serão criadas somente depois da
-aprovação visual desta etapa.
-
-## Estrutura
-
-```text
-activevidaleve/
-├── index.html
-├── assets/
-│   ├── css/
-│   │   ├── global.css
-│   │   └── index.css
-│   ├── images/
-│   │   ├── logo/
-│   │   │   └── active-vida-leve-symbol.png
-│   │   └── hero/
-│   └── icons/
-├── js/
-│   └── index.js
-└── modules/
-    └── mobile-menu.js
-```
-
-
-## Revisão 01
-
-- Paleta atualizada para o novo padrão da marca (`#0E6B3A`, `#22C55E`, `#F9F7ED`)
-- Ícone da marca atualizado com a nova logo enviada pelo usuário
-- Ajustes visuais leves no hero para combinar com a nova identidade
-
-
-## Topo animado V01
-
-Nesta revisão, o topo ganhou uma faixa animada vetorial ao lado da marca.
-
-Tecnologia escolhida:
-- SVG + CSS puro
-- sem GIF
-- sem vídeo
-- sem biblioteca Lottie
-- sem JavaScript adicional para a animação
-
-Arquivo:
-`assets/animations/active-motion.svg`
-
-A animação respeita `prefers-reduced-motion` e continua nítida em qualquer resolução.
+## Arquivos principais
+- `index.html`
+- `assets/css/global.css`
+- `assets/css/index.css`
+- `assets/images/logo/active-vida-leve-horizontal.png`
+- `assets/images/carousel/alimentacao.svg`
+- `assets/images/carousel/exercicios.svg`
+- `assets/images/carousel/sucos-receitas.svg`
+- `js/index.js`
+- `modules/mobile-menu.js`
+- `modules/carousel.js`

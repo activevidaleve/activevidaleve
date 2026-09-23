@@ -3,7 +3,6 @@
   --green-800: #0A5A31;
   --green-500: #22C55E;
   --green-100: #E5F6EB;
-  --yellow-500: #8FD6A7;
   --cream: #F9F7ED;
   --cream-strong: #F4F0E4;
   --white: #FFFFFF;
@@ -11,19 +10,12 @@
   --text-soft: #5F7465;
   --border: rgba(14, 107, 58, 0.12);
   --shadow: 0 24px 70px rgba(14, 107, 58, 0.12);
-  --radius-sm: 14px;
-  --radius-md: 24px;
-  --radius-lg: 34px;
-  --container: 1180px;
+  --container: 1200px;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -33,20 +25,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
 
 .container {
   width: min(calc(100% - 40px), var(--container));
@@ -57,51 +39,46 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   border: 1px solid transparent;
   border-radius: 999px;
   font-weight: 600;
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-}
+.btn:hover { transform: translateY(-2px); }
 
 .btn-small {
-  min-height: 44px;
-  padding: 0 20px;
+  min-height: 42px;
+  padding: 0 18px;
   font-size: 14px;
 }
 
 .btn-large {
-  min-height: 56px;
-  padding: 0 26px;
-  font-size: 15px;
+  min-height: 54px;
+  padding: 0 25px;
+  font-size: 14px;
 }
 
 .btn-primary {
   color: var(--white);
   background: var(--green-900);
-  box-shadow: 0 12px 30px rgba(14, 107, 58, 0.18);
+  box-shadow: 0 11px 26px rgba(14, 107, 58, .18);
 }
 
 .btn-primary:hover {
   background: var(--green-800);
-  box-shadow: 0 16px 34px rgba(14, 107, 58, 0.22);
+  box-shadow: 0 14px 30px rgba(14, 107, 58, .24);
 }
 
 .btn-outline {
   color: var(--green-900);
-  border-color: rgba(14, 107, 58, 0.26);
-  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(14, 107, 58, .24);
+  background: rgba(255,255,255,.48);
 }
 
 .btn-outline:hover {
   background: var(--white);
-  border-color: rgba(14, 107, 58, 0.38);
+  border-color: rgba(14,107,58,.36);
 }
 
-.stage-anchor {
-  height: 1px;
-}
+.stage-anchor { height: 1px; }

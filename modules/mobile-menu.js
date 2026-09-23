@@ -11,8 +11,7 @@ export function initMobileMenu() {
   };
 
   toggle.addEventListener("click", () => {
-    const isOpen = header.classList.contains("menu-open");
-    setState(!isOpen);
+    setState(!header.classList.contains("menu-open"));
   });
 
   header.querySelectorAll(".main-nav a").forEach((link) => {
@@ -20,6 +19,6 @@ export function initMobileMenu() {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 880) setState(false);
+    if (window.innerWidth > 900) setState(false);
   });
 }
