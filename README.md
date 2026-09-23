@@ -39,3 +39,13 @@ Nesta etapa foi reconstruída somente a parte superior da página.
 - Os botões `Entrar` e `Cadastro` permanecem sempre visíveis ao lado da logo.
 - O menu hambúrguer foi removido da visualização mobile.
 - Ajustes de largura e tipografia para telas pequenas, incluindo aparelhos com até 380px.
+
+
+## V04 — Topbar fixa + botões neon
+
+- Topbar fixada no topo durante a rolagem com `position: sticky`.
+- Fundo translúcido com blur para manter legibilidade sobre o conteúdo.
+- Botão `Entrar` usando o verde vibrante da marca (`#22C55E`).
+- Botão `Cadastro` usando o verde escuro da marca (`#0E6B3A`).
+- Contorno pulsante em verde neon nos dois botões.
+- Efeito reduzido automaticamente quando o dispositivo usa `prefers-reduced-motion`.
