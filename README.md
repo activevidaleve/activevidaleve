@@ -47,3 +47,20 @@ activevidaleve/
 - Paleta atualizada para o novo padrão da marca (`#0E6B3A`, `#22C55E`, `#F9F7ED`)
 - Ícone da marca atualizado com a nova logo enviada pelo usuário
 - Ajustes visuais leves no hero para combinar com a nova identidade
+
+
+## Topo animado V01
+
+Nesta revisão, o topo ganhou uma faixa animada vetorial ao lado da marca.
+
+Tecnologia escolhida:
+- SVG + CSS puro
+- sem GIF
+- sem vídeo
+- sem biblioteca Lottie
+- sem JavaScript adicional para a animação
+
+Arquivo:
+`assets/animations/active-motion.svg`
+
+A animação respeita `prefers-reduced-motion` e continua nítida em qualquer resolução.

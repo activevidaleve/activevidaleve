@@ -1,18 +1,19 @@
 .site-header {
   position: relative;
   z-index: 50;
-  padding: 18px 0;
-  background: rgba(249, 247, 237, 0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(14, 107, 58, 0.06);
+  padding: 13px 0;
+  background: rgba(249, 247, 237, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(14, 107, 58, 0.07);
+  box-shadow: 0 8px 28px rgba(14, 107, 58, 0.035);
 }
 
 .header-inner {
-  min-height: 58px;
+  min-height: 60px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: max-content minmax(180px, 1fr) max-content max-content;
   align-items: center;
-  gap: 34px;
+  gap: 20px;
 }
 
 .brand {
@@ -23,8 +24,8 @@
 }
 
 .brand-symbol {
-  width: 48px;
-  height: 40px;
+  width: 56px;
+  height: 42px;
   object-fit: contain;
 }
 
@@ -47,30 +48,68 @@
   font-weight: 700;
 }
 
+.activity-ribbon {
+  position: relative;
+  min-width: 170px;
+  max-width: 300px;
+  height: 54px;
+  overflow: hidden;
+  border-left: 1px solid rgba(14, 107, 58, 0.10);
+  border-right: 1px solid rgba(14, 107, 58, 0.06);
+}
+
+.activity-ribbon::before,
+.activity-ribbon::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  pointer-events: none;
+}
+
+.activity-ribbon::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(249,247,237,.95), rgba(249,247,237,0));
+}
+
+.activity-ribbon::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(249,247,237,.95), rgba(249,247,237,0));
+}
+
+.activity-ribbon img {
+  width: 100%;
+  height: 54px;
+  object-fit: cover;
+}
+
 .main-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 }
 
 .main-nav a {
   position: relative;
   color: #486558;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .main-nav a::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 100%;
+  left: 50%;
+  right: 50%;
   bottom: -8px;
   height: 2px;
   border-radius: 999px;
   background: var(--green-500);
-  transition: right .2s ease;
+  transition: left .2s ease, right .2s ease;
 }
 
 .main-nav a:hover {
@@ -78,13 +117,19 @@
 }
 
 .main-nav a:hover::after {
+  left: 0;
   right: 0;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+}
+
+.header-actions .btn-small {
+  min-height: 42px;
+  padding-inline: 17px;
 }
 
 .menu-toggle {
@@ -704,5 +749,130 @@
   .brand-symbol {
     width: 48px;
     height: 36px;
+  }
+}
+
+
+/* Topo animado — revisão V01 */
+@media (max-width: 1180px) {
+  .header-inner {
+    grid-template-columns: max-content minmax(130px, 1fr) max-content max-content;
+    gap: 14px;
+  }
+
+  .activity-ribbon {
+    max-width: 220px;
+  }
+
+  .main-nav {
+    gap: 15px;
+  }
+
+  .main-nav a {
+    font-size: 12px;
+  }
+
+  .header-actions .btn-small {
+    padding-inline: 14px;
+  }
+}
+
+@media (max-width: 1010px) {
+  .header-inner {
+    grid-template-columns: max-content 1fr max-content;
+  }
+
+  .activity-ribbon {
+    max-width: 260px;
+    justify-self: stretch;
+  }
+
+  .main-nav,
+  .header-actions {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .site-header.menu-open .header-inner {
+    align-items: start;
+  }
+
+  .site-header.menu-open .main-nav,
+  .site-header.menu-open .header-actions {
+    display: flex;
+    grid-column: 1 / -1;
+  }
+
+  .site-header.menu-open .main-nav {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 12px 0 4px;
+    border-top: 1px solid var(--border);
+  }
+
+  .site-header.menu-open .main-nav a {
+    padding: 11px 4px;
+    font-size: 13px;
+  }
+
+  .site-header.menu-open .main-nav a::after {
+    display: none;
+  }
+
+  .site-header.menu-open .header-actions {
+    width: 100%;
+    padding-bottom: 4px;
+  }
+
+  .site-header.menu-open .header-actions .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    padding: 10px 0;
+  }
+
+  .header-inner {
+    grid-template-columns: max-content 1fr max-content;
+    gap: 10px;
+  }
+
+  .brand-name {
+    display: none;
+  }
+
+  .brand-symbol {
+    width: 48px;
+    height: 36px;
+  }
+
+  .activity-ribbon {
+    min-width: 0;
+    max-width: none;
+    height: 42px;
+    border-left-color: rgba(14,107,58,.07);
+  }
+
+  .activity-ribbon img {
+    height: 42px;
+  }
+}
+
+@media (max-width: 420px) {
+  .activity-ribbon {
+    max-width: 170px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-ribbon {
+    opacity: .9;
   }
 }

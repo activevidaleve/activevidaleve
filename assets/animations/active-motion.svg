@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-labelledby="title desc">
+  <title id="title">Active Vida Leve em movimento</title>
+  <desc id="desc">Ilustração animada de pessoas se exercitando e bebendo um suco.</desc>
+
+  <defs>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0"/>
+      <stop offset=".10" stop-color="white"/>
+      <stop offset=".90" stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="edgeFade">
+      <rect width="320" height="56" fill="url(#fade)"/>
+    </mask>
+  </defs>
+
+  <style>
+    .belt { animation: slide 11s linear infinite; }
+    .bob { animation: bob 1.35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+    .bob.slow { animation-duration: 1.75s; }
+    .sip { animation: sip 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 80%; }
+    .leaf { animation: leaf 2.8s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+    .spark { animation: blink 1.6s ease-in-out infinite; }
+    .spark.s2 { animation-delay: .55s; }
+    .spark.s3 { animation-delay: 1.05s; }
+
+    @keyframes slide {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-360px); }
+    }
+    @keyframes bob {
+      from { transform: translateY(0) rotate(-1deg); }
+      to   { transform: translateY(-2px) rotate(1.5deg); }
+    }
+    @keyframes sip {
+      0%, 58%, 100% { transform: rotate(0deg); }
+      70%, 86% { transform: rotate(-8deg); }
+    }
+    @keyframes leaf {
+      from { transform: translateY(0) rotate(-5deg); }
+      to   { transform: translateY(-2px) rotate(8deg); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: .18; transform: scale(.8); }
+      50% { opacity: .9; transform: scale(1.1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .belt, .bob, .sip, .leaf, .spark { animation: none !important; }
+    }
+  </style>
+
+  <g mask="url(#edgeFade)">
+    <path d="M0 46 C55 43 87 49 133 45 S220 43 320 46"
+          fill="none" stroke="#0E6B3A" stroke-opacity=".10" stroke-width="1.5"/>
+
+    <circle class="spark" cx="38" cy="11" r="2.2" fill="#22C55E"/>
+    <circle class="spark s2" cx="172" cy="9" r="1.8" fill="#0E6B3A"/>
+    <circle class="spark s3" cx="283" cy="13" r="2" fill="#22C55E"/>
+
+    <g class="belt">
+      <!-- Sequência A -->
+      <g transform="translate(10 3)">
+        <!-- corredor -->
+        <g class="bob">
+          <circle cx="24" cy="9" r="5.2" fill="#22C55E"/>
+          <path d="M23 15 L19 28 L29 34" fill="none" stroke="#0E6B3A" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 21 L10 27" fill="none" stroke="#22C55E" stroke-width="3.6" stroke-linecap="round"/>
+          <path d="M23 21 L34 17" fill="none" stroke="#22C55E" stroke-width="3.6" stroke-linecap="round"/>
+          <path d="M19 28 L11 40" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M29 34 L40 39" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M38 39 h8" stroke="#22C55E" stroke-width="3.2" stroke-linecap="round"/>
+        </g>
+        <path class="leaf" d="M49 14 C58 8 63 9 62 18 C57 22 52 21 49 14Z" fill="#22C55E" opacity=".9"/>
+      </g>
+
+      <g transform="translate(127 1)">
+        <!-- alongamento -->
+        <g class="bob slow">
+          <circle cx="24" cy="9" r="5.2" fill="#0E6B3A"/>
+          <path d="M24 15 L24 31" fill="none" stroke="#22C55E" stroke-width="4.4" stroke-linecap="round"/>
+          <path d="M24 19 L12 12" fill="none" stroke="#0E6B3A" stroke-width="3.8" stroke-linecap="round"/>
+          <path d="M24 19 L37 10" fill="none" stroke="#0E6B3A" stroke-width="3.8" stroke-linecap="round"/>
+          <path d="M24 31 L15 43" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M24 31 L34 43" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="9" cy="10" r="2" fill="#22C55E" opacity=".75"/>
+          <circle cx="40" cy="8" r="2" fill="#22C55E" opacity=".75"/>
+        </g>
+      </g>
+
+      <g transform="translate(241 0)">
+        <!-- pessoa bebendo suco -->
+        <g class="sip">
+          <circle cx="25" cy="10" r="5.4" fill="#22C55E"/>
+          <path d="M24 16 L24 32" fill="none" stroke="#0E6B3A" stroke-width="4.3" stroke-linecap="round"/>
+          <path d="M24 22 L37 22 L42 16" fill="none" stroke="#0E6B3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 32 L18 44" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M24 32 L31 44" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <g transform="translate(40 10)">
+            <path d="M0 2 H10 L8.2 15 H1.8Z" fill="#22C55E" opacity=".95"/>
+            <path d="M7 2 L10 -5" stroke="#0E6B3A" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M2.4 6 H7.8" stroke="#F9F7ED" stroke-width="1.3" stroke-linecap="round" opacity=".9"/>
+          </g>
+        </g>
+        <path class="leaf" d="M59 31 C67 25 72 27 70 35 C65 39 61 37 59 31Z" fill="#0E6B3A" opacity=".75"/>
+      </g>
+
+      <!-- Sequência B (repetida para loop contínuo) -->
+      <g transform="translate(370 3)">
+        <g class="bob">
+          <circle cx="24" cy="9" r="5.2" fill="#22C55E"/>
+          <path d="M23 15 L19 28 L29 34" fill="none" stroke="#0E6B3A" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 21 L10 27" fill="none" stroke="#22C55E" stroke-width="3.6" stroke-linecap="round"/>
+          <path d="M23 21 L34 17" fill="none" stroke="#22C55E" stroke-width="3.6" stroke-linecap="round"/>
+          <path d="M19 28 L11 40" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M29 34 L40 39" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M38 39 h8" stroke="#22C55E" stroke-width="3.2" stroke-linecap="round"/>
+        </g>
+        <path class="leaf" d="M49 14 C58 8 63 9 62 18 C57 22 52 21 49 14Z" fill="#22C55E" opacity=".9"/>
+      </g>
+
+      <g transform="translate(487 1)">
+        <g class="bob slow">
+          <circle cx="24" cy="9" r="5.2" fill="#0E6B3A"/>
+          <path d="M24 15 L24 31" fill="none" stroke="#22C55E" stroke-width="4.4" stroke-linecap="round"/>
+          <path d="M24 19 L12 12" fill="none" stroke="#0E6B3A" stroke-width="3.8" stroke-linecap="round"/>
+          <path d="M24 19 L37 10" fill="none" stroke="#0E6B3A" stroke-width="3.8" stroke-linecap="round"/>
+          <path d="M24 31 L15 43" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M24 31 L34 43" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="9" cy="10" r="2" fill="#22C55E" opacity=".75"/>
+          <circle cx="40" cy="8" r="2" fill="#22C55E" opacity=".75"/>
+        </g>
+      </g>
+
+      <g transform="translate(601 0)">
+        <g class="sip">
+          <circle cx="25" cy="10" r="5.4" fill="#22C55E"/>
+          <path d="M24 16 L24 32" fill="none" stroke="#0E6B3A" stroke-width="4.3" stroke-linecap="round"/>
+          <path d="M24 22 L37 22 L42 16" fill="none" stroke="#0E6B3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 32 L18 44" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M24 32 L31 44" fill="none" stroke="#0E6B3A" stroke-width="4" stroke-linecap="round"/>
+          <g transform="translate(40 10)">
+            <path d="M0 2 H10 L8.2 15 H1.8Z" fill="#22C55E" opacity=".95"/>
+            <path d="M7 2 L10 -5" stroke="#0E6B3A" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M2.4 6 H7.8" stroke="#F9F7ED" stroke-width="1.3" stroke-linecap="round" opacity=".9"/>
+          </g>
+        </g>
+        <path class="leaf" d="M59 31 C67 25 72 27 70 35 C65 39 61 37 59 31Z" fill="#0E6B3A" opacity=".75"/>
+      </g>
+    </g>
+  </g>
+</svg>
