@@ -4,17 +4,15 @@
   --green-500: #22C55E;
   --green-100: #E5F6EB;
   --cream: #F9F7ED;
-  --cream-strong: #F4F0E4;
   --white: #FFFFFF;
   --text: #19472E;
   --text-soft: #5F7465;
   --border: rgba(14, 107, 58, 0.12);
-  --shadow: 0 24px 70px rgba(14, 107, 58, 0.12);
   --container: 1200px;
+  --neon: #52ff87;
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -41,7 +39,7 @@ button { font: inherit; }
   justify-content: center;
   border: 1px solid transparent;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
 
@@ -54,31 +52,9 @@ button { font: inherit; }
 }
 
 .btn-large {
-  min-height: 54px;
-  padding: 0 25px;
-  font-size: 14px;
-}
-
-.btn-primary {
-  color: var(--white);
-  background: var(--green-900);
-  box-shadow: 0 11px 26px rgba(14, 107, 58, .18);
-}
-
-.btn-primary:hover {
-  background: var(--green-800);
-  box-shadow: 0 14px 30px rgba(14, 107, 58, .24);
-}
-
-.btn-outline {
-  color: var(--green-900);
-  border-color: rgba(14, 107, 58, .24);
-  background: rgba(255,255,255,.48);
-}
-
-.btn-outline:hover {
-  background: var(--white);
-  border-color: rgba(14,107,58,.36);
+  min-height: 46px;
+  padding: 0 22px;
+  font-size: 13px;
 }
 
 .stage-anchor { height: 1px; }
