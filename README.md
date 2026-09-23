@@ -40,3 +40,10 @@ activevidaleve/
 └── modules/
     └── mobile-menu.js
 ```
+
+
+## Revisão 01
+
+- Paleta atualizada para o novo padrão da marca (`#0E6B3A`, `#22C55E`, `#F9F7ED`)
+- Ícone da marca atualizado com a nova logo enviada pelo usuário
+- Ajustes visuais leves no hero para combinar com a nova identidade

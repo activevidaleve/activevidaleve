@@ -2,9 +2,9 @@
   position: relative;
   z-index: 50;
   padding: 18px 0;
-  background: rgba(255, 249, 237, 0.88);
+  background: rgba(249, 247, 237, 0.88);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(15, 81, 50, 0.06);
+  border-bottom: 1px solid rgba(14, 107, 58, 0.06);
 }
 
 .header-inner {
@@ -56,7 +56,7 @@
 
 .main-nav a {
   position: relative;
-  color: #41564D;
+  color: #486558;
   font-size: 14px;
   font-weight: 500;
 }
@@ -121,8 +121,8 @@
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 10% 18%, rgba(244, 196, 48, 0.10), transparent 26%),
-    radial-gradient(circle at 80% 28%, rgba(139, 195, 74, 0.13), transparent 28%);
+    radial-gradient(circle at 10% 18%, rgba(34, 197, 94, 0.08), transparent 26%),
+    radial-gradient(circle at 80% 28%, rgba(14, 107, 58, 0.08), transparent 28%);
 }
 
 .hero-glow {
@@ -137,7 +137,7 @@
   height: 240px;
   right: -90px;
   top: 30px;
-  background: rgba(244, 196, 48, 0.10);
+  background: rgba(34, 197, 94, 0.08);
 }
 
 .hero-glow-two {
@@ -145,7 +145,7 @@
   height: 320px;
   left: -190px;
   bottom: -100px;
-  background: rgba(139, 195, 74, 0.11);
+  background: rgba(14, 107, 58, 0.08);
 }
 
 .hero-grid {
@@ -168,7 +168,7 @@
   margin-bottom: 24px;
   padding: 8px 13px;
   color: var(--green-900);
-  border: 1px solid rgba(15, 81, 50, 0.10);
+  border: 1px solid rgba(14, 107, 58, 0.10);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.50);
   font-size: 12px;
@@ -180,8 +180,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--yellow-500);
-  box-shadow: 0 0 0 5px rgba(244, 196, 48, 0.13);
+  background: var(--green-500);
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.14);
 }
 
 .hero h1 {
@@ -261,7 +261,7 @@
 .visual-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(15, 81, 50, 0.08);
+  border: 1px solid rgba(14, 107, 58, 0.08);
 }
 
 .visual-ring-one {
@@ -272,7 +272,7 @@
 .visual-ring-two {
   width: 400px;
   height: 400px;
-  border-color: rgba(139, 195, 74, 0.15);
+  border-color: rgba(34, 197, 94, 0.15);
 }
 
 .wellness-card {
@@ -280,7 +280,7 @@
   z-index: 3;
   width: min(100%, 440px);
   padding: 32px;
-  border: 1px solid rgba(15, 81, 50, 0.09);
+  border: 1px solid rgba(14, 107, 58, 0.09);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.86);
   box-shadow: var(--shadow);
@@ -301,7 +301,7 @@
   place-items: center;
   border-radius: 23px;
   background: var(--cream);
-  box-shadow: inset 0 0 0 1px rgba(15, 81, 50, .05);
+  box-shadow: inset 0 0 0 1px rgba(14, 107, 58, .05);
 }
 
 .mini-brand img {
@@ -344,9 +344,9 @@
   align-items: center;
   gap: 12px;
   padding: 12px;
-  border: 1px solid rgba(15, 81, 50, 0.07);
+  border: 1px solid rgba(14, 107, 58, 0.07);
   border-radius: 17px;
-  background: #FEFCF7;
+  background: #FCFBF5;
 }
 
 .topic-icon {
@@ -359,15 +359,15 @@
 }
 
 .topic-food {
-  background: rgba(139, 195, 74, .15);
+  background: rgba(34, 197, 94, .14);
 }
 
 .topic-move {
-  background: rgba(15, 81, 50, .09);
+  background: rgba(14, 107, 58, .09);
 }
 
 .topic-juice {
-  background: rgba(244, 196, 48, .14);
+  background: rgba(14, 107, 58, .08);
 }
 
 .topic-item strong,
@@ -393,7 +393,7 @@
   gap: 12px;
   margin-top: 18px;
   padding-top: 17px;
-  border-top: 1px solid rgba(15, 81, 50, 0.07);
+  border-top: 1px solid rgba(14, 107, 58, 0.07);
   color: #77857F;
   font-size: 9px;
 }
@@ -408,7 +408,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #D7E4CE;
+  background: #D7E7DB;
 }
 
 .progress-dots span:first-child {
@@ -425,10 +425,10 @@
   gap: 11px;
   min-width: 176px;
   padding: 12px 14px;
-  border: 1px solid rgba(15, 81, 50, 0.08);
+  border: 1px solid rgba(14, 107, 58, 0.08);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 16px 36px rgba(15, 81, 50, 0.10);
+  box-shadow: 0 16px 36px rgba(14, 107, 58, 0.10);
 }
 
 .floating-card-top {
@@ -447,15 +447,15 @@
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  color: #8D6900;
+  color: var(--green-900);
   border-radius: 12px;
-  background: rgba(244, 196, 48, .19);
+  background: rgba(34, 197, 94, .14);
   font-size: 18px;
 }
 
 .floating-icon.green {
   color: var(--green-900);
-  background: rgba(139, 195, 74, .18);
+  background: rgba(14, 107, 58, .10);
 }
 
 .floating-card strong,
@@ -686,5 +686,23 @@
   .floating-card-bottom {
     left: -2px;
     bottom: 20px;
+  }
+}
+
+
+/* Revisão 01 — ajuste do novo símbolo */
+.brand-symbol {
+  width: 56px;
+  height: 42px;
+}
+
+.mini-brand img {
+  width: 56px;
+}
+
+@media (max-width: 560px) {
+  .brand-symbol {
+    width: 48px;
+    height: 36px;
   }
 }

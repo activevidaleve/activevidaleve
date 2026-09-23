@@ -1,16 +1,16 @@
 :root {
-  --green-900: #0F5132;
-  --green-800: #14613D;
-  --green-500: #8BC34A;
-  --green-100: #EAF4DD;
-  --yellow-500: #F4C430;
-  --cream: #FFF9ED;
-  --cream-strong: #FAF0DC;
+  --green-900: #0E6B3A;
+  --green-800: #0A5A31;
+  --green-500: #22C55E;
+  --green-100: #E5F6EB;
+  --yellow-500: #8FD6A7;
+  --cream: #F9F7ED;
+  --cream-strong: #F4F0E4;
   --white: #FFFFFF;
-  --text: #173128;
-  --text-soft: #607068;
-  --border: rgba(15, 81, 50, 0.12);
-  --shadow: 0 24px 70px rgba(15, 81, 50, 0.12);
+  --text: #19472E;
+  --text-soft: #5F7465;
+  --border: rgba(14, 107, 58, 0.12);
+  --shadow: 0 24px 70px rgba(14, 107, 58, 0.12);
   --radius-sm: 14px;
   --radius-md: 24px;
   --radius-lg: 34px;
@@ -83,23 +83,23 @@ a {
 .btn-primary {
   color: var(--white);
   background: var(--green-900);
-  box-shadow: 0 12px 30px rgba(15, 81, 50, 0.20);
+  box-shadow: 0 12px 30px rgba(14, 107, 58, 0.18);
 }
 
 .btn-primary:hover {
   background: var(--green-800);
-  box-shadow: 0 16px 34px rgba(15, 81, 50, 0.26);
+  box-shadow: 0 16px 34px rgba(14, 107, 58, 0.22);
 }
 
 .btn-outline {
   color: var(--green-900);
-  border-color: rgba(15, 81, 50, 0.26);
+  border-color: rgba(14, 107, 58, 0.26);
   background: rgba(255, 255, 255, 0.45);
 }
 
 .btn-outline:hover {
   background: var(--white);
-  border-color: rgba(15, 81, 50, 0.38);
+  border-color: rgba(14, 107, 58, 0.38);
 }
 
 .stage-anchor {
