@@ -286,55 +286,26 @@
 @media (max-width: 900px) {
   .header-inner {
     min-height: 74px;
-    grid-template-columns: minmax(170px, 260px) 1fr auto;
+    grid-template-columns: minmax(170px, 1fr) auto;
     gap: 12px;
   }
 
   .main-nav,
-  .header-actions {
-    display: none;
-  }
-
   .menu-toggle {
-    display: block;
-    grid-column: 3;
-  }
-
-  .site-header.menu-open .header-inner {
-    padding-bottom: 14px;
-  }
-
-  .site-header.menu-open .main-nav,
-  .site-header.menu-open .header-actions {
-    display: flex;
-    grid-column: 1 / -1;
-  }
-
-  .site-header.menu-open .main-nav {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-  }
-
-  .site-header.menu-open .main-nav a {
-    padding: 11px 4px;
-    font-size: 14px;
-  }
-
-  .site-header.menu-open .main-nav a::after {
     display: none;
   }
 
-  .site-header.menu-open .header-actions {
-    width: 100%;
-    gap: 10px;
+  .header-actions {
+    display: flex;
+    grid-column: 2;
+    align-items: center;
+    gap: 8px;
   }
 
-  .site-header.menu-open .header-actions .btn {
-    flex: 1;
+  .header-actions .btn-small {
+    min-height: 40px;
+    padding-inline: 14px;
+    font-size: 13px;
   }
 
   .carousel {
@@ -359,24 +330,31 @@
 /* CELULARES */
 @media (max-width: 640px) {
   .container {
-    width: min(calc(100% - 28px), var(--container));
+    width: min(calc(100% - 24px), var(--container));
   }
 
   .header-inner {
     min-height: 68px;
     grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
   }
 
   .brand {
-    width: min(74vw, 245px);
+    width: min(56vw, 225px);
   }
 
   .brand-logo {
     max-height: 48px;
   }
 
-  .menu-toggle {
-    grid-column: 2;
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-actions .btn-small {
+    min-height: 38px;
+    padding-inline: 11px;
+    font-size: 12px;
   }
 
   .carousel {
@@ -451,7 +429,13 @@
 
 @media (max-width: 380px) {
   .brand {
-    width: min(70vw, 215px);
+    width: min(49vw, 190px);
+  }
+
+  .header-actions .btn-small {
+    min-height: 36px;
+    padding-inline: 9px;
+    font-size: 11px;
   }
 
   .carousel {

@@ -30,3 +30,12 @@ Nesta etapa foi reconstruída somente a parte superior da página.
 - `js/index.js`
 - `modules/mobile-menu.js`
 - `modules/carousel.js`
+
+
+## V03 — Topbar mobile
+
+- Logo mantida com proporção visual próxima da versão aprovada.
+- Em celulares e tablets, os atalhos de navegação ficam ocultos.
+- Os botões `Entrar` e `Cadastro` permanecem sempre visíveis ao lado da logo.
+- O menu hambúrguer foi removido da visualização mobile.
+- Ajustes de largura e tipografia para telas pequenas, incluindo aparelhos com até 380px.
