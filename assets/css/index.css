@@ -582,10 +582,15 @@
 @media (max-width: 900px) {
   .how-it-works { padding: 72px 0 78px; }
   .section-heading { margin-bottom: 38px; }
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+  }
   .section-heading h2 {
     max-width: 720px;
     font-size: clamp(32px, 5vw, 40px);
     line-height: 1.04;
+    letter-spacing: -1.15px;
   }
   .section-heading > p {
     max-width: 680px;
@@ -638,16 +643,22 @@
     margin-bottom: 30px;
     text-align: left;
   }
-  .section-eyebrow { margin-bottom: 10px; font-size: 9px; }
+  .section-eyebrow {
+    margin-bottom: 10px;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
   .section-heading h2 {
-    font-size: 34px;
-    line-height: 1.03;
-    letter-spacing: -1.5px;
+    max-width: 100%;
+    font-size: 28px;
+    line-height: 1.02;
+    letter-spacing: -1.15px;
   }
   .section-heading > p {
-    margin-top: 13px;
-    font-size: 13px;
-    line-height: 1.6;
+    max-width: 100%;
+    margin-top: 12px;
+    font-size: 18px;
+    line-height: 1.68;
   }
   .steps { gap: 13px; }
   .steps::before {
@@ -689,4 +700,13 @@
   }
   .how-btn { width: 100%; }
   .how-cta span { font-size: 11px; }
+}
+
+@media (max-width: 380px) {
+  .section-heading h2 {
+    font-size: 26px;
+  }
+  .section-heading > p {
+    font-size: 17.5px;
+  }
 }
