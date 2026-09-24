@@ -1,15 +1,14 @@
-# Active Vida Leve — Revisão V06
+# Active Vida Leve — Revisão V07
 
-## Correção desta etapa
-- corrigido o comportamento do carrossel em **tablet e mobile**
-- agora o **texto e o botão ficam sobre a própria imagem**, no rodapé do banner
-- mantido o layout de **desktop** com o texto ao lado da imagem
-- gradiente em **tablet/mobile** agora sobe **de baixo para cima** para dar leitura ao conteúdo
-- mantidos os textos e botões da versão anterior
-- ajustadas as quebras dos títulos e a posição do botão para telas menores
+## Ajustes desta etapa
+- removido o indicador central com bolinhas do carrossel
+- mantidas apenas as setas laterais para navegação
+- no mobile/tablet, as setas ficam nas laterais da imagem
+- título principal ajustado para ficar em apenas 2 linhas nas telas menores
+- bloco inferior reorganizado para aproximar o botão do texto final
+- reduzida a subida excessiva do texto sobre a imagem
+- layout desktop mantido
 
 ## Arquivos principais
 - `index.html`
 - `assets/css/index.css`
-- `assets/images/carousel/*-desktop.webp`
-- `assets/images/carousel/*-mobile.webp`
