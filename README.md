@@ -1,9 +1,11 @@
-# Active Vida Leve — Revisão V11
+# Active Vida Leve — Revisão V12
 
-## Nova seção de apresentação
-- adicionada logo abaixo do carrossel
-- texto centralizado em desktop, tablet e mobile
-- título responsivo com destaque em verde
-- frase de apoio e parágrafo explicativo com leitura confortável
-- seção “Como funciona” mantida logo abaixo
-- restante do carrossel e navegação preservados
+## Ajustes desta etapa
+- título da seção de apresentação abaixo do carrossel aumentado em 4px
+- texto principal logo abaixo do título reduzido em 4px
+- último texto/parágrafo aumentado em 4px
+- botões das 3 imagens do carrossel alterados para "Detalhes"
+
+## Arquivos principais
+- `index.html`
+- `assets/css/index.css`
