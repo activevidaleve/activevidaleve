@@ -1,11 +1,13 @@
-# Active Vida Leve — Revisão V08
+# Active Vida Leve — Revisão V09
 
-## Ajustes finos desta etapa
-- mantida a posição geral do bloco de textos no mobile
-- título principal aumentado em 4px nas telas menores
-- botão movido para o lado do título principal, alinhado à direita
-- mantidas as quebras do título
-- texto descritivo aumentado em 2px e em negrito
-- texto descritivo agora ocupa toda a largura disponível abaixo do título, já sem dividir espaço com o botão
+## Ajustes desta etapa
+- indicador do carrossel recolocado no rodapé
+- substituição das bolinhas por **barrinhas**
+- barrinha ativa destacada em verde
 - setas laterais mantidas
-- desktop preservado
+- estrutura de textos e botões preservada
+
+## Arquivos principais
+- `index.html`
+- `assets/css/index.css`
+- `modules/carousel.js`
