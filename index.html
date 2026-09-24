@@ -18,22 +18,14 @@
   <header class="site-header" id="inicio">
     <div class="container header-inner">
       <a class="brand" href="#inicio" aria-label="Active Vida Leve - início">
-        <img
-          class="brand-logo"
-          src="./assets/images/logo/active-vida-leve-horizontal.png"
-          alt="Active Vida Leve"
-          width="760"
-          height="190"
-        >
+        <img class="brand-logo" src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="190">
       </a>
-
       <nav class="main-nav" id="main-navigation" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#conteudos">Conteúdos</a>
         <a href="#beneficios">Benefícios</a>
       </nav>
-
       <div class="header-actions">
         <a class="btn btn-login btn-small" href="./login.html">Entrar</a>
         <a class="btn btn-signup btn-small" href="./cadastro.html">Cadastro</a>
@@ -46,69 +38,59 @@
       <div class="carousel" data-carousel>
         <div class="carousel-track">
           <article class="carousel-slide is-active" data-slide aria-hidden="false">
-            <img
-              class="slide-image slide-food"
-              src="./assets/images/carousel/alimentacao-real.webp"
-              alt=""
-              width="1600"
-              height="500"
-              fetchpriority="high"
-            >
-            <div class="container slide-content">
-              <div class="slide-copy">
-                <span class="slide-kicker">ALIMENTAÇÃO</span>
-                <h1>Hábitos mais leves <strong>para comer melhor.</strong></h1>
-                <p>Dicas práticas para organizar refeições, melhorar escolhas e manter mais equilíbrio no dia.</p>
-                <a class="btn btn-slide btn-large" href="#conteudos">Conhecer conteúdos</a>
+            <picture class="slide-media">
+              <source media="(max-width: 900px)" srcset="./assets/images/carousel/food-mobile.webp">
+              <img class="slide-image slide-food" src="./assets/images/carousel/food-desktop.webp" alt="Casal preparando alimentos saudáveis em uma cozinha iluminada" width="1600" height="500" fetchpriority="high">
+            </picture>
+            <div class="slide-panel">
+              <div class="container slide-content">
+                <div class="slide-copy">
+                  <span class="slide-kicker">ALIMENTAÇÃO</span>
+                  <h1>Hábitos mais leves <strong>para comer melhor.</strong></h1>
+                  <p>Dicas práticas para organizar refeições, melhorar escolhas e manter mais equilíbrio no dia.</p>
+                  <a class="btn btn-slide btn-large" href="#conteudos">Conhecer conteúdos</a>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="carousel-slide" data-slide aria-hidden="true">
-            <img
-              class="slide-image slide-exercise"
-              src="./assets/images/carousel/exercicios-real.webp"
-              alt=""
-              width="1600"
-              height="500"
-              loading="lazy"
-            >
-            <div class="container slide-content">
-              <div class="slide-copy">
-                <span class="slide-kicker">EXERCÍCIOS</span>
-                <h2>Movimento que cabe <strong>na sua rotina.</strong></h2>
-                <p>Exercícios simples e objetivos para você se movimentar com mais constância e bem-estar.</p>
-                <a class="btn btn-slide btn-large" href="#conteudos">Ver exercícios</a>
+            <picture class="slide-media">
+              <source media="(max-width: 900px)" srcset="./assets/images/carousel/exercise-mobile.webp">
+              <img class="slide-image slide-exercise" src="./assets/images/carousel/exercise-desktop.webp" alt="Casal treinando junto em casa" width="1600" height="500" loading="lazy">
+            </picture>
+            <div class="slide-panel">
+              <div class="container slide-content">
+                <div class="slide-copy">
+                  <span class="slide-kicker">EXERCÍCIOS</span>
+                  <h2>Movimento que cabe <strong>na sua rotina.</strong></h2>
+                  <p>Exercícios simples e objetivos para você se movimentar com mais constância e bem-estar.</p>
+                  <a class="btn btn-slide btn-large" href="#conteudos">Ver exercícios</a>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="carousel-slide" data-slide aria-hidden="true">
-            <img
-              class="slide-image slide-juice"
-              src="./assets/images/carousel/sucos-real.webp"
-              alt=""
-              width="1600"
-              height="500"
-              loading="lazy"
-            >
-            <div class="container slide-content">
-              <div class="slide-copy">
-                <span class="slide-kicker">SUCOS DETOX & RECEITAS</span>
-                <h2>Receitas leves para <strong>variar o seu dia.</strong></h2>
-                <p>Sucos e combinações naturais para trazer mais sabor, praticidade e variedade à sua rotina.</p>
-                <a class="btn btn-slide btn-large" href="#conteudos">Ver receitas</a>
+            <picture class="slide-media">
+              <source media="(max-width: 900px)" srcset="./assets/images/carousel/juice-mobile.webp">
+              <img class="slide-image slide-juice" src="./assets/images/carousel/juice-desktop.webp" alt="Casal com sucos naturais e frutas em momento de bem-estar" width="1600" height="500" loading="lazy">
+            </picture>
+            <div class="slide-panel">
+              <div class="container slide-content">
+                <div class="slide-copy">
+                  <span class="slide-kicker">SUCOS DETOX & RECEITAS</span>
+                  <h2>Receitas leves para <strong>variar o seu dia.</strong></h2>
+                  <p>Sucos e combinações naturais para trazer mais sabor, praticidade e variedade à sua rotina.</p>
+                  <a class="btn btn-slide btn-large" href="#conteudos">Ver receitas</a>
+                </div>
               </div>
             </div>
           </article>
         </div>
 
-        <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior" data-prev>
-          <span aria-hidden="true">‹</span>
-        </button>
-        <button class="carousel-arrow carousel-next" type="button" aria-label="Próxima imagem" data-next>
-          <span aria-hidden="true">›</span>
-        </button>
+        <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior" data-prev><span aria-hidden="true">‹</span></button>
+        <button class="carousel-arrow carousel-next" type="button" aria-label="Próxima imagem" data-next><span aria-hidden="true">›</span></button>
 
         <div class="carousel-dots" role="tablist" aria-label="Selecionar destaque">
           <button class="carousel-dot is-active" type="button" aria-label="Mostrar Alimentação" aria-selected="true" data-dot="0"></button>
@@ -117,7 +99,6 @@
         </div>
       </div>
     </section>
-
     <div id="como-funciona" class="stage-anchor" aria-hidden="true"></div>
     <div id="conteudos" class="stage-anchor" aria-hidden="true"></div>
     <div id="beneficios" class="stage-anchor" aria-hidden="true"></div>

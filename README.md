@@ -1,26 +1,18 @@
-# Active Vida Leve — Revisão V04
+# Active Vida Leve — Revisão V05
 
-Nesta etapa foi refinada a parte superior do site e substituído o carrossel provisório por imagens reais.
-
-## Alterações
-- topbar fixa ao rolar a página
-- logo mantida
-- desktop com atalhos no topo
-- mobile/tablet com foco em logo + botões
-- botão **Entrar** com verde de "Vida Leve"
-- botão **Cadastro** com verde de "Active"
-- contorno pulsante verde neon nos dois botões
-- carrossel com imagens reais fornecidas pelo usuário
-- altura visual do carrossel bastante reduzida em relação à versão anterior
-- espaço seguro para texto e botão em cada slide
-- textos do carrossel mais curtos para caber melhor em telas pequenas
-- imagens otimizadas em WEBP
+## Nesta etapa
+- adicionadas imagens específicas para **desktop** e para **tablet/mobile** no carrossel
+- mantido o conteúdo textual e os botões da versão anterior
+- em **desktop**, o texto continua ao lado da imagem
+- em **tablet e mobile**, o texto fica **abaixo da imagem**
+- posicionamento dos textos, quebra das linhas e botão refinados para melhor leitura
+- setas e indicadores reposicionados para funcionar melhor em telas menores
+- topbar continua fixa, com botões neon
 
 ## Arquivos principais
 - `index.html`
 - `assets/css/global.css`
 - `assets/css/index.css`
-- `assets/images/carousel/alimentacao-real.webp`
-- `assets/images/carousel/exercicios-real.webp`
-- `assets/images/carousel/sucos-real.webp`
+- `assets/images/carousel/*-desktop.webp`
+- `assets/images/carousel/*-mobile.webp`
 - `js/index.js`

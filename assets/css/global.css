@@ -1,3 +1,4 @@
+
 :root {
   --green-900: #0E6B3A;
   --green-800: #0A5A31;
@@ -6,15 +7,10 @@
   --cream: #F9F7ED;
   --white: #FFFFFF;
   --text: #19472E;
-  --text-soft: #5F7465;
-  --border: rgba(14, 107, 58, 0.12);
   --container: 1200px;
-  --neon: #52ff87;
 }
-
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   color: var(--text);
@@ -22,39 +18,17 @@ body {
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
-
-.container {
-  width: min(calc(100% - 40px), var(--container));
-  margin-inline: auto;
-}
-
+.container { width: min(calc(100% - 40px), var(--container)); margin-inline: auto; }
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid transparent; border-radius: 999px; font-weight: 700;
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
-
 .btn:hover { transform: translateY(-2px); }
-
-.btn-small {
-  min-height: 42px;
-  padding: 0 18px;
-  font-size: 14px;
-}
-
-.btn-large {
-  min-height: 46px;
-  padding: 0 22px;
-  font-size: 13px;
-}
-
+.btn-small { min-height: 42px; padding: 0 18px; font-size: 14px; }
+.btn-large { min-height: 46px; padding: 0 22px; font-size: 13px; }
 .stage-anchor { height: 1px; }
