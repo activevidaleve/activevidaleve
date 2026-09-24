@@ -369,7 +369,7 @@
 /* TEXTO DE APRESENTAÇÃO */
 .brand-intro {
   position: relative;
-  padding: 4px 0 58px;
+  padding: 4px 0 0;
   background: #fbfaf5;
   overflow: hidden;
 }
@@ -432,7 +432,7 @@
 
 @media (max-width: 900px) {
   .brand-intro {
-    padding: 4px 0 52px;
+    padding: 4px 0 0;
   }
   .brand-intro-inner {
     max-width: 760px;
@@ -456,7 +456,7 @@
 
 @media (max-width: 640px) {
   .brand-intro {
-    padding: 4px 0 46px;
+    padding: 4px 0 0;
   }
   .brand-intro-inner {
     width: min(calc(100% - 28px), 520px);
