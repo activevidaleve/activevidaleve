@@ -297,6 +297,67 @@
   .carousel-bar.is-active { width: 32px; }
 }
 
+
+/* FAIXA DE DESTAQUES VISUAIS */
+.faixa-carrossel {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+.faixa-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+.faixa-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: faixa-scroll 42s linear infinite;
+  will-change: transform;
+}
+.faixa-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 0 14px 0 0;
+  list-style: none;
+  flex-shrink: 0;
+}
+.faixa-item {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 40px;
+  flex: 0 0 auto;
+}
+.faixa-item img {
+  display: block;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  object-position: center bottom;
+}
+@keyframes faixa-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 900px) {
+  .faixa-carrossel { margin-top: 14px; }
+  .faixa-track { animation-duration: 38s; }
+  .faixa-group { gap: 12px; padding-right: 12px; }
+}
+@media (max-width: 640px) {
+  .faixa-carrossel { margin-top: 12px; }
+  .faixa-track { animation-duration: 34s; }
+  .faixa-group { gap: 10px; padding-right: 10px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .carousel-slide, .carousel-dot, .btn, .carousel-arrow, .header-actions .btn::after { transition:none; animation:none; }
 }
