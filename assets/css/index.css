@@ -171,7 +171,7 @@
     padding-bottom: 28px;
   }
   .slide-copy { width: 100%; max-width: 100%; padding: 0; }
-  .slide-kicker { margin-bottom: 8px; font-size: 10px; letter-spacing: 1.8px; }
+  .slide-kicker { margin-bottom: 12px; font-size: 10px; letter-spacing: 1.8px; }
 
   .slide-headline-row {
     max-width: 100%;
@@ -255,7 +255,7 @@
     line-height: 1.02;
   }
   .slide-headline-row .btn {
-    min-height: 40px;
+    min-height: 80px;
     min-width: 108px;
     max-width: 116px;
     padding: 9px 10px;
@@ -306,8 +306,8 @@
   width: 100vw;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
 }
 .faixa-viewport {
   width: 100%;
@@ -317,7 +317,7 @@
   display: flex;
   align-items: center;
   width: max-content;
-  animation: faixa-scroll 42s linear infinite;
+  animation: faixa-scroll 54s linear infinite;
   will-change: transform;
 }
 .faixa-group {
@@ -333,12 +333,12 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 40px;
+  height: 80px;
   flex: 0 0 auto;
 }
 .faixa-item img {
   display: block;
-  height: 40px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   object-position: center bottom;
@@ -349,13 +349,13 @@
 }
 
 @media (max-width: 900px) {
-  .faixa-carrossel { margin-top: 14px; }
-  .faixa-track { animation-duration: 38s; }
+  .faixa-carrossel { margin-top: 4px; }
+  .faixa-track { animation-duration: 48s; }
   .faixa-group { gap: 12px; padding-right: 12px; }
 }
 @media (max-width: 640px) {
-  .faixa-carrossel { margin-top: 12px; }
-  .faixa-track { animation-duration: 34s; }
+  .faixa-carrossel { margin-top: 4px; }
+  .faixa-track { animation-duration: 42s; }
   .faixa-group { gap: 10px; padding-right: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
