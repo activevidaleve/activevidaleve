@@ -1,7 +1,7 @@
-# Active Vida Leve — Revisão V14
+# Active Vida Leve — Revisão V15
 
-## Correção desta etapa
-- corrigido o título da seção logo abaixo do carrossel
-- agora ele usa o mesmo tamanho do título principal do carrossel em desktop, tablet e mobile
-- mantido o espaçamento de 4px em relação ao rodapé do carrossel
-- restante da seção preservado
+## Ajustes desta etapa
+- “COMO FUNCIONA” alinhado ao mesmo tamanho dos rótulos do carrossel
+- “Seu caminho para uma rotina mais leve” alinhado ao mesmo tamanho do título principal do carrossel
+- “Em poucos passos...” alinhado ao mesmo tamanho do texto institucional acima
+- ajustes aplicados de forma responsiva para desktop, tablet e mobile

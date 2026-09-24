@@ -463,26 +463,30 @@
   color: var(--green-900);
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 2.1px;
+  letter-spacing: 2px;
 }
 .section-heading h2 {
-  margin: 0;
+  max-width: 860px;
+  margin: 0 auto;
   color: var(--green-900);
-  font-size: clamp(36px, 4vw, 54px);
-  line-height: 1.05;
-  letter-spacing: -2px;
+  font-size: clamp(32px, 3.2vw, 46px);
+  line-height: 1.02;
+  letter-spacing: -1.7px;
   font-weight: 800;
+  text-wrap: balance;
 }
 .section-heading h2 strong {
   color: var(--green-500);
   font-weight: 800;
 }
 .section-heading > p {
-  max-width: 650px;
-  margin: 18px auto 0;
+  max-width: 790px;
+  margin: 14px auto 0;
   color: #617369;
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 1.8;
+  font-weight: 400;
+  text-wrap: pretty;
 }
 .steps {
   position: relative;
@@ -578,7 +582,17 @@
 @media (max-width: 900px) {
   .how-it-works { padding: 72px 0 78px; }
   .section-heading { margin-bottom: 38px; }
-  .section-heading h2 { font-size: clamp(34px, 6vw, 46px); }
+  .section-heading h2 {
+    max-width: 720px;
+    font-size: clamp(32px, 5vw, 40px);
+    line-height: 1.04;
+  }
+  .section-heading > p {
+    max-width: 680px;
+    margin-top: 13px;
+    font-size: 19px;
+    line-height: 1.72;
+  }
   .steps {
     grid-template-columns: 1fr;
     gap: 16px;
