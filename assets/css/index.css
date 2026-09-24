@@ -482,7 +482,7 @@
 
 @media (max-width: 380px) {
   .brand-intro {
-    padding: 4px 0 42px;
+    padding: 4px 0 0;
   }
   .brand-intro h2 {
     font-size: 26px;
