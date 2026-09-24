@@ -930,3 +930,96 @@
     line-height: 1.38;
   }
 }
+
+
+/* V24 — rebalanceamento da paleta para reduzir excesso de verde */
+.main-nav a {
+  color: #5B6A63;
+}
+.main-nav a:hover {
+  color: #263E32;
+}
+
+.hero-carousel,
+.carousel {
+  background: #F4F6EF;
+}
+.slide-panel::after {
+  background: linear-gradient(90deg,
+    rgba(249,247,237,.98) 0%,
+    rgba(249,247,237,.95) 26%,
+    rgba(249,247,237,.72) 43%,
+    rgba(249,247,237,.24) 60%,
+    rgba(249,247,237,0) 76%);
+}
+.slide-kicker,
+.section-eyebrow {
+  color: #74847A;
+}
+.slide-copy h1,
+.slide-copy h2,
+.brand-intro h2,
+.section-heading h2,
+.step-card h3 {
+  color: #263E32;
+}
+.slide-copy p {
+  color: #617369;
+}
+.carousel-bar {
+  background: rgba(199, 186, 157, .55);
+  box-shadow: 0 2px 8px rgba(38,62,50,.08);
+}
+.carousel-bar.is-active {
+  background: var(--green-500);
+  box-shadow: 0 3px 10px rgba(34,197,94,.22);
+}
+.brand-intro::before {
+  background: radial-gradient(circle, rgba(201,166,107,.10), rgba(201,166,107,0) 70%);
+}
+.brand-intro h2 strong,
+.section-heading h2 strong,
+.slide-copy h1 strong,
+.slide-copy h2 strong {
+  color: var(--green-500);
+}
+.brand-intro-lead {
+  color: #263E32;
+}
+.brand-intro-copy,
+.section-heading > p,
+.step-card p,
+.how-cta span {
+  color: #617369;
+}
+.brand-intro-copy strong {
+  color: #263E32;
+}
+.brand-intro {
+  background: #FCFBF6;
+}
+.how-it-works {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(201,166,107,.10), transparent 30%),
+    radial-gradient(circle at 88% 78%, rgba(14,107,58,.05), transparent 32%),
+    #FCFBF6;
+}
+.step-card {
+  border-color: rgba(38,62,50,.08);
+  box-shadow: 0 14px 34px rgba(38,62,50,.06);
+}
+.step-card:hover {
+  border-color: rgba(34,197,94,.18);
+  box-shadow: 0 18px 40px rgba(38,62,50,.09);
+}
+.step-number {
+  color: rgba(38,62,50,.12);
+}
+.step-icon {
+  color: #0E6B3A;
+  background: linear-gradient(145deg, rgba(226,235,228,.92), rgba(238,245,240,.92));
+  box-shadow: inset 0 0 0 1px rgba(38,62,50,.05);
+}
+.faixa-carrossel {
+  background: #FCFBF6;
+}
