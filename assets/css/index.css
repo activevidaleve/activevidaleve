@@ -306,16 +306,18 @@
   width: 100vw;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: 4px;
+  margin-top: 5px;
   margin-bottom: 12px;
 }
 .faixa-viewport {
   width: 100%;
+  height: 80px;
   overflow: hidden;
 }
 .faixa-track {
   display: flex;
   align-items: center;
+  height: 80px;
   width: max-content;
   animation: faixa-scroll 54s linear infinite;
   will-change: transform;
@@ -323,6 +325,7 @@
 .faixa-group {
   display: flex;
   align-items: center;
+  height: 80px;
   gap: 14px;
   margin: 0;
   padding: 0 14px 0 0;
@@ -331,7 +334,7 @@
 }
 .faixa-item {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   height: 80px;
   flex: 0 0 auto;
@@ -341,7 +344,7 @@
   height: 80px;
   width: auto;
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center;
 }
 @keyframes faixa-scroll {
   from { transform: translateX(0); }
@@ -349,12 +352,12 @@
 }
 
 @media (max-width: 900px) {
-  .faixa-carrossel { margin-top: 4px; }
+  .faixa-carrossel { margin-top: 5px; }
   .faixa-track { animation-duration: 48s; }
   .faixa-group { gap: 12px; padding-right: 12px; }
 }
 @media (max-width: 640px) {
-  .faixa-carrossel { margin-top: 4px; }
+  .faixa-carrossel { margin-top: 5px; }
   .faixa-track { animation-duration: 42s; }
   .faixa-group { gap: 10px; padding-right: 10px; }
 }

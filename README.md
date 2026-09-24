@@ -1,9 +1,9 @@
-# Active Vida Leve — Revisão V18
+# Active Vida Leve — Revisão V19
 
 ## Ajustes desta etapa
-- imagens da faixa/carrossel abaixo do texto institucional aumentadas para o dobro do tamanho visual anterior
-- faixa aproximada do texto institucional com espaçamento superior reduzido
-- velocidade da animação ajustada para manter a leitura visual confortável com imagens maiores
+- a faixa do carrossel agora tem a mesma altura visual das imagens, sem sobras acima e abaixo
+- o carrossel foi aproximado do texto institucional com respiro superior de 5px
+- mantido o layout em largura total e as imagens ampliadas
 
 ## Arquivos principais
 - `index.html`
