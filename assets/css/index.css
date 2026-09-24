@@ -302,6 +302,136 @@
 }
 
 
+/* TEXTO DE APRESENTAÇÃO */
+.brand-intro {
+  position: relative;
+  padding: 88px 0 92px;
+  background: #fbfaf5;
+  overflow: hidden;
+}
+.brand-intro::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: -210px;
+  top: -150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34,197,94,.08), rgba(34,197,94,0) 70%);
+  pointer-events: none;
+}
+.brand-intro-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+}
+.brand-intro h2 {
+  max-width: 860px;
+  margin: 0 auto;
+  color: var(--green-900);
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -1.9px;
+  font-weight: 800;
+  text-wrap: balance;
+}
+.brand-intro h2 strong {
+  color: var(--green-500);
+  font-weight: 800;
+}
+.brand-intro-lead {
+  margin: 24px auto 0;
+  color: #263e32;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.45;
+  font-weight: 500;
+}
+.brand-intro-lead strong {
+  color: var(--green-500);
+  font-weight: 700;
+}
+.brand-intro-copy {
+  max-width: 790px;
+  margin: 20px auto 0;
+  color: #617369;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+.brand-intro-copy strong {
+  color: var(--green-900);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .brand-intro {
+    padding: 72px 0 76px;
+  }
+  .brand-intro-inner {
+    max-width: 760px;
+  }
+  .brand-intro h2 {
+    max-width: 720px;
+    font-size: clamp(34px, 5.7vw, 46px);
+    line-height: 1.07;
+  }
+  .brand-intro-lead {
+    margin-top: 20px;
+    font-size: 19px;
+  }
+  .brand-intro-copy {
+    max-width: 680px;
+    margin-top: 17px;
+    font-size: 15px;
+    line-height: 1.72;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-intro {
+    padding: 54px 0 58px;
+  }
+  .brand-intro-inner {
+    width: min(calc(100% - 28px), 520px);
+  }
+  .brand-intro h2 {
+    max-width: 100%;
+    font-size: clamp(30px, 9vw, 36px);
+    line-height: 1.08;
+    letter-spacing: -1.35px;
+  }
+  .brand-intro-lead {
+    margin-top: 18px;
+    font-size: 17px;
+    line-height: 1.42;
+  }
+  .brand-intro-copy {
+    max-width: 100%;
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.68;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-intro {
+    padding: 48px 0 52px;
+  }
+  .brand-intro h2 {
+    font-size: 29px;
+  }
+  .brand-intro-lead {
+    font-size: 16px;
+  }
+  .brand-intro-copy {
+    font-size: 13.5px;
+  }
+}
+
+
 /* COMO FUNCIONA */
 .how-it-works {
   position: relative;

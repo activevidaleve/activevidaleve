@@ -1,13 +1,9 @@
-# Active Vida Leve — Revisão V10
+# Active Vida Leve — Revisão V11
 
-## Nova seção: Como funciona
-- título e subtítulo da seção
-- 3 etapas visuais: criar perfil, ativar acesso e receber sua rotina
-- cards responsivos com ícones SVG leves
-- linha conectando as etapas no desktop e no mobile
-- CTA final para cadastro
-- layout otimizado para desktop, tablet e celular
-
-## Arquivos principais alterados
-- `index.html`
-- `assets/css/index.css`
+## Nova seção de apresentação
+- adicionada logo abaixo do carrossel
+- texto centralizado em desktop, tablet e mobile
+- título responsivo com destaque em verde
+- frase de apoio e parágrafo explicativo com leitura confortável
+- seção “Como funciona” mantida logo abaixo
+- restante do carrossel e navegação preservados
