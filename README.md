@@ -1,18 +1,15 @@
-# Active Vida Leve — Revisão V05
+# Active Vida Leve — Revisão V06
 
-## Nesta etapa
-- adicionadas imagens específicas para **desktop** e para **tablet/mobile** no carrossel
-- mantido o conteúdo textual e os botões da versão anterior
-- em **desktop**, o texto continua ao lado da imagem
-- em **tablet e mobile**, o texto fica **abaixo da imagem**
-- posicionamento dos textos, quebra das linhas e botão refinados para melhor leitura
-- setas e indicadores reposicionados para funcionar melhor em telas menores
-- topbar continua fixa, com botões neon
+## Correção desta etapa
+- corrigido o comportamento do carrossel em **tablet e mobile**
+- agora o **texto e o botão ficam sobre a própria imagem**, no rodapé do banner
+- mantido o layout de **desktop** com o texto ao lado da imagem
+- gradiente em **tablet/mobile** agora sobe **de baixo para cima** para dar leitura ao conteúdo
+- mantidos os textos e botões da versão anterior
+- ajustadas as quebras dos títulos e a posição do botão para telas menores
 
 ## Arquivos principais
 - `index.html`
-- `assets/css/global.css`
 - `assets/css/index.css`
 - `assets/images/carousel/*-desktop.webp`
 - `assets/images/carousel/*-mobile.webp`
-- `js/index.js`
