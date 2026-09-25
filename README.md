@@ -1,9 +1,10 @@
-# Active Vida Leve — Revisão V24
+# Active Vida Leve — Revisão V25
 
 ## Ajustes desta etapa
-- rebalanceamento de cores para reduzir o excesso de verde no site
-- títulos principais migrados para um tom neutro escuro
-- destaques mantidos em verde vibrante
-- subtítulos/rótulos suavizados com tons neutros
-- botões e identidade visual principal preservados em verde
-- nenhuma alteração de posição, tamanho ou estrutura
+- substituído o logo horizontal antigo pelo novo logo com fundo transparente
+- aplicado o tom laranja escolhido no lugar do verde escuro do logo
+- mantida a mesma estrutura do site
+
+## Arquivos principais
+- `index.html`
+- `assets/images/logo/active-vida-leve-horizontal.png`
