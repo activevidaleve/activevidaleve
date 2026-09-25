@@ -1023,3 +1023,19 @@
 .faixa-carrossel {
   background: #FCFBF6;
 }
+
+
+/* V26 — ajuste de logo e novas cores solicitadas */
+.btn-signup { background: #F97316; }
+.btn-signup:hover { background: #EA6B11; }
+.slide-copy h1, .slide-copy h2 {
+  color: #F97316;
+}
+.btn-slide {
+  color: #263E32;
+  background: #FFB703;
+  box-shadow: 0 10px 24px rgba(255,183,3,.22);
+}
+.btn-slide:hover {
+  background: #F2AB00;
+}

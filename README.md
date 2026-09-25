@@ -1,10 +1,8 @@
-# Active Vida Leve — Revisão V25
+# Active Vida Leve — Revisão V26
 
 ## Ajustes desta etapa
-- substituído o logo horizontal antigo pelo novo logo com fundo transparente
-- aplicado o tom laranja escolhido no lugar do verde escuro do logo
-- mantida a mesma estrutura do site
-
-## Arquivos principais
-- `index.html`
-- `assets/images/logo/active-vida-leve-horizontal.png`
+- correção do logo horizontal para remover sobras transparentes e aproximar o tamanho visual do logo anterior
+- botão "Cadastro" da topbar alterado para a cor 09 (#F97316)
+- textos principais do carrossel alterados do verde escuro para a cor 09 (#F97316)
+- botão "Detalhes" do carrossel alterado para a cor 08 (#FFB703)
+- nenhuma mudança de layout, posição ou estrutura
