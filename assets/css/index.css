@@ -1035,10 +1035,6 @@
 }
 
 @media (max-width: 900px) {
-  .how-it-works {
-    padding: 10px 0 78px;
-  }
-
   .section-heading {
     margin-bottom: 38px;
   }
@@ -1104,10 +1100,6 @@
 }
 
 @media (max-width: 640px) {
-  .how-it-works {
-    padding: 10px 0 64px;
-  }
-
   .section-heading {
     margin-bottom: 30px;
     text-align: left;
@@ -1763,10 +1755,6 @@
 }
 
 @media (max-width: 760px) {
- .home-section {
-    padding: 64px 0;
-  }
-
   .section-block-heading {
     margin-bottom: 30px;
     text-align: left;
@@ -1880,10 +1868,6 @@
 }
 
 @media (max-width: 420px) {
- .home-section {
-    padding: 54px 0;
-  }
-
   .section-tag {
     font-size: 9px;
     letter-spacing: 1.6px;
