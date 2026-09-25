@@ -1325,15 +1325,15 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(249, 247, 237, .16) 0%, rgba(249, 247, 237, .34) 26%, rgba(252, 251, 246, .88) 58%, rgba(252, 251, 246, .97) 100%);
+  background: linear-gradient(180deg, rgba(249, 247, 237, .14) 0%, rgba(249, 247, 237, .3) 24%, rgba(252, 251, 246, .82) 52%, rgba(252, 251, 246, .95) 100%);
   z-index: 0;
 }
 
 .content-card-overlay {
   position: absolute;
   inset: auto 0 0;
-  height: 56%;
-  background: linear-gradient(180deg, rgba(252, 251, 246, 0) 0%, rgba(252, 251, 246, .85) 40%, rgba(252, 251, 246, .98) 100%);
+  height: 48%;
+  background: linear-gradient(180deg, rgba(252, 251, 246, 0) 0%, rgba(252, 251, 246, .72) 42%, rgba(252, 251, 246, .96) 100%);
   z-index: 0;
 }
 
@@ -1343,39 +1343,46 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 16px;
   padding: 24px;
 }
 
+.content-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .content-card-food {
-  background-image: url('../images/content-cards/salada-fresca-ao-sol.png');
-  background-position: center top;
+  background-image: url('../images/content-cards/food-card-bg.png');
+  background-position: center;
 }
 
 .content-card-workout {
-  background-image: url('../images/content-cards/treino-em-casa-com-energia-natural.png');
-  background-position: center top;
+  background-image: url('../images/content-cards/workout-card-bg.png');
+  background-position: center;
 }
 
 .content-card-juice {
-  background-image: url('../images/content-cards/trio-de-sucos-naturais-com-frutas-frescas.png');
-  background-position: center top;
+  background-image: url('../images/content-cards/juice-card-bg.png');
+  background-position: center;
 }
 
 .content-card-routine {
-  background-image: url('../images/content-cards/rotina-saudavel-em-tons-suaves.png');
-  background-position: center top;
+  background-image: url('../images/content-cards/routine-card-bg.png');
+  background-position: center;
 }
 
 .content-card-icon {
+  flex: 0 0 58px;
   width: 58px;
   height: 58px;
   display: grid;
   place-items: center;
   border-radius: 18px;
   color: var(--section-accent);
-  background: rgba(255, 255, 255, .82);
+  background: rgba(255, 255, 255, .84);
   backdrop-filter: blur(8px);
   box-shadow: 0 10px 22px rgba(38, 62, 50, .08);
 }
@@ -1386,6 +1393,7 @@
 }
 
 .content-card-text {
+  flex: 1;
   max-width: 100%;
 }
 
@@ -1410,7 +1418,7 @@
 .content-card p,
 .screen-card p,
 .feedback-state p {
-  margin: 9px 0 0;
+  margin: 0;
   color: var(--text-muted);
   font-size: 13px;
   line-height: 1.6;
@@ -1842,19 +1850,25 @@
   }
 
   .content-card::before {
-    background: linear-gradient(180deg, rgba(249, 247, 237, .18) 0%, rgba(249, 247, 237, .4) 28%, rgba(252, 251, 246, .9) 58%, rgba(252, 251, 246, .98) 100%);
+    background: linear-gradient(180deg, rgba(249, 247, 237, .16) 0%, rgba(249, 247, 237, .34) 26%, rgba(252, 251, 246, .86) 54%, rgba(252, 251, 246, .97) 100%);
   }
 
   .content-card-overlay {
-    height: 58%;
+    height: 50%;
   }
 
   .content-card-copy {
+    justify-content: center;
     padding: 20px;
     gap: 14px;
   }
 
+  .content-card-header {
+    gap: 12px;
+  }
+
   .content-card-icon {
+    flex-basis: 48px;
     width: 48px;
     height: 48px;
     border-radius: 15px;
@@ -1948,12 +1962,32 @@
   }
 
   .content-card {
-    padding: 17px;
+    min-height: 278px;
+  }
+
+  .content-card-copy {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .content-card-header {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .content-card-icon {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
   }
 
   .content-card h3,
   .screen-card h3 {
     font-size: 18px;
+  }
+
+  .content-card p {
+    font-size: 12px;
   }
 
   .footer-grid {
