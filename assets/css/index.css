@@ -873,7 +873,7 @@
    ========================= */
 .how-it-works {
   position: relative;
-  padding: 10px 0 96px;
+  padding: 10px 0 11px;
   overflow: hidden;
   background:
     radial-gradient(circle at 12% 18%, rgba(201, 166, 107, .10), transparent 30%),
@@ -1224,12 +1224,11 @@
   }
 }
 
-
 /* =========================
    SEÇÕES INFORMATIVAS DO INDEX
    ========================= */
 .home-section {
-  padding: 88px 0;
+  padding: 11px 0;
   background: var(--surface);
 }
 
@@ -1238,12 +1237,9 @@
 }
 
 .section-blue { --section-accent: var(--blue-500); }
-.section-violet { --section-accent: var(--violet-500); }
 .section-fuchsia { --section-accent: var(--fuchsia-500); }
 .section-pink { --section-accent: var(--pink-500); }
-.section-red { --section-accent: var(--red-500); }
 .section-sky { --section-accent: var(--sky-500); }
-.section-lime { --section-accent: var(--lime-500); }
 .section-indigo { --section-accent: var(--indigo-500); }
 .section-periwinkle { --section-accent: var(--periwinkle-500); }
 
@@ -1331,7 +1327,6 @@
 }
 
 .content-card-label,
-.article-category,
 .feedback-status {
   color: var(--section-accent);
   font-size: 10px;
@@ -1340,12 +1335,9 @@
 }
 
 .content-card h3,
-.routine-step h3,
 .benefit-item h3,
 .screen-card h3,
-.article-card h3,
-.feedback-state h3,
-.about-values h3 {
+.feedback-state h3 {
   margin: 7px 0 0;
   color: var(--text);
   font-size: 20px;
@@ -1354,12 +1346,9 @@
 }
 
 .content-card p,
-.routine-step p,
 .benefit-item p,
 .screen-card p,
-.article-card p,
-.feedback-state p,
-.about-values p {
+.feedback-state p {
   margin: 9px 0 0;
   color: var(--text-muted);
   font-size: 13px;
@@ -1376,55 +1365,6 @@
   font-weight: 700;
 }
 
-/* ROTINA DO DIA */
-.routine-flow {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.routine-flow::before {
-  content: "";
-  position: absolute;
-  top: 55px;
-  left: 17%;
-  right: 17%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--section-accent) 40%, transparent), transparent);
-}
-
-.routine-step {
-  position: relative;
-  z-index: 1;
-  padding: 26px;
-  border-radius: 26px;
-  background: var(--white);
-  box-shadow: 0 14px 34px rgba(38, 62, 50, .05);
-}
-
-.routine-time {
-  display: inline-flex;
-  color: var(--section-accent);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.8px;
-}
-
-.routine-symbol {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  margin-top: 16px;
-  border-radius: 50%;
-  color: var(--white);
-  background: var(--section-accent);
-  font-size: 19px;
-  font-weight: 700;
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--section-accent) 24%, transparent);
-}
-
 /* BENEFÍCIOS */
 .benefit-grid {
   display: grid;
@@ -1439,8 +1379,7 @@
   background: var(--white);
 }
 
-.benefit-item > span,
-.about-values article > span {
+.benefit-item > span {
   color: var(--section-accent);
   font-size: 12px;
   font-weight: 800;
@@ -1576,53 +1515,6 @@
   margin-inline: 4px;
 }
 
-/* CONTEÚDOS EM DESTAQUE */
-.article-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.article-card {
-  overflow: hidden;
-  border: 1px solid rgba(38, 62, 50, .07);
-  border-radius: 26px;
-  background: var(--white);
-  box-shadow: 0 16px 36px rgba(38, 62, 50, .05);
-}
-
-.article-visual {
-  height: 170px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 20px;
-  background: color-mix(in srgb, var(--section-accent) 15%, white);
-}
-
-.article-visual span {
-  color: var(--white);
-  font-size: 40px;
-  font-weight: 800;
-  opacity: .8;
-}
-
-.article-food { background: linear-gradient(135deg, #FFE2E0, color-mix(in srgb, var(--section-accent) 30%, white)); }
-.article-exercise { background: linear-gradient(135deg, #E5E7EB, color-mix(in srgb, var(--section-accent) 24%, white)); }
-.article-juice { background: linear-gradient(135deg, #FFF0D6, color-mix(in srgb, var(--section-accent) 26%, white)); }
-
-.article-card-body {
-  padding: 22px;
-}
-
-.article-read {
-  display: inline-flex;
-  margin-top: 16px;
-  color: var(--section-accent);
-  font-size: 12px;
-  font-weight: 700;
-}
-
 /* FEEDBACK */
 .feedback-panel {
   max-width: 900px;
@@ -1677,32 +1569,6 @@
   border-left: 1px solid #E7ECE9;
 }
 
-/* SOBRE */
-.about-layout,
-.faq-layout {
-  display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-  gap: 56px;
-  align-items: start;
-}
-
-.about-values {
-  display: grid;
-  gap: 14px;
-}
-
-.about-values article {
-  padding: 20px 22px;
-  border-left: 4px solid var(--section-accent);
-  border-radius: 0 20px 20px 0;
-  background: var(--white);
-  box-shadow: 0 10px 26px rgba(38, 62, 50, .04);
-}
-
-.about-values h3 {
-  margin-top: 4px;
-}
-
 /* FAQ */
 .faq-list {
   display: grid;
@@ -1754,7 +1620,7 @@
 /* CTA FINAL */
 .final-cta {
   --section-accent: var(--periwinkle-500);
-  padding: 86px 0;
+  padding: 11px 0 48px;
   color: var(--white);
   background:
     radial-gradient(circle at 15% 25%, rgba(255, 255, 255, .17), transparent 24%),
@@ -1883,8 +1749,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .screen-showcase,
-  .article-grid {
+  .screen-showcase {
     gap: 16px;
   }
 
@@ -1898,7 +1763,7 @@
 }
 
 @media (max-width: 760px) {
-  .home-section {
+ .home-section {
     padding: 64px 0;
   }
 
@@ -1919,11 +1784,8 @@
   }
 
   .content-cards,
-  .routine-flow,
   .benefit-grid,
   .screen-showcase,
-  .article-grid,
-  .about-layout,
   .faq-layout {
     grid-template-columns: 1fr;
   }
@@ -1947,11 +1809,6 @@
     height: 25px;
   }
 
-  .routine-flow::before {
-    display: none;
-  }
-
-  .routine-step,
   .benefit-item {
     padding: 20px;
   }
@@ -1990,13 +1847,12 @@
     border-left: 0;
   }
 
-  .about-layout,
   .faq-layout {
     gap: 28px;
   }
 
   .final-cta {
-    padding: 66px 0;
+    padding: 11px 0 42px;
   }
 
   .final-cta-actions {
@@ -2024,7 +1880,7 @@
 }
 
 @media (max-width: 420px) {
-  .home-section {
+ .home-section {
     padding: 54px 0;
   }
 
@@ -2042,11 +1898,8 @@
   }
 
   .content-card h3,
-  .routine-step h3,
   .benefit-item h3,
-  .screen-card h3,
-  .article-card h3,
-  .about-values h3 {
+  .screen-card h3 {
     font-size: 18px;
   }
 
