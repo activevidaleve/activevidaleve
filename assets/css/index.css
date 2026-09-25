@@ -1335,7 +1335,7 @@
 .content-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(252, 251, 246, .12) 0%, rgba(252, 251, 246, .28) 34%, rgba(252, 251, 246, .76) 66%, rgba(252, 251, 246, .94) 100%);
+  background: linear-gradient(180deg, rgba(252, 251, 246, .08) 0%, rgba(252, 251, 246, .2) 28%, rgba(252, 251, 246, .62) 58%, rgba(252, 251, 246, .9) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -1346,9 +1346,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 12px;
-  padding: 18px;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 14px 18px 16px;
 }
 
 .content-card-header {
@@ -1359,22 +1359,22 @@
 
 .content-card-food {
   --card-bg: url('../images/content-cards/food-card-bg.png');
-  --card-bg-position: center 36%;
+  --card-bg-position: center 24%;
 }
 
 .content-card-workout {
   --card-bg: url('../images/content-cards/workout-card-bg.png');
-  --card-bg-position: center 40%;
+  --card-bg-position: center 28%;
 }
 
 .content-card-juice {
   --card-bg: url('../images/content-cards/juice-card-bg.png');
-  --card-bg-position: center 42%;
+  --card-bg-position: center 30%;
 }
 
 .content-card-routine {
   --card-bg: url('../images/content-cards/routine-card-bg.png');
-  --card-bg-position: center 46%;
+  --card-bg-position: center 32%;
 }
 
 .content-card-icon {
@@ -1858,13 +1858,13 @@
   }
 
   .content-card-overlay {
-    background: linear-gradient(180deg, rgba(252, 251, 246, .14) 0%, rgba(252, 251, 246, .3) 34%, rgba(252, 251, 246, .8) 68%, rgba(252, 251, 246, .95) 100%);
+    background: linear-gradient(180deg, rgba(252, 251, 246, .1) 0%, rgba(252, 251, 246, .22) 30%, rgba(252, 251, 246, .68) 62%, rgba(252, 251, 246, .92) 100%);
   }
 
   .content-card-copy {
-    justify-content: flex-end;
-    padding: 16px;
-    gap: 11px;
+    justify-content: flex-start;
+    padding: 13px 16px 15px;
+    gap: 10px;
   }
 
   .content-card-header {
@@ -1970,8 +1970,8 @@
   }
 
   .content-card-copy {
-    padding: 15px;
-    gap: 10px;
+    padding: 12px 15px 14px;
+    gap: 9px;
   }
 
   .content-card-header {
