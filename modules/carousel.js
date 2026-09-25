@@ -3,57 +3,54 @@ export function initCarousel() {
   if (!root) return;
 
   const slides = [...root.querySelectorAll("[data-slide]")];
-  const dots = [...root.querySelectorAll("[data-dot]")];
-  const prev = root.querySelector("[data-prev]");
-  const next = root.querySelector("[data-next]");
+  const indicators = [...root.querySelectorAll("[data-indicator]")];
+  const previousButton = root.querySelector("[data-prev]");
+  const nextButton = root.querySelector("[data-next]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  let index = 0;
-  let timer = null;
-  let startX = null;
+  let currentIndex = 0;
+  let autoTimer = null;
+  let touchStartX = null;
 
-  function show(newIndex) {
-    index = (newIndex + slides.length) % slides.length;
+  const showSlide = (newIndex) => {
+    currentIndex = (newIndex + slides.length) % slides.length;
 
-    slides.forEach((slide, i) => {
-      const active = i === index;
+    slides.forEach((slide, index) => {
+      const active = index === currentIndex;
       slide.classList.toggle("is-active", active);
       slide.setAttribute("aria-hidden", String(!active));
     });
 
-    dots.forEach((dot, i) => {
-      const active = i === index;
-      dot.classList.toggle("is-active", active);
-      dot.setAttribute("aria-selected", String(active));
+    indicators.forEach((indicator, index) => {
+      const active = index === currentIndex;
+      indicator.classList.toggle("is-active", active);
+      indicator.setAttribute("aria-pressed", String(active));
     });
-  }
+  };
 
-  function stopAuto() {
-    if (timer) {
-      clearInterval(timer);
-      timer = null;
-    }
-  }
+  const stopAuto = () => {
+    if (!autoTimer) return;
+    clearInterval(autoTimer);
+    autoTimer = null;
+  };
 
-  function startAuto() {
+  const startAuto = () => {
     if (reduceMotion) return;
     stopAuto();
-    timer = setInterval(() => show(index + 1), 6000);
-  }
+    autoTimer = window.setInterval(() => showSlide(currentIndex + 1), 6000);
+  };
 
-  prev?.addEventListener("click", () => {
-    show(index - 1);
+  const moveBy = (direction) => {
+    showSlide(currentIndex + direction);
     startAuto();
-  });
+  };
 
-  next?.addEventListener("click", () => {
-    show(index + 1);
-    startAuto();
-  });
+  previousButton?.addEventListener("click", () => moveBy(-1));
+  nextButton?.addEventListener("click", () => moveBy(1));
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      show(i);
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      showSlide(index);
       startAuto();
     });
   });
@@ -63,27 +60,28 @@ export function initCarousel() {
   root.addEventListener("focusin", stopAuto);
   root.addEventListener("focusout", startAuto);
 
-  // Swipe para celulares/tablets
   root.addEventListener("touchstart", (event) => {
-    startX = event.touches[0]?.clientX ?? null;
+    touchStartX = event.touches[0]?.clientX ?? null;
   }, { passive: true });
 
   root.addEventListener("touchend", (event) => {
-    if (startX === null) return;
-    const endX = event.changedTouches[0]?.clientX ?? startX;
-    const delta = endX - startX;
+    if (touchStartX === null) return;
 
-    if (Math.abs(delta) > 45) {
-      show(index + (delta < 0 ? 1 : -1));
-      startAuto();
+    const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
+    const distance = touchEndX - touchStartX;
+
+    if (Math.abs(distance) > 45) {
+      moveBy(distance < 0 ? 1 : -1);
     }
-    startX = null;
+
+    touchStartX = null;
   }, { passive: true });
 
   document.addEventListener("visibilitychange", () => {
-    document.hidden ? stopAuto() : startAuto();
+    if (document.hidden) stopAuto();
+    else startAuto();
   });
 
-  show(0);
+  showSlide(0);
   startAuto();
 }
