@@ -1810,6 +1810,11 @@
 @media (max-width: 980px) {
   .content-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .content-card {
+    min-height: 0;
   }
 
   .screen-showcase {
@@ -1846,10 +1851,6 @@
   .screen-showcase,
   .faq-layout {
     grid-template-columns: 1fr;
-  }
-
-  .content-card {
-    min-height: 194px;
   }
 
   .content-card::before {
@@ -1963,10 +1964,6 @@
 
   .section-title {
     font-size: 27px;
-  }
-
-  .content-card {
-    min-height: 186px;
   }
 
   .content-card-copy {
