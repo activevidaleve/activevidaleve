@@ -1228,11 +1228,26 @@
   background: #F8FAFC;
 }
 
-.section-blue { --section-accent: var(--blue-500); }
-.section-fuchsia { --section-accent: var(--fuchsia-500); }
-.section-pink { --section-accent: var(--pink-500); }
-.section-sky { --section-accent: var(--sky-500); }
-.section-indigo { --section-accent: var(--indigo-500); }
+.section-blue {
+  --section-accent: var(--blue-500);
+  --section-title-highlight: var(--violet-500);
+}
+
+.section-pink {
+  --section-accent: var(--pink-500);
+  --section-title-highlight: var(--cyan-500);
+}
+
+.section-sky {
+  --section-accent: var(--sky-500);
+  --section-title-highlight: var(--rose-500);
+}
+
+.section-indigo {
+  --section-accent: var(--indigo-500);
+  --section-title-highlight: var(--lime-500);
+}
+
 .section-periwinkle { --section-accent: var(--periwinkle-500); }
 
 .section-block-heading {
@@ -1267,7 +1282,7 @@
 }
 
 .section-title strong {
-  color: var(--text);
+  color: var(--section-title-highlight, var(--text));
   font-weight: 800;
 }
 
@@ -1327,7 +1342,6 @@
 }
 
 .content-card h3,
-.benefit-item h3,
 .screen-card h3,
 .feedback-state h3 {
   margin: 7px 0 0;
@@ -1338,7 +1352,6 @@
 }
 
 .content-card p,
-.benefit-item p,
 .screen-card p,
 .feedback-state p {
   margin: 9px 0 0;
@@ -1355,27 +1368,6 @@
   color: var(--section-accent);
   font-size: 12px;
   font-weight: 700;
-}
-
-/* BENEFÍCIOS */
-.benefit-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.benefit-item {
-  padding: 24px;
-  border: 1px solid rgba(38, 62, 50, .07);
-  border-radius: 22px;
-  background: var(--white);
-}
-
-.benefit-item > span {
-  color: var(--section-accent);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
 }
 
 /* CONHEÇA POR DENTRO */
@@ -1736,8 +1728,7 @@
 }
 
 @media (max-width: 980px) {
-  .content-cards,
-  .benefit-grid {
+  .content-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1772,7 +1763,6 @@
   }
 
   .content-cards,
-  .benefit-grid,
   .screen-showcase,
   .faq-layout {
     grid-template-columns: 1fr;
@@ -1797,9 +1787,6 @@
     height: 25px;
   }
 
-  .benefit-item {
-    padding: 20px;
-  }
 
   .screen-card-featured {
     transform: none;
@@ -1882,7 +1869,6 @@
   }
 
   .content-card h3,
-  .benefit-item h3,
   .screen-card h3 {
     font-size: 18px;
   }

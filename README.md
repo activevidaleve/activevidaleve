@@ -1,10 +1,11 @@
-# Active Vida Leve — Revisão V31
+# Active Vida Leve — Revisão V32
 
 ## Ajustes desta etapa
-- corrigida a padronização de espaçamento entre seções para todos os tamanhos de tela
-- mantido o padrão visual de aproximadamente 22px entre os tópicos: 11px no fim de uma seção + 11px no início da próxima
-- mantido o intervalo de 22px entre a faixa animada e “COMO FUNCIONA”: 12px da faixa + 10px da seção
-- removidos os antigos espaçamentos responsivos que sobrescreviam o padrão em tablets e celulares (`78px`, `64px` e `54px`)
-- desktop, tablet e mobile agora herdam a mesma regra-base de espaçamento sem overrides duplicados
-- alterações feitas diretamente nas regras-fonte, sem blocos de correção adicionados ao final do CSS
-- CSS revisado com chaves balanceadas e 0 erros de parsing
+- removida por completo a seção “Mais praticidade para navegar, escolher e organizar”
+- removidos links, classes e CSS que ficaram sem uso após a exclusão da seção de benefícios
+- mantido o padrão responsivo de aproximadamente 22px entre as seções restantes
+- os títulos das seções mantiveram suas cores vibrantes principais e os trechos que antes usavam o tom escuro receberam novas cores exclusivas
+- novas cores de destaque: violeta `#A855F7`, ciano `#06B6D4`, rosa avermelhado `#F43F5E` e lima `#84CC16`
+- nenhuma dessas quatro cores já era usada no site e nenhuma foi repetida entre os títulos atualizados
+- alterações feitas diretamente nas regras-fonte, sem overrides adicionados ao final dos arquivos
+- revisão realizada para desktop, tablet e mobile
