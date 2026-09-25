@@ -1307,89 +1307,92 @@
 
 .content-card {
   position: relative;
-  min-height: 320px;
+  min-height: 248px;
   display: flex;
   align-items: stretch;
   overflow: hidden;
-  border: 1px solid rgba(38, 62, 50, .08);
+  border: 1px solid rgba(38, 62, 50, .1);
   border-radius: 26px;
-  background-color: var(--white);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 16px 36px rgba(38, 62, 50, .06);
+  background-color: #FCFBF6;
+  box-shadow: none;
   isolation: isolate;
 }
 
 .content-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(249, 247, 237, .14) 0%, rgba(249, 247, 237, .3) 24%, rgba(252, 251, 246, .82) 52%, rgba(252, 251, 246, .95) 100%);
+  inset: -10px;
+  background-image: var(--card-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: var(--card-bg-position, center);
+  filter: blur(4px);
+  transform: scale(1.06);
   z-index: 0;
+  pointer-events: none;
 }
 
 .content-card-overlay {
   position: absolute;
-  inset: auto 0 0;
-  height: 48%;
-  background: linear-gradient(180deg, rgba(252, 251, 246, 0) 0%, rgba(252, 251, 246, .72) 42%, rgba(252, 251, 246, .96) 100%);
-  z-index: 0;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(252, 251, 246, .12) 0%, rgba(252, 251, 246, .28) 34%, rgba(252, 251, 246, .76) 66%, rgba(252, 251, 246, .94) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .content-card-copy {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-  padding: 24px;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 18px;
 }
 
 .content-card-header {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .content-card-food {
-  background-image: url('../images/content-cards/food-card-bg.png');
-  background-position: center;
+  --card-bg: url('../images/content-cards/food-card-bg.png');
+  --card-bg-position: center 36%;
 }
 
 .content-card-workout {
-  background-image: url('../images/content-cards/workout-card-bg.png');
-  background-position: center;
+  --card-bg: url('../images/content-cards/workout-card-bg.png');
+  --card-bg-position: center 40%;
 }
 
 .content-card-juice {
-  background-image: url('../images/content-cards/juice-card-bg.png');
-  background-position: center;
+  --card-bg: url('../images/content-cards/juice-card-bg.png');
+  --card-bg-position: center 42%;
 }
 
 .content-card-routine {
-  background-image: url('../images/content-cards/routine-card-bg.png');
-  background-position: center;
+  --card-bg: url('../images/content-cards/routine-card-bg.png');
+  --card-bg-position: center 46%;
 }
 
 .content-card-icon {
-  flex: 0 0 58px;
-  width: 58px;
-  height: 58px;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
-  border-radius: 18px;
+  border-radius: 15px;
   color: var(--section-accent);
-  background: rgba(255, 255, 255, .84);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 22px rgba(38, 62, 50, .08);
+  background: rgba(255, 255, 255, .78);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(38, 62, 50, .06);
 }
 
 .content-card-icon svg {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 .content-card-text {
@@ -1400,19 +1403,19 @@
 .content-card-label,
 .feedback-status {
   color: var(--section-accent);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.4px;
 }
 
 .content-card h3,
 .screen-card h3,
 .feedback-state h3 {
-  margin: 7px 0 0;
+  margin: 4px 0 0;
   color: var(--text);
-  font-size: 20px;
-  line-height: 1.18;
-  letter-spacing: -.6px;
+  font-size: 18px;
+  line-height: 1.16;
+  letter-spacing: -.5px;
 }
 
 .content-card p,
@@ -1420,8 +1423,8 @@
 .feedback-state p {
   margin: 0;
   color: var(--text-muted);
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 12.5px;
+  line-height: 1.55;
 }
 
 .text-link {
@@ -1429,16 +1432,16 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  min-height: 42px;
-  padding: 0 18px;
+  min-height: 38px;
+  padding: 0 16px;
   border: 1px solid transparent;
   border-radius: 999px;
   align-self: flex-start;
   background: var(--section-accent);
   color: var(--white);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
-  box-shadow: 0 10px 24px color-mix(in srgb, var(--section-accent) 26%, transparent);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--section-accent) 22%, transparent);
   transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 
@@ -1846,42 +1849,43 @@
   }
 
   .content-card {
-    min-height: 292px;
+    min-height: 232px;
   }
 
   .content-card::before {
-    background: linear-gradient(180deg, rgba(249, 247, 237, .16) 0%, rgba(249, 247, 237, .34) 26%, rgba(252, 251, 246, .86) 54%, rgba(252, 251, 246, .97) 100%);
+    inset: -9px;
+    filter: blur(3.5px);
   }
 
   .content-card-overlay {
-    height: 50%;
+    background: linear-gradient(180deg, rgba(252, 251, 246, .14) 0%, rgba(252, 251, 246, .3) 34%, rgba(252, 251, 246, .8) 68%, rgba(252, 251, 246, .95) 100%);
   }
 
   .content-card-copy {
-    justify-content: center;
-    padding: 20px;
-    gap: 14px;
+    justify-content: flex-end;
+    padding: 16px;
+    gap: 11px;
   }
 
   .content-card-header {
-    gap: 12px;
+    gap: 10px;
   }
 
   .content-card-icon {
-    flex-basis: 48px;
-    width: 48px;
-    height: 48px;
-    border-radius: 15px;
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
   }
 
   .content-card-icon svg {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
   }
 
   .text-link {
-    min-height: 40px;
-    padding-inline: 16px;
+    min-height: 38px;
+    padding-inline: 15px;
   }
 
 
@@ -1962,32 +1966,33 @@
   }
 
   .content-card {
-    min-height: 278px;
+    min-height: 220px;
   }
 
   .content-card-copy {
-    padding: 18px;
-    gap: 12px;
-  }
-
-  .content-card-header {
-    align-items: flex-start;
+    padding: 15px;
     gap: 10px;
   }
 
+  .content-card-header {
+    align-items: center;
+    gap: 9px;
+  }
+
   .content-card-icon {
-    flex-basis: 44px;
-    width: 44px;
-    height: 44px;
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
   }
 
   .content-card h3,
   .screen-card h3 {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .content-card p {
-    font-size: 12px;
+    font-size: 11.5px;
+    line-height: 1.5;
   }
 
   .footer-grid {
