@@ -1306,16 +1306,66 @@
 }
 
 .content-card {
-  min-height: 290px;
+  position: relative;
+  min-height: 320px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 22px;
-  padding: 26px;
+  align-items: stretch;
+  overflow: hidden;
   border: 1px solid rgba(38, 62, 50, .08);
   border-radius: 26px;
-  background: var(--white);
+  background-color: var(--white);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   box-shadow: 0 16px 36px rgba(38, 62, 50, .06);
+  isolation: isolate;
+}
+
+.content-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(249, 247, 237, .16) 0%, rgba(249, 247, 237, .34) 26%, rgba(252, 251, 246, .88) 58%, rgba(252, 251, 246, .97) 100%);
+  z-index: 0;
+}
+
+.content-card-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  height: 56%;
+  background: linear-gradient(180deg, rgba(252, 251, 246, 0) 0%, rgba(252, 251, 246, .85) 40%, rgba(252, 251, 246, .98) 100%);
+  z-index: 0;
+}
+
+.content-card-copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 24px;
+}
+
+.content-card-food {
+  background-image: url('../images/content-cards/salada-fresca-ao-sol.png');
+  background-position: center top;
+}
+
+.content-card-workout {
+  background-image: url('../images/content-cards/treino-em-casa-com-energia-natural.png');
+  background-position: center top;
+}
+
+.content-card-juice {
+  background-image: url('../images/content-cards/trio-de-sucos-naturais-com-frutas-frescas.png');
+  background-position: center top;
+}
+
+.content-card-routine {
+  background-image: url('../images/content-cards/rotina-saudavel-em-tons-suaves.png');
+  background-position: center top;
 }
 
 .content-card-icon {
@@ -1325,12 +1375,18 @@
   place-items: center;
   border-radius: 18px;
   color: var(--section-accent);
-  background: color-mix(in srgb, var(--section-accent) 10%, white);
+  background: rgba(255, 255, 255, .82);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 22px rgba(38, 62, 50, .08);
 }
 
 .content-card-icon svg {
   width: 30px;
   height: 30px;
+}
+
+.content-card-text {
+  max-width: 100%;
 }
 
 .content-card-label,
@@ -1363,11 +1419,24 @@
 .text-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
-  margin-top: 17px;
-  color: var(--section-accent);
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  align-self: flex-start;
+  background: var(--section-accent);
+  color: var(--white);
   font-size: 12px;
   font-weight: 700;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--section-accent) 26%, transparent);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.text-link:hover {
+  transform: translateY(-2px);
+  filter: brightness(.98);
 }
 
 /* CONHEÇA POR DENTRO */
@@ -1769,22 +1838,36 @@
   }
 
   .content-card {
-    min-height: 0;
-    flex-direction: row;
-    gap: 16px;
+    min-height: 292px;
+  }
+
+  .content-card::before {
+    background: linear-gradient(180deg, rgba(249, 247, 237, .18) 0%, rgba(249, 247, 237, .4) 28%, rgba(252, 251, 246, .9) 58%, rgba(252, 251, 246, .98) 100%);
+  }
+
+  .content-card-overlay {
+    height: 58%;
+  }
+
+  .content-card-copy {
     padding: 20px;
+    gap: 14px;
   }
 
   .content-card-icon {
     width: 48px;
     height: 48px;
-    flex: 0 0 auto;
     border-radius: 15px;
   }
 
   .content-card-icon svg {
     width: 25px;
     height: 25px;
+  }
+
+  .text-link {
+    min-height: 40px;
+    padding-inline: 16px;
   }
 
 
