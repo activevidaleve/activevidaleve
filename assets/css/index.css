@@ -1307,7 +1307,7 @@
 
 .content-card {
   position: relative;
-  min-height: 214px;
+  min-height: 202px;
   display: flex;
   align-items: stretch;
   overflow: hidden;
@@ -1348,7 +1348,7 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 9px;
-  padding: 13px 18px 13px;
+  padding: 13px 18px 10px;
 }
 
 .content-card-header {
@@ -1849,7 +1849,7 @@
   }
 
   .content-card {
-    min-height: 206px;
+    min-height: 194px;
   }
 
   .content-card::before {
@@ -1863,7 +1863,7 @@
 
   .content-card-copy {
     justify-content: flex-start;
-    padding: 12px 16px 12px;
+    padding: 12px 16px 10px;
     gap: 9px;
   }
 
@@ -1894,7 +1894,7 @@
   }
 
   .screen-body {
-    min-height: 198px;
+    min-height: 186px;
   }
 
   .feedback-state {
@@ -1966,11 +1966,11 @@
   }
 
   .content-card {
-    min-height: 198px;
+    min-height: 186px;
   }
 
   .content-card-copy {
-    padding: 11px 15px 11px;
+    padding: 11px 15px 10px;
     gap: 8px;
   }
 
