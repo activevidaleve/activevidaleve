@@ -1453,60 +1453,183 @@
 /* CONHEÇA POR DENTRO */
 .screen-showcase {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1.18fr) minmax(0, 1.02fr);
+  gap: 24px;
   align-items: end;
 }
 
 .screen-card {
-  padding: 16px 16px 24px;
-  border: 1px solid rgba(38, 62, 50, .07);
-  border-radius: 28px;
-  background: var(--white);
-  box-shadow: 0 18px 42px rgba(38, 62, 50, .07);
+  --mockup-accent: var(--section-accent);
+  padding: 18px 18px 22px;
+  border: 1px solid rgba(38, 62, 50, .08);
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .98) 0%, rgba(252, 251, 246, .98) 100%);
+  box-shadow: 0 18px 44px rgba(38, 62, 50, .07);
+}
+
+.screen-card-food-preview {
+  --mockup-accent: #22C55E;
+}
+
+.screen-card-workout-preview {
+  --mockup-accent: #F97316;
+}
+
+.screen-card-recipes-preview {
+  --mockup-accent: #00C2A8;
 }
 
 .screen-card-featured {
-  transform: translateY(-16px);
+  transform: translateY(-18px);
 }
 
-.screen-top {
-  height: 30px;
+.screen-preview {
+  overflow: hidden;
+  border: 1px solid rgba(38, 62, 50, .08);
+  border-radius: 24px;
+  background: #FFFFFF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6);
+}
+
+.screen-preview-top {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 0 10px;
-  border-radius: 14px 14px 0 0;
-  background: #EEF2F7;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #E7EDF1;
+  background: #F8FAFC;
 }
 
-.screen-top span {
+.screen-window-dots {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.screen-window-dots i {
   width: 7px;
   height: 7px;
+  display: block;
   border-radius: 50%;
   background: #CBD5E1;
 }
 
-.screen-body {
-  min-height: 250px;
-  padding: 20px;
-  border-radius: 0 0 18px 18px;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--section-accent) 6%, white), #FFFFFF 42%);
+.screen-preview-search {
+  flex: 1;
+  height: 12px;
+  max-width: 128px;
+  border-radius: 999px;
+  background: #E2E8F0;
 }
 
+.screen-preview-avatar {
+  width: 22px;
+  height: 22px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--mockup-accent) 20%, white);
+  box-shadow: inset 0 0 0 1px rgba(38, 62, 50, .06);
+}
+
+.screen-preview-body {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  min-height: 268px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--mockup-accent) 8%, white) 0%, #FFFFFF 46%, #FBFAF6 100%);
+}
+
+.screen-preview-body-single {
+  grid-template-columns: 1fr;
+}
+
+.screen-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 10px;
+  border-right: 1px solid rgba(38, 62, 50, .06);
+  background: rgba(255, 255, 255, .55);
+}
+
+.screen-sidebar-brand,
+.screen-sidebar-item,
+.screen-sidebar-pill {
+  display: block;
+}
+
+.screen-sidebar-brand {
+  width: 30px;
+  height: 30px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--mockup-accent) 18%, white);
+}
+
+.screen-sidebar-item {
+  width: 28px;
+  height: 8px;
+  border-radius: 999px;
+  background: #D9E4EA;
+}
+
+.screen-sidebar-item-active {
+  background: color-mix(in srgb, var(--mockup-accent) 72%, white);
+}
+
+.screen-sidebar-pill {
+  width: 28px;
+  height: 68px;
+  margin-top: auto;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--mockup-accent) 14%, white);
+}
+
+.screen-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+}
+
+.screen-main-workout {
+  padding: 16px;
+}
+
+.screen-kicker,
 .screen-badge {
-  color: var(--section-accent);
+  color: var(--mockup-accent);
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 1.4px;
 }
 
+.screen-hero,
+.screen-recipe-highlight,
+.screen-player {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--mockup-accent) 16%, white) 0%, rgba(255, 255, 255, .95) 100%);
+}
+
+.screen-hero {
+  grid-template-columns: minmax(0, 1.2fr) minmax(72px, .9fr);
+  align-items: center;
+}
+
+.screen-hero-copy,
+.screen-recipe-copy,
+.screen-player-copy {
+  display: flex;
+  flex-direction: column;
+}
+
 .screen-title-line {
-  width: 66%;
+  width: 72%;
   height: 14px;
-  margin-top: 14px;
+  margin-top: 0;
   border-radius: 999px;
-  background: var(--section-accent);
+  background: var(--mockup-accent);
 }
 
 .screen-line {
@@ -1521,47 +1644,202 @@
   width: 88%;
 }
 
-.screen-panel {
-  height: 90px;
-  margin-top: 24px;
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--section-accent) 13%, white);
+.screen-inline-tags {
+  display: flex;
+  gap: 7px;
+  margin-top: 12px;
 }
 
-.screen-workout,
-.screen-recipe-grid {
+.screen-inline-tags span,
+.screen-chip-row span,
+.screen-progress-row span,
+.screen-stat-card strong,
+.screen-stat-card span,
+.screen-workout-card span {
+  display: block;
+}
+
+.screen-inline-tags span {
+  width: 50px;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .88);
+}
+
+.screen-hero-visual,
+.screen-recipe-visual {
+  position: relative;
+  min-height: 86px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.screen-hero-salad {
+  background: radial-gradient(circle at 30% 35%, #C8F7A7 0, #C8F7A7 16px, transparent 18px),
+              radial-gradient(circle at 68% 32%, #FFB703 0, #FFB703 10px, transparent 12px),
+              radial-gradient(circle at 58% 68%, #FF7A59 0, #FF7A59 12px, transparent 14px),
+              linear-gradient(135deg, #7ED957 0%, #22C55E 100%);
+}
+
+.screen-hero-salad::after {
+  content: "";
+  position: absolute;
+  inset: 16px 18px;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, .75);
+}
+
+.screen-stat-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.screen-stat-card,
+.screen-workout-card {
+  padding: 10px;
+  border: 1px solid rgba(38, 62, 50, .07);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .88);
+}
+
+.screen-stat-card strong {
+  width: 38px;
+  height: 12px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--mockup-accent) 72%, white);
+}
+
+.screen-stat-card span {
+  width: 72%;
+  height: 6px;
+  border-radius: 999px;
+  background: #D9E2E8;
+}
+
+.screen-list {
   display: grid;
   gap: 8px;
-  margin-top: 24px;
 }
 
-.screen-workout {
-  grid-template-columns: repeat(4, 1fr);
+.screen-list-item {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(217, 226, 232, .9);
 }
 
-.screen-workout i,
+.screen-list-item-short {
+  width: 74%;
+}
+
+.screen-progress-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.screen-progress-row span {
+  height: 32px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .88);
+  box-shadow: inset 0 0 0 1px rgba(38, 62, 50, .05);
+}
+
+.screen-player {
+  grid-template-columns: minmax(0, 1fr) 56px;
+  align-items: center;
+  min-height: 92px;
+}
+
+.screen-player-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  justify-self: end;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--mockup-accent) 84%, white), color-mix(in srgb, var(--mockup-accent) 58%, white));
+  box-shadow: 0 12px 20px color-mix(in srgb, var(--mockup-accent) 22%, transparent);
+  position: relative;
+}
+
+.screen-player-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 14px solid rgba(255, 255, 255, .9);
+}
+
+.screen-workout-grid,
+.screen-recipe-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.screen-workout-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.screen-workout-card i,
 .screen-recipe-grid i {
   display: block;
   border-radius: 14px;
-  background: color-mix(in srgb, var(--section-accent) 16%, white);
 }
 
-.screen-workout i {
-  height: 82px;
+.screen-workout-card i {
+  height: 66px;
+  margin-bottom: 10px;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--mockup-accent) 20%, white), rgba(255, 255, 255, .92));
+}
+
+.screen-workout-card span {
+  width: 88%;
+  height: 6px;
+  border-radius: 999px;
+  background: #D9E2E8;
+}
+
+.screen-workout-card span + span {
+  width: 58%;
+  margin-top: 7px;
+}
+
+.screen-recipe-highlight {
+  grid-template-columns: minmax(0, 1fr) 76px;
+  align-items: center;
+}
+
+.screen-recipe-visual {
+  background: radial-gradient(circle at 32% 28%, #FFB703 0, #FFB703 12px, transparent 14px),
+              radial-gradient(circle at 70% 64%, #00C2A8 0, #00C2A8 12px, transparent 14px),
+              radial-gradient(circle at 62% 24%, #FF7A59 0, #FF7A59 10px, transparent 12px),
+              linear-gradient(135deg, #B6F4EB 0%, #59D8C4 100%);
+}
+
+.screen-recipe-visual::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 16px 16px 22px 22px;
+  border: 5px solid rgba(255, 255, 255, .72);
 }
 
 .screen-recipe-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .screen-recipe-grid i {
-  height: 86px;
+  height: 72px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .9), color-mix(in srgb, var(--mockup-accent) 15%, white));
+  box-shadow: inset 0 0 0 1px rgba(38, 62, 50, .05);
 }
 
 .screen-chip-row {
   display: flex;
   gap: 7px;
-  margin-top: 17px;
 }
 
 .screen-chip-row span {
@@ -1572,11 +1850,15 @@
 }
 
 .screen-card h3 {
-  margin: 18px 4px 0;
+  margin: 16px 4px 0;
+  font-size: 22px;
+  line-height: 1.08;
 }
 
 .screen-card p {
-  margin-inline: 4px;
+  margin: 10px 4px 0;
+  font-size: 13px;
+  line-height: 1.62;
 }
 
 /* FEEDBACK */
@@ -1818,7 +2100,26 @@
   }
 
   .screen-showcase {
-    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .screen-card {
+    padding: 17px 17px 21px;
+  }
+
+  .screen-card-featured {
+    transform: none;
+    grid-column: 1 / -1;
+  }
+
+  .screen-preview-body {
+    min-height: 244px;
+  }
+
+  .screen-card-featured .screen-preview-body {
+    min-height: 258px;
   }
 
   .footer-grid {
@@ -1890,12 +2191,48 @@
   }
 
 
-  .screen-card-featured {
-    transform: none;
+  .screen-showcase,
+  .faq-layout {
+    grid-template-columns: 1fr;
   }
 
-  .screen-body {
-    min-height: 186px;
+  .screen-card {
+    padding: 16px 16px 20px;
+  }
+
+  .screen-card-featured {
+    transform: none;
+    grid-column: auto;
+  }
+
+  .screen-preview-body {
+    grid-template-columns: 56px minmax(0, 1fr);
+    min-height: 224px;
+  }
+
+  .screen-card-featured .screen-preview-body {
+    min-height: 236px;
+  }
+
+  .screen-main,
+  .screen-main-workout {
+    padding: 12px;
+  }
+
+  .screen-hero,
+  .screen-recipe-highlight,
+  .screen-player {
+    grid-template-columns: 1fr;
+  }
+
+  .screen-player-button,
+  .screen-hero-visual,
+  .screen-recipe-visual {
+    justify-self: start;
+  }
+
+  .screen-workout-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .feedback-state {
@@ -1990,6 +2327,51 @@
   .content-card p {
     font-size: 11px;
     line-height: 1.45;
+  }
+
+  .screen-card {
+    padding: 14px 14px 18px;
+    border-radius: 24px;
+  }
+
+  .screen-preview {
+    border-radius: 20px;
+  }
+
+  .screen-preview-body {
+    grid-template-columns: 48px minmax(0, 1fr);
+    min-height: 208px;
+  }
+
+  .screen-main,
+  .screen-main-workout {
+    gap: 10px;
+    padding: 11px;
+  }
+
+  .screen-kicker {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .screen-title-line {
+    height: 12px;
+  }
+
+  .screen-line {
+    margin-top: 8px;
+  }
+
+  .screen-progress-row,
+  .screen-stat-row,
+  .screen-workout-grid,
+  .screen-recipe-grid {
+    gap: 8px;
+  }
+
+  .screen-card p {
+    font-size: 12px;
+    line-height: 1.55;
   }
 
   .footer-grid {
