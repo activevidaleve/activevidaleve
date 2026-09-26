@@ -1,19 +1,24 @@
 export function initMobileMenu() {
-  const toggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("main-navigation");
-  if (!toggle || !nav) return;
+  const header = document.querySelector(".site-header");
+  const toggle = document.querySelector(".menu-toggle");
 
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("is-open");
+  if (!header || !toggle) return;
+
+  const setState = (open) => {
+    header.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  };
+
+  toggle.addEventListener("click", () => {
+    setState(!header.classList.contains("menu-open"));
   });
 
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Abrir menu");
-    });
+  header.querySelectorAll(".main-nav a").forEach((link) => {
+    link.addEventListener("click", () => setState(false));
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) setState(false);
   });
 }

@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1a3c2e">
+  <meta name="theme-color" content="#0E6B3A">
   <meta name="description" content="Active Vida Leve — alimentação, exercícios e receitas para uma rotina mais saudável e organizada.">
   <title>Active Vida Leve</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./assets/css/global.css">
   <link rel="stylesheet" href="./assets/css/index.css">
@@ -17,451 +17,909 @@
 <body>
   <header class="site-header" id="inicio">
     <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="Active Vida Leve — início">
-        <img class="brand-logo" src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="200" height="50">
+      <a class="brand" href="#inicio" aria-label="Active Vida Leve - início">
+        <img class="brand-logo" src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="190">
       </a>
-
       <nav class="main-nav" id="main-navigation" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#conteudos">Conteúdos</a>
-        <a href="#feedback">Experiências</a>
       </nav>
-
       <div class="header-actions">
         <a class="btn btn-login btn-small" href="./login.html">Entrar</a>
         <a class="btn btn-signup btn-small" href="./cadastro.html">Cadastro</a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M4 7h16M4 12h16M4 17h16"/>
-          </svg>
-        </button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero" aria-label="Apresentação">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="hero-badge">Bem-estar prático</span>
-          <h1>Hábitos mais leves <strong>para o seu dia a dia.</strong></h1>
-          <p class="hero-lead">
-            Alimentação, movimento e receitas reunidos em um só lugar — para tornar sua rotina mais equilibrada, visual e fácil de manter.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="./cadastro.html">Começar agora</a>
-            <a class="btn btn-ghost" href="#como-funciona">Como funciona</a>
-          </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <strong>3</strong>
-              <span>áreas de conteúdo</span>
+    <section class="hero-carousel" aria-label="Destaques Active Vida Leve">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <article class="carousel-slide is-active" data-slide aria-hidden="false">
+            <picture class="slide-media">
+              <source media="(max-width: 900px)" srcset="./assets/images/carousel/food-mobile.webp">
+              <img class="slide-image slide-food" src="./assets/images/carousel/food-desktop.webp" alt="Casal preparando alimentos saudáveis em uma cozinha iluminada" width="1600" height="500" fetchpriority="high">
+            </picture>
+            <div class="slide-panel">
+              <div class="container slide-content">
+                <div class="slide-copy">
+                  <span class="slide-kicker">ALIMENTAÇÃO</span>
+                  <div class="slide-headline-row">
+                    <h1>Hábitos mais leves <strong>para comer melhor.</strong></h1>
+                    <a class="btn btn-slide btn-large" href="#conteudos">Detalhes</a>
+                  </div>
+                  <div class="slide-meta">
+                    <p>Dicas práticas para organizar refeições, melhorar escolhas e manter mais equilíbrio no dia.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="hero-stat">
-              <strong>Simples</strong>
-              <span>navegação objetiva</span>
+          </article>
+
+          <article class="carousel-slide" data-slide aria-hidden="true">
+            <picture class="slide-media">
+              <source media="(max-width: 900px)" srcset="./assets/images/carousel/exercise-mobile.webp">
+              <img class="slide-image slide-exercise" src="./assets/images/carousel/exercise-desktop.webp" alt="Casal treinando junto em casa" width="1600" height="500" loading="lazy">
+            </picture>
+            <div class="slide-panel">
+              <div class="container slide-content">
+                <div class="slide-copy">
+                  <span class="slide-kicker">EXERCÍCIOS</span>
+                  <div class="slide-headline-row">
+                    <h2>Movimento que cabe <strong>na sua rotina.</strong></h2>
+                    <a class="btn btn-slide btn-large" href="#conteudos">Detalhes</a>
+                  </div>
+                  <div class="slide-meta">
+                    <p>Exercícios simples e objetivos para você se movimentar com mais constância e bem-estar.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="hero-stat">
-              <strong>Leve</strong>
-              <span>feito para o dia a dia</span>
+          </article>
+
+          <article class="carousel-slide" data-slide aria-hidden="true">
+            <picture class="slide-media">
+              <source media="(max-width: 900px)" srcset="./assets/images/carousel/juice-mobile.webp">
+              <img class="slide-image slide-juice" src="./assets/images/carousel/juice-desktop.webp" alt="Casal com sucos naturais e frutas em momento de bem-estar" width="1600" height="500" loading="lazy">
+            </picture>
+            <div class="slide-panel">
+              <div class="container slide-content">
+                <div class="slide-copy">
+                  <span class="slide-kicker">SUCOS DETOX & RECEITAS</span>
+                  <div class="slide-headline-row">
+                    <h2>Receitas leves para <strong>variar o seu dia.</strong></h2>
+                    <a class="btn btn-slide btn-large" href="#conteudos">Detalhes</a>
+                  </div>
+                  <div class="slide-meta">
+                    <p>Sucos e combinações naturais para trazer mais sabor, praticidade e variedade à sua rotina.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </article>
         </div>
 
-        <div class="hero-visual">
-          <div class="hero-card">
-            <img src="./assets/images/carousel/food-desktop.webp" alt="Preparando alimentos saudáveis" width="800" height="600" fetchpriority="high">
-          </div>
-          <div class="hero-float hero-float-1">
-            <span class="hero-float-icon">🥗</span>
-            <span>Alimentação prática</span>
-          </div>
-          <div class="hero-float hero-float-2">
-            <span class="hero-float-icon">💪</span>
-            <span>Movimento leve</span>
-          </div>
+        <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior" data-prev><span aria-hidden="true">‹</span></button>
+        <button class="carousel-arrow carousel-next" type="button" aria-label="Próxima imagem" data-next><span aria-hidden="true">›</span></button>
+
+        <div class="carousel-bars" role="group" aria-label="Selecionar destaque">
+          <button class="carousel-bar is-active" type="button" aria-label="Mostrar Alimentação" aria-pressed="true" data-indicator="0"></button>
+          <button class="carousel-bar" type="button" aria-label="Mostrar Exercícios" aria-pressed="false" data-indicator="1"></button>
+          <button class="carousel-bar" type="button" aria-label="Mostrar Sucos e Receitas" aria-pressed="false" data-indicator="2"></button>
         </div>
       </div>
     </section>
 
-    <!-- MARQUEE -->
-    <section class="marquee" aria-label="Destaques visuais" aria-hidden="true">
-      <div class="marquee-track">
-        <img src="./assets/images/faixa-carrossel/faixa-01.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-02.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-03.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-04.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-05.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-06.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-07.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-08.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-09.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-10.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-11.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-12.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-13.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-14.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-15.webp" alt="">
-        <!-- duplicate for seamless loop -->
-        <img src="./assets/images/faixa-carrossel/faixa-01.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-02.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-03.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-04.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-05.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-06.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-07.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-08.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-09.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-10.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-11.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-12.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-13.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-14.webp" alt="">
-        <img src="./assets/images/faixa-carrossel/faixa-15.webp" alt="">
+    <section class="brand-intro" aria-labelledby="brand-intro-title">
+      <div class="container brand-intro-inner">
+        <h2 id="brand-intro-title">Uma rotina mais leve começa com <strong>escolhas que fazem sentido para você.</strong></h2>
+        <p class="brand-intro-copy">No <strong>Active Vida Leve</strong>, <strong>alimentação</strong>, <strong>movimento</strong> e <strong>receitas práticas</strong> se unem para tornar sua rotina mais leve, equilibrada e fácil de manter.</p>
       </div>
     </section>
 
-    <!-- INTRO -->
-    <section class="intro-band">
-      <div class="container">
-        <h2>Uma rotina mais leve começa com <strong>escolhas que fazem sentido para você.</strong></h2>
-        <p>
-          No <strong>Active Vida Leve</strong>, alimentação, movimento e receitas práticas se unem para tornar seu dia mais equilibrado e fácil de manter.
-        </p>
+    <section class="faixa-carrossel" aria-label="Destaques visuais do Active Vida Leve">
+      <div class="faixa-viewport">
+        <div class="faixa-track">
+          <ul class="faixa-group">
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-01.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-02.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-03.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-04.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-05.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-06.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-07.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-08.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-09.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-10.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-11.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-12.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-13.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-14.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-15.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-16.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-17.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-18.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-19.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-20.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-21.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-22.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-23.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-24.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-25.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-26.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-27.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-28.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-29.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-30.webp" alt="" loading="lazy" decoding="async"></li>
+          </ul>
+          <ul class="faixa-group" aria-hidden="true">
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-01.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-02.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-03.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-04.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-05.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-06.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-07.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-08.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-09.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-10.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-11.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-12.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-13.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-14.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-15.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-16.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-17.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-18.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-19.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-20.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-21.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-22.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-23.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-24.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-25.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-26.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-27.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-28.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-29.webp" alt="" loading="lazy" decoding="async"></li>
+            <li class="faixa-item"><img src="./assets/images/faixa-carrossel/faixa-30.webp" alt="" loading="lazy" decoding="async"></li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
-    <section class="section section-alt" id="como-funciona" aria-labelledby="como-funciona-titulo">
-      <div class="container">
-        <div class="section-header center">
-          <span class="section-eyebrow">Como funciona</span>
-          <h2 class="section-title" id="como-funciona-titulo">Seu caminho para uma <strong>rotina mais leve</strong></h2>
-          <p class="section-lead" style="margin-inline:auto">
-            Em poucos passos, você acessa conteúdos organizados para tornar seu dia mais prático, ativo e equilibrado.
-          </p>
+    <section class="how-it-works" id="como-funciona" aria-labelledby="como-funciona-titulo">
+      <div class="container how-inner">
+        <div class="section-heading">
+          <span class="section-eyebrow">COMO FUNCIONA</span>
+          <h2 id="como-funciona-titulo">Seu caminho para uma <strong>rotina mais leve</strong></h2>
+          <p>Em poucos passos, você acessa conteúdos organizados para tornar seu dia mais prático, ativo e equilibrado.</p>
         </div>
 
-        <div class="steps">
-          <article class="step-card">
-            <span class="step-num">01</span>
+        <div class="steps" role="list">
+          <article class="step-card" role="listitem">
+            <div class="step-number" aria-hidden="true">01</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="16" r="7" stroke="currentColor" stroke-width="2.4"/>
+                <path d="M12 36c1.8-7 6.3-10.5 12-10.5S34.2 29 36 36" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M34.5 11.5h8M38.5 7.5v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              </svg>
+            </div>
             <h3>Crie seu perfil</h3>
             <p>Faça seu cadastro de forma simples para começarmos a organizar uma experiência mais adequada para você.</p>
           </article>
-          <article class="step-card">
-            <span class="step-num">02</span>
+
+          <article class="step-card" role="listitem">
+            <div class="step-number" aria-hidden="true">02</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="15" width="28" height="21" rx="5" stroke="currentColor" stroke-width="2.4"/>
+                <path d="M17 15v-2.5A7 7 0 0 1 24 5.5a7 7 0 0 1 7 7V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="m19 26 3.5 3.5L30 22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
             <h3>Ative seu acesso</h3>
             <p>Após a assinatura, seu acesso ao portal é liberado para você aproveitar todas as áreas disponíveis.</p>
           </article>
-          <article class="step-card">
-            <span class="step-num">03</span>
+
+          <article class="step-card" role="listitem">
+            <div class="step-number" aria-hidden="true">03</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 34V18a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4Z" stroke="currentColor" stroke-width="2.4"/>
+                <path d="M16 27h6l3-7 4 12 3-5h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 10V7M30 10V7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              </svg>
+            </div>
             <h3>Receba sua rotina</h3>
-            <p>Encontre alimentação, exercícios e receitas organizados em um só lugar, prontos para o dia a dia.</p>
+            <p>Encontre alimentação, exercícios e receitas organizados de acordo com seu perfil, preferências e rotina.</p>
           </article>
+        </div>
+
+        <div class="how-cta">
+          <a class="btn how-btn" href="./cadastro.html">Quero começar</a>
+          <span>Leva poucos minutos para criar sua conta.</span>
         </div>
       </div>
     </section>
 
-    <!-- CONTEÚDOS -->
-    <section class="section" id="conteudos" aria-labelledby="conteudos-title">
+    <section class="home-section content-overview section-blue" id="conteudos" aria-labelledby="conteudos-title">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">Conteúdos</span>
+        <div class="section-block-heading">
+          <span class="section-tag">O QUE VOCÊ ENCONTRA</span>
           <h2 class="section-title" id="conteudos-title">Tudo o que importa para <strong>uma rotina mais completa</strong></h2>
-          <p class="section-lead">
-            Áreas pensadas para facilitar escolhas práticas, movimento no dia a dia e mais variedade na alimentação.
-          </p>
+          <p class="section-description">Explore diferentes áreas do Active Vida Leve e encontre conteúdos organizados para acompanhar seu dia de forma simples.</p>
         </div>
 
-        <div class="contents-grid">
-          <article class="content-card">
-            <img src="./assets/images/content-cards/salada-fresca-ao-sol.png" alt="Salada fresca" loading="lazy">
-            <h3>Escolhas mais práticas</h3>
-            <p>Conteúdos de alimentação pensados para o dia a dia, sem complicação.</p>
+        <div class="content-cards">
+          <article class="content-card content-card-food">
+            <div class="content-card-overlay"></div>
+            <div class="content-card-copy">
+              <div class="content-card-header">
+                <div class="content-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 31c7-1 11-6 13-15 5 6 9 9 15 10-2 8-8 13-17 13-5 0-9-3-11-8Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                  <path d="M18 34c5-4 10-7 18-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="content-card-text">
+                <span class="content-card-label">ALIMENTAÇÃO</span>
+                <h3>Escolhas mais práticas</h3>
+              </div>
+              </div>
+              <p>Ideias e conteúdos para tornar a alimentação do dia a dia mais simples, variada e organizada.</p>
+              <a class="text-link" href="#por-dentro">Conhecer <span aria-hidden="true">→</span></a>
+            </div>
           </article>
-          <article class="content-card">
-            <img src="./assets/images/content-cards/treino-em-casa-com-energia-natural.png" alt="Treino em casa" loading="lazy">
-            <h3>Movimento para sua rotina</h3>
-            <p>Exercícios que cabem no seu tempo e no seu espaço.</p>
+
+          <article class="content-card content-card-workout">
+            <div class="content-card-overlay"></div>
+            <div class="content-card-copy">
+              <div class="content-card-header">
+                <div class="content-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 20h6v8H9v-8Zm24 0h6v8h-6v-8ZM15 24h18" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                  <path d="M6 22v4m36-4v4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="content-card-text">
+                <span class="content-card-label">EXERCÍCIOS</span>
+                <h3>Movimento para sua rotina</h3>
+              </div>
+              </div>
+              <p>Exercícios objetivos para diferentes momentos do dia, com foco em praticidade e constância.</p>
+              <a class="text-link" href="#por-dentro">Conhecer <span aria-hidden="true">→</span></a>
+            </div>
           </article>
-          <article class="content-card">
-            <img src="./assets/images/content-cards/trio-de-sucos-naturais-com-frutas-frescas.png" alt="Sucos naturais" loading="lazy">
-            <h3>Mais variedade no dia</h3>
-            <p>Receitas e sucos leves para variar o cardápio com praticidade.</p>
+
+          <article class="content-card content-card-juice">
+            <div class="content-card-overlay"></div>
+            <div class="content-card-copy">
+              <div class="content-card-header">
+                <div class="content-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 12h16l-2 26H18l-2-26Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                  <path d="M19 20c4 2 7 2 11 0M26 12l5-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="content-card-text">
+                <span class="content-card-label">SUCOS & RECEITAS</span>
+                <h3>Mais variedade no dia</h3>
+              </div>
+              </div>
+              <p>Combinações e receitas para trazer mais sabor, criatividade e praticidade à sua rotina.</p>
+              <a class="text-link" href="#por-dentro">Conhecer <span aria-hidden="true">→</span></a>
+            </div>
           </article>
-          <article class="content-card">
-            <img src="./assets/images/content-cards/rotina-saudavel-em-tons-suaves.png" alt="Rotina saudável" loading="lazy">
-            <h3>Conteúdo mais organizado</h3>
-            <p>Tudo reunido de forma clara para você encontrar o que precisa.</p>
+
+          <article class="content-card content-card-routine">
+            <div class="content-card-overlay"></div>
+            <div class="content-card-copy">
+              <div class="content-card-header">
+                <div class="content-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="9" y="10" width="30" height="30" rx="6" stroke="currentColor" stroke-width="2.4"/>
+                  <path d="M16 7v6m16-6v6M15 21h18M16 29l5 5 11-12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="content-card-text">
+                <span class="content-card-label">MINHA ROTINA</span>
+                <h3>Conteúdo mais organizado</h3>
+              </div>
+              </div>
+              <p>Uma experiência que reúne as áreas do portal para facilitar sua navegação e seu planejamento.</p>
+              <a class="text-link" href="#por-dentro">Conhecer <span aria-hidden="true">→</span></a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- POR DENTRO -->
-    <section class="section section-alt" id="por-dentro" aria-labelledby="por-dentro-title">
+
+    <section class="home-section inside-platform section-pink" id="por-dentro" aria-labelledby="por-dentro-title">
       <div class="container">
-        <div class="section-header center">
-          <span class="section-eyebrow">Por dentro do portal</span>
-          <h2 class="section-title" id="por-dentro-title">Veja como o conteúdo pode ficar <strong>organizado</strong></h2>
-          <p class="section-lead" style="margin-inline:auto">
-            Uma prévia das principais áreas que estamos construindo para o Active Vida Leve.
-          </p>
+        <div class="section-block-heading">
+          <span class="section-tag">CONHEÇA POR DENTRO</span>
+          <h2 class="section-title" id="por-dentro-title">Veja como o conteúdo pode ficar <strong>organizado dentro do portal</strong></h2>
+          <p class="section-description">Uma prévia visual das áreas que estamos construindo. As telas finais serão refinadas junto com o restante do projeto.</p>
         </div>
 
-        <div class="platform-grid">
-          <article class="platform-card">
-            <div class="platform-preview">
-              <img src="./assets/images/carousel/alimentacao-real.webp" alt="Área de alimentação" loading="lazy">
+        <div class="screen-showcase">
+          <article class="screen-card screen-card-food-preview">
+            <div class="screen-preview">
+              <div class="screen-preview-top">
+                <div class="screen-window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="screen-preview-search" aria-hidden="true"></div>
+                <div class="screen-preview-avatar" aria-hidden="true"></div>
+              </div>
+              <div class="screen-preview-body">
+                <aside class="screen-sidebar" aria-hidden="true">
+                  <span class="screen-sidebar-brand"></span>
+                  <span class="screen-sidebar-item screen-sidebar-item-active"></span>
+                  <span class="screen-sidebar-item"></span>
+                  <span class="screen-sidebar-item"></span>
+                  <span class="screen-sidebar-pill"></span>
+                </aside>
+                <div class="screen-main">
+                  <div class="screen-kicker">ALIMENTAÇÃO</div>
+                  <div class="screen-hero">
+                    <div class="screen-hero-copy">
+                      <span class="screen-title-line"></span>
+                      <span class="screen-line screen-line-long"></span>
+                      <span class="screen-line"></span>
+                      <div class="screen-inline-tags" aria-hidden="true"><span></span><span></span></div>
+                    </div>
+                    <div class="screen-hero-visual screen-hero-salad" aria-hidden="true"></div>
+                  </div>
+                  <div class="screen-stat-row" aria-hidden="true">
+                    <div class="screen-stat-card"><strong></strong><span></span></div>
+                    <div class="screen-stat-card"><strong></strong><span></span></div>
+                  </div>
+                  <div class="screen-list" aria-hidden="true">
+                    <span class="screen-list-item"></span>
+                    <span class="screen-list-item screen-list-item-short"></span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="platform-body">
-              <span class="platform-tag">Alimentação</span>
-              <h3>Área de alimentação</h3>
-              <p>Conteúdos e trilhas organizados para facilitar escolhas do dia a dia.</p>
-            </div>
+            <h3>Área de alimentação</h3>
+            <p>Conteúdos e trilhas organizados para facilitar escolhas do dia a dia.</p>
           </article>
-          <article class="platform-card">
-            <div class="platform-preview">
-              <img src="./assets/images/carousel/exercicios-real.webp" alt="Área de exercícios" loading="lazy">
+
+          <article class="screen-card screen-card-featured screen-card-workout-preview">
+            <div class="screen-preview">
+              <div class="screen-preview-top">
+                <div class="screen-window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="screen-preview-search" aria-hidden="true"></div>
+                <div class="screen-preview-avatar" aria-hidden="true"></div>
+              </div>
+              <div class="screen-preview-body screen-preview-body-single">
+                <div class="screen-main screen-main-workout">
+                  <div class="screen-kicker">EXERCÍCIOS</div>
+                  <div class="screen-progress-row" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="screen-player" aria-hidden="true">
+                    <div class="screen-player-copy">
+                      <span class="screen-title-line"></span>
+                      <span class="screen-line screen-line-long"></span>
+                      <span class="screen-line"></span>
+                    </div>
+                    <div class="screen-player-button"></div>
+                  </div>
+                  <div class="screen-workout-grid" aria-hidden="true">
+                    <div class="screen-workout-card"><i></i><span></span><span></span></div>
+                    <div class="screen-workout-card"><i></i><span></span><span></span></div>
+                    <div class="screen-workout-card"><i></i><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="platform-body">
-              <span class="platform-tag">Exercícios</span>
-              <h3>Área de exercícios</h3>
-              <p>Uma prévia visual de treinos, progresso e rotinas dentro da plataforma.</p>
-            </div>
+            <h3>Área de exercícios</h3>
+            <p>Uma prévia visual de treinos, progresso e rotinas dentro da plataforma.</p>
           </article>
-          <article class="platform-card">
-            <div class="platform-preview">
-              <img src="./assets/images/carousel/sucos-real.webp" alt="Sucos e receitas" loading="lazy">
+
+          <article class="screen-card screen-card-recipes-preview">
+            <div class="screen-preview">
+              <div class="screen-preview-top">
+                <div class="screen-window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="screen-preview-search" aria-hidden="true"></div>
+                <div class="screen-preview-avatar" aria-hidden="true"></div>
+              </div>
+              <div class="screen-preview-body">
+                <aside class="screen-sidebar" aria-hidden="true">
+                  <span class="screen-sidebar-brand"></span>
+                  <span class="screen-sidebar-item screen-sidebar-item-active"></span>
+                  <span class="screen-sidebar-item"></span>
+                  <span class="screen-sidebar-item"></span>
+                  <span class="screen-sidebar-pill"></span>
+                </aside>
+                <div class="screen-main">
+                  <div class="screen-kicker">SUCOS &amp; RECEITAS</div>
+                  <div class="screen-recipe-highlight" aria-hidden="true">
+                    <div class="screen-recipe-copy">
+                      <span class="screen-title-line"></span>
+                      <span class="screen-line screen-line-long"></span>
+                    </div>
+                    <div class="screen-recipe-visual"></div>
+                  </div>
+                  <div class="screen-recipe-grid" aria-hidden="true">
+                    <i></i><i></i><i></i>
+                  </div>
+                  <div class="screen-chip-row" aria-hidden="true"><span></span><span></span><span></span></div>
+                </div>
+              </div>
             </div>
-            <div class="platform-body">
-              <span class="platform-tag">Sucos &amp; Receitas</span>
-              <h3>Sucos &amp; receitas</h3>
-              <p>Ideias leves e práticas para variar o dia com mais sabor e praticidade.</p>
-            </div>
+            <h3>Sucos &amp; receitas</h3>
+            <p>Receitas apresentadas de forma visual, prática e fáceis de explorar.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- FEEDBACK -->
-    <section class="feedback-section" id="feedback" aria-labelledby="feedback-title">
+<section class="home-section feedback section-sky" id="feedback" aria-labelledby="feedback-title">
       <div class="container">
-        <div class="section-header center">
-          <span class="section-eyebrow">Experiências</span>
-          <h2 class="section-title" id="feedback-title">Uma área preparada para <strong>experiências reais</strong></h2>
-          <p class="section-lead" style="margin-inline:auto">
-            Exemplos demonstrativos para ilustrar o visual da seção. Quando houver usuários reais, estes conteúdos serão substituídos pelos feedbacks originais.
-          </p>
+        <div class="section-block-heading">
+          <span class="section-tag">FEEDBACK DE QUEM USA</span>
+          <h2 class="section-title" id="feedback-title">Uma área preparada para <strong>experiências reais dos usuários</strong></h2>
+          <p class="section-description">Abaixo usamos exemplos demonstrativos para testar o carrossel e o visual da seção. Quando houver usuários reais, estes conteúdos serão substituídos pelos feedbacks originais.</p>
         </div>
 
-        <div class="feedback-carousel" data-feedback>
-          <div class="feedback-track" data-feedback-track>
-            <article class="feedback-card">
-              <div class="feedback-top">
-                <div class="feedback-avatar">AS</div>
-                <div class="feedback-person">
-                  <h3>Ana Clara S.</h3>
-                  <span>Alimentação</span>
-                </div>
-                <span class="feedback-badge">Experiência Active Vida Leve</span>
-              </div>
-              <div class="feedback-stars">★★★★★</div>
-              <p>“Achei a organização de alimentação bem prática. Os conteúdos ficam com cara de consulta rápida para usar no dia a dia.”</p>
-              <div class="feedback-footer"><span>Active Vida Leve</span><span>03</span></div>
-            </article>
-
-            <article class="feedback-card">
-              <div class="feedback-top">
-                <div class="feedback-avatar">RT</div>
-                <div class="feedback-person">
-                  <h3>Rafael T.</h3>
-                  <span>Navegação</span>
-                </div>
-                <span class="feedback-badge">Experiência Active Vida Leve</span>
-              </div>
-              <div class="feedback-stars">★★★★☆</div>
-              <p>“A navegação está simples e objetiva. Em poucos cliques dá para entender onde ficam as principais áreas do portal.”</p>
-              <div class="feedback-footer"><span>Active Vida Leve</span><span>04</span></div>
-            </article>
-
-            <article class="feedback-card">
-              <div class="feedback-top">
-                <div class="feedback-avatar">JP</div>
-                <div class="feedback-person">
-                  <h3>Juliana P.</h3>
-                  <span>Receitas</span>
-                </div>
-                <span class="feedback-badge">Experiência Active Vida Leve</span>
-              </div>
-              <div class="feedback-stars">★★★★★</div>
-              <p>“Gostei especialmente da área de receitas. O formato visual deixa tudo mais leve e parece fácil de explorar pelo celular.”</p>
-              <div class="feedback-footer"><span>Active Vida Leve</span><span>05</span></div>
-            </article>
-
-            <article class="feedback-card">
-              <div class="feedback-top">
-                <div class="feedback-avatar">BA</div>
-                <div class="feedback-person">
-                  <h3>Bruno A.</h3>
-                  <span>Organização</span>
-                </div>
-                <span class="feedback-badge">Experiência Active Vida Leve</span>
-              </div>
-              <div class="feedback-stars">★★★★☆</div>
-              <p>“O que mais me chamou atenção foi a organização. As informações parecem bem distribuídas e sem excesso de texto.”</p>
-              <div class="feedback-footer"><span>Active Vida Leve</span><span>06</span></div>
-            </article>
-
-            <article class="feedback-card">
-              <div class="feedback-top">
-                <div class="feedback-avatar">CN</div>
-                <div class="feedback-person">
-                  <h3>Camila N.</h3>
-                  <span>Mobile</span>
-                </div>
-                <span class="feedback-badge">Experiência Active Vida Leve</span>
-              </div>
-              <div class="feedback-stars">★★★★★</div>
-              <p>“No celular a proposta fica bem clara. Os conteúdos parecem pensados para navegar sem precisar ficar ampliando a tela.”</p>
-              <div class="feedback-footer"><span>Active Vida Leve</span><span>07</span></div>
-            </article>
-
-            <article class="feedback-card">
-              <div class="feedback-top">
-                <div class="feedback-avatar">DF</div>
-                <div class="feedback-person">
-                  <h3>Diego F.</h3>
-                  <span>Exercícios</span>
-                </div>
-                <span class="feedback-badge">Experiência Active Vida Leve</span>
-              </div>
-              <div class="feedback-stars">★★★★★</div>
-              <p>“A área de exercícios passa uma sensação de rotina bem estruturada. Ficou fácil visualizar treinos e etapas.”</p>
-              <div class="feedback-footer"><span>Active Vida Leve</span><span>08</span></div>
-            </article>
-
-            <article class="feedback-card">
-              <div class="feedback-top">
-                <div class="feedback-avatar">MR</div>
+        <div class="feedback-carousel" data-feedback-carousel aria-label="Carrossel de exemplos demonstrativos de feedback">
+          <div class="feedback-carousel-viewport">
+            <div class="feedback-carousel-track" data-feedback-track>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">MR</div>
                 <div class="feedback-person">
                   <h3>Mariana R.</h3>
-                  <span>Alimentação</span>
+                  <span>Organização</span>
                 </div>
-                <span class="feedback-badge">Experiência Active Vida Leve</span>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
               </div>
-              <div class="feedback-stars">★★★★★</div>
-              <p>“Gostei da forma como os conteúdos de alimentação ficam organizados. Dá para consultar rápido e seguir o dia sem enrolação.”</p>
-              <div class="feedback-footer"><span>Active Vida Leve</span><span>01</span></div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“Gostei de como as áreas ficam separadas por assunto. A sensação é de encontrar o que preciso sem ficar procurando demais.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>01</span>
+              </div>
             </article>
-
-            <article class="feedback-card">
-              <div class="feedback-top">
-                <div class="feedback-avatar">LM</div>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">LM</div>
                 <div class="feedback-person">
                   <h3>Lucas M.</h3>
                   <span>Exercícios</span>
                 </div>
-                <span class="feedback-badge">Experiência Active Vida Leve</span>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
               </div>
-              <div class="feedback-stars">★★★★☆</div>
-              <p>“A proposta de movimento parece acessível. O visual ajuda a entender o que esperar de cada área.”</p>
-              <div class="feedback-footer"><span>Active Vida Leve</span><span>02</span></div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“A parte de exercícios parece direta e fácil de acompanhar. Os blocos visuais ajudam bastante a entender a sequência.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>02</span>
+              </div>
             </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">AS</div>
+                <div class="feedback-person">
+                  <h3>Ana Clara S.</h3>
+                  <span>Alimentação</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“Achei a organização de alimentação bem prática. Os conteúdos ficam com cara de consulta rápida para usar no dia a dia.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>03</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">RT</div>
+                <div class="feedback-person">
+                  <h3>Rafael T.</h3>
+                  <span>Navegação</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 4 de 5 estrelas">★★★★☆</div>
+              <p>“A navegação está simples e objetiva. Em poucos cliques dá para entender onde ficam as principais áreas do portal.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>04</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">JP</div>
+                <div class="feedback-person">
+                  <h3>Juliana P.</h3>
+                  <span>Receitas</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“Gostei especialmente da área de receitas. O formato visual deixa tudo mais leve e parece fácil de explorar pelo celular.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>05</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">BA</div>
+                <div class="feedback-person">
+                  <h3>Bruno A.</h3>
+                  <span>Organização</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 4 de 5 estrelas">★★★★☆</div>
+              <p>“O que mais me chamou atenção foi a organização. As informações parecem bem distribuídas e sem excesso de texto.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>06</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">CN</div>
+                <div class="feedback-person">
+                  <h3>Camila N.</h3>
+                  <span>Mobile</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“No celular a proposta fica bem clara. Os conteúdos parecem pensados para navegar sem precisar ficar ampliando a tela.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>07</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">DF</div>
+                <div class="feedback-person">
+                  <h3>Diego F.</h3>
+                  <span>Exercícios</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“A área de exercícios passa uma sensação de rotina bem estruturada. Ficou fácil visualizar treinos e etapas.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>08</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">FC</div>
+                <div class="feedback-person">
+                  <h3>Fernanda C.</h3>
+                  <span>Conteúdo</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“Gostei da variedade entre alimentação, exercícios e receitas. O portal não fica preso a um único tipo de conteúdo.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>09</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">MV</div>
+                <div class="feedback-person">
+                  <h3>Marcelo V.</h3>
+                  <span>Usabilidade</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 4 de 5 estrelas">★★★★☆</div>
+              <p>“A interface parece limpa e intuitiva. Os títulos e atalhos ajudam a entender rapidamente o que cada seção oferece.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>10</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">BL</div>
+                <div class="feedback-person">
+                  <h3>Beatriz L.</h3>
+                  <span>Receitas</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“A apresentação das receitas ficou agradável e organizada. Dá vontade de abrir os conteúdos e ver as opções disponíveis.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>11</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">GH</div>
+                <div class="feedback-person">
+                  <h3>Gustavo H.</h3>
+                  <span>Visual</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“O visual está moderno sem ficar complicado. As cores ajudam a diferenciar as áreas e deixam a experiência mais leve.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>12</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">LB</div>
+                <div class="feedback-person">
+                  <h3>Larissa B.</h3>
+                  <span>Alimentação</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 4 de 5 estrelas">★★★★☆</div>
+              <p>“Gostei de encontrar alimentação em uma área própria. A estrutura parece boa para consultar ideias sem perder tempo.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>13</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">AP</div>
+                <div class="feedback-person">
+                  <h3>André P.</h3>
+                  <span>Rotina</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“A ideia de reunir tudo em uma rotina organizada faz sentido. Fica mais fácil voltar ao portal e continuar de onde parou.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>14</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">RG</div>
+                <div class="feedback-person">
+                  <h3>Renata G.</h3>
+                  <span>Navegação</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“Os caminhos estão bem claros. Mesmo com várias áreas, a sensação é de uma plataforma simples de aprender a usar.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>15</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">TS</div>
+                <div class="feedback-person">
+                  <h3>Thiago S.</h3>
+                  <span>Exercícios</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 4 de 5 estrelas">★★★★☆</div>
+              <p>“A prévia dos exercícios ficou objetiva. Gosto quando o conteúdo mostra logo o que vou encontrar antes de abrir.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>16</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">PM</div>
+                <div class="feedback-person">
+                  <h3>Patrícia M.</h3>
+                  <span>Mobile</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“A experiência no celular parece bem resolvida. Os cards ficam legíveis e o conteúdo continua fácil de percorrer.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>17</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">DR</div>
+                <div class="feedback-person">
+                  <h3>Daniel R.</h3>
+                  <span>Conteúdo</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“Achei interessante ter assuntos diferentes no mesmo lugar sem misturar tudo. A separação deixa o portal mais organizado.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>18</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">IC</div>
+                <div class="feedback-person">
+                  <h3>Isabela C.</h3>
+                  <span>Visual</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 5 de 5 estrelas">★★★★★</div>
+              <p>“As cores e os elementos visuais deixam o site mais agradável. Tem personalidade sem perder a sensação de organização.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>19</span>
+              </div>
+            </article>
+            <article class="feedback-card" data-feedback-card>
+              <div class="feedback-card-top">
+                <div class="feedback-avatar" aria-hidden="true">FN</div>
+                <div class="feedback-person">
+                  <h3>Felipe N.</h3>
+                  <span>Usabilidade</span>
+                </div>
+                <span class="feedback-demo-badge">EXEMPLO DEMONSTRATIVO</span>
+              </div>
+              <div class="feedback-stars" aria-label="Avaliação demonstrativa: 4 de 5 estrelas">★★★★☆</div>
+              <p>“A proposta parece simples de usar desde o primeiro acesso. Os nomes das áreas são claros e a estrutura é fácil de entender.”</p>
+              <div class="feedback-card-footer">
+                <span>Active Vida Leve</span>
+                <span>20</span>
+              </div>
+            </article>
+            </div>
           </div>
 
-          <div class="feedback-nav">
-            <button type="button" data-feedback-prev aria-label="Anterior">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button type="button" data-feedback-next aria-label="Próximo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
+          <div class="feedback-carousel-controls">
+            <div class="feedback-carousel-status" aria-live="polite">
+              <span class="feedback-current" data-feedback-current>01</span>
+              <span class="feedback-divider">/</span>
+              <span data-feedback-total>20</span>
+            </div>
+            <div class="feedback-progress" aria-hidden="true"><span data-feedback-progress></span></div>
+            <div class="feedback-carousel-buttons">
+              <button class="feedback-arrow" type="button" aria-label="Feedback anterior" data-feedback-prev>‹</button>
+              <button class="feedback-arrow" type="button" aria-label="Próximo feedback" data-feedback-next>›</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="container">
-        <div class="section-header center">
-          <span class="section-eyebrow">Dúvidas</span>
+<section class="home-section faq section-indigo" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <div class="section-block-heading section-block-heading-left faq-heading">
+          <span class="section-tag">PERGUNTAS FREQUENTES</span>
           <h2 class="section-title" id="faq-title">Respostas rápidas para <strong>as dúvidas mais comuns</strong></h2>
+          <p class="section-description">Entenda como funcionam cadastro, acesso, assinatura e conteúdos antes de começar.</p>
+          <div class="faq-helper" aria-hidden="true">
+            <span class="faq-helper-icon">?</span>
+            <div>
+              <strong>Ficou alguma dúvida?</strong>
+              <p>As respostas abaixo resumem os principais pontos do portal.</p>
+            </div>
+          </div>
         </div>
 
         <div class="faq-list">
-          <details>
-            <summary>O que é o Active Vida Leve?</summary>
-            <p>É um portal em desenvolvimento que reúne conteúdos de alimentação, exercícios e receitas em uma experiência mais leve, visual e organizada.</p>
+          <details open>
+            <summary><span class="faq-index">01</span><span class="faq-summary-copy"><span class="faq-category">ACESSO</span><strong>Como funciona o acesso ao Active Vida Leve?</strong></span></summary>
+            <p>Depois de criar sua conta e ativar o acesso, você poderá entrar no portal usando seus dados de login e navegar pelas áreas disponíveis.</p>
           </details>
+
           <details>
-            <summary>Como funciona o acesso?</summary>
-            <p>Após o cadastro e a ativação da assinatura, você passa a ter acesso às áreas disponíveis no portal.</p>
+            <summary><span class="faq-index">02</span><span class="faq-summary-copy"><span class="faq-category">DISPOSITIVOS</span><strong>Posso acessar pelo celular, tablet e computador?</strong></span></summary>
+            <p>Sim. O portal está sendo desenvolvido de forma responsiva para funcionar em celulares, tablets e computadores, adaptando o conteúdo ao tamanho da tela.</p>
           </details>
+
           <details>
-            <summary>Os conteúdos são atualizados?</summary>
-            <p>A estrutura foi preparada para receber novos conteúdos e manter as áreas do portal em evolução.</p>
+            <summary><span class="faq-index">03</span><span class="faq-summary-copy"><span class="faq-category">CONTEÚDOS</span><strong>O que encontro dentro do portal?</strong></span></summary>
+            <p>Você encontrará áreas dedicadas a alimentação, exercícios, sucos, receitas e conteúdos práticos organizados para facilitar a navegação no dia a dia.</p>
           </details>
+
           <details>
-            <summary>O conteúdo substitui orientação profissional?</summary>
-            <p>Não. O conteúdo do portal tem caráter informativo e educativo e não substitui orientação individual de profissionais qualificados.</p>
+            <summary><span class="faq-index">04</span><span class="faq-summary-copy"><span class="faq-category">ASSINATURA</span><strong>Como funciona a assinatura?</strong></span></summary>
+            <p>A assinatura é a etapa que ativa o acesso às áreas disponíveis do portal. As condições do plano serão apresentadas no momento da contratação.</p>
           </details>
+
           <details>
-            <summary>Posso usar pelo celular?</summary>
-            <p>Sim. A experiência foi pensada para funcionar bem em diferentes tamanhos de tela, inclusive no celular.</p>
+            <summary><span class="faq-index">05</span><span class="faq-summary-copy"><span class="faq-category">LIBERAÇÃO</span><strong>Quando meu acesso é liberado após a assinatura?</strong></span></summary>
+            <p>Após a ativação da assinatura, o acesso ao portal é liberado para que você possa entrar e utilizar as áreas disponíveis com sua conta.</p>
+          </details>
+
+          <details>
+            <summary><span class="faq-index">06</span><span class="faq-summary-copy"><span class="faq-category">INICIANTES</span><strong>Existe conteúdo para quem está começando?</strong></span></summary>
+            <p>Sim. A proposta é apresentar conteúdos de forma simples e organizada para que cada pessoa consiga explorar as áreas no próprio ritmo.</p>
+          </details>
+
+          <details>
+            <summary><span class="faq-index">07</span><span class="faq-summary-copy"><span class="faq-category">ROTINA</span><strong>Os conteúdos podem ser organizados de acordo com meu perfil?</strong></span></summary>
+            <p>A proposta do Active Vida Leve é reunir alimentação, exercícios e receitas de forma organizada considerando perfil, preferências e rotina do usuário.</p>
+          </details>
+
+          <details>
+            <summary><span class="faq-index">08</span><span class="faq-summary-copy"><span class="faq-category">ATUALIZAÇÕES</span><strong>Os conteúdos são atualizados?</strong></span></summary>
+            <p>Sim. A estrutura do portal foi preparada para receber novos conteúdos e permitir que as áreas continuem evoluindo ao longo do tempo.</p>
+          </details>
+
+          <details>
+            <summary><span class="faq-index">09</span><span class="faq-summary-copy"><span class="faq-category">NAVEGAÇÃO</span><strong>Preciso instalar algum aplicativo para usar?</strong></span></summary>
+            <p>Não. A experiência foi pensada para funcionar diretamente pelo navegador, permitindo acessar o portal pelos dispositivos compatíveis sem depender de uma instalação separada.</p>
+          </details>
+
+          <details>
+            <summary><span class="faq-index">10</span><span class="faq-summary-copy"><span class="faq-category">ORIENTAÇÃO</span><strong>O conteúdo substitui orientação profissional?</strong></span></summary>
+            <p>Não. Os conteúdos do portal têm caráter informativo e educativo e não substituem acompanhamento ou orientação individual de profissionais qualificados.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section" id="comece" aria-labelledby="comece-title">
-      <div class="container">
-        <div class="cta-box">
-          <span class="section-eyebrow">Pronto para conhecer?</span>
-          <h2 class="section-title" id="comece-title">Leve sua rotina para <strong>um lugar mais organizado</strong></h2>
-          <p>Crie sua conta e acompanhe a evolução das áreas que estamos construindo para o Active Vida Leve.</p>
-          <div class="cta-actions">
-            <a class="btn btn-cta-primary" href="./cadastro.html">Criar minha conta</a>
-            <a class="btn btn-cta-secondary" href="./login.html">Já tenho acesso</a>
-          </div>
+    <section class="final-cta section-periwinkle" id="comece" aria-labelledby="comece-title">
+      <div class="container final-cta-inner">
+        <span class="section-tag">PRONTO PARA CONHECER?</span>
+        <h2 class="section-title" id="comece-title">Leve sua rotina para <strong>um lugar mais organizado</strong></h2>
+        <p>Crie sua conta e acompanhe a evolução das áreas que estamos construindo para o Active Vida Leve.</p>
+        <div class="final-cta-actions">
+          <a class="btn final-primary" href="./cadastro.html">Criar minha conta</a>
+          <a class="btn final-secondary" href="./login.html">Já tenho acesso</a>
         </div>
       </div>
     </section>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve">
+          <p>Alimentação, movimento e receitas em uma experiência mais leve, visual e organizada.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Navegação do rodapé">
+          <h2>Navegação</h2>
+          <a href="#inicio">Início</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#conteudos">Conteúdos</a>
+          </nav>
+        <nav class="footer-nav" aria-label="Informações do rodapé">
+          <h2>Informações</h2>
+          <a href="#feedback">Feedbacks</a>
+          <a href="#faq">Perguntas frequentes</a>
+          <a href="#comece">Criar conta</a>
+        </nav>
+        <div class="footer-contact">
+          <h2>Active Vida Leve</h2>
+          <p>Um portal em desenvolvimento para reunir conteúdos de bem-estar em um só lugar.</p>
+          <a href="./cadastro.html">Começar agora →</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2026 Active Vida Leve. Todos os direitos reservados.</p>
+        <p>Conteúdo informativo e educativo. Não substitui orientação profissional individual.</p>
+      </div>
+    </footer>
   </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve">
-        <p>Alimentação, movimento e receitas em uma experiência mais leve, visual e organizada.</p>
-      </div>
-      <nav class="footer-nav" aria-label="Navegação do rodapé">
-        <h2>Navegação</h2>
-        <a href="#inicio">Início</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#conteudos">Conteúdos</a>
-      </nav>
-      <nav class="footer-nav" aria-label="Informações do rodapé">
-        <h2>Informações</h2>
-        <a href="#feedback">Experiências</a>
-        <a href="#faq">Perguntas frequentes</a>
-        <a href="#comece">Criar conta</a>
-      </nav>
-      <div class="footer-contact">
-        <h2>Active Vida Leve</h2>
-        <p>Um portal em desenvolvimento para reunir conteúdos de bem-estar em um só lugar.</p>
-        <a href="./cadastro.html">Começar agora →</a>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>© 2026 Active Vida Leve. Todos os direitos reservados.</p>
-      <p>Conteúdo informativo e educativo. Não substitui orientação profissional individual.</p>
-    </div>
-  </footer>
 
   <script type="module" src="./js/index.js"></script>
 </body>
