@@ -5,9 +5,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(249, 247, 237, .96);
-  border-bottom: 1px solid rgba(14, 107, 58, .08);
-  box-shadow: 0 8px 22px rgba(14, 107, 58, .045);
+  background: rgba(79, 70, 229, .97);
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 8px 22px rgba(79, 70, 229, .16);
   backdrop-filter: blur(12px);
 }
 
@@ -41,7 +41,7 @@
 
 .main-nav a {
   position: relative;
-  color: #5B6A63;
+  color: rgba(255, 255, 255, .88);
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
@@ -55,12 +55,12 @@
   bottom: -9px;
   height: 2px;
   border-radius: 999px;
-  background: var(--green-500);
+  background: var(--lime-500);
   transition: left .2s ease, right .2s ease;
 }
 
 .main-nav a:hover {
-  color: var(--text);
+  color: var(--white);
 }
 
 .main-nav a:hover::after {
@@ -75,21 +75,33 @@
 }
 
 .header-actions .btn {
-  position: relative;
-  overflow: visible;
   color: var(--white);
   box-shadow: 0 10px 22px rgba(14, 107, 58, .18);
 }
 
-.header-actions .btn::after {
+/* Contorno neon compartilhado dos controles de ação */
+.btn::after,
+.text-link::after,
+.carousel-arrow::after,
+.carousel-bar::after,
+.feedback-arrow::after {
   content: "";
   position: absolute;
   inset: -4px;
   border: 1.5px solid rgba(82, 255, 135, .95);
-  border-radius: 999px;
+  border-radius: inherit;
   box-shadow: 0 0 0 0 rgba(82, 255, 135, .55), 0 0 12px rgba(82, 255, 135, .38);
   animation: neon-pulse 2.2s ease-in-out infinite;
   pointer-events: none;
+}
+
+.btn,
+.text-link,
+.carousel-arrow,
+.carousel-bar,
+.feedback-arrow {
+  position: relative;
+  overflow: visible;
 }
 
 .btn-login {
@@ -134,7 +146,7 @@
     gap: 18px;
   }
 
-  .brand {
+ .brand {
     width: min(100%, 245px);
   }
 
@@ -181,7 +193,7 @@
     gap: 8px;
   }
 
-  .brand {
+ .brand {
     width: min(56vw, 225px);
   }
 
@@ -205,7 +217,7 @@
 }
 
 @media (max-width: 380px) {
-  .brand {
+ .brand {
     width: min(49vw, 190px);
   }
 
@@ -676,7 +688,7 @@
    ========================= */
 .brand-intro {
   position: relative;
-  padding: 4px 0 0;
+  padding: 4px 0 11px;
   overflow: hidden;
   background: var(--surface);
 }
@@ -782,98 +794,11 @@
 }
 
 /* =========================
-   FAIXA DE IMAGENS
-   ========================= */
-.faixa-carrossel {
-  position: relative;
-  left: 50%;
-  width: 100vw;
-  margin: 5px 0 12px -50vw;
-  background: var(--surface);
-}
-
-.faixa-viewport,
-.faixa-track,
-.faixa-group,
-.faixa-item,
-.faixa-item img {
-  height: 80px;
-}
-
-.faixa-viewport {
-  width: 100%;
-  overflow: hidden;
-}
-
-.faixa-track {
-  width: max-content;
-  display: flex;
-  align-items: center;
-  animation: faixa-scroll 54s linear infinite;
-  will-change: transform;
-}
-
-.faixa-group {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 14px;
-  margin: 0;
-  padding: 0 14px 0 0;
-  list-style: none;
-}
-
-.faixa-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-}
-
-.faixa-item img {
-  width: auto;
-  object-fit: contain;
-  object-position: center;
-}
-
-@keyframes faixa-scroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 900px) {
-  .faixa-track {
-    animation-duration: 48s;
-  }
-
-  .faixa-group {
-    gap: 12px;
-    padding-right: 12px;
-  }
-}
-
-@media (max-width: 640px) {
-  .faixa-track {
-    animation-duration: 42s;
-  }
-
-  .faixa-group {
-    gap: 10px;
-    padding-right: 10px;
-  }
-}
-
-/* =========================
    COMO FUNCIONA
    ========================= */
 .how-it-works {
   position: relative;
-  padding: 10px 0 11px;
+  padding: 11px 0;
   overflow: hidden;
   background:
     radial-gradient(circle at 12% 18%, rgba(201, 166, 107, .10), transparent 30%),
@@ -2971,8 +2896,13 @@
   .btn,
   .carousel-arrow,
   .carousel-bar,
-  .header-actions .btn::after,
-  .faixa-track,
+  .text-link,
+  .feedback-arrow,
+  .btn::after,
+  .text-link::after,
+  .carousel-arrow::after,
+  .carousel-bar::after,
+  .feedback-arrow::after,
   .faq-list details,
   .faq-list summary::after {
     transition: none;
