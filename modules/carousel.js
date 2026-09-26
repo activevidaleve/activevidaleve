@@ -8,6 +8,8 @@ export function initCarousel() {
   const nextButton = root.querySelector("[data-next]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  if (slides.length === 0) return;
+
   let currentIndex = 0;
   let autoTimer = null;
   let touchStartX = null;
@@ -60,22 +62,30 @@ export function initCarousel() {
   root.addEventListener("focusin", stopAuto);
   root.addEventListener("focusout", startAuto);
 
-  root.addEventListener("touchstart", (event) => {
-    touchStartX = event.touches[0]?.clientX ?? null;
-  }, { passive: true });
+  root.addEventListener(
+    "touchstart",
+    (event) => {
+      touchStartX = event.touches[0]?.clientX ?? null;
+    },
+    { passive: true },
+  );
 
-  root.addEventListener("touchend", (event) => {
-    if (touchStartX === null) return;
+  root.addEventListener(
+    "touchend",
+    (event) => {
+      if (touchStartX === null) return;
 
-    const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
-    const distance = touchEndX - touchStartX;
+      const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
+      const distance = touchEndX - touchStartX;
 
-    if (Math.abs(distance) > 45) {
-      moveBy(distance < 0 ? 1 : -1);
-    }
+      if (Math.abs(distance) > 45) {
+        moveBy(distance < 0 ? 1 : -1);
+      }
 
-    touchStartX = null;
-  }, { passive: true });
+      touchStartX = null;
+    },
+    { passive: true },
+  );
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stopAuto();

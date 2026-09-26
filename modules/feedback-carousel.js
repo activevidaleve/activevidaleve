@@ -10,6 +10,8 @@ export function initFeedbackCarousel() {
   const totalLabel = root.querySelector("[data-feedback-total]");
   const progress = root.querySelector("[data-feedback-progress]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const mobileMedia = window.matchMedia("(max-width: 760px)");
+  const tabletMedia = window.matchMedia("(max-width: 980px)");
 
   if (!track || cards.length === 0) return;
 
@@ -19,8 +21,8 @@ export function initFeedbackCarousel() {
   let resizeTimer = null;
 
   const visibleCount = () => {
-    if (window.matchMedia("(max-width: 760px)").matches) return 1;
-    if (window.matchMedia("(max-width: 980px)").matches) return 2;
+    if (mobileMedia.matches) return 1;
+    if (tabletMedia.matches) return 2;
     return 3;
   };
 
@@ -44,7 +46,11 @@ export function initFeedbackCarousel() {
       progress.style.width = `${((currentIndex + 1) / steps) * 100}%`;
     }
 
-    if (!animate) requestAnimationFrame(() => { track.style.transition = ""; });
+    if (!animate) {
+      requestAnimationFrame(() => {
+        track.style.transition = "";
+      });
+    }
   };
 
   const stopAuto = () => {
@@ -79,17 +85,30 @@ export function initFeedbackCarousel() {
   root.addEventListener("focusin", stopAuto);
   root.addEventListener("focusout", startAuto);
 
-  root.addEventListener("touchstart", (event) => {
-    touchStartX = event.touches[0]?.clientX ?? null;
-  }, { passive: true });
+  root.addEventListener(
+    "touchstart",
+    (event) => {
+      touchStartX = event.touches[0]?.clientX ?? null;
+    },
+    { passive: true },
+  );
 
-  root.addEventListener("touchend", (event) => {
-    if (touchStartX === null) return;
-    const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
-    const distance = touchEndX - touchStartX;
-    if (Math.abs(distance) > 45) moveBy(distance < 0 ? 1 : -1);
-    touchStartX = null;
-  }, { passive: true });
+  root.addEventListener(
+    "touchend",
+    (event) => {
+      if (touchStartX === null) return;
+
+      const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
+      const distance = touchEndX - touchStartX;
+
+      if (Math.abs(distance) > 45) {
+        moveBy(distance < 0 ? 1 : -1);
+      }
+
+      touchStartX = null;
+    },
+    { passive: true },
+  );
 
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);

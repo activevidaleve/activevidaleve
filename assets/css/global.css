@@ -2,7 +2,6 @@
   --green-900: #0E6B3A;
   --green-800: #0A5A31;
   --green-500: #22C55E;
-  --green-100: #EEF5F0;
   --teal-500: #00C2A8;
   --coral-500: #FF7A59;
   --orange-500: #F97316;
@@ -91,10 +90,6 @@ button {
   min-height: 46px;
   padding: 0 22px;
   font-size: 13px;
-}
-
-.stage-anchor {
-  height: 1px;
 }
 
 @media (max-width: 640px) {

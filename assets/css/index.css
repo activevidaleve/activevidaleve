@@ -1335,7 +1335,13 @@
 .content-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(252, 251, 246, .08) 0%, rgba(252, 251, 246, .2) 28%, rgba(252, 251, 246, .62) 58%, rgba(252, 251, 246, .9) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(252, 251, 246, .08) 0%,
+    rgba(252, 251, 246, .2) 28%,
+    rgba(252, 251, 246, .62) 58%,
+    rgba(252, 251, 246, .9) 100%
+  );
   z-index: 1;
   pointer-events: none;
 }
@@ -1358,22 +1364,22 @@
 }
 
 .content-card-food {
-  --card-bg: url('../images/content-cards/food-card-bg.png');
+  --card-bg: url('../images/content-cards/food-card-bg.webp');
   --card-bg-position: center 24%;
 }
 
 .content-card-workout {
-  --card-bg: url('../images/content-cards/workout-card-bg.png');
+  --card-bg: url('../images/content-cards/workout-card-bg.webp');
   --card-bg-position: center 28%;
 }
 
 .content-card-juice {
-  --card-bg: url('../images/content-cards/juice-card-bg.png');
+  --card-bg: url('../images/content-cards/juice-card-bg.webp');
   --card-bg-position: center 30%;
 }
 
 .content-card-routine {
-  --card-bg: url('../images/content-cards/routine-card-bg.png');
+  --card-bg: url('../images/content-cards/routine-card-bg.webp');
   --card-bg-position: center 32%;
 }
 
@@ -1591,8 +1597,7 @@
   padding: 16px;
 }
 
-.screen-kicker,
-.screen-badge {
+.screen-kicker {
   color: var(--mockup-accent);
   font-size: 9px;
   font-weight: 800;
@@ -1754,7 +1759,11 @@
   height: 56px;
   border-radius: 50%;
   justify-self: end;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--mockup-accent) 84%, white), color-mix(in srgb, var(--mockup-accent) 58%, white));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--mockup-accent) 84%, white),
+    color-mix(in srgb, var(--mockup-accent) 58%, white)
+  );
   box-shadow: 0 12px 20px color-mix(in srgb, var(--mockup-accent) 22%, transparent);
   position: relative;
 }
@@ -2539,7 +2548,6 @@
     min-height: 258px;
   }
 
-
   .feedback-card {
     flex-basis: calc((100% - var(--feedback-gap)) / 2);
   }
@@ -2590,7 +2598,13 @@
   }
 
   .content-card-overlay {
-    background: linear-gradient(180deg, rgba(252, 251, 246, .1) 0%, rgba(252, 251, 246, .22) 30%, rgba(252, 251, 246, .68) 62%, rgba(252, 251, 246, .92) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(252, 251, 246, .1) 0%,
+      rgba(252, 251, 246, .22) 30%,
+      rgba(252, 251, 246, .68) 62%,
+      rgba(252, 251, 246, .92) 100%
+    );
   }
 
   .content-card-copy {
@@ -2619,7 +2633,6 @@
     min-height: 36px;
     padding-inline: 14px;
   }
-
 
   .screen-showcase,
   .faq-layout {
