@@ -1,51 +1,69 @@
-:root {
-  --green-900: #0E6B3A;
-  --green-800: #0A5A31;
-  --green-500: #22C55E;
-  --green-100: #EEF5F0;
-  --teal-500: #00C2A8;
-  --coral-500: #FF7A59;
-  --orange-500: #F97316;
-  --orange-600: #EA6B11;
-  --yellow-500: #FFB703;
-  --yellow-600: #F2AB00;
-  --blue-500: #2563EB;
-  --pink-500: #EC4899;
-  --sky-500: #0EA5E9;
-  --indigo-500: #4F46E5;
-  --periwinkle-500: #6366F1;
-  --violet-500: #A855F7;
-  --cyan-500: #06B6D4;
-  --rose-500: #F43F5E;
-  --lime-500: #84CC16;
-  --cream: #F9F7ED;
-  --surface: #FCFBF6;
-  --text: #263E32;
-  --text-muted: #617369;
-  --white: #FFFFFF;
-  --container: 1200px;
+/* Active Vida Leve — Redesign 2026
+   Global reset & base tokens */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-* {
-  box-sizing: border-box;
+:root {
+  /* Core palette — soft wellness */
+  --green-950: #0f2a1f;
+  --green-900: #1a3c2e;
+  --green-800: #24553f;
+  --green-700: #2d6a4f;
+  --green-600: #40916c;
+  --green-500: #52b788;
+  --green-400: #74c69d;
+  --green-300: #95d5b2;
+  --green-100: #d8f3dc;
+  --green-50: #f0faf2;
+
+  --cream: #faf8f5;
+  --cream-dark: #f3efe8;
+  --sand: #e8e2d9;
+  --ink: #1c1917;
+  --ink-soft: #44403c;
+  --muted: #78716c;
+  --line: #e7e5e4;
+
+  --coral: #e07a5f;
+  --coral-soft: #f4a992;
+  --teal: #2a9d8f;
+  --teal-soft: #7ecfc4;
+
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.04);
+  --shadow-md: 0 4px 20px rgba(28, 25, 23, 0.06);
+  --shadow-lg: 0 12px 40px rgba(28, 25, 23, 0.08);
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --container: 1120px;
+  --header-h: 72px;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  margin: 0;
-  overflow-x: clip;
-  color: var(--text);
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
   background: var(--cream);
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 img {
-  display: block;
   max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
@@ -53,52 +71,24 @@ a {
   text-decoration: none;
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
 button {
   font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
 }
 
 .container {
-  width: min(calc(100% - 40px), var(--container));
+  width: min(100% - 40px, var(--container));
   margin-inline: auto;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  font-weight: 700;
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-small {
-  min-height: 42px;
-  padding: 0 18px;
-  font-size: 14px;
-}
-
-.btn-large {
-  min-height: 46px;
-  padding: 0 22px;
-  font-size: 13px;
-}
-
-.stage-anchor {
-  height: 1px;
 }
 
 @media (max-width: 640px) {
   .container {
-    width: min(calc(100% - 24px), var(--container));
+    width: min(100% - 28px, var(--container));
   }
 }

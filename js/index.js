@@ -1,5 +1,5 @@
-import { initCarousel } from "../modules/carousel.js";
 import { initFeedbackCarousel } from "../modules/feedback-carousel.js";
+import { initMobileMenu } from "../modules/mobile-menu.js";
 
-initCarousel();
 initFeedbackCarousel();
+initMobileMenu();
