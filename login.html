@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="Entre na sua conta do Active Vida Leve.">
+  <title>Entrar | Active Vida Leve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+<body class="login-page">
+  <header class="login-header">
+    <div class="container login-header-inner">
+      <a class="login-brand" href="./index.html" aria-label="Active Vida Leve">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+      <div class="login-header-actions">
+        <span>Ainda não tem uma conta?</span>
+        <a class="btn btn-small login-signup-link" href="./cadastro.html">Cadastro</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="login-main">
+    <div class="container login-layout">
+      <section class="login-intro" aria-labelledby="login-page-title">
+        <span class="login-eyebrow">BEM-VINDO DE VOLTA</span>
+        <h1 id="login-page-title">Entre e continue sua <strong>rotina Active.</strong></h1>
+        <p>Use sua conta para acessar o portal, consultar seu perfil e continuar de onde parou.</p>
+
+        <div class="login-benefits" aria-label="Recursos da conta">
+          <div class="login-benefit">
+            <span aria-hidden="true">01</span>
+            <div>
+              <strong>Seu perfil fica conectado</strong>
+              <p>As preferências preenchidas no cadastro ficam vinculadas à sua conta.</p>
+            </div>
+          </div>
+          <div class="login-benefit">
+            <span aria-hidden="true">02</span>
+            <div>
+              <strong>Acesso em qualquer dispositivo</strong>
+              <p>Entre novamente usando o mesmo e-mail ou sua conta Google.</p>
+            </div>
+          </div>
+          <div class="login-benefit">
+            <span aria-hidden="true">03</span>
+            <div>
+              <strong>Portal personalizado</strong>
+              <p>O conteúdo interno poderá ser organizado conforme o seu perfil.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="login-card" aria-labelledby="login-card-title">
+        <div class="login-card-heading">
+          <span>ACESSAR MINHA CONTA</span>
+          <h2 id="login-card-title">Entrar no Active Vida Leve</h2>
+          <p>Escolha uma das opções abaixo para continuar.</p>
+        </div>
+
+        <button class="login-google" type="button" data-login-google>
+          <span class="login-google-icon" aria-hidden="true">G</span>
+          Continuar com Google
+        </button>
+
+        <div class="login-divider"><span>ou entre com e-mail</span></div>
+
+        <form class="login-form" data-login-form novalidate>
+          <label class="login-field">
+            <span>E-mail</span>
+            <input type="email" name="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+            <small class="login-field-error" data-error-for="email"></small>
+          </label>
+
+          <label class="login-field">
+            <span>Senha</span>
+            <div class="login-password-wrap">
+              <input type="password" name="senha" autocomplete="current-password" placeholder="Digite sua senha" required>
+              <button class="login-password-toggle" type="button" data-password-toggle aria-label="Mostrar senha">Mostrar</button>
+            </div>
+            <small class="login-field-error" data-error-for="senha"></small>
+          </label>
+
+          <div class="login-form-row">
+            <label class="login-remember">
+              <input type="checkbox" name="lembrar" checked>
+              <span>Manter conectado</span>
+            </label>
+            <button class="login-forgot" type="button" data-forgot-password>Esqueci minha senha</button>
+          </div>
+
+          <button class="login-submit" type="submit" data-login-submit>Entrar</button>
+          <div class="login-status" data-login-status hidden role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="login-account-note">
+          <span>Novo por aqui?</span>
+          <a href="./cadastro.html">Criar minha conta</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="login-footer">
+    <div class="container login-footer-inner">
+      <p>© 2026 Active Vida Leve.</p>
+      <a href="./index.html">Voltar para o início</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/login.js"></script>
+</body>
+</html>

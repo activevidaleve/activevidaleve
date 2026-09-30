@@ -49,13 +49,13 @@ logoutButton?.addEventListener("click", async () => {
   try {
     await signOut(auth);
   } finally {
-    window.location.replace("./cadastro.html");
+    window.location.replace("./login.html");
   }
 });
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.replace("./cadastro.html");
+    window.location.replace("./login.html");
     return;
   }
 
