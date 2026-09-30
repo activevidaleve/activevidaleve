@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="Pagamento demonstrativo do Active Vida Leve para testes durante o desenvolvimento.">
+  <title>Pagamento de teste | Active Vida Leve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/pagamento.css">
+</head>
+<body class="payment-page">
+  <header class="payment-header">
+    <div class="container payment-header-inner">
+      <a class="payment-brand" href="./index.html" aria-label="Voltar para a página inicial do Active Vida Leve">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+      <span class="dev-badge">AMBIENTE DE TESTE</span>
+    </div>
+  </header>
+
+  <main class="payment-main">
+    <div class="container payment-layout" data-payment-app hidden>
+      <section class="payment-copy" aria-labelledby="payment-title">
+        <span class="payment-eyebrow">PAGAMENTO DEMONSTRATIVO</span>
+        <h1 id="payment-title">Vamos simular a <strong>liberação do seu acesso.</strong></h1>
+        <p>Esta página existe apenas para continuarmos construindo e testando o portal. Nenhuma cobrança real será feita nesta etapa.</p>
+
+        <div class="payment-account-card">
+          <span>Conta conectada</span>
+          <strong data-user-name>Usuário Active</strong>
+          <small data-user-email></small>
+        </div>
+
+        <div class="payment-dev-note">
+          <strong>Como funciona nesta fase?</strong>
+          <p>Ao aprovar a simulação, salvaremos apenas um marcador de desenvolvimento no seu perfil. Os campos reais <code>status_pagamento</code> e <code>status_acesso</code> continuam protegidos e não serão alterados pelo navegador.</p>
+        </div>
+      </section>
+
+      <section class="payment-card" aria-label="Checkout demonstrativo">
+        <div class="payment-card-top">
+          <div>
+            <span>Plano demonstrativo</span>
+            <h2>Active Vida Leve</h2>
+          </div>
+          <span class="test-pill">SIMULAÇÃO</span>
+        </div>
+
+        <div class="payment-price">
+          <span>Valor de demonstração</span>
+          <strong>R$ 29,90</strong>
+          <small>Nenhum valor será cobrado.</small>
+        </div>
+
+        <fieldset class="payment-methods">
+          <legend>Escolha um método para a simulação</legend>
+
+          <label class="payment-method is-selected">
+            <input type="radio" name="metodo_pagamento_teste" value="pix" checked>
+            <span class="payment-method-icon" aria-hidden="true">◆</span>
+            <span>
+              <strong>Pix</strong>
+              <small>Aprovação instantânea na simulação</small>
+            </span>
+          </label>
+
+          <label class="payment-method">
+            <input type="radio" name="metodo_pagamento_teste" value="cartao">
+            <span class="payment-method-icon" aria-hidden="true">▰</span>
+            <span>
+              <strong>Cartão</strong>
+              <small>Checkout visual de demonstração</small>
+            </span>
+          </label>
+
+          <label class="payment-method">
+            <input type="radio" name="metodo_pagamento_teste" value="boleto">
+            <span class="payment-method-icon" aria-hidden="true">▤</span>
+            <span>
+              <strong>Boleto</strong>
+              <small>Disponível somente para testar o fluxo</small>
+            </span>
+          </label>
+        </fieldset>
+
+        <div class="payment-actions">
+          <button class="btn payment-approve-btn" type="button" data-simulate-approved>Simular pagamento aprovado</button>
+          <div class="payment-test-actions">
+            <button type="button" data-simulate-pending>Simular pendente</button>
+            <button type="button" data-simulate-rejected>Simular recusado</button>
+          </div>
+        </div>
+
+        <p class="payment-status" data-payment-status role="status" aria-live="polite" hidden></p>
+        <a class="payment-back" href="./cadastro.html">← Voltar para o cadastro</a>
+      </section>
+    </div>
+
+    <div class="container payment-loading" data-payment-loading>
+      <div class="payment-loading-card">
+        <span class="payment-spinner" aria-hidden="true"></span>
+        <p>Carregando seu ambiente de teste…</p>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./js/pagamento.js"></script>
+</body>
+</html>

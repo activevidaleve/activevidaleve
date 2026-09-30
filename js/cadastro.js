@@ -476,12 +476,16 @@ if (form) {
       batch.set(doc(db, "perfis", user.uid), perfil, { merge: true });
       await batch.commit();
 
-      setStatus(firebaseStatus, "Cadastro salvo com sucesso no Firebase.", "success");
+      setStatus(firebaseStatus, "Cadastro salvo com sucesso no Firebase. Abrindo o pagamento de teste…", "success");
       if (paymentMessage) paymentMessage.hidden = false;
       if (paymentButton) {
-        paymentButton.textContent = "Cadastro salvo";
+        paymentButton.textContent = "Abrindo pagamento…";
         paymentButton.disabled = true;
       }
+
+      window.setTimeout(() => {
+        window.location.href = "./pagamento.html";
+      }, 650);
     } catch (error) {
       console.error("Erro ao salvar cadastro:", error);
 

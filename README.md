@@ -74,3 +74,11 @@ Estados sensíveis como `status_pagamento`, `status_acesso` e futuros estados de
 4. Criar página de login.
 5. Integrar checkout e webhook do meio de pagamento.
 6. Implementar validação do sistema de indicações e comissões no backend.
+
+## Fluxo de pagamento em desenvolvimento
+
+Enquanto o meio de pagamento real não estiver definido, o projeto usa `pagamento.html` apenas para simulação. A página grava no documento `perfis/{uid}` campos separados de teste (`pagamento_teste_status`, `acesso_teste`, `pagamento_teste_metodo`, `pagamento_teste_valor` e `ambiente_pagamento`).
+
+Os campos reais `status_pagamento` e `status_acesso` em `usuarios/{uid}` continuam protegidos e não são modificados pelo navegador. Quando o pagamento real for integrado, a liberação deverá ocorrer por backend/webhook.
+
+`portal.html` aceita temporariamente `acesso_teste: true` com `pagamento_teste_status: "aprovado"` para permitir a construção das áreas internas. Também já aceita o futuro fluxo real quando `status_pagamento: "pago"` e `status_acesso: "ativo"` forem definidos pelo backend.

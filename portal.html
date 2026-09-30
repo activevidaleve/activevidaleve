@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="Portal demonstrativo do Active Vida Leve em construção.">
+  <title>Portal | Active Vida Leve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/portal.css">
+</head>
+<body class="portal-page">
+  <header class="portal-header">
+    <div class="container portal-header-inner">
+      <a class="portal-brand" href="./index.html" aria-label="Active Vida Leve">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+      <div class="portal-header-actions">
+        <span class="dev-badge">PORTAL EM CONSTRUÇÃO</span>
+        <button class="portal-logout" type="button" data-logout>Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="portal-main" data-portal-app hidden>
+    <section class="portal-hero">
+      <div class="container portal-hero-inner">
+        <div>
+          <span class="portal-eyebrow">SEU ESPAÇO ACTIVE</span>
+          <h1>Olá, <strong data-user-first-name>Usuário</strong>.</h1>
+          <p>Seu acesso de desenvolvimento está liberado. A partir daqui vamos construir as áreas internas e conectar a personalização ao seu perfil.</p>
+        </div>
+        <div class="portal-access-card">
+          <span class="portal-access-dot" aria-hidden="true"></span>
+          <div>
+            <strong>Acesso de teste ativo</strong>
+            <small data-access-description>Pagamento simulado aprovado</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container portal-section" aria-labelledby="portal-start-title">
+      <div class="portal-section-heading">
+        <span>PRÓXIMAS ÁREAS</span>
+        <h2 id="portal-start-title">Vamos construir o portal por módulos.</h2>
+        <p>Esses blocos já deixam a navegação interna preparada para receber conteúdos reais nas próximas versões.</p>
+      </div>
+
+      <div class="portal-modules">
+        <article class="portal-module portal-module-food">
+          <span class="portal-module-icon" aria-hidden="true">◒</span>
+          <span class="portal-module-label">ALIMENTAÇÃO</span>
+          <h3>Escolhas e conteúdos para sua rotina</h3>
+          <p>Receitas, organização alimentar e conteúdos selecionados de acordo com o perfil.</p>
+          <span class="portal-module-status">Em construção</span>
+        </article>
+
+        <article class="portal-module portal-module-workout">
+          <span class="portal-module-icon" aria-hidden="true">↔</span>
+          <span class="portal-module-label">EXERCÍCIOS</span>
+          <h3>Movimento no seu ritmo</h3>
+          <p>Rotinas e exercícios organizados por nível, tempo disponível e equipamentos.</p>
+          <span class="portal-module-status">Em construção</span>
+        </article>
+
+        <article class="portal-module portal-module-recipes">
+          <span class="portal-module-icon" aria-hidden="true">▱</span>
+          <span class="portal-module-label">SUCOS &amp; RECEITAS</span>
+          <h3>Mais variedade no dia a dia</h3>
+          <p>Uma área visual para receitas rápidas, refeições e combinações práticas.</p>
+          <span class="portal-module-status">Em construção</span>
+        </article>
+
+        <article class="portal-module portal-module-routine">
+          <span class="portal-module-icon" aria-hidden="true">✓</span>
+          <span class="portal-module-label">MINHA ROTINA</span>
+          <h3>Seu perfil em um só lugar</h3>
+          <p>Objetivos, preferências e progresso poderão ser consultados e atualizados aqui.</p>
+          <span class="portal-module-status">Em construção</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="container portal-profile-preview" aria-labelledby="profile-preview-title">
+      <div class="portal-profile-copy">
+        <span>SEU PERFIL</span>
+        <h2 id="profile-preview-title">O Firebase já está trazendo seus dados.</h2>
+        <p>Essa prévia confirma que o portal consegue consultar o onboarding salvo no cadastro.</p>
+      </div>
+      <div class="portal-profile-grid" data-profile-preview>
+        <div><span>Nível</span><strong data-profile-level>—</strong></div>
+        <div><span>Rotina</span><strong data-profile-days>—</strong></div>
+        <div><span>Treino</span><strong data-profile-duration>—</strong></div>
+        <div><span>Alimentação</span><strong data-profile-food>—</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="portal-loading" data-portal-loading>
+    <span class="payment-spinner" aria-hidden="true"></span>
+    <p>Validando seu acesso…</p>
+  </div>
+
+  <script type="module" src="./js/portal.js"></script>
+</body>
+</html>
