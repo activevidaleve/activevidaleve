@@ -101,3 +101,6 @@ A área `exercicios.html` agora usa `js/exercicios.js` e `assets/css/exercicios.
 - mostrar um resumo do perfil de movimento salvo no Firestore;
 - manter orientações educativas, sem metas de aparência, calorias ou incentivo a excesso de treino.
 
+## Sucos & Receitas — versão atual
+
+A área `receitas.html` agora inclui filtros por momento do dia, priorização por perfil alimentar, tempo disponível e interesses do onboarding, além de receitas editoriais expansíveis e avisos para restrições/alergias.
