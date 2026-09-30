@@ -1,55 +1,76 @@
-# Active Vida Leve — Baseline V13
+# Active Vida Leve — Baseline V15
 
 ## Estrutura atual
 - `index.html`: página inicial aprovada do portal.
 - `cadastro.html`: onboarding de cadastro em 5 etapas + resumo do perfil.
 - `assets/css/global.css`: variáveis, reset e componentes globais.
 - `assets/css/index.css`: estilos específicos do index e seus breakpoints.
-- `assets/css/cadastro.css`: estilos exclusivos do cadastro e responsividade.
+- `assets/css/cadastro.css`: estilos exclusivos do cadastro, autenticação e responsividade.
 - `js/index.js`: inicialização dos módulos utilizados no index.
-- `js/cadastro.js`: navegação entre etapas, validações e resumo local do cadastro.
+- `js/cadastro.js`: navegação, validações, Google Sign-In, criação de conta e gravação do perfil.
+- `js/firebase.js`: inicialização do Firebase Web SDK.
 - `modules/carousel.js`: carrossel principal do index.
 - `modules/feedback-carousel.js`: carrossel demonstrativo de feedbacks.
 - `assets/images/`: imagens atualmente utilizadas pelas páginas.
 
-## Cadastro V1
-O fluxo do cadastro está preparado visualmente, mas ainda não envia dados para Firebase nem inicia pagamento.
+## Cadastro conectado ao Firebase
+O fluxo agora suporta:
+- cadastro por e-mail e senha via Firebase Authentication;
+- autenticação com Google via Firebase Authentication;
+- gravação atômica no Cloud Firestore das coleções `usuarios` e `perfis`;
+- `status_pagamento: pendente` e `status_acesso: inativo` no cadastro inicial;
+- captura opcional de `?ref=CODIGO` como `referencia_informada`, ainda não validada para comissão;
+- mensagens de erro em português para os casos principais;
+- pagamento ainda não conectado.
 
-Etapas:
-1. Conta: nome, sobrenome, e-mail, senha e data de nascimento.
-2. Perfil: altura, peso opcional e nível de atividade.
-3. Objetivos: até 3 objetivos selecionáveis.
-4. Exercícios e rotina: experiência, frequência, duração, local e equipamentos.
-5. Alimentação: perfil alimentar, interesses, tempo de preparo e restrições opcionais.
-6. Resumo local para revisão antes da futura assinatura.
-
-## Padrão previsto para Firebase
-As coleções e campos deverão permanecer em português, sem acentos nas chaves técnicas e preferencialmente em `snake_case`.
-
-Exemplos de coleções:
-- `usuarios`
-- `perfis`
-- `conteudos`
-- `pagamentos`
-- `assinaturas`
-
-Exemplos de campos:
+## Estrutura Firestore atual
+### `usuarios/{uid}`
+- `nome`
+- `sobrenome`
+- `email`
 - `data_nascimento`
+- `provedor_cadastro`
+- `status_pagamento`
+- `status_acesso`
+- `referencia_informada`
+- `origem_cadastro`
+- `criado_em`
+- `atualizado_em`
+
+### `perfis/{uid}`
+- `altura`
+- `peso`
 - `nivel_atividade`
+- `objetivos`
 - `nivel_exercicio`
 - `dias_exercicio`
 - `duracao_treino`
 - `local_exercicio`
 - `equipamentos`
-- `objetivos`
-- `preferencias_alimentares`
+- `exercicios_evitar`
+- `perfil_alimentar`
+- `interesses_alimentares`
+- `tempo_preparo`
+- `alimentos_evitar`
 - `restricoes_alimentares`
-- `status_pagamento`
-- `status_acesso`
+- `onboarding_concluido`
+- `versao_onboarding`
+- `atualizado_em`
 
-## Próximas integrações
-- Firebase Authentication para criação e login da conta.
-- Firestore para `usuarios` e `perfis`.
-- Página/fluxo de pagamento.
-- Webhook/backend para liberar acesso após confirmação real do pagamento.
-- Portal interno usando os dados do perfil para ordenar conteúdos.
+## Arquitetura prevista para pagamento e indicações
+Coleções reservadas para a próxima fase:
+- `pagamentos`
+- `assinaturas`
+- `indicacoes`
+- `comissoes`
+- `conteudos`
+
+Estados sensíveis como `status_pagamento`, `status_acesso` e futuros estados de comissão deverão ser controlados pelo backend/webhook, nunca pelo navegador do usuário.
+
+## Próximos passos
+1. Autorizar o domínio de produção no Firebase Authentication.
+2. Testar cadastro por e-mail/senha e Google.
+3. Conferir `usuarios` e `perfis` no Firestore.
+4. Criar página de login.
+5. Integrar checkout e webhook do meio de pagamento.
+6. Implementar validação do sistema de indicações e comissões no backend.

@@ -1,3 +1,18 @@
+import {
+  createUserWithEmailAndPassword,
+  deleteUser,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {
+  doc,
+  serverTimestamp,
+  writeBatch
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { auth, db } from "./firebase.js";
+
 const form = document.querySelector("#signup-form");
 
 if (form) {
@@ -11,8 +26,14 @@ if (form) {
   const progressDots = [...document.querySelectorAll(".signup-step-dots span")];
   const goalInputs = [...form.querySelectorAll('input[name="objetivos"]')];
   const goalCounter = form.querySelector("[data-goal-count]");
-  const paymentPlaceholder = form.querySelector("[data-payment-placeholder]");
+  const paymentButton = form.querySelector("[data-payment-placeholder]");
   const paymentMessage = form.querySelector("[data-payment-message]");
+  const firebaseStatus = form.querySelector("[data-firebase-status]");
+  const authStatus = form.querySelector("[data-auth-status]");
+  const googleButton = form.querySelector("[data-google-auth]");
+  const googleAccountState = form.querySelector("[data-google-account-state]");
+  const googleAccountEmail = form.querySelector("[data-google-account-email]");
+  const passwordFields = [...form.querySelectorAll("[data-password-field]")];
   const ageGuidance = form.querySelector("[data-age-guidance]");
 
   const stepNames = [
@@ -24,8 +45,19 @@ if (form) {
   ];
 
   let currentStep = 1;
+  let authMethod = "email_senha";
+  let googleUser = null;
+  let isSaving = false;
 
   const getField = (name) => form.elements.namedItem(name);
+
+  const setStatus = (element, message = "", type = "") => {
+    if (!element) return;
+    element.hidden = !message;
+    element.textContent = message;
+    element.classList.remove("is-loading", "is-success", "is-error");
+    if (message && type) element.classList.add(`is-${type}`);
+  };
 
   const getAge = () => {
     const birthDateField = getField("data_nascimento");
@@ -72,7 +104,10 @@ if (form) {
     if (step === 1) {
       ["nome", "sobrenome", "email", "senha", "confirmar_senha", "data_nascimento", "aceite_termos"].forEach(clearError);
 
-      const requiredTextFields = ["nome", "sobrenome", "email", "senha", "confirmar_senha", "data_nascimento"];
+      const requiredTextFields = authMethod === "google"
+        ? ["nome", "sobrenome", "email", "data_nascimento"]
+        : ["nome", "sobrenome", "email", "senha", "confirmar_senha", "data_nascimento"];
+
       requiredTextFields.forEach((name) => {
         const field = getField(name);
         if (!field?.value?.trim()) {
@@ -87,16 +122,18 @@ if (form) {
         valid = false;
       }
 
-      const password = getField("senha");
-      const confirmPassword = getField("confirmar_senha");
-      if (password?.value && password.value.length < 8) {
-        setError("senha", "Use pelo menos 8 caracteres.");
-        valid = false;
-      }
+      if (authMethod !== "google") {
+        const password = getField("senha");
+        const confirmPassword = getField("confirmar_senha");
+        if (password?.value && password.value.length < 8) {
+          setError("senha", "Use pelo menos 8 caracteres.");
+          valid = false;
+        }
 
-      if (confirmPassword?.value && password?.value !== confirmPassword.value) {
-        setError("confirmar_senha", "As senhas precisam ser iguais.");
-        valid = false;
+        if (confirmPassword?.value && password?.value !== confirmPassword.value) {
+          setError("confirmar_senha", "As senhas precisam ser iguais.");
+          valid = false;
+        }
       }
 
       const birthDate = getField("data_nascimento");
@@ -285,16 +322,16 @@ if (form) {
       dot.classList.toggle("is-complete", isSummary || dotStep < visibleStep);
     });
 
-    if (previousButton) {
-      previousButton.disabled = currentStep === 1;
-    }
+    if (previousButton) previousButton.disabled = currentStep === 1;
 
     if (nextButton) {
       nextButton.textContent = currentStep === 5 ? "Finalizar perfil" : "Continuar";
+      nextButton.hidden = isSummary;
     }
 
     if (actions) {
-      actions.hidden = isSummary;
+      actions.hidden = false;
+      actions.classList.toggle("is-summary", isSummary);
     }
   };
 
@@ -315,6 +352,188 @@ if (form) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const setGoogleMode = (user) => {
+    googleUser = user;
+    authMethod = "google";
+
+    const displayName = user.displayName?.trim() || "";
+    const nameParts = displayName.split(/\s+/).filter(Boolean);
+    const firstName = nameParts.shift() || "";
+    const lastName = nameParts.join(" ");
+
+    if (firstName) getField("nome").value = firstName;
+    if (lastName) getField("sobrenome").value = lastName;
+    if (user.email) {
+      getField("email").value = user.email;
+      getField("email").readOnly = true;
+    }
+
+    ["senha", "confirmar_senha"].forEach((name) => {
+      const field = getField(name);
+      if (!field) return;
+      field.required = false;
+      field.disabled = true;
+      field.value = "";
+      clearError(name);
+    });
+
+    passwordFields.forEach((field) => { field.hidden = true; });
+    if (googleAccountEmail) googleAccountEmail.textContent = user.email || "Conta Google conectada";
+    if (googleAccountState) googleAccountState.hidden = false;
+    setStatus(authStatus, "Conta Google conectada. Complete as informações abaixo para continuar.", "success");
+  };
+
+  const normalizeReferral = () => {
+    const params = new URLSearchParams(window.location.search);
+    const refFromUrl = params.get("ref")?.trim() || "";
+    const isValid = /^[A-Za-z0-9_-]{3,64}$/.test(refFromUrl);
+
+    if (isValid) sessionStorage.setItem("active_referencia", refFromUrl);
+    const stored = sessionStorage.getItem("active_referencia") || "";
+    return /^[A-Za-z0-9_-]{3,64}$/.test(stored) ? stored : null;
+  };
+
+  const buildFirebasePayload = (user, providerName) => {
+    const numberOrNull = (value) => {
+      if (value === "" || value === null || value === undefined) return null;
+      const number = Number(value);
+      return Number.isFinite(number) ? number : null;
+    };
+
+    const usuario = {
+      nome: getField("nome")?.value?.trim() || "",
+      sobrenome: getField("sobrenome")?.value?.trim() || "",
+      email: user.email || getField("email")?.value?.trim() || "",
+      data_nascimento: getField("data_nascimento")?.value || "",
+      provedor_cadastro: providerName,
+      status_pagamento: "pendente",
+      status_acesso: "inativo",
+      referencia_informada: normalizeReferral(),
+      origem_cadastro: "site",
+      criado_em: serverTimestamp(),
+      atualizado_em: serverTimestamp()
+    };
+
+    const perfil = {
+      altura: numberOrNull(getField("altura")?.value),
+      peso: numberOrNull(getField("peso")?.value),
+      nivel_atividade: form.querySelector('input[name="nivel_atividade"]:checked')?.value || null,
+      objetivos: checkedValues("objetivos"),
+      nivel_exercicio: form.querySelector('input[name="nivel_exercicio"]:checked')?.value || null,
+      dias_exercicio: getField("dias_exercicio")?.value || null,
+      duracao_treino: getField("duracao_treino")?.value || null,
+      local_exercicio: getField("local_exercicio")?.value || null,
+      equipamentos: checkedValues("equipamentos"),
+      exercicios_evitar: getField("exercicios_evitar")?.value?.trim() || "",
+      perfil_alimentar: form.querySelector('input[name="perfil_alimentar"]:checked')?.value || null,
+      interesses_alimentares: checkedValues("interesses_alimentares"),
+      tempo_preparo: getField("tempo_preparo")?.value || null,
+      alimentos_evitar: getField("alimentos_evitar")?.value?.trim() || "",
+      restricoes_alimentares: getField("restricoes_alimentares")?.value?.trim() || "",
+      onboarding_concluido: true,
+      versao_onboarding: 1,
+      atualizado_em: serverTimestamp()
+    };
+
+    return { usuario, perfil };
+  };
+
+  const saveProfile = async () => {
+    if (isSaving) return;
+    isSaving = true;
+    if (paymentButton) paymentButton.disabled = true;
+    setStatus(firebaseStatus, "Criando sua conta e salvando o perfil…", "loading");
+    if (paymentMessage) paymentMessage.hidden = true;
+
+    let user = null;
+    let createdEmailUser = false;
+
+    try {
+      if (authMethod === "google") {
+        user = googleUser || auth.currentUser;
+        if (!user) throw new Error("google_sem_usuario");
+      } else {
+        const email = getField("email")?.value?.trim() || "";
+        const password = getField("senha")?.value || "";
+
+        if (auth.currentUser?.email === email) {
+          user = auth.currentUser;
+        } else {
+          if (auth.currentUser) await signOut(auth);
+          const credential = await createUserWithEmailAndPassword(auth, email, password);
+          user = credential.user;
+          createdEmailUser = true;
+        }
+
+        await updateProfile(user, {
+          displayName: `${getField("nome")?.value?.trim() || ""} ${getField("sobrenome")?.value?.trim() || ""}`.trim()
+        });
+      }
+
+      const { usuario, perfil } = buildFirebasePayload(user, authMethod);
+      const batch = writeBatch(db);
+      batch.set(doc(db, "usuarios", user.uid), usuario, { merge: true });
+      batch.set(doc(db, "perfis", user.uid), perfil, { merge: true });
+      await batch.commit();
+
+      setStatus(firebaseStatus, "Cadastro salvo com sucesso no Firebase.", "success");
+      if (paymentMessage) paymentMessage.hidden = false;
+      if (paymentButton) {
+        paymentButton.textContent = "Cadastro salvo";
+        paymentButton.disabled = true;
+      }
+    } catch (error) {
+      console.error("Erro ao salvar cadastro:", error);
+
+      if (createdEmailUser && auth.currentUser) {
+        try {
+          await deleteUser(auth.currentUser);
+        } catch (rollbackError) {
+          console.warn("Não foi possível desfazer a conta após falha no Firestore:", rollbackError);
+        }
+      }
+
+      const messages = {
+        "auth/email-already-in-use": "Este e-mail já possui uma conta. Use outro e-mail ou entre na conta existente.",
+        "auth/invalid-email": "O e-mail informado não é válido.",
+        "auth/weak-password": "A senha precisa ser mais forte.",
+        "auth/network-request-failed": "Não foi possível conectar ao Firebase. Confira sua internet e tente novamente.",
+        "auth/unauthorized-domain": "Este domínio ainda não está autorizado no Firebase Authentication.",
+        "auth/popup-blocked": "O navegador bloqueou a janela do Google. Libere pop-ups e tente novamente.",
+        "auth/popup-closed-by-user": "A janela do Google foi fechada antes de concluir o acesso.",
+        "permission-denied": "O Firestore recusou a gravação. Confira as regras publicadas e tente novamente."
+      };
+
+      const code = error?.code || error?.message || "";
+      setStatus(firebaseStatus, messages[code] || "Não foi possível concluir o cadastro agora. Tente novamente.", "error");
+      if (paymentButton) paymentButton.disabled = false;
+      isSaving = false;
+    }
+  };
+
+  googleButton?.addEventListener("click", async () => {
+    googleButton.disabled = true;
+    setStatus(authStatus, "Abrindo o acesso com Google…", "loading");
+
+    try {
+      const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
+      const result = await signInWithPopup(auth, provider);
+      setGoogleMode(result.user);
+    } catch (error) {
+      console.error("Erro no login com Google:", error);
+      const messages = {
+        "auth/unauthorized-domain": "Este domínio ainda não está autorizado no Firebase Authentication.",
+        "auth/popup-blocked": "O navegador bloqueou a janela do Google. Libere pop-ups e tente novamente.",
+        "auth/popup-closed-by-user": "A janela do Google foi fechada antes de concluir o acesso.",
+        "auth/network-request-failed": "Não foi possível conectar ao Google agora. Tente novamente."
+      };
+      setStatus(authStatus, messages[error?.code] || "Não foi possível conectar sua conta Google.", "error");
+    } finally {
+      googleButton.disabled = false;
+    }
+  });
+
   nextButton?.addEventListener("click", () => {
     if (!validateStep(currentStep)) {
       const firstError = steps[currentStep - 1]?.querySelector(".field-error:not(:empty)");
@@ -333,9 +552,7 @@ if (form) {
     input.addEventListener("change", () => {
       const selected = goalInputs.filter((goal) => goal.checked);
 
-      if (selected.length > 3) {
-        input.checked = false;
-      }
+      if (selected.length > 3) input.checked = false;
 
       const count = goalInputs.filter((goal) => goal.checked).length;
       if (goalCounter) goalCounter.textContent = `${count} de 3 selecionados`;
@@ -355,10 +572,8 @@ if (form) {
   });
 
   getField("data_nascimento")?.addEventListener("change", updateAgeGuidance);
+  paymentButton?.addEventListener("click", saveProfile);
 
-  paymentPlaceholder?.addEventListener("click", () => {
-    if (paymentMessage) paymentMessage.hidden = false;
-  });
-
+  normalizeReferral();
   showStep(1);
 }
