@@ -82,3 +82,13 @@ Construção das áreas internas do portal:
 ## Portal interno — versão atual
 
 A versão atual inclui dashboard personalizado e as páginas `alimentacao.html`, `exercicios.html`, `receitas.html` e `rotina.html`. Todas validam autenticação e acesso antes de exibir conteúdo.
+
+## Área de Alimentação — versão atual
+
+A área `alimentacao.html` foi evoluída para uma primeira versão funcional com:
+- personalização a partir de `perfil_alimentar`, `tempo_preparo` e `interesses_alimentares` do Firestore;
+- filtros por categoria;
+- ordenação dos cards de acordo com os interesses do cadastro;
+- resumo das preferências e restrições informadas;
+- conteúdos educativos gerais, sem metas automáticas de peso, contagem de calorias ou dietas restritivas;
+- validação de autenticação e acesso antes de exibir a página.

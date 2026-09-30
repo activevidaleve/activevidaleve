@@ -1,4 +1,209 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#4F46E5"><meta name="description" content="Esta será a área de alimentação do portal. Vamos usar suas preferências para organizar receitas, refeições e conteúdos de forma simples."><title>Alimentação | Active Vida Leve</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/global.css"><link rel="stylesheet" href="./assets/css/area.css"></head>
-<body class="area-page area-food"><header class="area-header"><div class="container area-header-inner"><a class="area-brand" href="./portal.html" aria-label="Voltar ao portal"><img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198"></a><div class="area-header-actions"><a class="area-back" href="./portal.html">← Portal</a><button class="area-logout" type="button" data-logout>Sair</button></div></div></header><main class="area-main" data-area-app hidden><div class="container"><section class="area-hero"><div><span class="area-kicker">ALIMENTAÇÃO</span><h1>Conteúdos para escolhas mais práticas.</h1><p>Esta será a área de alimentação do portal. Vamos usar suas preferências para organizar receitas, refeições e conteúdos de forma simples.</p></div><div class="area-visual" aria-hidden="true">◒</div></section><section class="area-content"><article class="area-panel"><h2>O que vamos construir aqui</h2><p>Essa primeira versão abre a navegação sem links quebrados. Os conteúdos reais entram nas próximas etapas.</p><div class="area-placeholder-list"><div class="area-placeholder-item"><strong>Seleção para o seu perfil</strong><span>Conteúdos organizados a partir das preferências informadas no cadastro.</span></div><div class="area-placeholder-item"><strong>Ideias para diferentes momentos do dia</strong><span>Café da manhã, almoço, jantar, lanches e outras categorias.</span></div><div class="area-placeholder-item"><strong>Organização simples</strong><span>Filtros e atalhos para encontrar conteúdos sem precisar navegar por listas longas.</span></div></div></article><aside class="area-profile-card"><h2>Seu perfil alimentar</h2><p>Olá, <strong data-user-name>Usuário</strong>. Estes dados já vêm do seu perfil salvo no Firebase.</p><div class="area-profile-list"><div><span>Preferência</span><strong data-area-food>—</strong></div><div><span>Interesses</span><strong data-area-interests>—</strong></div></div></aside></section></div></main><div class="area-loading" data-area-loading><span class="payment-spinner" aria-hidden="true"></span><p>Carregando sua área…</p></div><script type="module" src="./js/area.js"></script></body></html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#22C55E">
+  <meta name="description" content="Área de alimentação do Active Vida Leve com conteúdos organizados a partir das preferências do perfil.">
+  <title>Alimentação | Active Vida Leve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/area.css">
+  <link rel="stylesheet" href="./assets/css/alimentacao.css">
+</head>
+<body class="area-page area-food food-page">
+  <header class="area-header">
+    <div class="container area-header-inner">
+      <a class="area-brand" href="./portal.html" aria-label="Voltar ao portal">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+
+      <div class="area-header-actions">
+        <a class="area-back" href="./portal.html">← Portal</a>
+        <button class="area-logout" type="button" data-logout>Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="food-main" data-food-app hidden>
+    <section class="food-hero">
+      <div class="container food-hero-grid">
+        <div class="food-hero-copy">
+          <span class="food-eyebrow">ALIMENTAÇÃO</span>
+          <h1>Escolhas mais práticas para <strong data-user-name>você</strong>.</h1>
+          <p>Conteúdos organizados pelas preferências que você informou no cadastro, sem dietas rígidas ou metas automáticas de peso.</p>
+
+          <div class="food-profile-chips" data-food-profile-chips aria-label="Resumo do perfil alimentar"></div>
+        </div>
+
+        <div class="food-hero-image" aria-hidden="true">
+          <img src="./assets/images/carousel/food-desktop.webp" alt="" width="1600" height="500">
+        </div>
+      </div>
+    </section>
+
+    <section class="container food-section food-personal-section" aria-labelledby="food-personal-title">
+      <div class="food-section-heading food-section-heading-split">
+        <div>
+          <span>SELEÇÃO PARA O SEU PERFIL</span>
+          <h2 id="food-personal-title">Comece pelos temas que fazem sentido para sua rotina.</h2>
+        </div>
+        <p>Os cards ligados aos interesses marcados no cadastro aparecem primeiro. Você pode usar os filtros para explorar outras categorias.</p>
+      </div>
+
+      <div class="food-filters" data-food-filters aria-label="Filtros de conteúdo">
+        <button type="button" class="is-active" data-food-filter="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-food-filter="cafe_manha" aria-pressed="false">Café da manhã</button>
+        <button type="button" data-food-filter="almoco" aria-pressed="false">Almoço</button>
+        <button type="button" data-food-filter="jantar" aria-pressed="false">Jantar</button>
+        <button type="button" data-food-filter="lanches" aria-pressed="false">Lanches</button>
+        <button type="button" data-food-filter="receitas_rapidas" aria-pressed="false">Receitas rápidas</button>
+        <button type="button" data-food-filter="marmitas" aria-pressed="false">Marmitas</button>
+        <button type="button" data-food-filter="sucos" aria-pressed="false">Sucos</button>
+      </div>
+
+      <div class="food-content-grid" data-food-content-grid>
+        <article class="food-content-card food-card-breakfast" data-food-card data-category="cafe_manha">
+          <div class="food-card-visual" aria-hidden="true"><span>☀</span></div>
+          <div class="food-card-body">
+            <div class="food-card-meta"><span>Café da manhã</span><i data-match-badge hidden>Do seu perfil</i></div>
+            <h3>Começos simples e variados</h3>
+            <p>Combine uma fonte de energia, uma opção proteica e frutas ou outros alimentos que façam parte da sua rotina.</p>
+            <small>Exemplo educativo • adapte às suas preferências.</small>
+          </div>
+        </article>
+
+        <article class="food-content-card food-card-lunch" data-food-card data-category="almoco">
+          <div class="food-card-visual" aria-hidden="true"><span>◒</span></div>
+          <div class="food-card-body">
+            <div class="food-card-meta"><span>Almoço</span><i data-match-badge hidden>Do seu perfil</i></div>
+            <h3>Uma refeição com variedade</h3>
+            <p>Arroz ou outro cereal, feijão ou leguminosa, vegetais e uma fonte de proteína podem formar uma combinação prática.</p>
+            <small>Sem contagem de calorias ou metas de peso.</small>
+          </div>
+        </article>
+
+        <article class="food-content-card food-card-dinner" data-food-card data-category="jantar">
+          <div class="food-card-visual" aria-hidden="true"><span>☾</span></div>
+          <div class="food-card-body">
+            <div class="food-card-meta"><span>Jantar</span><i data-match-badge hidden>Do seu perfil</i></div>
+            <h3>Praticidade no fim do dia</h3>
+            <p>Reaproveitar preparações do almoço ou montar combinações simples pode facilitar dias mais corridos.</p>
+            <small>Organização primeiro, perfeição não é necessária.</small>
+          </div>
+        </article>
+
+        <article class="food-content-card food-card-snack" data-food-card data-category="lanches">
+          <div class="food-card-visual" aria-hidden="true"><span>◇</span></div>
+          <div class="food-card-body">
+            <div class="food-card-meta"><span>Lanches</span><i data-match-badge hidden>Do seu perfil</i></div>
+            <h3>Opções que cabem na rotina</h3>
+            <p>Frutas, pães, iogurte ou alternativas vegetais, castanhas e outras opções podem variar conforme gosto e disponibilidade.</p>
+            <small>Confira ingredientes em caso de alergias ou restrições.</small>
+          </div>
+        </article>
+
+        <article class="food-content-card food-card-fast" data-food-card data-category="receitas_rapidas">
+          <div class="food-card-visual" aria-hidden="true"><span>⚡</span></div>
+          <div class="food-card-body">
+            <div class="food-card-meta"><span>Receitas rápidas</span><i data-match-badge hidden>Do seu perfil</i></div>
+            <h3>Menos etapas, mais praticidade</h3>
+            <p>Priorize receitas com poucos utensílios e ingredientes que você já costuma ter em casa.</p>
+            <small data-time-hint>Tempo do seu perfil será considerado aqui.</small>
+          </div>
+        </article>
+
+        <article class="food-content-card food-card-mealprep" data-food-card data-category="marmitas">
+          <div class="food-card-visual" aria-hidden="true"><span>▦</span></div>
+          <div class="food-card-body">
+            <div class="food-card-meta"><span>Marmitas</span><i data-match-badge hidden>Do seu perfil</i></div>
+            <h3>Base pronta para combinar</h3>
+            <p>Preparar alguns componentes com antecedência permite variar as refeições ao longo da semana sem repetir tudo.</p>
+            <small>Armazenamento e conservação serão tratados em conteúdos próprios.</small>
+          </div>
+        </article>
+
+        <article class="food-content-card food-card-juice" data-food-card data-category="sucos">
+          <div class="food-card-visual" aria-hidden="true"><span>◫</span></div>
+          <div class="food-card-body">
+            <div class="food-card-meta"><span>Sucos &amp; bebidas</span><i data-match-badge hidden>Do seu perfil</i></div>
+            <h3>Bebidas dentro de uma rotina variada</h3>
+            <p>Água continua sendo a base da hidratação; sucos e outras bebidas podem aparecer como parte das escolhas do dia.</p>
+            <small>Sem promessas de “detox” ou efeitos milagrosos.</small>
+          </div>
+        </article>
+      </div>
+
+      <p class="food-empty-state" data-food-empty hidden>Nenhum conteúdo desta categoria está disponível nesta versão.</p>
+    </section>
+
+    <section class="food-foundation">
+      <div class="container food-section">
+        <div class="food-section-heading">
+          <span>UMA BASE SIMPLES</span>
+          <h2>Variedade sem transformar alimentação em regra rígida.</h2>
+          <p>Estes blocos servem como organização educativa do portal. Eles não substituem orientação individual de profissionais de saúde.</p>
+        </div>
+
+        <div class="food-foundation-grid">
+          <article>
+            <span class="food-foundation-icon">01</span>
+            <h3>Fontes de energia</h3>
+            <p>Arroz, aveia, pães, massas, milho, batata, mandioca e outros alimentos podem fazer parte de refeições variadas.</p>
+          </article>
+          <article>
+            <span class="food-foundation-icon">02</span>
+            <h3>Proteínas</h3>
+            <p>Feijões e outras leguminosas, ovos, carnes, peixes, leite e alternativas vegetais entram conforme preferências e necessidades.</p>
+          </article>
+          <article>
+            <span class="food-foundation-icon">03</span>
+            <h3>Frutas, legumes e verduras</h3>
+            <p>Variar cores, preparações e alimentos ao longo dos dias ajuda a ampliar sabores e possibilidades.</p>
+          </article>
+          <article>
+            <span class="food-foundation-icon">04</span>
+            <h3>Rotina e hidratação</h3>
+            <p>Planejamento, acesso aos alimentos e hidratação também fazem parte da experiência, sem exigir uma rotina perfeita.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container food-section food-profile-section" aria-labelledby="food-profile-title">
+      <div class="food-profile-panel">
+        <div class="food-profile-intro">
+          <span>SEU PERFIL ALIMENTAR</span>
+          <h2 id="food-profile-title">O que estamos considerando para organizar esta área.</h2>
+          <p>Esses dados vêm do seu cadastro e poderão ser editados futuramente em <strong>Minha Rotina</strong>.</p>
+          <a href="./rotina.html">Ver minha rotina →</a>
+        </div>
+
+        <div class="food-profile-data">
+          <div><span>Preferência alimentar</span><strong data-food-profile>—</strong></div>
+          <div><span>Tempo de preparo</span><strong data-food-time>—</strong></div>
+          <div class="food-profile-wide"><span>Interesses</span><strong data-food-interests>—</strong></div>
+          <div class="food-profile-wide"><span>Alimentos que prefere evitar</span><strong data-food-avoid>—</strong></div>
+          <div class="food-profile-wide"><span>Restrições informadas</span><strong data-food-restrictions>—</strong></div>
+        </div>
+      </div>
+
+      <div class="food-safety-note" data-food-safety-note>
+        <strong>Importante</strong>
+        <p>Se você informou alergias ou restrições, use esses dados como lembrete. O portal não consegue garantir sozinho que todo conteúdo esteja livre de um ingrediente; confira sempre os ingredientes e orientações de profissionais quando necessário.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="area-loading" data-food-loading>
+    <span class="payment-spinner" aria-hidden="true"></span>
+    <p>Organizando sua área de alimentação…</p>
+  </div>
+
+  <script type="module" src="./js/alimentacao.js"></script>
+</body>
+</html>
