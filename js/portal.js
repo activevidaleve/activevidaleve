@@ -1,105 +1,27 @@
-import {
-  onAuthStateChanged,
-  signOut
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import {
-  doc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 
-const app = document.querySelector("[data-portal-app]");
-const loading = document.querySelector("[data-portal-loading]");
-const logoutButton = document.querySelector("[data-logout]");
-const firstName = document.querySelector("[data-user-first-name]");
-const accessDescription = document.querySelector("[data-access-description]");
+const app=document.querySelector("[data-portal-app]");
+const loading=document.querySelector("[data-portal-loading]");
+const logoutButton=document.querySelector("[data-logout]");
+const firstName=document.querySelector("[data-user-first-name]");
+const headerName=document.querySelector("[data-header-name]");
+const userInitial=document.querySelector("[data-user-initial]");
+const accessDescription=document.querySelector("[data-access-description]");
+const profileTags=document.querySelector("[data-profile-tags]");
 
-const mappings = {
-  nivel_exercicio: {
-    iniciante: "Iniciante",
-    intermediario: "Intermediário",
-    experiente: "Experiente"
-  },
-  dias_exercicio: {
-    "1_2": "1–2 dias/semana",
-    "3_4": "3–4 dias/semana",
-    "5_mais": "5+ dias/semana"
-  },
-  duracao_treino: {
-    ate_15: "Até 15 min",
-    "15_30": "15–30 min",
-    "30_45": "30–45 min",
-    mais_45: "45+ min"
-  },
-  perfil_alimentar: {
-    variada: "Variada",
-    vegetariana: "Vegetariana",
-    vegana: "Vegana",
-    outra: "Outra"
-  }
-};
+const mappings={nivel_exercicio:{iniciante:"Iniciante",intermediario:"Intermediário",experiente:"Experiente"},dias_exercicio:{"1_2":"1–2 dias/semana","3_4":"3–4 dias/semana","5_mais":"5+ dias/semana"},duracao_treino:{ate_15:"Até 15 min","15_30":"15–30 min","30_45":"30–45 min",mais_45:"45+ min"},perfil_alimentar:{variada:"Variada",vegetariana:"Vegetariana",vegana:"Vegana",outra:"Outra"},nivel_atividade:{pouco_ativo:"Pouco ativo",ativo_algumas_vezes:"Ativo algumas vezes",ativo_frequente:"Ativo com frequência",muito_ativo:"Muito ativo"},local_exercicio:{casa:"Em casa",academia:"Academia",ar_livre:"Ao ar livre",varia:"Locais variados"}};
+const mapped=(field,value)=>mappings[field]?.[value]||value||"Não informado";
+const normalizeList=(value)=>Array.isArray(value)?value.filter(Boolean):[];
+const titleCase=(value="")=>value.replace(/_/g," ").replace(/\b\p{L}/gu,(char)=>char.toUpperCase());
+const redirectToPayment=()=>window.location.replace("./pagamento.html");
+const setText=(selector,value)=>{const element=document.querySelector(selector);if(element)element.textContent=value};
 
-const mapped = (field, value) => mappings[field]?.[value] || value || "Não informado";
+const buildProfileTags=(profileData)=>{if(!profileTags)return;const tags=[mapped("nivel_exercicio",profileData.nivel_exercicio),mapped("duracao_treino",profileData.duracao_treino),mapped("local_exercicio",profileData.local_exercicio),mapped("perfil_alimentar",profileData.perfil_alimentar)].filter((value)=>value&&value!=="Não informado");profileTags.innerHTML="";tags.slice(0,4).forEach((label)=>{const tag=document.createElement("span");tag.className="portal-profile-tag";tag.textContent=label;profileTags.append(tag)})};
 
-const redirectToPayment = () => {
-  window.location.replace("./pagamento.html");
-};
+const buildRecommendations=(profileData)=>{const level=mapped("nivel_exercicio",profileData.nivel_exercicio);const duration=mapped("duracao_treino",profileData.duracao_treino);const location=mapped("local_exercicio",profileData.local_exercicio);const equipment=normalizeList(profileData.equipamentos);const foodInterests=normalizeList(profileData.interesses_alimentares);const goals=normalizeList(profileData.objetivos);const equipmentLabel=equipment.length&&!equipment.includes("nenhum")?`${equipment.length} opção${equipment.length>1?"ões":""} de equipamento`:"sem equipamento obrigatório";setText("[data-rec-move-title]",level!=="Não informado"?`${level}: comece no seu ritmo`:"Movimento no seu ritmo");setText("[data-rec-move-text]",duration!=="Não informado"?`Priorize conteúdos de ${duration.toLowerCase()}, ${location.toLowerCase()} e ${equipmentLabel}.`:"Conteúdos serão priorizados de acordo com seu nível, tempo e local disponíveis.");const foodLabel=foodInterests.length?foodInterests.slice(0,2).map(titleCase).join(" e "):"Receitas práticas";setText("[data-rec-food-title]",`${foodLabel} em destaque`);setText("[data-rec-food-text]",`A área de alimentação dará prioridade aos temas que você marcou no cadastro, mantendo sua preferência ${mapped("perfil_alimentar",profileData.perfil_alimentar).toLowerCase()}.`);const goalLabel=goals.length?titleCase(goals[0]):"Sua rotina";setText("[data-rec-routine-title]",goalLabel);setText("[data-rec-routine-text]",goals.length?"Seu objetivo principal aparece como referência para organizar conteúdos e acompanhar suas escolhas dentro do portal.":"Consulte objetivos, preferências e dados que ajudam a organizar sua experiência.")};
 
-logoutButton?.addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-  } finally {
-    window.location.replace("./login.html");
-  }
-});
+logoutButton?.addEventListener("click",async()=>{try{await signOut(auth)}finally{window.location.replace("./login.html")}});
 
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    window.location.replace("./login.html");
-    return;
-  }
-
-  try {
-    const [userSnapshot, profileSnapshot] = await Promise.all([
-      getDoc(doc(db, "usuarios", user.uid)),
-      getDoc(doc(db, "perfis", user.uid))
-    ]);
-
-    const userData = userSnapshot.exists() ? userSnapshot.data() : {};
-    const profileData = profileSnapshot.exists() ? profileSnapshot.data() : {};
-    const productionAccess = userData.status_acesso === "ativo" && userData.status_pagamento === "pago";
-    const testAccess = profileData.acesso_teste === true && profileData.pagamento_teste_status === "aprovado";
-
-    if (!productionAccess && !testAccess) {
-      redirectToPayment();
-      return;
-    }
-
-    const name = userData.nome || user.displayName?.split(/\s+/)[0] || "Usuário";
-    if (firstName) firstName.textContent = name;
-
-    if (accessDescription) {
-      accessDescription.textContent = productionAccess
-        ? "Pagamento confirmado e acesso ativo"
-        : "Pagamento simulado aprovado";
-    }
-
-    const profileBindings = {
-      "[data-profile-level]": mapped("nivel_exercicio", profileData.nivel_exercicio),
-      "[data-profile-days]": mapped("dias_exercicio", profileData.dias_exercicio),
-      "[data-profile-duration]": mapped("duracao_treino", profileData.duracao_treino),
-      "[data-profile-food]": mapped("perfil_alimentar", profileData.perfil_alimentar)
-    };
-
-    Object.entries(profileBindings).forEach(([selector, value]) => {
-      const element = document.querySelector(selector);
-      if (element) element.textContent = value;
-    });
-
-    if (loading) loading.hidden = true;
-    if (app) app.hidden = false;
-  } catch (error) {
-    console.error("Erro ao validar acesso ao portal:", error);
-    redirectToPayment();
-  }
-});
+onAuthStateChanged(auth,async(user)=>{if(!user){window.location.replace("./login.html");return}try{const[userSnapshot,profileSnapshot]=await Promise.all([getDoc(doc(db,"usuarios",user.uid)),getDoc(doc(db,"perfis",user.uid))]);const userData=userSnapshot.exists()?userSnapshot.data():{};const profileData=profileSnapshot.exists()?profileSnapshot.data():{};const productionAccess=userData.status_acesso==="ativo"&&userData.status_pagamento==="pago";const testAccess=profileData.acesso_teste===true&&profileData.pagamento_teste_status==="aprovado";if(!productionAccess&&!testAccess){redirectToPayment();return}const name=userData.nome||user.displayName?.split(/\s+/)[0]||"Usuário";if(firstName)firstName.textContent=name;if(headerName)headerName.textContent=name;if(userInitial)userInitial.textContent=name.trim().charAt(0).toUpperCase()||"U";if(accessDescription)accessDescription.textContent=productionAccess?"Pagamento confirmado e acesso ativo":"Acesso liberado em ambiente de desenvolvimento";const profileBindings={"[data-profile-level]":mapped("nivel_exercicio",profileData.nivel_exercicio),"[data-profile-days]":mapped("dias_exercicio",profileData.dias_exercicio),"[data-profile-duration]":mapped("duracao_treino",profileData.duracao_treino),"[data-profile-food]":mapped("perfil_alimentar",profileData.perfil_alimentar)};Object.entries(profileBindings).forEach(([selector,value])=>setText(selector,value));buildProfileTags(profileData);buildRecommendations(profileData);if(loading)loading.hidden=true;if(app)app.hidden=false}catch(error){console.error("Erro ao validar acesso ao portal:",error);redirectToPayment()}});

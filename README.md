@@ -78,3 +78,7 @@ Construção das áreas internas do portal:
 4. Sucos & Receitas;
 5. Minha Rotina;
 6. sistema de indicação/perfil do usuário.
+
+## Portal interno — versão atual
+
+A versão atual inclui dashboard personalizado e as páginas `alimentacao.html`, `exercicios.html`, `receitas.html` e `rotina.html`. Todas validam autenticação e acesso antes de exibir conteúdo.
