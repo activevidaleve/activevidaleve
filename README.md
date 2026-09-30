@@ -1,22 +1,55 @@
-# Active Vida Leve — Baseline V9
+# Active Vida Leve — Baseline V13
 
 ## Estrutura atual
-- `index.html`: página inicial do portal.
+- `index.html`: página inicial aprovada do portal.
+- `cadastro.html`: onboarding de cadastro em 5 etapas + resumo do perfil.
 - `assets/css/global.css`: variáveis, reset e componentes globais.
 - `assets/css/index.css`: estilos específicos do index e seus breakpoints.
+- `assets/css/cadastro.css`: estilos exclusivos do cadastro e responsividade.
 - `js/index.js`: inicialização dos módulos utilizados no index.
-- `modules/carousel.js`: carrossel principal.
+- `js/cadastro.js`: navegação entre etapas, validações e resumo local do cadastro.
+- `modules/carousel.js`: carrossel principal do index.
 - `modules/feedback-carousel.js`: carrossel demonstrativo de feedbacks.
-- `assets/images/`: somente imagens utilizadas pela página atual.
+- `assets/images/`: imagens atualmente utilizadas pelas páginas.
 
-## Revisão técnica desta baseline
-- removidos assets antigos e arquivos sem referência no HTML, CSS ou JavaScript;
-- removido o módulo de menu mobile que não era carregado nem utilizado;
-- removidas classes, variáveis e seletores sem uso;
-- corrigida a estrutura semântica para manter o rodapé fora de `<main>`;
-- normalizados espaçamentos, linhas em branco e formatação dos arquivos alterados;
-- mantido o comportamento visual e responsivo aprovado do index;
-- reforçadas pequenas validações defensivas nos carrosséis.
+## Cadastro V1
+O fluxo do cadastro está preparado visualmente, mas ainda não envia dados para Firebase nem inicia pagamento.
 
-## Próximas páginas
-Os links para `login.html` e `cadastro.html` são intencionais e permanecem preparados para a próxima etapa do projeto.
+Etapas:
+1. Conta: nome, sobrenome, e-mail, senha e data de nascimento.
+2. Perfil: altura, peso opcional e nível de atividade.
+3. Objetivos: até 3 objetivos selecionáveis.
+4. Exercícios e rotina: experiência, frequência, duração, local e equipamentos.
+5. Alimentação: perfil alimentar, interesses, tempo de preparo e restrições opcionais.
+6. Resumo local para revisão antes da futura assinatura.
+
+## Padrão previsto para Firebase
+As coleções e campos deverão permanecer em português, sem acentos nas chaves técnicas e preferencialmente em `snake_case`.
+
+Exemplos de coleções:
+- `usuarios`
+- `perfis`
+- `conteudos`
+- `pagamentos`
+- `assinaturas`
+
+Exemplos de campos:
+- `data_nascimento`
+- `nivel_atividade`
+- `nivel_exercicio`
+- `dias_exercicio`
+- `duracao_treino`
+- `local_exercicio`
+- `equipamentos`
+- `objetivos`
+- `preferencias_alimentares`
+- `restricoes_alimentares`
+- `status_pagamento`
+- `status_acesso`
+
+## Próximas integrações
+- Firebase Authentication para criação e login da conta.
+- Firestore para `usuarios` e `perfis`.
+- Página/fluxo de pagamento.
+- Webhook/backend para liberar acesso após confirmação real do pagamento.
+- Portal interno usando os dados do perfil para ordenar conteúdos.

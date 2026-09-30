@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="Crie seu perfil no Active Vida Leve e personalize sua experiência com alimentação, exercícios e rotina.">
+  <title>Cadastro | Active Vida Leve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/cadastro.css">
+</head>
+<body class="signup-page">
+  <header class="signup-header">
+    <div class="container signup-header-inner">
+      <a class="signup-brand" href="./index.html" aria-label="Voltar para a página inicial do Active Vida Leve">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+      <div class="signup-header-actions">
+        <span>Já tem uma conta?</span>
+        <a class="btn btn-login btn-small" href="./login.html">Entrar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="signup-main">
+    <div class="container signup-layout">
+      <aside class="signup-intro" aria-label="Sobre o cadastro">
+        <span class="signup-eyebrow">SEU PERFIL ACTIVE</span>
+        <h1>Uma experiência que começa <strong>entendendo sua rotina.</strong></h1>
+        <p>Responda algumas perguntas rápidas. Depois, essas informações poderão ajudar o portal a destacar conteúdos mais compatíveis com o seu momento.</p>
+
+        <div class="signup-benefits" aria-label="Benefícios do perfil">
+          <div class="signup-benefit">
+            <span class="signup-benefit-icon" aria-hidden="true">01</span>
+            <div>
+              <strong>Conteúdo mais organizado</strong>
+              <p>Alimentação, exercícios e receitas com prioridade baseada no seu perfil.</p>
+            </div>
+          </div>
+          <div class="signup-benefit">
+            <span class="signup-benefit-icon" aria-hidden="true">02</span>
+            <div>
+              <strong>Você continua no controle</strong>
+              <p>As respostas podem ser revistas e atualizadas depois dentro do portal.</p>
+            </div>
+          </div>
+          <div class="signup-benefit">
+            <span class="signup-benefit-icon" aria-hidden="true">03</span>
+            <div>
+              <strong>Sem diagnóstico automático</strong>
+              <p>O perfil organiza a experiência e não substitui orientação profissional individual.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="signup-privacy-note">
+          <span aria-hidden="true">✓</span>
+          <p>Informações pessoais serão usadas apenas para a experiência do Active Vida Leve quando a integração com o banco for ativada.</p>
+        </div>
+      </aside>
+
+      <section class="signup-card" aria-labelledby="cadastro-titulo">
+        <div class="signup-progress-wrap">
+          <div class="signup-progress-copy">
+            <span data-step-label>Etapa 1 de 5</span>
+            <strong data-step-name>Sua conta</strong>
+          </div>
+          <div class="signup-progress-track" aria-hidden="true">
+            <span class="signup-progress-fill" data-progress-fill></span>
+          </div>
+          <div class="signup-step-dots" aria-hidden="true">
+            <span class="is-active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <form class="signup-form" id="signup-form" novalidate>
+          <section class="signup-step is-active" data-step="1" aria-labelledby="cadastro-titulo">
+            <div class="signup-step-heading">
+              <span class="signup-step-kicker">ETAPA 01</span>
+              <h2 id="cadastro-titulo">Vamos começar pelo básico</h2>
+              <p>Crie os dados principais da sua conta. A integração com o Firebase será feita na próxima etapa do projeto.</p>
+            </div>
+
+            <div class="form-grid form-grid-2">
+              <label class="field">
+                <span>Nome</span>
+                <input type="text" name="nome" autocomplete="given-name" placeholder="Seu nome" required>
+                <small class="field-error" data-error-for="nome"></small>
+              </label>
+
+              <label class="field">
+                <span>Sobrenome</span>
+                <input type="text" name="sobrenome" autocomplete="family-name" placeholder="Seu sobrenome" required>
+                <small class="field-error" data-error-for="sobrenome"></small>
+              </label>
+
+              <label class="field field-full">
+                <span>E-mail</span>
+                <input type="email" name="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+                <small class="field-error" data-error-for="email"></small>
+              </label>
+
+              <label class="field">
+                <span>Senha</span>
+                <input type="password" name="senha" autocomplete="new-password" placeholder="Mínimo de 8 caracteres" minlength="8" required>
+                <small class="field-error" data-error-for="senha"></small>
+              </label>
+
+              <label class="field">
+                <span>Confirmar senha</span>
+                <input type="password" name="confirmar_senha" autocomplete="new-password" placeholder="Repita sua senha" minlength="8" required>
+                <small class="field-error" data-error-for="confirmar_senha"></small>
+              </label>
+
+              <label class="field field-full">
+                <span>Data de nascimento</span>
+                <input type="date" name="data_nascimento" required>
+                <small class="field-hint">Usaremos a idade apenas para organizar uma experiência adequada à sua faixa etária.</small>
+                <small class="field-error" data-error-for="data_nascimento"></small>
+              </label>
+            </div>
+
+            <label class="check-row">
+              <input type="checkbox" name="aceite_termos" required>
+              <span>Li e aceito os Termos de Uso e a Política de Privacidade.</span>
+            </label>
+            <small class="field-error standalone-error" data-error-for="aceite_termos"></small>
+          </section>
+
+          <section class="signup-step" data-step="2" aria-labelledby="perfil-titulo" hidden>
+            <div class="signup-step-heading">
+              <span class="signup-step-kicker">ETAPA 02</span>
+              <h2 id="perfil-titulo">Conte um pouco sobre você</h2>
+              <p>Esses dados ajudam a formar seu perfil. Eles não serão usados para definir peso ideal ou criar restrições automáticas.</p>
+            </div>
+
+            <div class="form-grid form-grid-2">
+              <label class="field">
+                <span>Altura</span>
+                <div class="input-with-unit">
+                  <input type="number" name="altura" inputmode="decimal" min="80" max="230" step="1" placeholder="170" required>
+                  <span>cm</span>
+                </div>
+                <small class="field-error" data-error-for="altura"></small>
+              </label>
+
+              <label class="field">
+                <span>Peso <em>opcional</em></span>
+                <div class="input-with-unit">
+                  <input type="number" name="peso" inputmode="decimal" min="20" max="300" step="0.1" placeholder="70,0">
+                  <span>kg</span>
+                </div>
+                <small class="field-hint">Informação opcional para o perfil. Não define metas automáticas.</small>
+              </label>
+            </div>
+
+            <fieldset class="choice-group">
+              <legend>Como está seu nível de atividade hoje?</legend>
+              <div class="choice-grid choice-grid-2">
+                <label class="choice-card">
+                  <input type="radio" name="nivel_atividade" value="pouco_ativo" required>
+                  <span class="choice-content"><strong>Pouco ativo</strong><small>Minha rotina tem pouco movimento.</small></span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="nivel_atividade" value="algumas_vezes_semana">
+                  <span class="choice-content"><strong>Algumas vezes por semana</strong><small>Me movimento, mas ainda sem muita constância.</small></span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="nivel_atividade" value="ativo_frequente">
+                  <span class="choice-content"><strong>Ativo com frequência</strong><small>Exercícios já fazem parte da minha semana.</small></span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="nivel_atividade" value="muito_ativo">
+                  <span class="choice-content"><strong>Muito ativo</strong><small>Tenho uma rotina de movimento bem frequente.</small></span>
+                </label>
+              </div>
+              <small class="field-error standalone-error" data-error-for="nivel_atividade"></small>
+            </fieldset>
+
+            <div class="age-guidance" data-age-guidance hidden>
+              <strong>Experiência adequada à sua idade</strong>
+              <p>Para menores de 18 anos, o Active Vida Leve priorizará hábitos gerais, movimento, organização da rotina e alimentação equilibrada, sem metas automáticas de peso ou restrição calórica.</p>
+            </div>
+          </section>
+
+          <section class="signup-step" data-step="3" aria-labelledby="objetivos-titulo" hidden>
+            <div class="signup-step-heading">
+              <span class="signup-step-kicker">ETAPA 03</span>
+              <h2 id="objetivos-titulo">O que você quer melhorar na sua rotina?</h2>
+              <p>Escolha até 3 objetivos. Eles servirão para organizar os conteúdos que aparecerão primeiro para você.</p>
+            </div>
+
+            <fieldset class="choice-group">
+              <legend class="sr-only">Objetivos</legend>
+              <div class="choice-grid choice-grid-2" data-goals-grid>
+                <label class="choice-card choice-card-check"><input type="checkbox" name="objetivos" value="movimentar_mais"><span class="choice-content"><strong>Me movimentar mais</strong><small>Trazer mais movimento para o dia.</small></span></label>
+                <label class="choice-card choice-card-check"><input type="checkbox" name="objetivos" value="melhorar_condicionamento"><span class="choice-content"><strong>Melhorar meu condicionamento</strong><small>Evoluir ritmo e disposição aos poucos.</small></span></label>
+                <label class="choice-card choice-card-check"><input type="checkbox" name="objetivos" value="constancia_exercicios"><span class="choice-content"><strong>Criar constância nos exercícios</strong><small>Construir uma rotina mais regular.</small></span></label>
+                <label class="choice-card choice-card-check"><input type="checkbox" name="objetivos" value="organizar_alimentacao"><span class="choice-content"><strong>Organizar melhor minha alimentação</strong><small>Ter mais praticidade nas escolhas do dia.</small></span></label>
+                <label class="choice-card choice-card-check"><input type="checkbox" name="objetivos" value="receitas_praticas"><span class="choice-content"><strong>Aprender receitas práticas</strong><small>Encontrar ideias simples para preparar.</small></span></label>
+                <label class="choice-card choice-card-check"><input type="checkbox" name="objetivos" value="variar_refeicoes"><span class="choice-content"><strong>Ter mais variedade nas refeições</strong><small>Descobrir novas combinações e opções.</small></span></label>
+                <label class="choice-card choice-card-check"><input type="checkbox" name="objetivos" value="rotina_organizada"><span class="choice-content"><strong>Criar uma rotina mais organizada</strong><small>Reunir hábitos em um plano mais simples.</small></span></label>
+                <label class="choice-card choice-card-check"><input type="checkbox" name="objetivos" value="bem_estar"><span class="choice-content"><strong>Melhorar hábitos de bem-estar</strong><small>Equilibrar movimento, alimentação e rotina.</small></span></label>
+              </div>
+              <div class="choice-helper"><span data-goal-count>0 de 3 selecionados</span></div>
+              <small class="field-error standalone-error" data-error-for="objetivos"></small>
+            </fieldset>
+          </section>
+
+          <section class="signup-step" data-step="4" aria-labelledby="exercicios-titulo" hidden>
+            <div class="signup-step-heading">
+              <span class="signup-step-kicker">ETAPA 04</span>
+              <h2 id="exercicios-titulo">Como o movimento cabe no seu dia?</h2>
+              <p>Queremos entender sua rotina disponível, sem transformar o cadastro em um questionário complicado.</p>
+            </div>
+
+            <fieldset class="choice-group">
+              <legend>Qual sua experiência com exercícios?</legend>
+              <div class="segmented-options segmented-options-3">
+                <label><input type="radio" name="nivel_exercicio" value="iniciante" required><span>Iniciante</span></label>
+                <label><input type="radio" name="nivel_exercicio" value="intermediario"><span>Intermediário</span></label>
+                <label><input type="radio" name="nivel_exercicio" value="experiente"><span>Experiente</span></label>
+              </div>
+              <small class="field-error standalone-error" data-error-for="nivel_exercicio"></small>
+            </fieldset>
+
+            <div class="form-grid form-grid-2 form-grid-spaced">
+              <label class="field">
+                <span>Dias por semana</span>
+                <select name="dias_exercicio" required>
+                  <option value="">Selecione</option>
+                  <option value="1_2">1–2 dias</option>
+                  <option value="3_4">3–4 dias</option>
+                  <option value="5_mais">5 ou mais dias</option>
+                </select>
+                <small class="field-error" data-error-for="dias_exercicio"></small>
+              </label>
+
+              <label class="field">
+                <span>Tempo disponível</span>
+                <select name="duracao_treino" required>
+                  <option value="">Selecione</option>
+                  <option value="ate_15">Até 15 minutos</option>
+                  <option value="15_30">15–30 minutos</option>
+                  <option value="30_45">30–45 minutos</option>
+                  <option value="mais_45">Mais de 45 minutos</option>
+                </select>
+                <small class="field-error" data-error-for="duracao_treino"></small>
+              </label>
+
+              <label class="field field-full">
+                <span>Onde pretende se exercitar?</span>
+                <select name="local_exercicio" required>
+                  <option value="">Selecione</option>
+                  <option value="casa">Em casa</option>
+                  <option value="academia">Academia</option>
+                  <option value="ar_livre">Ao ar livre</option>
+                  <option value="variado">Varia de acordo com o dia</option>
+                </select>
+                <small class="field-error" data-error-for="local_exercicio"></small>
+              </label>
+            </div>
+
+            <fieldset class="choice-group choice-group-spaced">
+              <legend>Quais equipamentos você costuma ter disponíveis?</legend>
+              <div class="tag-options">
+                <label><input type="checkbox" name="equipamentos" value="nenhum"><span>Nenhum</span></label>
+                <label><input type="checkbox" name="equipamentos" value="halteres"><span>Halteres</span></label>
+                <label><input type="checkbox" name="equipamentos" value="elasticos"><span>Elásticos</span></label>
+                <label><input type="checkbox" name="equipamentos" value="colchonete"><span>Colchonete</span></label>
+                <label><input type="checkbox" name="equipamentos" value="academia"><span>Academia</span></label>
+                <label><input type="checkbox" name="equipamentos" value="outros"><span>Outros</span></label>
+              </div>
+            </fieldset>
+
+            <label class="field field-spaced">
+              <span>Existe algum tipo de exercício que prefere evitar? <em>opcional</em></span>
+              <textarea name="exercicios_evitar" rows="3" maxlength="220" placeholder="Ex.: corrida, saltos, exercícios muito longos..."></textarea>
+            </label>
+          </section>
+
+          <section class="signup-step" data-step="5" aria-labelledby="alimentacao-titulo" hidden>
+            <div class="signup-step-heading">
+              <span class="signup-step-kicker">ETAPA 05</span>
+              <h2 id="alimentacao-titulo">E como é sua alimentação?</h2>
+              <p>Essas respostas ajudam a destacar receitas e conteúdos que combinem melhor com suas preferências.</p>
+            </div>
+
+            <fieldset class="choice-group">
+              <legend>Como você prefere se alimentar?</legend>
+              <div class="segmented-options segmented-options-4">
+                <label><input type="radio" name="perfil_alimentar" value="variada" required><span>Variada</span></label>
+                <label><input type="radio" name="perfil_alimentar" value="vegetariana"><span>Vegetariana</span></label>
+                <label><input type="radio" name="perfil_alimentar" value="vegana"><span>Vegana</span></label>
+                <label><input type="radio" name="perfil_alimentar" value="outra"><span>Outra</span></label>
+              </div>
+              <small class="field-error standalone-error" data-error-for="perfil_alimentar"></small>
+            </fieldset>
+
+            <fieldset class="choice-group choice-group-spaced">
+              <legend>Que tipo de conteúdo mais te interessa?</legend>
+              <div class="tag-options">
+                <label><input type="checkbox" name="interesses_alimentares" value="cafe_manha"><span>Café da manhã</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="almoco"><span>Almoço</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="jantar"><span>Jantar</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="lanches"><span>Lanches</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="sucos"><span>Sucos</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="receitas_rapidas"><span>Receitas rápidas</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="marmitas"><span>Marmitas</span></label>
+              </div>
+            </fieldset>
+
+            <div class="form-grid form-grid-2 form-grid-spaced">
+              <label class="field field-full">
+                <span>Quanto tempo costuma ter para preparar uma refeição?</span>
+                <select name="tempo_preparo" required>
+                  <option value="">Selecione</option>
+                  <option value="ate_15">Até 15 minutos</option>
+                  <option value="15_30">15–30 minutos</option>
+                  <option value="30_60">30–60 minutos</option>
+                  <option value="mais_60">Mais de 60 minutos</option>
+                </select>
+                <small class="field-error" data-error-for="tempo_preparo"></small>
+              </label>
+
+              <label class="field field-full">
+                <span>Alimentos que prefere não consumir <em>opcional</em></span>
+                <textarea name="alimentos_evitar" rows="3" maxlength="220" placeholder="Ex.: cogumelos, peixe, alimentos muito apimentados..."></textarea>
+              </label>
+
+              <label class="field field-full">
+                <span>Alergia ou restrição alimentar que gostaria de informar <em>opcional</em></span>
+                <textarea name="restricoes_alimentares" rows="3" maxlength="220" placeholder="Informe apenas se quiser considerar isso na organização dos conteúdos."></textarea>
+                <small class="field-hint">O portal terá caráter informativo e não substituirá acompanhamento individual de profissionais qualificados.</small>
+              </label>
+            </div>
+          </section>
+
+          <section class="signup-step signup-summary-step" data-step="6" aria-labelledby="resumo-titulo" hidden>
+            <div class="signup-step-heading">
+              <span class="signup-step-kicker">PERFIL CONCLUÍDO</span>
+              <h2 id="resumo-titulo">Seu perfil está pronto</h2>
+              <p>Confira um resumo. Nesta versão, os dados ficam apenas nesta página e ainda não são enviados ao Firebase.</p>
+            </div>
+
+            <div class="profile-summary" data-profile-summary></div>
+
+            <div class="summary-explanation">
+              <strong>Como isso será usado depois?</strong>
+              <p>Quando integrarmos Firebase e pagamento, as respostas serão convertidas em preferências do perfil para ordenar conteúdos de alimentação, exercícios, receitas e rotina dentro do portal.</p>
+            </div>
+
+            <button class="btn signup-payment-btn" type="button" data-payment-placeholder>Continuar para assinatura</button>
+            <p class="payment-placeholder-message" data-payment-message hidden>A etapa de pagamento ainda não está conectada. Primeiro vamos revisar e aprovar este cadastro.</p>
+          </section>
+
+          <div class="signup-form-actions" data-form-actions>
+            <button class="signup-back-btn" type="button" data-prev-step disabled>Voltar</button>
+            <button class="btn signup-next-btn" type="button" data-next-step>Continuar</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="signup-footer">
+    <div class="container signup-footer-inner">
+      <p>© 2026 Active Vida Leve. Experiência de cadastro em desenvolvimento.</p>
+      <a href="./index.html">Voltar para o início</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/cadastro.js"></script>
+</body>
+</html>
