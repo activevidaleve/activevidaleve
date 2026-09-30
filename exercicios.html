@@ -1,4 +1,199 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#4F46E5"><meta name="description" content="Esta será a área de exercícios, com conteúdos separados por nível, duração, local e equipamentos disponíveis."><title>Exercícios | Active Vida Leve</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/global.css"><link rel="stylesheet" href="./assets/css/area.css"></head>
-<body class="area-page area-workout"><header class="area-header"><div class="container area-header-inner"><a class="area-brand" href="./portal.html" aria-label="Voltar ao portal"><img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198"></a><div class="area-header-actions"><a class="area-back" href="./portal.html">← Portal</a><button class="area-logout" type="button" data-logout>Sair</button></div></div></header><main class="area-main" data-area-app hidden><div class="container"><section class="area-hero"><div><span class="area-kicker">EXERCÍCIOS</span><h1>Movimento organizado no seu ritmo.</h1><p>Esta será a área de exercícios, com conteúdos separados por nível, duração, local e equipamentos disponíveis.</p></div><div class="area-visual" aria-hidden="true">↔</div></section><section class="area-content"><article class="area-panel"><h2>O que vamos construir aqui</h2><p>Essa primeira versão abre a navegação sem links quebrados. Os conteúdos reais entram nas próximas etapas.</p><div class="area-placeholder-list"><div class="area-placeholder-item"><strong>Rotinas por duração</strong><span>Atalhos para sessões curtas, médias e mais longas.</span></div><div class="area-placeholder-item"><strong>Filtros por equipamento</strong><span>Conteúdos para casa, academia, ao ar livre e diferentes recursos.</span></div><div class="area-placeholder-item"><strong>Progressão simples</strong><span>Organização por nível para facilitar a escolha sem transformar o portal em prescrição clínica.</span></div></div></article><aside class="area-profile-card"><h2>Seu perfil de movimento</h2><p>Olá, <strong data-user-name>Usuário</strong>. Estes dados já vêm do seu perfil salvo no Firebase.</p><div class="area-profile-list"><div><span>Nível</span><strong data-area-level>—</strong></div><div><span>Tempo</span><strong data-area-duration>—</strong></div><div><span>Objetivos</span><strong data-area-goals>—</strong></div></div></aside></section></div></main><div class="area-loading" data-area-loading><span class="payment-spinner" aria-hidden="true"></span><p>Carregando sua área…</p></div><script type="module" src="./js/area.js"></script></body></html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F97316">
+  <meta name="description" content="Área de exercícios do Active Vida Leve com conteúdos organizados por nível, duração, local e equipamentos informados no perfil.">
+  <title>Exercícios | Active Vida Leve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/area.css">
+  <link rel="stylesheet" href="./assets/css/exercicios.css">
+</head>
+<body class="area-page area-workout workout-page">
+  <header class="area-header">
+    <div class="container area-header-inner">
+      <a class="area-brand" href="./portal.html" aria-label="Voltar ao portal">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+
+      <div class="area-header-actions">
+        <a class="area-back" href="./portal.html">← Portal</a>
+        <button class="area-logout" type="button" data-logout>Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="workout-main" data-workout-app hidden>
+    <section class="workout-hero">
+      <div class="container workout-hero-grid">
+        <div class="workout-hero-copy">
+          <span class="workout-eyebrow">EXERCÍCIOS</span>
+          <h1>Movimento organizado para <strong data-user-name>você</strong>.</h1>
+          <p>Conteúdos apresentados conforme seu nível, tempo disponível, local e equipamentos informados no cadastro — sem metas de aparência ou volume de treino excessivo.</p>
+
+          <div class="workout-profile-chips" data-workout-profile-chips aria-label="Resumo do perfil de movimento"></div>
+        </div>
+
+        <div class="workout-hero-visual" aria-hidden="true">
+          <div class="workout-figure">
+            <span class="workout-figure-head"></span>
+            <span class="workout-figure-body"></span>
+            <span class="workout-figure-arm workout-figure-arm-left"></span>
+            <span class="workout-figure-arm workout-figure-arm-right"></span>
+            <span class="workout-figure-leg workout-figure-leg-left"></span>
+            <span class="workout-figure-leg workout-figure-leg-right"></span>
+          </div>
+          <div class="workout-visual-chip workout-visual-chip-one">mobilidade</div>
+          <div class="workout-visual-chip workout-visual-chip-two">força</div>
+          <div class="workout-visual-chip workout-visual-chip-three">ritmo</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container workout-section" aria-labelledby="workout-personal-title">
+      <div class="workout-section-heading workout-section-heading-split">
+        <div>
+          <span>SELEÇÃO PARA O SEU PERFIL</span>
+          <h2 id="workout-personal-title">Comece por opções compatíveis com sua rotina.</h2>
+        </div>
+        <p>Os filtros abaixo não prescrevem treino. Eles apenas organizam conteúdos de movimento por características que você informou no cadastro.</p>
+      </div>
+
+      <div class="workout-filters" data-workout-filters aria-label="Filtros de exercícios">
+        <button type="button" class="is-active" data-workout-filter="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-workout-filter="mobilidade" aria-pressed="false">Mobilidade</button>
+        <button type="button" data-workout-filter="forca" aria-pressed="false">Força geral</button>
+        <button type="button" data-workout-filter="cardio_leve" aria-pressed="false">Cardio leve</button>
+        <button type="button" data-workout-filter="alongamento" aria-pressed="false">Alongamento</button>
+        <button type="button" data-workout-filter="pausas_ativas" aria-pressed="false">Pausas ativas</button>
+      </div>
+
+      <div class="workout-content-grid" data-workout-content-grid>
+        <article class="workout-content-card workout-card-mobility" data-workout-card data-category="mobilidade" data-level="iniciante intermediario experiente" data-location="casa academia ar_livre varia" data-equipment="nenhum colchonete">
+          <div class="workout-card-visual" aria-hidden="true"><span>↻</span></div>
+          <div class="workout-card-body">
+            <div class="workout-card-meta"><span>Mobilidade</span><i data-match-badge hidden>Combina com seu perfil</i></div>
+            <h3>Movimentos para começar com calma</h3>
+            <p>Uma sequência educativa de mobilidade geral pode servir como preparação para outras atividades ou como momento de movimento leve.</p>
+            <div class="workout-card-tags"><span>Sem equipamento</span><span>Ritmo leve</span></div>
+          </div>
+        </article>
+
+        <article class="workout-content-card workout-card-strength" data-workout-card data-category="forca" data-level="iniciante intermediario experiente" data-location="casa academia varia" data-equipment="nenhum halteres elasticos equipamentos_academia">
+          <div class="workout-card-visual" aria-hidden="true"><span>↔</span></div>
+          <div class="workout-card-body">
+            <div class="workout-card-meta"><span>Força geral</span><i data-match-badge hidden>Combina com seu perfil</i></div>
+            <h3>Fundamentos de força com progressão gradual</h3>
+            <p>Conteúdos desta categoria serão separados por nível e recursos disponíveis, sempre com alternativas mais simples.</p>
+            <div class="workout-card-tags"><span data-strength-equipment>Adaptável</span><span>Progressivo</span></div>
+          </div>
+        </article>
+
+        <article class="workout-content-card workout-card-cardio" data-workout-card data-category="cardio_leve" data-level="iniciante intermediario experiente" data-location="casa academia ar_livre varia" data-equipment="nenhum equipamentos_academia">
+          <div class="workout-card-visual" aria-hidden="true"><span>≈</span></div>
+          <div class="workout-card-body">
+            <div class="workout-card-meta"><span>Cardio leve</span><i data-match-badge hidden>Combina com seu perfil</i></div>
+            <h3>Movimento contínuo em intensidade confortável</h3>
+            <p>Caminhada e outras opções de baixa complexidade podem aparecer aqui, respeitando seu ritmo e espaço disponível.</p>
+            <div class="workout-card-tags"><span>Confortável</span><span>Sem foco em calorias</span></div>
+          </div>
+        </article>
+
+        <article class="workout-content-card workout-card-stretch" data-workout-card data-category="alongamento" data-level="iniciante intermediario experiente" data-location="casa academia ar_livre varia" data-equipment="nenhum colchonete">
+          <div class="workout-card-visual" aria-hidden="true"><span>⌁</span></div>
+          <div class="workout-card-body">
+            <div class="workout-card-meta"><span>Alongamento</span><i data-match-badge hidden>Combina com seu perfil</i></div>
+            <h3>Alongamentos simples para diferentes momentos</h3>
+            <p>Conteúdos educativos para explorar amplitude de movimento sem forçar posições desconfortáveis.</p>
+            <div class="workout-card-tags"><span>Leve</span><span>Sem equipamento</span></div>
+          </div>
+        </article>
+
+        <article class="workout-content-card workout-card-break" data-workout-card data-category="pausas_ativas" data-level="iniciante intermediario experiente" data-location="casa academia ar_livre varia" data-equipment="nenhum">
+          <div class="workout-card-visual" aria-hidden="true"><span>☼</span></div>
+          <div class="workout-card-body">
+            <div class="workout-card-meta"><span>Pausas ativas</span><i data-match-badge hidden>Combina com seu perfil</i></div>
+            <h3>Pequenos momentos de movimento</h3>
+            <p>Ideias curtas para interromper longos períodos parado e variar a postura ao longo do dia.</p>
+            <div class="workout-card-tags"><span>Curto</span><span>Sem equipamento</span></div>
+          </div>
+        </article>
+      </div>
+
+      <p class="workout-empty-state" data-workout-empty hidden>Nenhum conteúdo desta categoria está disponível nesta versão.</p>
+    </section>
+
+    <section class="workout-guidance">
+      <div class="container workout-section">
+        <div class="workout-section-heading">
+          <span>BASE DO MOVIMENTO</span>
+          <h2>Consistência, descanso e progressão sem exagero.</h2>
+          <p>O portal vai organizar conteúdos educativos, não substituir avaliação ou orientação individual de profissionais qualificados.</p>
+        </div>
+
+        <div class="workout-guidance-grid">
+          <article>
+            <span>01</span>
+            <h3>Comece pelo nível informado</h3>
+            <p>Conteúdos mais simples aparecem como referência inicial, e opções mais complexas podem ser exploradas aos poucos.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Use o tempo que cabe na rotina</h3>
+            <p>A duração informada no cadastro ajuda a organizar conteúdos, sem transformar esse tempo em obrigação diária.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Respeite sinais do corpo</h3>
+            <p>Dor, tontura ou mal-estar não são metas de treino. Conteúdos futuros terão orientações claras para interromper a atividade quando necessário.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Descanso também faz parte</h3>
+            <p>O projeto não incentiva treinar todos os dias nem compensar alimentação com exercício. Recuperação também integra uma rotina saudável.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container workout-section workout-profile-section" aria-labelledby="workout-profile-title">
+      <div class="workout-profile-panel">
+        <div class="workout-profile-intro">
+          <span>SEU PERFIL DE MOVIMENTO</span>
+          <h2 id="workout-profile-title">O que está orientando esta página.</h2>
+          <p>Estas informações vêm do seu cadastro e podem ser atualizadas futuramente em Minha Rotina.</p>
+          <a href="./rotina.html">Ver Minha Rotina →</a>
+        </div>
+
+        <div class="workout-profile-data">
+          <div><span>Nível</span><strong data-workout-level>—</strong></div>
+          <div><span>Frequência desejada</span><strong data-workout-days>—</strong></div>
+          <div><span>Tempo disponível</span><strong data-workout-duration>—</strong></div>
+          <div><span>Local</span><strong data-workout-location>—</strong></div>
+          <div class="workout-profile-wide"><span>Equipamentos</span><strong data-workout-equipment>—</strong></div>
+          <div class="workout-profile-wide"><span>Objetivos</span><strong data-workout-goals>—</strong></div>
+          <div class="workout-profile-wide"><span>Movimentos ou exercícios que prefere evitar</span><strong data-workout-avoid>—</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container workout-note" aria-label="Aviso importante">
+      <strong>Importante</strong>
+      <p>Se você tiver uma condição de saúde, lesão, dor persistente ou dúvida sobre segurança para praticar exercícios, procure orientação de um profissional qualificado antes de iniciar ou modificar sua rotina.</p>
+    </section>
+  </main>
+
+  <div class="area-loading" data-workout-loading>
+    <span class="payment-spinner" aria-hidden="true"></span>
+    <p>Organizando sua área de exercícios…</p>
+  </div>
+
+  <script type="module" src="./js/exercicios.js"></script>
+</body>
+</html>

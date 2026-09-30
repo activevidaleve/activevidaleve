@@ -92,3 +92,12 @@ A área `alimentacao.html` foi evoluída para uma primeira versão funcional com
 - resumo das preferências e restrições informadas;
 - conteúdos educativos gerais, sem metas automáticas de peso, contagem de calorias ou dietas restritivas;
 - validação de autenticação e acesso antes de exibir a página.
+## Área de exercícios — versão atual
+
+A área `exercicios.html` agora usa `js/exercicios.js` e `assets/css/exercicios.css` para:
+- personalizar conteúdos por nível, duração, local e equipamentos do perfil;
+- ordenar cards compatíveis com o cadastro;
+- filtrar mobilidade, força geral, cardio leve, alongamento e pausas ativas;
+- mostrar um resumo do perfil de movimento salvo no Firestore;
+- manter orientações educativas, sem metas de aparência, calorias ou incentivo a excesso de treino.
+
