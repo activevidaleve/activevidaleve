@@ -3,7 +3,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-aut
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAEv-uJ-NNmV1h5e5Eg-JEjBWCagBfnba0",
+  apiKey: "AIzaSyAEy-uJ-NNmV1h5e5Eg-JEjBWCagBfnba0",
   authDomain: "active-vida-leve.firebaseapp.com",
   projectId: "active-vida-leve",
   storageBucket: "active-vida-leve.firebasestorage.app",
