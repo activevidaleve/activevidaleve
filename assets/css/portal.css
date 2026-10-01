@@ -3,11 +3,11 @@
    ========================= */
 .portal-page { min-height: 100vh; background: #F7F8F4; }
 .portal-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,.12); background: rgba(79,70,229,.98); box-shadow: 0 8px 22px rgba(79,70,229,.14); }
-.portal-header-inner { min-height: 78px; display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 24px; }
-.portal-brand { width: min(225px,32vw); }
+.portal-header-inner { min-height: 78px; display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 16px; }
+.portal-brand { width: min(210px,30vw); }
 .portal-brand img { width: 100%; max-height: 52px; object-fit: contain; object-position: left center; }
-.portal-nav { display:flex; align-items:center; justify-content:center; gap:6px; }
-.portal-nav a { padding:9px 11px; border-radius:999px; color:rgba(255,255,255,.76); font-size:10px; font-weight:600; transition:background .2s ease,color .2s ease; }
+.portal-nav { display:flex; align-items:center; justify-content:center; gap:3px; }
+.portal-nav a { padding:9px 8px; border-radius:999px; color:rgba(255,255,255,.76); font-size:9.2px; font-weight:600; white-space:nowrap; transition:background .2s ease,color .2s ease; }
 .portal-nav a:hover,.portal-nav a.is-active { color:#FFF; background:rgba(255,255,255,.12); }
 .portal-header-actions { display:flex; align-items:center; gap:8px; }
 .portal-profile-pill,.portal-logout { min-height:38px; border:1px solid rgba(255,255,255,.24); color:#FFF; background:rgba(255,255,255,.1); }
@@ -297,3 +297,5 @@
 
 /* Metadados rápidos dos cards personalizados */
 .portal-content-facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}.portal-content-facts span{padding:5px 7px;border-radius:999px;color:#59665F;background:#F3F5F3;font-size:7.2px;font-weight:700}
+
+.portal-juice-shelf .portal-shelf-heading>div>span{color:#65A30D}.portal-juice-shelf .portal-content-card-icon{background:#84CC16}.portal-juice-shelf .portal-content-card[data-type="receita"]{border-color:rgba(132,204,22,.12)}

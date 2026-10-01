@@ -34,8 +34,12 @@ const normalizeExperience = (data = {}) => {
 const normalizeMedia = (data = {}) => {
   const midia = data.midia && typeof data.midia === "object" ? data.midia : {};
   return {
-    imagem_url: String(midia.imagem_url || data.imagem_url || "").trim(),
-    imagem_alt: String(midia.imagem_alt || data.imagem_alt || "").trim(),
+    imagem_url: String(midia.imagem_url || midia.imagem_pronto_url || data.imagem_url || "").trim(),
+    imagem_alt: String(midia.imagem_alt || midia.imagem_pronto_alt || data.imagem_alt || "").trim(),
+    imagem_ingredientes_url: String(midia.imagem_ingredientes_url || data.imagem_ingredientes_url || "").trim(),
+    imagem_ingredientes_alt: String(midia.imagem_ingredientes_alt || data.imagem_ingredientes_alt || "").trim(),
+    imagem_pronto_url: String(midia.imagem_pronto_url || data.imagem_pronto_url || "").trim(),
+    imagem_pronto_alt: String(midia.imagem_pronto_alt || data.imagem_pronto_alt || "").trim(),
     foco: String(midia.foco || "centro").trim(),
     proporcao_card: String(midia.proporcao_card || "4:3").trim(),
     proporcao_detalhe: String(midia.proporcao_detalhe || "16:9").trim()

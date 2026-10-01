@@ -34,12 +34,13 @@ let scrollTicking = false;
 const areaConfig = {
   alimentacao: { label: "Alimentação", url: "./alimentacao.html", typeLabel: "ALIMENTAÇÃO" },
   exercicio: { label: "Exercícios", url: "./exercicios.html", typeLabel: "EXERCÍCIO" },
-  receita: { label: "Receitas", url: "./receitas.html", typeLabel: "RECEITA" }
+  receita: { label: "Receitas", url: "./receitas.html", typeLabel: "RECEITA" },
+  suco_detox: { label: "Sucos Detox", url: "./sucos.html", typeLabel: "SUCO DETOX" }
 };
 
 const categoryLabels = {
   cafe_manha: "Café da manhã", almoco: "Almoço", jantar: "Jantar", lanches: "Lanches",
-  receitas_rapidas: "Receitas rápidas", marmitas: "Marmitas", sucos: "Sucos",
+  receitas_rapidas: "Receitas rápidas", marmitas: "Marmitas", sucos: "Sucos", suco_detox: "Sucos Detox",
   mobilidade: "Mobilidade", forca: "Força geral", cardio_leve: "Cardio leve",
   alongamento: "Alongamento", pausas_ativas: "Pausas ativas"
 };
@@ -203,7 +204,8 @@ const renderRelated = (items, currentId, profileData, config) => {
   const grid = document.querySelector("[data-related-grid]");
   if (!grid) return;
   grid.innerHTML = "";
-  const related = personalizarConteudos(items.filter((item) => item.id !== currentId), profileData)
+  const sourceItems = currentItem?.categoria === "suco_detox" ? items.filter((item) => item.categoria === "suco_detox") : items;
+  const related = personalizarConteudos(sourceItems.filter((item) => item.id !== currentId), profileData)
     .filter((item) => !item.personalizacao?.bloqueado)
     .slice(0, 3);
 
@@ -226,13 +228,43 @@ const renderRelated = (items, currentId, profileData, config) => {
   });
 };
 
+const renderJuiceMedia = (item) => {
+  const section = document.querySelector("[data-juice-media-section]");
+  if (!section) return;
+  const isJuice = item.categoria === "suco_detox";
+  section.hidden = !isJuice;
+  if (!isJuice) return;
+
+  const setSlot = (selector, url, alt, fallbackTitle, fallbackText) => {
+    const slot = document.querySelector(selector);
+    if (!slot) return;
+    slot.classList.toggle("has-image", Boolean(url));
+    if (url) {
+      slot.style.backgroundImage = `linear-gradient(135deg, rgba(38,62,50,.03), rgba(38,62,50,.12)), url("${String(url).replaceAll('"', '%22')}")`;
+      slot.setAttribute("role", "img");
+      slot.setAttribute("aria-label", alt || fallbackTitle);
+      slot.innerHTML = "";
+    } else {
+      slot.style.backgroundImage = "";
+      slot.removeAttribute("role");
+      slot.removeAttribute("aria-label");
+      slot.innerHTML = `<strong>${fallbackTitle}</strong><small>${fallbackText}</small>`;
+    }
+  };
+
+  setSlot("[data-juice-ingredients-image]", item.midia?.imagem_ingredientes_url, item.midia?.imagem_ingredientes_alt, "Espaço reservado", "Imagem dos ingredientes será inserida aqui.");
+  setSlot("[data-juice-ready-image]", item.midia?.imagem_pronto_url || item.imagem_url, item.midia?.imagem_pronto_alt || item.imagem_alt, "Espaço reservado", "Imagem do produto pronto será inserida aqui.");
+};
+
 const renderContent = (item, profileData, sameTypeItems) => {
-  const config = areaConfig[item.tipo] || areaConfig.alimentacao;
+  const config = item.categoria === "suco_detox" ? areaConfig.suco_detox : (areaConfig[item.tipo] || areaConfig.alimentacao);
+  const themeKey = item.categoria === "suco_detox" ? "suco_detox" : item.tipo;
   const theme = {
     alimentacao: { accent: "#22C55E", soft: "rgba(34,197,94,.08)" },
     exercicio: { accent: "#F97316", soft: "rgba(249,115,22,.09)" },
-    receita: { accent: "#00C2A8", soft: "rgba(0,194,168,.09)" }
-  }[item.tipo] || { accent: "#22C55E", soft: "rgba(34,197,94,.08)" };
+    receita: { accent: "#00C2A8", soft: "rgba(0,194,168,.09)" },
+    suco_detox: { accent: "#84CC16", soft: "rgba(132,204,22,.10)" }
+  }[themeKey] || { accent: "#22C55E", soft: "rgba(34,197,94,.08)" };
   document.documentElement.style.setProperty("--content-accent", theme.accent);
   document.documentElement.style.setProperty("--content-soft", theme.soft);
   if (hero) hero.dataset.contentTheme = item.tipo;
@@ -255,6 +287,7 @@ const renderContent = (item, profileData, sameTypeItems) => {
   setText("[data-content-intro]", item.introducao || item.resumo);
   renderTags(item);
   renderQuickFacts(item);
+  renderJuiceMedia(item);
 
   const recipe = document.querySelector("[data-recipe-section]");
   const exercise = document.querySelector("[data-exercise-section]");

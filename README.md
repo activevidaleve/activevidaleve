@@ -227,3 +227,13 @@ A experiência de leitura e consumo foi aprofundada sem alterar as regras de ace
 - `js/conteudos.js` continua compatível com `imagem_url`/`imagem_alt` antigos e com os campos legados do catálogo.
 
 Não houve mudança nas regras do Firestore nesta versão.
+
+
+## active_v33 — rodada editorial e Sucos Detox
+
+- revisão editorial dos 60 conteúdos já existentes, reduzindo textos genéricos e corrigindo coerência de duração nos exercícios;
+- nova área `sucos.html` com 20 receitas de Sucos Detox;
+- o termo “detox” é tratado como nome popular da seção, sem alegações de eliminação de toxinas;
+- cada suco reserva mídia separada para ingredientes e produto pronto (`imagem_ingredientes_url` e `imagem_pronto_url`);
+- atalho Sucos Detox adicionado à navegação e nova prateleira na home do portal;
+- total da biblioteca local: 80 conteúdos.

@@ -223,7 +223,8 @@ onAuthStateChanged(auth, async (user) => {
     if (progressResult.status === "fulfilled") progressMap = new Map(progressResult.value.map((item) => [item.conteudo_id || item.id, item]));
     else console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
 
-    const personalized = personalizarConteudos(contentResult.itens, profileData);
+    const regularRecipes = contentResult.itens.filter((item) => item.categoria !== "suco_detox");
+    const personalized = personalizarConteudos(regularRecipes, profileData);
     renderRecipeCards(personalized);
     renderProfile(userData, profileData, user);
     applyFilter("todos");

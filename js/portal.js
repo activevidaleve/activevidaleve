@@ -267,12 +267,16 @@ const dedupeById = (items = []) => {
 const buildPersonalizedHome = (profileData, foodItems, exerciseItems, recipeItems) => {
   const exercises = adaptToUse(recommendedPool(exerciseItems, profileData));
   const foods = adaptToUse(recommendedPool(foodItems, profileData));
-  const recipes = adaptToUse(recommendedPool(recipeItems, profileData));
+  const juiceItems = recipeItems.filter((item) => item.categoria === "suco_detox");
+  const regularRecipeItems = recipeItems.filter((item) => item.categoria !== "suco_detox");
+  const recipes = adaptToUse(recommendedPool(regularRecipeItems, profileData));
+  const juices = adaptToUse(recommendedPool(juiceItems, profileData));
   const all = adaptToUse(recommendedPool([...exerciseItems, ...foodItems, ...recipeItems], profileData));
   const balancedSelection = dedupeById([exercises[0], recipes[0], foods[0], ...all].filter(Boolean)).slice(0, 4);
   renderContentGrid("[data-personalized-grid]", balancedSelection, { limit: 4, reason: "Recomendação ajustada ao seu perfil e uso" });
   renderContentGrid("[data-exercise-shelf]", exercises, { limit: 4, action: "Ver exercício →" });
   renderContentGrid("[data-recipe-shelf]", recipes, { limit: 4, action: "Ver receita →" });
+  renderContentGrid("[data-juice-shelf]", juices, { limit: 4, action: "Ver suco →" });
   renderContentGrid("[data-food-shelf]", foods, { limit: 4, action: "Ler conteúdo →" });
   const duration = mapped("duracao_treino", profileData.duracao_treino);
   if (duration !== "Não informado") setText("[data-exercise-shelf-title]", `Opções que podem caber em ${duration.toLowerCase()}.`);

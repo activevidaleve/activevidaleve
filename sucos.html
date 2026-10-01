@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#84CC16">
+  <meta name="description" content="Sucos Detox do Active Vida Leve: 20 combinações de frutas, verduras e ervas, sem promessas de desintoxicação.">
+  <title>Sucos Detox | Active Vida Leve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/portal.css">
+  <link rel="stylesheet" href="./assets/css/sucos.css">
+</head>
+<body class="portal-page juices-page">
+  <header class="portal-header">
+    <div class="container portal-header-inner">
+      <a class="portal-brand" href="./portal.html" aria-label="Active Vida Leve"><img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198"></a>
+      <nav class="portal-nav" aria-label="Navegação do portal">
+        <a href="./portal.html">Início</a><a href="./buscar.html">Buscar</a><a href="./alimentacao.html">Alimentação</a><a href="./exercicios.html">Exercícios</a><a href="./receitas.html">Receitas</a><a class="is-active" href="./sucos.html">Sucos Detox</a><a href="./rotina.html">Minha rotina</a>
+      </nav>
+      <div class="portal-header-actions"><a class="portal-search-shortcut" href="./buscar.html" aria-label="Buscar conteúdos">⌕</a><a class="portal-profile-pill" href="./rotina.html" aria-label="Abrir meu perfil"><span data-user-initial>U</span><strong data-header-name>Usuário</strong></a><button class="portal-logout" type="button" data-logout>Sair</button></div>
+    </div>
+  </header>
+  <main class="juices-main" data-juices-app hidden>
+    <section class="juices-hero">
+      <div class="container juices-hero-grid">
+        <div><span class="juices-eyebrow">SUCOS DETOX</span><h1>20 combinações frescas para variar sabores.</h1><p>Frutas, verduras, ervas e água em receitas simples. Aqui, “detox” é apenas o nome popular da seção: estes sucos não eliminam toxinas e não substituem refeições.</p><div class="juices-profile-chips" data-juices-profile-chips></div></div>
+        <div class="juices-hero-art" aria-hidden="true"><span>FRUTAS</span><strong>+</strong><span>FOLHAS</span><strong>+</strong><span>ÁGUA</span></div>
+      </div>
+    </section>
+    <section class="container juices-section">
+      <div class="juices-heading"><div><span>BIBLIOTECA DE SUCOS</span><h2>Escolha pelo sabor e pelo que combina com sua rotina.</h2></div><p>Os cards são ordenados pelo seu perfil. Cada receita já reserva dois espaços de imagem: ingredientes e bebida pronta.</p></div>
+      <div class="juices-notice"><strong>Sobre o termo “detox”</strong><p>O organismo já possui sistemas naturais de processamento e eliminação de substâncias, principalmente fígado e rins. Nesta área, “detox” é um nome de categoria para bebidas com ingredientes frescos, sem alegações de “limpeza” do corpo.</p></div>
+      <div class="juices-grid" data-juices-grid aria-live="polite"></div>
+      <p class="juices-empty" data-juices-empty hidden>Nenhum suco publicado no momento.</p>
+    </section>
+  </main>
+  <div class="portal-loading" data-juices-loading><span class="payment-spinner" aria-hidden="true"></span><p>Organizando seus sucos…</p></div>
+  <script type="module" src="./js/sucos.js"></script>
+</body>
+</html>
