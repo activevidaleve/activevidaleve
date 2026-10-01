@@ -3,13 +3,15 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase
 import { auth, db } from "./firebase.js";
 import { carregarConteudos } from "./conteudos.js";
 import { criarFatosConteudo } from "./interface-biblioteca.js";
-import { montarExperienciaHome } from "./experiencia.js";
+import { montarExperienciaHome, montarRoteiroSemanal } from "./experiencia.js";
 import {
   alternarFavorito,
   listarFavoritos,
   listarHistorico,
   listarProgresso,
-  listarBuscas
+  listarBuscas,
+  obterRoteiroSemanal,
+  salvarRoteiroSemanal
 } from "./biblioteca-usuario.js";
 
 const app = document.querySelector("[data-portal-app]");
@@ -40,6 +42,14 @@ const redirectToPayment = () => window.location.replace("./pagamento.html");
 const setText = (selector, value) => { const element = document.querySelector(selector); if (element) element.textContent = value || ""; };
 const getItemId = (item = {}) => String(item.conteudo_id || item.id || "").trim();
 const score = (item = {}) => Number(item.experiencia_usuario?.pontuacao ?? item.personalizacao?.pontuacao ?? 0);
+
+const saudacaoAtual = () => {
+  const hour = new Date().getHours();
+  if (hour < 12) return "Bom dia";
+  if (hour < 18) return "Boa tarde";
+  return "Boa noite";
+};
+
 
 const setFavoriteButton = (button, id) => {
   const saved = favoriteIds.has(id);
@@ -239,6 +249,39 @@ const renderToday = (experience) => {
   });
 };
 
+
+const renderWeeklySection = (week = null) => {
+  const section = document.querySelector('[data-section-key="week"]');
+  const grid = document.querySelector("[data-week-grid]");
+  if (!section || !grid || !week?.itens?.length) {
+    if (section) section.hidden = true;
+    return;
+  }
+
+  setText("[data-week-title]", week.titulo);
+  setText("[data-week-description]", week.descricao);
+  setText("[data-week-period]", week.periodo ? `Semana: ${week.periodo}` : "Esta semana");
+  setText("[data-week-summary]", week.resumo);
+
+  grid.innerHTML = "";
+  week.itens.forEach((item) => {
+    const card = createContentCard(item, {
+      reason: item.experiencia_usuario?.motivo,
+      action: progressMap.get(getItemId(item))?.status === "em_andamento" ? "Continuar →" : "Explorar →"
+    });
+    if (!card) return;
+    card.classList.add("portal-week-card");
+    const role = document.createElement("span");
+    role.className = "portal-week-role";
+    role.textContent = item.roteiro_semana?.rotulo || "PARA VOCÊ";
+    const cover = card.querySelector(".portal-content-cover");
+    if (cover) cover.append(role);
+    grid.append(card);
+  });
+
+  section.hidden = false;
+};
+
 const renderContinueSection = (progress = [], catalogMap = new Map()) => {
   const section = document.querySelector("[data-continue-section]");
   if (!section) return;
@@ -272,14 +315,40 @@ const reorderSections = (order = []) => {
   });
 };
 
+const setSectionVisible = (key, visible) => {
+  const section = document.querySelector(`[data-section-key="${key}"]`);
+  if (section) section.hidden = !visible;
+};
+
+const renderCompletionState = (experience) => {
+  const section = document.querySelector('[data-section-key="complete"]');
+  if (!section) return;
+  section.hidden = !experience.bibliotecaEsgotada;
+  if (!experience.bibliotecaEsgotada) return;
+  setText("[data-complete-title]", "Você explorou toda a biblioteca atual.");
+  setText("[data-complete-text]", "Seus conteúdos concluídos continuam na sua biblioteca. Quando novos conteúdos forem adicionados, eles voltarão a aparecer automaticamente nas recomendações personalizadas.");
+};
+
 const renderExperience = (experience, progress, catalogMap) => {
   applyExperienceText(experience);
-  renderToday(experience);
+  renderCompletionState(experience);
+
+  setSectionVisible("today", !experience.bibliotecaEsgotada);
+  if (!experience.bibliotecaEsgotada) renderToday(experience);
+
+  renderWeeklySection(experience.semana);
   renderContentGrid("[data-personalized-grid]", experience.secoes.personalized, { limit: 4 });
   renderContentGrid("[data-exercise-shelf]", experience.secoes.exercise, { limit: 4, action: "Ver exercício →" });
   renderContentGrid("[data-recipe-shelf]", experience.secoes.recipe, { limit: 4, action: "Ver receita →" });
   renderContentGrid("[data-juice-shelf]", experience.secoes.juice, { limit: 4, action: "Ver suco →" });
   renderContentGrid("[data-food-shelf]", experience.secoes.food, { limit: 4, action: "Ler conteúdo →" });
+
+  setSectionVisible("personalized", experience.secoes.personalized.length > 0);
+  setSectionVisible("exercise", experience.secoes.exercise.length > 0);
+  setSectionVisible("recipe", experience.secoes.recipe.length > 0);
+  setSectionVisible("juice", experience.secoes.juice.length > 0);
+  setSectionVisible("food", experience.secoes.food.length > 0);
+
   renderContinueSection(progress, catalogMap);
   reorderSections(experience.sectionOrder);
 };
@@ -308,6 +377,7 @@ onAuthStateChanged(auth, async (user) => {
     if (!productionAccess && !testAccess) { redirectToPayment(); return; }
 
     const name = userData.nome || user.displayName?.split(/\s+/)[0] || "Usuário";
+    setText("[data-greeting]", saudacaoAtual());
     if (firstName) firstName.textContent = name;
     if (headerName) headerName.textContent = name;
     if (userInitial) userInitial.textContent = name.trim().charAt(0).toUpperCase() || "U";
@@ -356,6 +426,30 @@ onAuthStateChanged(auth, async (user) => {
       progresso: progress,
       buscas: searches
     });
+
+    try {
+      const salvo = await obterRoteiroSemanal(user.uid, experience.semana.id);
+      const roteiroCompatível = salvo?.conteudos?.length
+        && salvo.assinatura_perfil
+        && salvo.assinatura_perfil === experience.semana.assinatura_perfil;
+
+      if (roteiroCompatível) {
+        experience.semana = montarRoteiroSemanal({
+          usuarioId: user.uid,
+          profileData,
+          ordenados: experience.ordenados,
+          sinais: experience.sinais,
+          estagio: experience.estagio,
+          idsFixos: salvo.conteudos
+        });
+      } else if (experience.semana.ids.length) {
+        salvarRoteiroSemanal(user.uid, experience.semana).catch((error) => {
+          console.warn("Roteiro semanal não persistido até as regras do Firestore serem publicadas.", error);
+        });
+      }
+    } catch (error) {
+      console.warn("Roteiro semanal indisponível; usando seleção calculada localmente.", error);
+    }
 
     renderExperience(experience, progress, catalogMap);
     renderLibraryList("[data-portal-favorites]", "[data-portal-favorites-empty]", favorites);

@@ -1,4 +1,4 @@
-# Active Vida Leve — Baseline V32
+# Active Vida Leve — Baseline V38
 
 ## Estrutura atual
 - `index.html`: página inicial pública.
@@ -261,7 +261,7 @@ A home agora pode mudar por usuário em:
 - equilíbrio entre continuidade, afinidade e descoberta;
 - redução de repetições do mesmo conteúdo entre seções.
 
-Conteúdos em andamento são priorizados em “Continue explorando”. Conteúdos concluídos deixam de ocupar as principais posições de descoberta para abrir espaço para opções novas. O algoritmo também usa um desempate estável por usuário e dia, evitando que usuários com perfis iguais recebam necessariamente a mesma sequência de cards, sem embaralhar a página a cada atualização.
+Conteúdos em andamento são priorizados em “Continue explorando”. Conteúdos concluídos deixam de ocupar as principais posições de descoberta para abrir espaço para opções novas. O algoritmo usa um desempate estável por usuário, evitando que perfis iguais recebam necessariamente a mesma sequência de cards sem reorganizar a home apenas porque virou o dia. A renovação temporal fica concentrada no roteiro semanal.
 
 As páginas de Alimentação, Exercícios, Receitas, Sucos Detox e Busca usam a mesma camada comportamental para ordenar seus próprios conteúdos. A página individual também adapta a introdução ao perfil e ao estado de progresso daquele usuário.
 
@@ -270,3 +270,159 @@ As páginas de Alimentação, Exercícios, Receitas, Sucos Detox e Busca usam a 
 A subcoleção `usuarios/{uid}/buscas/{buscaId}` registra apenas o termo pesquisado, contagem e data da última ocorrência. Esses dados são usados para melhorar a ordem dos conteúdos para a própria conta. O arquivo `firestore.rules` foi atualizado para permitir que cada usuário leia e grave somente a própria subcoleção `buscas`.
 
 Para testar toda a personalização comportamental, publique as regras atuais do `firestore.rules` no Firebase antes dos testes. Caso as novas regras ainda não estejam publicadas, o portal continua funcionando com personalização baseada no cadastro e nos sinais que estiverem disponíveis.
+
+## active_v35 — seleção semanal personalizada
+
+- adiciona uma seleção semanal estável com até 4 conteúdos escolhidos pelo perfil e comportamento;
+- a seleção combina movimento, alimentação, receitas e Sucos Detox, ordenados pela prioridade individual;
+- o roteiro permanece disponível durante a semana e pode ser persistido em `usuarios/{uid}/roteiros/{semana}`;
+- a home passa a variar também a saudação e o contexto da seleção;
+- conteúdos concluídos antes da criação de uma nova semana perdem prioridade;
+- não é uma agenda obrigatória: a interface deixa claro que são sugestões flexíveis para explorar no próprio ritmo.
+
+## Experiência personalizada por conteúdo — v36
+
+A página `conteudo.html` passou a adaptar a apresentação do mesmo conteúdo para cada conta.
+
+A personalização considera:
+- dados do onboarding;
+- objetivos, interesses, duração, local e equipamentos;
+- preferência alimentar e tempo de preparo;
+- favoritos, histórico, progresso e buscas;
+- estágio de uso da conta.
+
+A base editorial do conteúdo permanece estável, mas mudam:
+- a introdução contextual;
+- o bloco "Sua versão deste conteúdo";
+- os destaques e explicações;
+- títulos de preparo/sequência quando aplicável;
+- conteúdos relacionados;
+- mensagens de continuidade, favorito e conclusão.
+
+Essa camada usa `js/experiencia.js` e não cria novas coleções no Firestore. As regras da v35 permanecem compatíveis.
+
+
+## Validação do motor de personalização — v37
+
+A versão 37 inclui uma rodada automatizada de validação do motor de personalização.
+
+- suíte: `testes/validar-personalizacao.mjs`;
+- relatório: `relatorios/validacao-personalizacao-v37.md`;
+- 7 perfis/comportamentos simulados;
+- 80 conteúdos avaliados;
+- prioridade refinada por especificidade de nível, duração, local e equipamento;
+- diversidade reforçada no bloco “Para você hoje”.
+
+Executar localmente:
+
+```bash
+node --experimental-default-type=module testes/validar-personalizacao.mjs
+```
+
+## Revalidação minuciosa do motor — v38
+
+A primeira validação foi refeita com uma matriz ampliada e correções de regressão.
+
+- 7 cenários representativos preservados;
+- 288 combinações de exercício;
+- 84 combinações alimentares;
+- 372 combinações matriciais no total;
+- nível, local, limite de duração, equipamento e perfil alimentar validados;
+- reconhecimento ampliado de restrições como `celíaco/celíaca` e de movimentos como `flexão/flexões`;
+- roteiro semanal recompõe automaticamente um quarto item quando um ID persistido deixa de ser válido;
+- buscas compostas passam a influenciar o comportamento por palavras relacionadas, não apenas por frase literal;
+- desempate diário usa a data local;
+- selo “Recomendado para você” ficou mais seletivo para não marcar quase toda a biblioteca.
+
+Relatório completo: `relatorios/validacao-personalizacao-v38.md`.
+
+Executar:
+
+```bash
+node testes/validar-personalizacao.mjs
+```
+
+## Validação de diversidade e diferenciação — v39
+
+A segunda rodada foi ampliada para duas suítes complementares.
+
+### Suíte pseudoaleatória
+
+- `testes/validar-diversidade-experiencia.mjs`;
+- 1.500 contas sintéticas;
+- perfis distantes, comportamentos opostos, evolução de estágio e renovação semanal;
+- relatório: `relatorios/validacao-diversidade-experiencia-v39.md`.
+
+### Suíte sistemática
+
+- `testes/validar-diferenciacao-experiencia.mjs`;
+- 2.304 perfis sistemáticos;
+- 2.304 comparações de mesmo cadastro com UIDs distintos;
+- microinterações vs. comportamento consolidado;
+- perfis próximos vs. distantes;
+- isolamento entre exercício e alimentação;
+- cenário hostil de restrições;
+- 100% da biblioteca coberta nas vitrines sintéticas;
+- relatório: `relatorios/validacao-diferenciacao-experiencia-v39.md`;
+- métricas brutas: `relatorios/metricas-diferenciacao-v39.json`.
+
+Correções principais da rodada:
+
+- confiança comportamental para impedir que um único clique domine a conta;
+- na v39, a individualização usava UID/dia; a v40 removeu o dia do desempate principal para eliminar variação diária artificial;
+- maior diversidade no destaque alimentar e no slot de descoberta;
+- regressões permanentes contra conteúdo bloqueado, concluído e cards duplicados.
+
+Executar:
+
+```bash
+node testes/validar-personalizacao.mjs
+node testes/validar-diversidade-experiencia.mjs
+node testes/validar-diferenciacao-experiencia.mjs
+```
+
+## Reauditoria da segunda rodada — v40
+
+A segunda rodada de diferenciação foi auditada novamente com uma suíte independente.
+
+Principais correções:
+
+- removido o dia do desempate principal da home; a mesma conta não muda de composição apenas porque virou a data;
+- renovação temporal permanece no roteiro semanal;
+- `nivel_atividade` e `dias_exercicio` passaram a influenciar de forma secundária e segura a ordenação de exercícios;
+- altura, peso e data de nascimento continuam fora do ranking automático;
+- histórico antigo incompatível não supera o perfil atual.
+
+Nova suíte:
+
+```bash
+node testes/validar-reauditoria-segunda-rodada.mjs
+```
+
+Relatório: `relatorios/reauditoria-segunda-rodada-v40.md`.
+Métricas: `relatorios/metricas-reauditoria-v40.json`.
+
+Para regressão completa da personalização:
+
+```bash
+node testes/validar-personalizacao.mjs
+node testes/validar-diversidade-experiencia.mjs
+node testes/validar-diferenciacao-experiencia.mjs
+node testes/validar-reauditoria-segunda-rodada.mjs
+```
+
+## Validação de casos extremos — v41
+
+A terceira rodada de validação adiciona testes longitudinais e de borda para o motor de experiência. Foram simuladas 120 contas durante 26 semanas, esgotamento progressivo da biblioteca, mudança abrupta de perfil, mudança persistente de comportamento, entradas incompletas, crescimento da biblioteca e fronteiras semanais.
+
+Correções principais:
+- conteúdo concluído não volta a aparecer como novidade quando a biblioteca se esgota;
+- a home exibe um estado próprio quando todos os conteúdos atuais foram explorados;
+- roteiros semanais agora carregam uma assinatura do perfil e são recalculados quando as preferências relevantes mudam;
+- prateleiras vazias são ocultadas;
+- o motor aceita data controlada em testes para validar evolução semanal e mensal.
+
+Arquivos de validação:
+- `testes/validar-casos-extremos-evolucao.mjs`;
+- `relatorios/validacao-casos-extremos-evolucao-v41.md`;
+- `relatorios/metricas-casos-extremos-v41.json`.

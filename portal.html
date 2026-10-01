@@ -47,7 +47,7 @@
       <div class="container portal-hero-inner">
         <div class="portal-hero-copy">
           <span class="portal-eyebrow" data-hero-eyebrow>SEU ESPAÇO ACTIVE</span>
-          <h1>Olá, <strong data-user-first-name>Usuário</strong>.</h1>
+          <h1><span data-greeting>Olá</span>, <strong data-user-first-name>Usuário</strong>.</h1>
           <p data-hero-description>Seu portal organiza conteúdos a partir das preferências, objetivos e disponibilidade que você informou no cadastro.</p>
           <div class="portal-profile-tags" data-profile-tags aria-label="Resumo do perfil"></div>
           <div class="portal-experience-status"><span data-experience-stage>Experiência personalizada</span><small>Esta página pode mudar conforme você explora, salva e conclui conteúdos.</small></div>
@@ -93,6 +93,24 @@
           <p data-rec-routine-text>Consulte objetivos, preferências e dados usados para organizar sua experiência.</p>
           <a href="./rotina.html">Ver minha rotina <span aria-hidden="true">→</span></a>
         </article>
+      </div>
+    </section>
+
+    <section class="container portal-section portal-week" id="minha-semana" data-section-key="week" aria-labelledby="week-title">
+      <div class="portal-week-shell">
+        <div class="portal-week-heading">
+          <div>
+            <span>SUA SELEÇÃO DA SEMANA</span>
+            <h2 id="week-title" data-week-title>Uma seleção pensada para sua rotina.</h2>
+            <p data-week-description>Conteúdos escolhidos a partir do seu perfil e do que você vem explorando.</p>
+          </div>
+          <div class="portal-week-status">
+            <strong data-week-period>Esta semana</strong>
+            <span data-week-summary>Seleção personalizada</span>
+          </div>
+        </div>
+        <div class="portal-week-grid" data-week-grid aria-live="polite"></div>
+        <p class="portal-week-note">Esta é uma curadoria de conteúdos para explorar, não uma lista de obrigações. Você pode abrir o que fizer sentido e no ritmo que preferir.</p>
       </div>
     </section>
 
@@ -160,6 +178,18 @@
         <a href="./alimentacao.html">Ver alimentação →</a>
       </div>
       <div class="portal-content-row" data-food-shelf></div>
+    </section>
+
+    <section class="container portal-section portal-complete" data-section-key="complete" hidden aria-labelledby="portal-complete-title">
+      <div class="portal-complete-card">
+        <span>BIBLIOTECA EXPLORADA</span>
+        <h2 id="portal-complete-title" data-complete-title>Você explorou toda a biblioteca atual.</h2>
+        <p data-complete-text>Seus conteúdos concluídos continuam disponíveis na sua biblioteca.</p>
+        <div class="portal-complete-actions">
+          <a href="./buscar.html?concluidos=1">Rever concluídos →</a>
+          <a href="./rotina.html">Revisar minhas preferências →</a>
+        </div>
+      </div>
     </section>
 
     <section class="container portal-section portal-library" data-section-key="library" aria-labelledby="portal-library-title">

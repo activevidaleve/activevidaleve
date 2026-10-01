@@ -48,6 +48,11 @@ service cloud.firestore {
                                           && request.auth.uid == usuarioId;
     }
 
+    match /usuarios/{usuarioId}/roteiros/{roteiroId} {
+      allow read, create, update, delete: if autenticado()
+                                          && request.auth.uid == usuarioId;
+    }
+
     match /perfis/{usuarioId} {
       allow create, read, update: if autenticado()
                                   && request.auth.uid == usuarioId;

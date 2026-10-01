@@ -2,11 +2,22 @@ import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 import { carregarConteudoPorId, carregarConteudos } from "./conteudos.js";
-import { avaliarConteudo, personalizarConteudos } from "./personalizacao.js";
-import { criarIntroducaoPersonalizada } from "./experiencia.js";
+import { avaliarConteudo } from "./personalizacao.js";
+import {
+  construirSinaisComportamento,
+  criarApresentacaoPersonalizada,
+  criarIntroducaoPersonalizada,
+  determinarEstagioUsuario,
+  ordenarPorExperiencia,
+  selecionarDiversificado
+} from "./experiencia.js";
 import {
   alternarFavorito,
   definirConclusao,
+  listarBuscas,
+  listarFavoritos,
+  listarHistorico,
+  listarProgresso,
   obterFavorito,
   obterProgresso,
   registrarVisualizacao,
@@ -31,6 +42,9 @@ let currentProgress = 0;
 let completed = false;
 let lastPersistedProgress = 0;
 let scrollTicking = false;
+let currentProfileData = {};
+let currentCatalog = [];
+let currentExperienceContext = {};
 
 const areaConfig = {
   alimentacao: { label: "Alimentação", url: "./alimentacao.html", typeLabel: "ALIMENTAÇÃO" },
@@ -201,14 +215,29 @@ const renderProfileMatch = (evaluation) => {
   (values || []).slice(0, 4).forEach((text) => list.append(create("span", "", text)));
 };
 
-const renderRelated = (items, currentId, profileData, config) => {
+const renderRelated = (items, currentId, profileData, config, contexto = {}) => {
   const grid = document.querySelector("[data-related-grid]");
   if (!grid) return;
   grid.innerHTML = "";
-  const sourceItems = currentItem?.categoria === "suco_detox" ? items.filter((item) => item.categoria === "suco_detox") : items;
-  const related = personalizarConteudos(sourceItems.filter((item) => item.id !== currentId), profileData)
-    .filter((item) => !item.personalizacao?.bloqueado)
-    .slice(0, 3);
+
+  const ordered = ordenarPorExperiencia(
+    items.filter((item) => item.id !== currentId),
+    {
+      usuarioId: contexto.usuarioId || "",
+      profileData,
+      sinais: contexto.sinais || null,
+      estagio: contexto.estagio || { nivel: 0 }
+    }
+  ).filter((item) => !item.personalizacao?.bloqueado);
+
+  const sameTheme = ordered.filter((item) => {
+    if (currentItem?.categoria === "suco_detox") return item.categoria === "suco_detox";
+    return item.tipo === currentItem?.tipo;
+  });
+  const discoveries = ordered.filter((item) => !sameTheme.some((same) => same.id === item.id));
+  const sameCount = Number(contexto.estagio?.nivel || 0) >= 2 ? 1 : 2;
+  const candidates = [...sameTheme.slice(0, sameCount), ...discoveries];
+  const related = selecionarDiversificado(candidates, 3, { maxPorTipo: 2, maxPorCategoria: 1 });
 
   related.forEach((item) => {
     const link = create("a", "content-related-card");
@@ -223,12 +252,11 @@ const renderRelated = (items, currentId, profileData, config) => {
     link.append(cover);
     link.append(create("span", "", categoryLabels[item.categoria] || config.typeLabel));
     link.append(create("h3", "", item.titulo));
-    link.append(create("p", "", item.resumo));
+    link.append(create("p", "", item.experiencia_usuario?.motivo || item.resumo));
     link.append(create("strong", "", "Abrir conteúdo →"));
     grid.append(link);
   });
 };
-
 const renderJuiceMedia = (item) => {
   const section = document.querySelector("[data-juice-media-section]");
   if (!section) return;
@@ -257,7 +285,47 @@ const renderJuiceMedia = (item) => {
   setSlot("[data-juice-ready-image]", item.midia?.imagem_pronto_url || item.imagem_url, item.midia?.imagem_pronto_alt || item.imagem_alt, "Espaço reservado", "Imagem do produto pronto será inserida aqui.");
 };
 
-const renderContent = (item, profileData, sameTypeItems, contexto = {}) => {
+const renderPersonalizedPresentation = (presentation = {}) => {
+  const panel = document.querySelector("[data-personalized-panel]");
+  const points = document.querySelector("[data-personalized-points]");
+  const chips = document.querySelector("[data-personalized-chips]");
+
+  if (!panel) return;
+  panel.dataset.variant = presentation.variant || "geral";
+  setText("[data-personalized-eyebrow]", presentation.eyebrow || "SUA VERSÃO DESTE CONTEÚDO");
+  setText("[data-personalized-title]", presentation.titulo || "Veja este conteúdo do jeito que combina com sua rotina.");
+  setText("[data-personalized-copy]", presentation.texto || "");
+  setText("[data-personalized-stage]", presentation.notaEstagio || "");
+  setText("[data-related-title]", presentation.relatedTitle || "Outros conteúdos para você");
+  setText("[data-recipe-prep-title]", presentation.recipePrepTitle || "Passo a passo");
+  setText("[data-exercise-steps-title]", presentation.exerciseStepsTitle || "Uma sequência simples");
+  setText("[data-ingredients-title]", presentation.ingredientsTitle || "Ingredientes-base");
+
+  if (chips) {
+    chips.innerHTML = "";
+    (presentation.chips || []).forEach((text) => chips.append(create("span", "", text)));
+    chips.hidden = !(presentation.chips || []).length;
+  }
+
+  if (points) {
+    points.innerHTML = "";
+    (presentation.pontos || []).forEach((text) => points.append(create("li", "", text)));
+    points.hidden = !(presentation.pontos || []).length;
+  }
+};
+
+const refreshPersonalizedPresentation = () => {
+  if (!currentItem) return;
+  const evaluation = avaliarConteudo(currentItem, currentProfileData);
+  const presentation = criarApresentacaoPersonalizada(currentItem, currentProfileData, {
+    ...currentExperienceContext,
+    avaliacao: evaluation
+  });
+  renderPersonalizedPresentation(presentation);
+  setText("[data-content-intro]", criarIntroducaoPersonalizada(currentItem, currentProfileData, currentExperienceContext));
+};
+
+const renderContent = (item, profileData, catalogo, contexto = {}) => {
   const config = item.categoria === "suco_detox" ? areaConfig.suco_detox : (areaConfig[item.tipo] || areaConfig.alimentacao);
   const themeKey = item.categoria === "suco_detox" ? "suco_detox" : item.tipo;
   const theme = {
@@ -285,7 +353,13 @@ const renderContent = (item, profileData, sameTypeItems, contexto = {}) => {
   setText("[data-breadcrumb-title]", item.titulo);
   setText("[data-content-summary]", item.resumo);
   setText("[data-content-icon]", item.icone || "✦");
+  const evaluation = avaliarConteudo(item, profileData);
+  const presentation = criarApresentacaoPersonalizada(item, profileData, {
+    ...contexto,
+    avaliacao: evaluation
+  });
   setText("[data-content-intro]", criarIntroducaoPersonalizada(item, profileData, contexto));
+  renderPersonalizedPresentation(presentation);
   renderTags(item);
   renderQuickFacts(item);
   renderJuiceMedia(item);
@@ -302,8 +376,8 @@ const renderContent = (item, profileData, sameTypeItems, contexto = {}) => {
 
   renderSections(item.secoes || []);
   renderObservations(item.observacoes || []);
-  renderProfileMatch(avaliarConteudo(item, profileData));
-  renderRelated(sameTypeItems, item.id, profileData, config);
+  renderProfileMatch(evaluation);
+  renderRelated(catalogo, item.id, profileData, config, contexto);
 };
 
 const updateProgressUI = (progress = 0, status = "novo") => {
@@ -363,6 +437,8 @@ favoriteButton?.addEventListener("click", async () => {
     favoriteButton.classList.toggle("is-favorite", saved);
     favoriteButton.setAttribute("aria-pressed", String(saved));
     favoriteButton.textContent = saved ? "♥ Salvo nos favoritos" : "♡ Salvar nos favoritos";
+    currentExperienceContext = { ...currentExperienceContext, favorito: saved };
+    refreshPersonalizedPresentation();
   } catch (error) {
     console.error("Erro ao atualizar favorito:", error);
   } finally {
@@ -378,7 +454,10 @@ completeButton?.addEventListener("click", async () => {
     const liveProgress = Math.max(currentProgress, calcularProgressoLeitura());
     await definirConclusao(currentUser.uid, currentItem, nextCompleted, liveProgress);
     lastPersistedProgress = nextCompleted ? 100 : Math.min(95, liveProgress);
-    updateProgressUI(nextCompleted ? 100 : liveProgress, nextCompleted ? "concluido" : "em_andamento");
+    const nextStatus = nextCompleted ? "concluido" : "em_andamento";
+    updateProgressUI(nextCompleted ? 100 : liveProgress, nextStatus);
+    currentExperienceContext = { ...currentExperienceContext, status: nextStatus };
+    refreshPersonalizedPresentation();
   } catch (error) {
     console.error("Erro ao atualizar conclusão do conteúdo:", error);
   } finally {
@@ -429,32 +508,74 @@ onAuthStateChanged(auth, async (user) => {
     }
 
     currentItem = item;
-    const sameTypeResult = await carregarConteudos(item.tipo);
-    renderContent(item, profileData, sameTypeResult.itens);
 
-    const [favoriteResult, progressResult, historyResult] = await Promise.allSettled([
+    const [
+      alimentacaoResult,
+      exerciciosResult,
+      receitasResult,
+      favoriteResult,
+      progressResult,
+      favoritesListResult,
+      historyListResult,
+      progressListResult,
+      searchesListResult
+    ] = await Promise.allSettled([
+      carregarConteudos("alimentacao"),
+      carregarConteudos("exercicio"),
+      carregarConteudos("receita"),
       obterFavorito(user.uid, item.id),
       obterProgresso(user.uid, item.id),
-      registrarVisualizacao(user.uid, item)
+      listarFavoritos(user.uid),
+      listarHistorico(user.uid, 16),
+      listarProgresso(user.uid),
+      listarBuscas(user.uid, 12)
     ]);
-    if (favoriteResult.status === "fulfilled" && favoriteButton) {
-      const saved = favoriteResult.value;
+
+    const catalogo = [
+      ...(alimentacaoResult.status === "fulfilled" ? alimentacaoResult.value.itens : []),
+      ...(exerciciosResult.status === "fulfilled" ? exerciciosResult.value.itens : []),
+      ...(receitasResult.status === "fulfilled" ? receitasResult.value.itens : [])
+    ];
+
+    const favoritos = favoritesListResult.status === "fulfilled" ? favoritesListResult.value : [];
+    const historico = historyListResult.status === "fulfilled" ? historyListResult.value : [];
+    const progressoLista = progressListResult.status === "fulfilled" ? progressListResult.value : [];
+    const buscas = searchesListResult.status === "fulfilled" ? searchesListResult.value : [];
+    const sinais = construirSinaisComportamento({ catalogo, favoritos, historico, progresso: progressoLista, buscas });
+    const estagio = determinarEstagioUsuario({ favoritos, historico, progresso: progressoLista, buscas });
+    const saved = favoriteResult.status === "fulfilled" ? favoriteResult.value : false;
+    const progress = progressResult.status === "fulfilled" ? progressResult.value : null;
+    const status = progress?.status || "novo";
+
+    currentProfileData = profileData;
+    currentCatalog = catalogo.length ? catalogo : [item];
+    currentExperienceContext = {
+      usuarioId: user.uid,
+      sinais,
+      estagio,
+      favorito: saved,
+      status
+    };
+
+    renderContent(item, profileData, currentCatalog, currentExperienceContext);
+
+    if (favoriteButton) {
       favoriteButton.classList.toggle("is-favorite", saved);
       favoriteButton.setAttribute("aria-pressed", String(saved));
       favoriteButton.textContent = saved ? "♥ Salvo nos favoritos" : "♡ Salvar nos favoritos";
-    } else if (favoriteResult.status === "rejected") {
-      console.warn("Favorito indisponível.", favoriteResult.reason);
     }
+    if (favoriteResult.status === "rejected") console.warn("Favorito indisponível.", favoriteResult.reason);
+
     if (progressResult.status === "fulfilled") {
-      const progress = progressResult.value;
       lastPersistedProgress = Number(progress?.progresso || 0);
-      updateProgressUI(lastPersistedProgress, progress?.status || "novo");
-      setText("[data-content-intro]", criarIntroducaoPersonalizada(item, profileData, { status: progress?.status || "novo" }));
+      updateProgressUI(lastPersistedProgress, status);
     } else {
       console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
       updateProgressUI(0, "novo");
     }
-    if (historyResult.status === "rejected") console.warn("Histórico indisponível.", historyResult.reason);
+
+    const historyResult = await Promise.allSettled([registrarVisualizacao(user.uid, item)]);
+    if (historyResult[0].status === "rejected") console.warn("Histórico indisponível.", historyResult[0].reason);
 
     if (loading) loading.hidden = true;
     if (app) app.hidden = false;

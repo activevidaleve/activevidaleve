@@ -207,3 +207,21 @@ export const listarBuscas = async (usuarioId, quantidade = 12) => {
   }
 };
 
+export const obterRoteiroSemanal = async (usuarioId, roteiroId) => {
+  if (!usuarioId || !roteiroId) return null;
+  const snapshot = await getDoc(doc(db, "usuarios", usuarioId, "roteiros", roteiroId));
+  return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null;
+};
+
+export const salvarRoteiroSemanal = async (usuarioId, roteiro) => {
+  if (!usuarioId || !roteiro?.id || !Array.isArray(roteiro.ids) || !roteiro.ids.length) return null;
+  const referencia = doc(db, "usuarios", usuarioId, "roteiros", roteiro.id);
+  await setDoc(referencia, {
+    semana: roteiro.id,
+    conteudos: roteiro.ids.slice(0, 4),
+    assinatura_perfil: roteiro.assinatura_perfil || null,
+    versao: 2,
+    atualizado_em: serverTimestamp()
+  }, { merge: true });
+  return roteiro;
+};

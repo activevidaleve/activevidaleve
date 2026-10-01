@@ -1,0 +1,92 @@
+{
+  "versao": "v41",
+  "conteudos": 80,
+  "esgotamento": [
+    {
+      "completedCount": 0,
+      "shown": 23,
+      "concludedShown": 0,
+      "week": 4,
+      "esgotada": false
+    },
+    {
+      "completedCount": 20,
+      "shown": 19,
+      "concludedShown": 0,
+      "week": 4,
+      "esgotada": false
+    },
+    {
+      "completedCount": 40,
+      "shown": 14,
+      "concludedShown": 0,
+      "week": 4,
+      "esgotada": false
+    },
+    {
+      "completedCount": 60,
+      "shown": 10,
+      "concludedShown": 0,
+      "week": 4,
+      "esgotada": false
+    },
+    {
+      "completedCount": 75,
+      "shown": 5,
+      "concludedShown": 0,
+      "week": 4,
+      "esgotada": false
+    },
+    {
+      "completedCount": 79,
+      "shown": 1,
+      "concludedShown": 0,
+      "week": 1,
+      "esgotada": false
+    },
+    {
+      "completedCount": 80,
+      "shown": 0,
+      "concludedShown": 0,
+      "week": 0,
+      "esgotada": true
+    }
+  ],
+  "roteiro_perfil": {
+    "assinatura_muda_com_perfil": true,
+    "assinatura_ignora_campos_neutros": true
+  },
+  "longitudinal": {
+    "contas": 120,
+    "semanas": 26,
+    "media_conteudos_unicos": 63.14,
+    "min_conteudos_unicos": 58,
+    "max_conteudos_unicos": 66,
+    "concluidos_reaparecendo": 0,
+    "regressoes_estagio": 0,
+    "taxa_recorrente": 1
+  },
+  "comportamento": {
+    "amostras": 180,
+    "sobreposicao_apos_microinteracao": 0.9852,
+    "sobreposicao_apos_mudanca_persistente": 0.4596,
+    "taxa_inversao_exercicio_para_sucos": 1
+  },
+  "robustez": {
+    "casos": 8,
+    "aprovados": 8
+  },
+  "crescimento_biblioteca": {
+    "amostras": 120,
+    "taxa_novo_conteudo_top10": 1
+  },
+  "calendario": {
+    "domingo": "2026-W40",
+    "segunda": "2026-W41",
+    "terca": "2026-W41"
+  },
+  "perfil_atual_vs_historico": {
+    "amostras": 150,
+    "taxa": 1
+  }
+}

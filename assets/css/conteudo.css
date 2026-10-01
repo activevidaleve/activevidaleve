@@ -87,3 +87,122 @@
 
 /* SUCOS DETOX — mídia reservada */
 .content-juice-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:18px}.content-juice-media-card{padding:14px;border:1px solid rgba(38,62,50,.08);border-radius:20px;background:#FFF}.content-juice-media-card>span{display:block;margin-bottom:9px;color:var(--content-accent);font-size:7.5px;font-weight:800;letter-spacing:1px}.content-juice-image-slot{min-height:190px;display:grid;place-items:center;align-content:center;gap:5px;padding:18px;border:1px dashed rgba(38,62,50,.20);border-radius:16px;background:linear-gradient(135deg,rgba(132,204,22,.08),rgba(0,194,168,.07));background-size:cover;background-position:center;text-align:center}.content-juice-image-slot strong{color:var(--text);font-size:11px}.content-juice-image-slot small{max-width:190px;color:var(--text-muted);font-size:8.5px;line-height:1.45}.content-juice-image-slot.has-image{border-style:solid}.content-juice-image-slot.has-image>*{display:none}@media(max-width:680px){.content-juice-media{grid-template-columns:1fr}.content-juice-image-slot{min-height:170px}}
+
+/* =========================
+   APRESENTAÇÃO PERSONALIZADA — V36
+   ========================= */
+.content-personalized{
+  margin-top:24px;
+  padding:22px;
+  border:1px solid color-mix(in srgb,var(--content-accent) 18%,rgba(38,62,50,.08));
+  border-radius:23px;
+  background:
+    radial-gradient(circle at 92% 12%,color-mix(in srgb,var(--content-accent) 12%,transparent),transparent 30%),
+    linear-gradient(135deg,var(--content-soft),rgba(255,255,255,.92));
+}
+.content-personalized-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+}
+.content-personalized-head h2{
+  max-width:680px;
+  margin:7px 0 0;
+  color:var(--text);
+  font-size:23px;
+  line-height:1.12;
+  letter-spacing:-.65px;
+}
+.content-personalized-badge{
+  flex:0 0 auto;
+  padding:7px 9px;
+  border-radius:999px;
+  color:var(--content-accent);
+  background:#FFF;
+  border:1px solid color-mix(in srgb,var(--content-accent) 16%,transparent);
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.9px;
+}
+.content-personalized>p{
+  max-width:760px;
+  margin:12px 0 0;
+  color:var(--text-muted);
+  font-size:10.5px;
+  line-height:1.72;
+}
+.content-personalized-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:14px;
+}
+.content-personalized-chips span{
+  padding:6px 8px;
+  border-radius:999px;
+  color:var(--content-accent);
+  background:#FFF;
+  border:1px solid color-mix(in srgb,var(--content-accent) 15%,transparent);
+  font-size:7.5px;
+  font-weight:800;
+}
+.content-personalized-points{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px 12px;
+  margin:17px 0 0;
+  padding:0;
+  list-style:none;
+}
+.content-personalized-points li{
+  position:relative;
+  padding:11px 12px 11px 34px;
+  border:1px solid rgba(38,62,50,.07);
+  border-radius:15px;
+  color:#52635A;
+  background:rgba(255,255,255,.72);
+  font-size:9px;
+  line-height:1.55;
+}
+.content-personalized-points li::before{
+  content:"✓";
+  position:absolute;
+  left:11px;
+  top:10px;
+  width:15px;
+  height:15px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#FFF;
+  background:var(--content-accent);
+  font-size:7px;
+  font-weight:800;
+}
+.content-personalized-stage{
+  display:block;
+  margin-top:13px;
+  color:#738079;
+  font-size:8px;
+  line-height:1.55;
+}
+.content-personalized[data-variant="entrada"]{
+  background:linear-gradient(135deg,rgba(249,115,22,.07),rgba(255,255,255,.94));
+}
+.content-personalized[data-variant="suco"]{
+  background:linear-gradient(135deg,rgba(132,204,22,.10),rgba(0,194,168,.06),rgba(255,255,255,.94));
+}
+.content-personalized[data-variant="receita"]{
+  background:linear-gradient(135deg,rgba(0,194,168,.08),rgba(255,255,255,.94));
+}
+.content-personalized[data-variant="alimentacao"]{
+  background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(255,255,255,.94));
+}
+@media(max-width:720px){
+  .content-personalized{padding:18px}
+  .content-personalized-head{display:block}
+  .content-personalized-badge{display:inline-flex;margin-top:12px}
+  .content-personalized-points{grid-template-columns:1fr}
+}
+

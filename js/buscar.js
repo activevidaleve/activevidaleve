@@ -30,6 +30,16 @@ let completedOnly = false;
 
 const typeLabels = { alimentacao: "ALIMENTAÇÃO", exercicio: "EXERCÍCIO", receita: "RECEITA" };
 const normalizeText = (value = "") => String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+const raizBusca = (value = "") => {
+  let word = normalizeText(value).replace(/[^a-z0-9]+/g, "");
+  if (word.length >= 5 && word.endsWith("s")) word = word.slice(0, -1);
+  if (word.length >= 5 && /[ao]$/.test(word)) word = word.slice(0, -1);
+  return word;
+};
+const termosBusca = (value = "") => normalizeText(value)
+  .split(/[^a-z0-9]+/)
+  .map(raizBusca)
+  .filter((word) => word.length >= 2);
 const searchable = (item) => normalizeText([
   item.titulo,
   item.resumo,
@@ -59,7 +69,12 @@ const render = () => {
     if (activeType !== "todos" && item.tipo !== activeType) return false;
     if (favoritesOnly && !favoriteIds.has(item.id)) return false;
     if (completedOnly && progressMap.get(item.id)?.status !== "concluido") return false;
-    if (term && !searchable(item).includes(term)) return false;
+    if (term) {
+      const haystack = searchable(item);
+      const palavras = new Set(termosBusca(haystack));
+      const queryWords = termosBusca(term);
+      if (!queryWords.every((word) => palavras.has(word))) return false;
+    }
     return true;
   });
 

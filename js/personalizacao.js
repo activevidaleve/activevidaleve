@@ -41,7 +41,7 @@ const TERMOS_RESTRICAO = Object.freeze({
   ovo: ["ovo", "ovos"],
   amendoim: ["amendoim", "amendoins"],
   castanhas: ["castanha", "castanhas", "nozes", "noz"],
-  gluten: ["gluten", "trigo"],
+  gluten: ["gluten", "trigo", "celiaco", "celiaca", "doenca celiaca"],
   peixe: ["peixe", "peixes"],
   soja: ["soja"],
   frango: ["frango"],
@@ -49,6 +49,16 @@ const TERMOS_RESTRICAO = Object.freeze({
   porco: ["porco", "suino", "suina"],
   cogumelos: ["cogumelo", "cogumelos"],
   pimenta: ["pimenta", "apimentado", "apimentada"]
+});
+
+const MOVIMENTOS_EVITAR = Object.freeze({
+  corrida: ["corrida", "correr"],
+  salto: ["salto", "saltos", "pulo", "pulos"],
+  agachamento: ["agachamento", "agachamentos"],
+  burpee: ["burpee", "burpees"],
+  prancha: ["prancha", "pranchas"],
+  flexao: ["flexao", "flexoes"],
+  abdominal: ["abdominal", "abdominais"]
 });
 
 const removerAcentos = (value = "") => String(value)
@@ -107,12 +117,9 @@ const detectarMovimentosEvitar = (profileData = {}) => {
   const source = String(profileData.exercicios_evitar || "");
   if (!source.trim()) return [];
 
-  const keywords = [
-    "corrida", "correr", "salto", "saltos", "pulo", "pulos", "agachamento",
-    "burpee", "burpees", "prancha", "flexao", "flexoes", "abdominal", "abdominais"
-  ];
-
-  return keywords.filter((term) => textoContemTermo(source, [term]));
+  return Object.entries(MOVIMENTOS_EVITAR)
+    .filter(([, aliases]) => textoContemTermo(source, aliases))
+    .map(([key]) => key);
 };
 
 export const normalizarPerfil = (profileData = {}) => ({
@@ -125,6 +132,7 @@ export const normalizarPerfil = (profileData = {}) => ({
   perfil_alimentar: normalizarToken(profileData.perfil_alimentar),
   tempo_preparo: normalizarToken(profileData.tempo_preparo),
   nivel_atividade: normalizarToken(profileData.nivel_atividade, "nivel_atividade"),
+  dias_exercicio: normalizarToken(profileData.dias_exercicio),
   restricoes_detectadas: detectarRestricoes(profileData),
   movimentos_evitar_detectados: detectarMovimentosEvitar(profileData)
 });
@@ -137,11 +145,21 @@ const criarAvaliacao = () => ({
   alertas: []
 });
 
-const pontuarLista = (avaliacao, profileValues, contentValues, weight, reason) => {
+const fatorEspecificidade = (quantidade = 1, totalPossivel = 0) => {
+  if (!totalPossivel || quantidade <= 1) return 1;
+  const cobertura = Math.min(1, quantidade / totalPossivel);
+  return Math.max(0.68, 1 - cobertura * 0.32);
+};
+
+const pontuarLista = (avaliacao, profileValues, contentValues, weight, reason, options = {}) => {
   if (!profileValues.length || !contentValues.length) return;
   avaliacao.maximo += weight;
-  if (intersecao(profileValues, contentValues).length) {
-    avaliacao.pontuacao += weight;
+  const matches = intersecao(profileValues, contentValues);
+  if (matches.length) {
+    const coberturaPerfil = Math.min(1, matches.length / Math.max(1, Math.min(profileValues.length, 2)));
+    const especificidade = fatorEspecificidade(contentValues.length, options.totalPossivel || 0);
+    const fator = Math.min(1, (0.78 + coberturaPerfil * 0.22) * especificidade);
+    avaliacao.pontuacao += Math.round(weight * fator);
     avaliacao.motivos.push(reason);
   } else {
     avaliacao.pontuacao -= Math.round(weight * 0.35);
@@ -151,32 +169,48 @@ const pontuarLista = (avaliacao, profileValues, contentValues, weight, reason) =
 const pontuarValor = (avaliacao, profileValue, contentValues, weight, reason, options = {}) => {
   if (!profileValue || !contentValues.length) return;
   avaliacao.maximo += weight;
-  const match = contentValues.includes(profileValue)
-    || (options.acceptAny && contentValues.includes(options.acceptAny));
+  const exactMatch = contentValues.includes(profileValue);
+  const genericMatch = !exactMatch && options.acceptAny && contentValues.includes(options.acceptAny);
 
-  if (match) {
-    avaliacao.pontuacao += weight;
+  if (exactMatch || genericMatch) {
+    const especificidade = fatorEspecificidade(contentValues.length, options.totalPossivel || 0);
+    const qualidade = genericMatch ? 0.62 : especificidade;
+    avaliacao.pontuacao += Math.round(weight * qualidade);
     avaliacao.motivos.push(reason);
   } else {
     avaliacao.pontuacao -= Math.round(weight * 0.35);
   }
 };
 
-const avaliarTempo = (avaliacao, profileValue, contentValues, weight, reason) => {
+const avaliarTempo = (avaliacao, profileValue, contentValues, weight, reason, options = {}) => {
   if (!profileValue || !contentValues.length) return;
   avaliacao.maximo += weight;
 
   const profileOrder = ORDEM_TEMPO[profileValue];
-  const contentOrders = contentValues.map((item) => ORDEM_TEMPO[item]).filter(Boolean);
-
+  const contentOrders = [...new Set(contentValues.map((item) => ORDEM_TEMPO[item]).filter(Boolean))];
   if (!profileOrder || !contentOrders.length) return;
-  const fits = contentOrders.some((order) => order <= profileOrder);
 
-  if (fits) {
-    avaliacao.pontuacao += weight;
+  const exact = contentOrders.includes(profileOrder);
+  const menores = contentOrders.filter((order) => order < profileOrder);
+  const maiores = contentOrders.filter((order) => order > profileOrder);
+  const especificidade = fatorEspecificidade(contentOrders.length, options.totalPossivel || 4);
+
+  if (exact) {
+    avaliacao.pontuacao += Math.round(weight * especificidade);
     avaliacao.motivos.push(reason);
-  } else {
-    avaliacao.pontuacao -= Math.round(weight * 0.5);
+    return;
+  }
+
+  if (menores.length) {
+    const distancia = profileOrder - Math.max(...menores);
+    const fator = distancia === 1 ? 0.74 : 0.56;
+    avaliacao.pontuacao += Math.round(weight * fator * especificidade);
+    avaliacao.motivos.push(reason);
+    return;
+  }
+
+  if (maiores.length) {
+    avaliacao.pontuacao -= Math.round(weight * 0.55);
   }
 };
 
@@ -230,27 +264,33 @@ export const avaliarConteudo = (conteudo = {}, profileData = {}) => {
   const temposPreparo = lista(publico.tempo_preparo ?? conteudo.tempos_preparo ?? conteudo.tempo_preparo);
   const niveisAtividade = lista(publico.niveis_atividade ?? conteudo.niveis_atividade, "nivel_atividade");
 
-  pontuarLista(avaliacao, perfil.objetivos, objetivos, PESOS.objetivos, "relacionado aos seus objetivos");
-  pontuarLista(avaliacao, perfil.interesses, interesses, PESOS.interesses, "relacionado aos seus interesses");
-  pontuarValor(avaliacao, perfil.nivel, niveis, PESOS.nivel, "compatível com seu nível");
-  avaliarTempo(avaliacao, perfil.duracao, duracoes, PESOS.duracao, "cabe no seu tempo de exercício");
-  pontuarValor(avaliacao, perfil.local, locais, PESOS.local, "compatível com seu local", { acceptAny: "variado" });
+  pontuarLista(avaliacao, perfil.objetivos, objetivos, PESOS.objetivos, "relacionado aos seus objetivos", { totalPossivel: 8 });
+  pontuarLista(avaliacao, perfil.interesses, interesses, PESOS.interesses, "relacionado aos seus interesses", { totalPossivel: 7 });
+  pontuarValor(avaliacao, perfil.nivel, niveis, PESOS.nivel, "compatível com seu nível", { totalPossivel: 3 });
+  avaliarTempo(avaliacao, perfil.duracao, duracoes, PESOS.duracao, "cabe no seu tempo de exercício", { totalPossivel: 4 });
+  pontuarValor(avaliacao, perfil.local, locais, PESOS.local, "compatível com seu local", { acceptAny: "variado", totalPossivel: 4 });
 
   if (perfil.equipamentos.length && equipamentos.length) {
     avaliacao.maximo += PESOS.equipamento;
-    const semEquipamento = equipamentos.includes("nenhum");
-    const equipmentMatch = semEquipamento || intersecao(perfil.equipamentos, equipamentos).length > 0;
-    if (equipmentMatch) {
-      avaliacao.pontuacao += PESOS.equipamento;
-      avaliacao.motivos.push(semEquipamento ? "não exige equipamento" : "usa equipamento que você informou");
+    const matches = intersecao(perfil.equipamentos, equipamentos);
+    const usuarioSemEquipamento = perfil.equipamentos.includes("nenhum");
+    const conteudoSemEquipamento = equipamentos.includes("nenhum");
+    const especificidade = fatorEspecificidade(equipamentos.length, 6);
+
+    if (matches.length) {
+      avaliacao.pontuacao += Math.round(PESOS.equipamento * especificidade);
+      avaliacao.motivos.push(usuarioSemEquipamento && conteudoSemEquipamento ? "não exige equipamento" : "usa equipamento que você informou");
+    } else if (conteudoSemEquipamento) {
+      avaliacao.pontuacao += Math.round(PESOS.equipamento * 0.55);
+      avaliacao.motivos.push("não exige equipamento");
     } else {
-      avaliacao.pontuacao -= Math.round(PESOS.equipamento * 0.4);
+      avaliacao.pontuacao -= Math.round(PESOS.equipamento * 0.45);
     }
   }
 
   avaliarPerfilAlimentar(avaliacao, perfil.perfil_alimentar, perfisAlimentares);
-  avaliarTempo(avaliacao, perfil.tempo_preparo, temposPreparo, PESOS.tempo_preparo, "cabe no seu tempo de preparo");
-  pontuarValor(avaliacao, perfil.nivel_atividade, niveisAtividade, PESOS.nivel_atividade, "compatível com sua rotina de atividade");
+  avaliarTempo(avaliacao, perfil.tempo_preparo, temposPreparo, PESOS.tempo_preparo, "cabe no seu tempo de preparo", { totalPossivel: 4 });
+  pontuarValor(avaliacao, perfil.nivel_atividade, niveisAtividade, PESOS.nivel_atividade, "compatível com sua rotina de atividade", { totalPossivel: 4 });
   avaliarRestricoesEstruturadas(avaliacao, conteudo, perfil);
 
   if (conteudo.destaque === true && !avaliacao.bloqueado) {
@@ -264,7 +304,7 @@ export const avaliarConteudo = (conteudo = {}, profileData = {}) => {
   return {
     pontuacao: avaliacao.pontuacao,
     relevancia,
-    recomendado: !avaliacao.bloqueado && (relevancia >= 45 || avaliacao.pontuacao >= 30),
+    recomendado: !avaliacao.bloqueado && relevancia >= 60 && avaliacao.pontuacao >= 40,
     bloqueado: avaliacao.bloqueado,
     motivos: [...new Set(avaliacao.motivos)].slice(0, 4),
     alertas: [...new Set(avaliacao.alertas)]
@@ -312,5 +352,7 @@ export const taxonomiaPersonalizacao = Object.freeze({
   equipamentos: ["nenhum", "halteres", "elasticos", "colchonete", "academia", "outros"],
   perfis_alimentares: ["variada", "vegetariana", "vegana", "outra"],
   interesses: ["cafe_manha", "almoco", "jantar", "lanches", "sucos", "receitas_rapidas", "marmitas"],
-  tempo_preparo: ["ate_15", "15_30", "30_60", "mais_60"]
+  tempo_preparo: ["ate_15", "15_30", "30_60", "mais_60"],
+  niveis_atividade: ["pouco_ativo", "algumas_vezes_semana", "ativo_frequente", "muito_ativo"],
+  dias_exercicio: ["1_2", "3_4", "5_mais"]
 });

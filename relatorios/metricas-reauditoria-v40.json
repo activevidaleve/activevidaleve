@@ -1,0 +1,43 @@
+{
+  "versao": "v40",
+  "conteudos": 80,
+  "estabilidade_diaria": {
+    "amostras": 500,
+    "core_identico": 1,
+    "roteiro_mesma_semana_identico": 1,
+    "roteiro_renovou_semana_seguinte": 0.918
+  },
+  "mesmo_cadastro_uids_diferentes": {
+    "amostras": 1000,
+    "jaccard_ids": 0.5767075757575687,
+    "jaccard_categorias": 0.804841666666664,
+    "jaccard_tipos": 0.98175
+  },
+  "campos_cadastro": {
+    "amostras": 350,
+    "nivel_atividade_alterou_exercicios": 0.9,
+    "dias_exercicio_alterou_exercicios": 0.7857142857142857,
+    "alimentacao_estavel_ao_mudar_nivel_atividade": 0.9742857142857143,
+    "alimentacao_estavel_ao_mudar_dias": 0.9685714285714285,
+    "alimentacao_principal_estavel_nivel_atividade": 1,
+    "alimentacao_principal_estavel_dias": 1
+  },
+  "dados_corporais_neutros": {
+    "amostras": 200,
+    "altura_peso_nao_alteram_ranking": 1,
+    "data_nascimento_nao_altera_ranking": 1
+  },
+  "invariancia_ordem_catalogo": {
+    "amostras": 200,
+    "taxa": 1
+  },
+  "perfil_atual_vs_historico_antigo": {
+    "amostras": 180,
+    "exercicio_atual_vence_historico_academia": 1,
+    "perfil_vegano_permanece_protegido": 1
+  },
+  "robustez_entrada": {
+    "casos": 5,
+    "aprovados": 5
+  }
+}

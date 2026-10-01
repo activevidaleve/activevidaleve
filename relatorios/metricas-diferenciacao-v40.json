@@ -1,0 +1,109 @@
+{
+  "versao": "v40",
+  "conteudos": 80,
+  "perfis_sinteticos": 2304,
+  "assinaturas_top_unicas": 2002,
+  "taxa_assinaturas_unicas": 0.8689236111111112,
+  "assinaturas_completas_unicas": 2304,
+  "taxa_assinaturas_completas_unicas": 1,
+  "taxa_colisao_exata": 0.13107638888888884,
+  "ordens_tematicas_distintas": 4,
+  "cobertura_home_conteudos": 80,
+  "destaque_principal": {
+    "exercicio": {
+      "unique": 18,
+      "top1_share": 0.13541666666666666,
+      "top5_share": 0.4991319444444444,
+      "top10_share": 0.8216145833333334
+    },
+    "alimentar": {
+      "unique": 34,
+      "top1_share": 0.25,
+      "top5_share": 0.4769965277777778,
+      "top10_share": 0.7122395833333334
+    },
+    "descoberta": {
+      "unique": 33,
+      "top1_share": 0.1566840277777778,
+      "top5_share": 0.48046875,
+      "top10_share": 0.6705729166666666
+    }
+  },
+  "mesma_conta_mesma_entrada": "100% estável",
+  "mesmo_perfil_ids_diferentes": {
+    "amostras": 2304,
+    "jaccard_medio": 0.5085303994809192,
+    "p10": 0.2727272727272727,
+    "p50": 0.5555555555555556,
+    "p90": 0.75,
+    "experiencias_identicas": 26
+  },
+  "comportamento": {
+    "exercise": {
+      "micro_avg_jaccard": 0.6863498263888886,
+      "heavy_avg_jaccard": 0.5728140782828286,
+      "micro_p10": 0.5555555555555556,
+      "heavy_p90": 0.75,
+      "micro_exact": 14,
+      "heavy_exact": 1,
+      "theme_position_improved_or_already_top": 1,
+      "target_count_improved_or_equal": 1,
+      "concluded_leak": 0,
+      "safety_checks": 6912
+    },
+    "recipe": {
+      "micro_avg_jaccard": 0.6968098958333325,
+      "heavy_avg_jaccard": 0.13206585081585095,
+      "micro_p10": 0.5555555555555556,
+      "heavy_p90": 0.16666666666666666,
+      "micro_exact": 9,
+      "heavy_exact": 0,
+      "theme_position_improved_or_already_top": 1,
+      "target_count_improved_or_equal": 1,
+      "concluded_leak": 0,
+      "safety_checks": 6912
+    },
+    "juice": {
+      "micro_avg_jaccard": 0.7759982638888878,
+      "heavy_avg_jaccard": 0.2758167613636363,
+      "micro_p10": 0.5555555555555556,
+      "heavy_p90": 0.4,
+      "micro_exact": 82,
+      "heavy_exact": 0,
+      "theme_position_improved_or_already_top": 1,
+      "target_count_improved_or_equal": 1,
+      "concluded_leak": 0,
+      "safety_checks": 6912
+    },
+    "food": {
+      "micro_avg_jaccard": 0.7182942708333324,
+      "heavy_avg_jaccard": 0.21644631410256385,
+      "micro_p10": 0.5555555555555556,
+      "heavy_p90": 0.2727272727272727,
+      "micro_exact": 38,
+      "heavy_exact": 0,
+      "theme_position_improved_or_already_top": 1,
+      "target_count_improved_or_equal": 1,
+      "concluded_leak": 0,
+      "safety_checks": 6912
+    }
+  },
+  "perfis_proximos": {
+    "amostras": 320,
+    "jaccard_medio": 0.7694618055555538,
+    "p10": 0.5555555555555556,
+    "p90": 1
+  },
+  "perfis_distantes": {
+    "amostras": 320,
+    "jaccard_medio": 0.07520396270396269,
+    "p10": 0,
+    "p90": 0.16666666666666666
+  },
+  "isolamento_dominios": {
+    "amostras": 256,
+    "alimentacao_estavel_ao_mudar_exercicio": 1,
+    "exercicio_estavel_ao_mudar_alimentacao": 1
+  },
+  "validacoes_segurança": "todos os cards principais dos cenários comportamentais e neutros permaneceram não bloqueados"
+}
