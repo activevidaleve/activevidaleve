@@ -1,4 +1,4 @@
-# Active Vida Leve — Baseline V24
+# Active Vida Leve — Baseline V32
 
 ## Estrutura atual
 - `index.html`: página inicial pública.
@@ -108,35 +108,122 @@ A área `receitas.html` agora inclui filtros por momento do dia, priorização p
 ## Minha Rotina — versão atual
 
 `rotina.html` agora permite visualizar e editar o perfil salvo em `perfis/{uid}` no Firestore. A página mantém autenticação e validação de acesso, limita a seleção a até 3 objetivos e atualiza os campos de movimento e alimentação sem permitir alteração dos estados de pagamento/acesso.
+
 ## Conteúdos dinâmicos — versão atual
 
-As áreas `alimentacao.html`, `exercicios.html` e `receitas.html` não dependem mais de cards fixos no HTML. O módulo `js/conteudos.js` tenta carregar documentos publicados da coleção `conteudos` do Firestore e, enquanto a coleção estiver vazia, usa `dados/conteudos-exemplo.json` como fallback de desenvolvimento.
+As áreas `alimentacao.html`, `exercicios.html` e `receitas.html` carregam documentos publicados da coleção `conteudos` do Firestore. Enquanto não houver documentos publicados para determinado tipo, o projeto usa `dados/conteudos-exemplo.json` como fallback de desenvolvimento.
 
-### Estrutura recomendada de `conteudos/{conteudoId}`
+### Esquema de conteúdo v3
 Campos comuns:
 - `tipo`: `alimentacao`, `exercicio` ou `receita`;
-- `categoria`: categoria principal;
-- `categorias`: categorias adicionais quando necessário;
-- `titulo`;
-- `resumo`;
-- `texto_apoio`;
-- `icone`;
-- `ordem`;
-- `destaque`;
-- `publicado`;
-- `tags`.
+- `categoria` e, quando necessário, `categorias`;
+- `titulo`, `resumo`, `texto_apoio`, `icone`;
+- `ordem`, `destaque`, `publicado`, `tags`;
+- `publico`: regras de relevância para personalização.
 
-Campos opcionais para personalização:
-- `perfis_alimentares`;
-- `tempo_preparo`;
-- `niveis`;
-- `locais`;
-- `equipamentos`;
-- `duracoes`;
-- `ingredientes`;
-- `preparo`.
+Exemplo do bloco `publico`:
+```json
+{
+  "objetivos": ["movimentar_mais"],
+  "interesses": ["receitas_rapidas"],
+  "niveis": ["iniciante"],
+  "duracoes": ["ate_15"],
+  "locais": ["casa"],
+  "equipamentos": ["nenhum"],
+  "perfis_alimentares": ["variada", "vegetariana"],
+  "tempo_preparo": ["ate_15"]
+}
+```
 
-O arquivo `dados/conteudos-exemplo.json` serve como catálogo de demonstração e também como referência para cadastrar os primeiros documentos no Firestore. Quando existir pelo menos um documento publicado de determinado `tipo`, o conteúdo desse tipo passa a vir do Firestore.
+O módulo `js/conteudos.js` normaliza o esquema v3 e ainda entende campos antigos para permitir migração gradual do Firestore.
 
-O navegador continua sem permissão para criar ou alterar documentos em `conteudos`; essa coleção é editorial e deve ser abastecida pelo console Firebase ou, futuramente, por uma área administrativa protegida/backend.
+## Motor de personalização — versão atual
 
+O módulo `js/personalizacao.js` centraliza a lógica que antes estava espalhada pelas páginas. Ele compara cada conteúdo com o perfil do usuário e ordena por relevância sem expor pontuações na interface.
+
+Critérios usados quando existem dados suficientes:
+- objetivos do usuário;
+- interesses alimentares;
+- nível de experiência;
+- duração disponível;
+- local de exercício;
+- equipamentos disponíveis;
+- preferência alimentar;
+- tempo disponível para preparo;
+- nível de atividade, quando o conteúdo informar esse público;
+- destaque editorial como desempate leve.
+
+O motor também normaliza aliases legados do projeto, como `varia`/`variado`, `equipamentos_academia`/`academia`, `condicionamento`/`melhorar_condicionamento` e `variedade_refeicoes`/`variar_refeicoes`.
+
+Conteúdos claramente incompatíveis com preferência alimentar estruturada ou com uma restrição estruturada detectável não recebem recomendação e são enviados para o fim da ordenação. Eles não são automaticamente apagados do catálogo. Restrições escritas em texto livre continuam exigindo conferência do usuário; o sistema não substitui orientação profissional nem leitura de ingredientes/rótulos.
+
+O `portal.html` também usa o mesmo motor para escolher a sugestão de movimento e de alimentação/receita exibidas em “Para você hoje”.
+
+## Catálogo local
+
+`dados/conteudos-exemplo.json` está no esquema v3 e contém 60 conteúdos detalhados de desenvolvimento: 20 de Alimentação, 20 de Exercícios e 20 de Receitas. O arquivo cobre os principais objetivos, interesses, níveis, durações, locais, equipamentos, perfis alimentares e tempos de preparo usados no cadastro. Ele serve para testar a personalização antes de migrarmos a biblioteca definitiva para o Firestore.
+
+## Segurança atual de conteúdos
+
+Usuários autenticados podem ler apenas documentos de `conteudos` com `publicado == true`. Escrita pelo navegador continua desabilitada nas regras de referência. O painel administrativo foi retirado desta baseline porque a prioridade atual é terminar o produto e a biblioteca antes de construir a administração.
+
+## Conteúdo individual e navegação — versão atual
+
+- `conteudo.html?id=<id>` renderiza páginas individuais de alimentação, exercícios e receitas.
+- `js/conteudo.js` valida autenticação/acesso, carrega conteúdo do Firestore ou fallback local e personaliza a explicação/relacionados.
+- Cards das três áreas e recomendações do portal apontam para a página individual.
+- O catálogo local passou a aceitar `introducao`, `secoes`, `sequencia` e `observacoes`, além dos campos já existentes.
+- Conteúdos relacionados usam o mesmo motor central de personalização.
+
+## Biblioteca ampliada — versão atual
+
+A biblioteca local foi ampliada para 60 conteúdos completos e equilibrados entre as três áreas do portal. Os novos itens incluem organização de refeições e compras, preparo antecipado, marmitas modulares, variedade alimentar, mobilidade, força com diferentes equipamentos, caminhada, bicicleta, dança leve, pausas ativas e receitas para diferentes momentos do dia.
+
+Todos os itens mantêm o bloco `publico` para o motor de personalização e páginas individuais com introdução, seções, observações e, quando aplicável, sequência de exercícios ou ingredientes/preparo. O conteúdo evita metas automáticas de peso, contagem de calorias, dietas restritivas e incentivo a excesso de exercício.
+## Busca, favoritos e histórico
+
+- `buscar.html` pesquisa os conteúdos publicados e permite filtrar por tipo e favoritos.
+- Favoritos ficam em `usuarios/{uid}/favoritos/{conteudoId}`.
+- Histórico fica em `usuarios/{uid}/historico/{conteudoId}` e é atualizado quando uma página de conteúdo é aberta.
+- `portal.html` mostra atalhos para favoritos e conteúdos vistos recentemente.
+- É necessário publicar o arquivo `firestore.rules` desta versão para habilitar leitura/gravação dessas subcoleções pelo próprio usuário.
+
+
+## Home personalizada — active_v30
+
+A home do portal passou a usar o motor central de personalização também nas prateleiras de conteúdo. Agora ela inclui:
+- seleção equilibrada de Alimentação, Exercícios e Receitas com maior afinidade ao perfil;
+- seção "Continue explorando" alimentada pelo histórico do usuário;
+- prateleira de exercícios priorizada por nível, tempo, local, equipamentos e objetivos;
+- prateleira de receitas priorizada por perfil alimentar, interesses e tempo de preparo;
+- prateleira de alimentação priorizada por objetivos e interesses;
+- favoritos e histórico mantidos na mesma home;
+- atalho de favoritos em `buscar.html?favoritos=1`.
+
+A personalização apenas organiza a biblioteca e não substitui orientação profissional nem cria metas automáticas de peso ou restrição alimentar.
+
+## Experiência de consumo — active_v31
+
+A biblioteca pessoal agora inclui progresso e conclusão por conteúdo:
+- `usuarios/{uid}/progresso/{conteudoId}` guarda `progresso`, `status`, `iniciado_em`, `atualizado_em` e `concluido_em`;
+- `conteudo.html` acompanha a leitura em marcos discretos e permite marcar/desmarcar um conteúdo como concluído;
+- o portal usa o progresso para montar "Continue explorando" e reduz a prioridade de conteúdos já concluídos nas novas recomendações;
+- favoritos aparecem como controles visuais nos cards do portal, Alimentação, Exercícios, Receitas e Busca;
+- `buscar.html?concluidos=1` abre diretamente os conteúdos concluídos;
+- a home exibe também uma área de conteúdos finalizados;
+- cards e páginas aceitam `imagem_url` e `imagem_alt` no esquema de conteúdo; quando não há imagem, continuam usando capas visuais leves por tipo/categoria.
+
+É necessário publicar o `firestore.rules` desta versão para liberar a subcoleção `progresso`. Favoritos e histórico continuam em suas subcoleções existentes.
+
+## Conteúdo enriquecido — active_v32
+
+A experiência de leitura e consumo foi aprofundada sem alterar as regras de acesso do Firestore:
+- todos os 60 conteúdos passam a ter `experiencia.tempo`, `experiencia.dificuldade` e `experiencia.formato`;
+- receitas recebem `rendimento` e `ingredientes_lista` estruturados em item, quantidade e observação;
+- exercícios recebem `etapas` estruturadas com título, descrição e duração aproximada, mantendo pausas e orientação para interromper em caso de desconforto;
+- cards de Portal, Busca, Alimentação, Exercícios e Receitas exibem tempo/dificuldade e contexto rápido;
+- `conteudo.html` mostra um resumo de tempo/nível/formato, ingredientes em grade e etapas visuais de exercícios;
+- o bloco `midia` prepara cada conteúdo para imagens reais com `imagem_url`, `imagem_alt`, `foco`, `proporcao_card` e `proporcao_detalhe`;
+- `js/conteudos.js` continua compatível com `imagem_url`/`imagem_alt` antigos e com os campos legados do catálogo.
+
+Não houve mudança nas regras do Firestore nesta versão.

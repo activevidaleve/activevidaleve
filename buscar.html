@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="Busque conteúdos personalizados no Active Vida Leve.">
+  <title>Buscar | Active Vida Leve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/buscar.css">
+</head>
+<body class="search-page">
+  <header class="search-header">
+    <div class="container search-header-inner">
+      <a class="search-brand" href="./portal.html" aria-label="Active Vida Leve">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+      <nav class="search-nav" aria-label="Navegação do portal">
+        <a href="./portal.html">Início</a>
+        <a class="is-active" href="./buscar.html">Buscar</a>
+        <a href="./alimentacao.html">Alimentação</a>
+        <a href="./exercicios.html">Exercícios</a>
+        <a href="./receitas.html">Receitas</a>
+        <a href="./rotina.html">Minha rotina</a>
+      </nav>
+      <button class="search-logout" type="button" data-logout>Sair</button>
+    </div>
+  </header>
+
+  <main class="search-main" data-search-app hidden>
+    <section class="search-hero">
+      <div class="container search-hero-inner">
+        <span>ENCONTRE O QUE PRECISA</span>
+        <h1>Buscar no Active Vida Leve</h1>
+        <p>Pesquise na biblioteca e use os filtros para encontrar conteúdos de alimentação, exercícios e receitas.</p>
+
+        <form class="search-box" data-search-form role="search">
+          <label class="sr-only" for="search-input">Buscar conteúdo</label>
+          <input id="search-input" data-search-input type="search" autocomplete="off" placeholder="Ex.: café da manhã, mobilidade, marmita...">
+          <button type="submit">Buscar</button>
+        </form>
+
+        <div class="search-filters" aria-label="Filtros de busca">
+          <button class="is-active" type="button" data-search-type="todos" aria-pressed="true">Todos</button>
+          <button type="button" data-search-type="alimentacao" aria-pressed="false">Alimentação</button>
+          <button type="button" data-search-type="exercicio" aria-pressed="false">Exercícios</button>
+          <button type="button" data-search-type="receita" aria-pressed="false">Receitas</button>
+          <button type="button" data-search-favorites aria-pressed="false">♡ Favoritos</button>
+          <button type="button" data-search-completed aria-pressed="false">✓ Concluídos</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="container search-results-section" aria-labelledby="search-results-title">
+      <div class="search-results-heading">
+        <div>
+          <span>RESULTADOS</span>
+          <h2 id="search-results-title" data-search-title>Conteúdos para explorar</h2>
+        </div>
+        <strong data-search-count>0 conteúdos</strong>
+      </div>
+
+      <div class="search-results-grid" data-search-results></div>
+      <div class="search-empty" data-search-empty hidden>
+        <strong>Nenhum conteúdo encontrado.</strong>
+        <p>Tente outra palavra ou remova algum filtro.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="search-loading" data-search-loading>
+    <span class="search-spinner" aria-hidden="true"></span>
+    <p>Preparando sua biblioteca…</p>
+  </div>
+
+  <script type="module" src="./js/buscar.js"></script>
+</body>
+</html>

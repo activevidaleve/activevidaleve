@@ -8,6 +8,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 import { carregarConteudos } from "./conteudos.js";
+import { personalizarConteudos } from "./personalizacao.js";
+import { listarFavoritos, listarProgresso } from "./biblioteca-usuario.js";
+import { aplicarCapa, criarBotaoFavorito, criarEstadoProgresso, criarFatosConteudo } from "./interface-biblioteca.js";
 
 const app = document.querySelector("[data-workout-app]");
 const loading = document.querySelector("[data-workout-loading]");
@@ -17,44 +20,24 @@ const contentGrid = document.querySelector("[data-workout-content-grid]");
 const filters = [...document.querySelectorAll("[data-workout-filter]")];
 const emptyState = document.querySelector("[data-workout-empty]");
 let contentCards = [];
+let currentUserId = null;
+let favoriteIds = new Set();
+let progressMap = new Map();
 
 const labels = {
-  nivel_exercicio: {
-    iniciante: "Iniciante",
-    intermediario: "Intermediário",
-    experiente: "Experiente"
-  },
-  dias_exercicio: {
-    "1_2": "1–2 dias/semana",
-    "3_4": "3–4 dias/semana",
-    "5_mais": "5+ dias/semana"
-  },
-  duracao_treino: {
-    ate_15: "Até 15 min",
-    "15_30": "15–30 min",
-    "30_45": "30–45 min",
-    mais_45: "Mais de 45 min"
-  },
-  local_exercicio: {
-    casa: "Em casa",
-    academia: "Academia",
-    ar_livre: "Ao ar livre",
-    varia: "Locais variados"
-  },
-  equipamentos: {
-    nenhum: "Nenhum",
-    halteres: "Halteres",
-    elasticos: "Elásticos",
-    colchonete: "Colchonete",
-    equipamentos_academia: "Equipamentos de academia",
-    outros: "Outros"
-  },
+  nivel_exercicio: { iniciante: "Iniciante", intermediario: "Intermediário", experiente: "Experiente" },
+  dias_exercicio: { "1_2": "1–2 dias/semana", "3_4": "3–4 dias/semana", "5_mais": "5+ dias/semana" },
+  duracao_treino: { ate_15: "Até 15 min", "15_30": "15–30 min", "30_45": "30–45 min", mais_45: "Mais de 45 min" },
+  local_exercicio: { casa: "Em casa", academia: "Academia", ar_livre: "Ao ar livre", variado: "Locais variados", varia: "Locais variados" },
+  equipamentos: { nenhum: "Nenhum", halteres: "Halteres", elasticos: "Elásticos", colchonete: "Colchonete", academia: "Academia", equipamentos_academia: "Academia", outros: "Outros" },
   objetivos: {
     movimentar_mais: "Me movimentar mais",
+    melhorar_condicionamento: "Melhorar meu condicionamento",
     condicionamento: "Melhorar meu condicionamento",
     constancia_exercicios: "Criar constância nos exercícios",
     organizar_alimentacao: "Organizar melhor minha alimentação",
     receitas_praticas: "Aprender receitas práticas",
+    variar_refeicoes: "Ter mais variedade nas refeições",
     variedade_refeicoes: "Ter mais variedade nas refeições",
     rotina_organizada: "Criar uma rotina mais organizada",
     bem_estar: "Melhorar hábitos de bem-estar"
@@ -77,11 +60,9 @@ const cardClasses = {
 };
 
 const getLabel = (group, value) => labels[group]?.[value] || value || "Não informado";
-
-const listLabels = (group, values = []) => {
-  if (!Array.isArray(values) || !values.length) return "Não informado";
-  return values.map((value) => getLabel(group, value)).join(", ");
-};
+const listLabels = (group, values = []) => Array.isArray(values) && values.length
+  ? values.map((value) => getLabel(group, value)).join(", ")
+  : "Não informado";
 
 const setText = (selector, value, fallback = "Não informado") => {
   const element = document.querySelector(selector);
@@ -111,30 +92,48 @@ const renderContentCards = (items) => {
     const article = createElement("article", `workout-content-card ${cardClasses[item.categoria] || ""}`.trim());
     article.dataset.workoutCard = "";
     article.dataset.category = item.categoria || "outros";
-    article.dataset.level = (item.niveis || []).join(" ");
-    article.dataset.location = (item.locais || []).join(" ");
-    article.dataset.equipment = (item.equipamentos || []).join(" ");
+
+    const recommended = item.personalizacao?.recomendado === true && !item.personalizacao?.bloqueado;
+    article.classList.toggle("is-profile-match", recommended);
+    if (item.personalizacao?.motivos?.length) {
+      article.title = `Por que aparece aqui: ${item.personalizacao.motivos.join("; ")}.`;
+    }
 
     const visual = createElement("div", "workout-card-visual");
-    visual.setAttribute("aria-hidden", "true");
-    visual.append(createElement("span", "", item.icone || "✦"));
+    const visualIcon = createElement("span", "", item.icone || "✦");
+    visualIcon.setAttribute("aria-hidden", "true");
+    visual.append(visualIcon);
+    aplicarCapa(visual, item);
+    if (currentUserId) {
+      const favorite = criarBotaoFavorito({ usuarioId: currentUserId, item, favoritos: favoriteIds, className: "workout-card-favorite" });
+      visual.append(favorite);
+    }
 
     const body = createElement("div", "workout-card-body");
     const meta = createElement("div", "workout-card-meta");
     meta.append(createElement("span", "", getLabel("categorias", item.categoria)));
-    const badge = createElement("i", "", "Combina com seu perfil");
+    const badge = createElement("i", "", "Recomendado para você");
     badge.dataset.matchBadge = "";
-    badge.hidden = true;
+    badge.hidden = !recommended;
     meta.append(badge);
+    const progressState = criarEstadoProgresso(item, progressMap, "workout-card-progress");
+    if (progressState) meta.append(progressState);
 
     body.append(meta);
     body.append(createElement("h3", "", item.titulo));
     body.append(createElement("p", "", item.resumo));
+    const facts = criarFatosConteudo(item, "workout-card-facts");
+    if (facts) body.append(facts);
 
     const tags = createElement("div", "workout-card-tags");
     (item.tags || []).slice(0, 3).forEach((tag) => tags.append(createElement("span", "", tag)));
     if (!tags.children.length) tags.append(createElement("span", "", "Conteúdo geral"));
     body.append(tags);
+
+    const link = createElement("a", "workout-card-link", "Abrir conteúdo →");
+    link.href = `./conteudo.html?id=${encodeURIComponent(item.id)}`;
+    link.setAttribute("aria-label", `Abrir ${item.titulo}`);
+    body.append(link);
 
     article.append(visual, body);
     contentGrid.append(article);
@@ -166,45 +165,6 @@ const renderProfile = (userData, profileData, user) => {
   addChip(duration);
   addChip(location);
   if (equipment.length) addChip(equipment.includes("nenhum") ? "Sem equipamento" : getLabel("equipamentos", equipment[0]));
-
-  return {
-    level: profileData.nivel_exercicio || "",
-    location: profileData.local_exercicio || "",
-    equipment,
-    duration: profileData.duracao_treino || ""
-  };
-};
-
-const matchesProfile = (card, profile) => {
-  const levels = (card.dataset.level || "").split(/\s+/).filter(Boolean);
-  const locations = (card.dataset.location || "").split(/\s+/).filter(Boolean);
-  const equipment = (card.dataset.equipment || "").split(/\s+/).filter(Boolean);
-
-  const levelMatch = !profile.level || !levels.length || levels.includes(profile.level);
-  const locationMatch = !profile.location || !locations.length || locations.includes(profile.location);
-
-  let equipmentMatch = true;
-  if (profile.equipment.length && equipment.length) {
-    equipmentMatch = profile.equipment.some((item) => equipment.includes(item));
-    if (profile.equipment.includes("nenhum") && equipment.includes("nenhum")) equipmentMatch = true;
-  }
-
-  return levelMatch && locationMatch && equipmentMatch;
-};
-
-const personalizeCards = (profile) => {
-  if (!contentGrid) return;
-
-  contentCards.forEach((card) => {
-    const isMatch = matchesProfile(card, profile);
-    card.classList.toggle("is-profile-match", isMatch);
-    const badge = card.querySelector("[data-match-badge]");
-    if (badge) badge.hidden = !isMatch;
-  });
-
-  [...contentCards]
-    .sort((a, b) => Number(!matchesProfile(a, profile)) - Number(!matchesProfile(b, profile)))
-    .forEach((card) => contentGrid.append(card));
 };
 
 const applyFilter = (filter) => {
@@ -243,6 +203,7 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
+  currentUserId = user.uid;
   try {
     const [userSnapshot, profileSnapshot, contentResult] = await Promise.all([
       getDoc(doc(db, "usuarios", user.uid)),
@@ -260,9 +221,15 @@ onAuthStateChanged(auth, async (user) => {
       return;
     }
 
-    renderContentCards(contentResult.itens);
-    const profile = renderProfile(userData, profileData, user);
-    personalizeCards(profile);
+    const [favoritesResult, progressResult] = await Promise.allSettled([listarFavoritos(user.uid), listarProgresso(user.uid)]);
+    if (favoritesResult.status === "fulfilled") favoriteIds = new Set(favoritesResult.value.map((item) => item.conteudo_id || item.id));
+    else console.warn("Favoritos indisponíveis.", favoritesResult.reason);
+    if (progressResult.status === "fulfilled") progressMap = new Map(progressResult.value.map((item) => [item.conteudo_id || item.id, item]));
+    else console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
+
+    const personalized = personalizarConteudos(contentResult.itens, profileData);
+    renderContentCards(personalized);
+    renderProfile(userData, profileData, user);
     applyFilter("todos");
 
     if (loading) loading.hidden = true;

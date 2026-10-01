@@ -1,6 +1,7 @@
 {
-  "versao": 1,
-  "observacao": "Conteúdos editoriais de demonstração. Quando a coleção conteudos possuir documentos publicados no Firestore, o site usa o Firestore e deixa este arquivo apenas como fallback de desenvolvimento.",
+  "versao_esquema": 3,
+  "versao": 5,
+  "observacao": "Catálogo de desenvolvimento com 60 conteúdos. Esquema v3 adiciona experiência (tempo/dificuldade/formato), mídia preparada para imagens, ingredientes estruturados e etapas estruturadas de exercícios.",
   "conteudos": [
     {
       "id": "alimentacao-cafe-variedade",
@@ -13,7 +14,62 @@
       "ordem": 10,
       "destaque": true,
       "publicado": true,
-      "tags": ["cafe_manha", "variedade"]
+      "tags": [
+        "cafe_manha",
+        "variedade"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "variar_refeicoes",
+          "bem_estar"
+        ],
+        "interesses": [
+          "cafe_manha"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Monte o café da manhã com alimentos que façam sentido para sua rotina e disponibilidade, buscando variedade ao longo dos dias.",
+      "secoes": [
+        {
+          "titulo": "Variações possíveis",
+          "texto": "Alterne frutas, pães, cereais, preparações com ovos ou opções vegetais conforme preferência e disponibilidade.",
+          "itens": [
+            "Busque variedade ao longo da semana.",
+            "Não é necessário repetir a mesma combinação todos os dias."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Começos simples e variados",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
     },
     {
       "id": "alimentacao-almoco-variedade",
@@ -25,7 +81,61 @@
       "icone": "◒",
       "ordem": 20,
       "publicado": true,
-      "tags": ["almoco", "organizacao"]
+      "tags": [
+        "almoco",
+        "organizacao"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "variar_refeicoes"
+        ],
+        "interesses": [
+          "almoco"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Cereais, leguminosas, vegetais e outras fontes de proteína podem formar combinações práticas conforme gosto e disponibilidade.",
+      "secoes": [
+        {
+          "titulo": "Montagem flexível",
+          "texto": "Uma refeição pode combinar alimentos de diferentes grupos sem precisar seguir uma fórmula rígida.",
+          "itens": [
+            "Inclua preparações que você já conhece e gosta.",
+            "Varie vegetais, cereais, leguminosas e fontes de proteína quando possível."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Uma refeição com variedade",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
     },
     {
       "id": "alimentacao-jantar-pratico",
@@ -37,7 +147,61 @@
       "icone": "☾",
       "ordem": 30,
       "publicado": true,
-      "tags": ["jantar", "praticidade"]
+      "tags": [
+        "jantar",
+        "praticidade"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "jantar"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Reaproveitar preparações anteriores ou montar combinações simples pode facilitar dias corridos sem exigir uma rotina perfeita.",
+      "secoes": [
+        {
+          "titulo": "Praticidade também conta",
+          "texto": "Reaproveitar preparações do almoço ou montar algo mais simples pode facilitar a rotina.",
+          "itens": [
+            "Planeje aproveitamentos seguros de alimentos já preparados.",
+            "Prefira uma organização que seja sustentável para o seu dia a dia."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Praticidade no fim do dia",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
     },
     {
       "id": "alimentacao-lanches-flexiveis",
@@ -49,7 +213,61 @@
       "icone": "◇",
       "ordem": 40,
       "publicado": true,
-      "tags": ["lanches", "praticidade"]
+      "tags": [
+        "lanches",
+        "praticidade"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "bem_estar"
+        ],
+        "interesses": [
+          "lanches"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Frutas, pães, iogurte ou alternativas vegetais, castanhas e outras opções podem variar conforme preferência e acesso.",
+      "secoes": [
+        {
+          "titulo": "Ideias para variar",
+          "texto": "Lanches podem ser simples e combinados conforme fome, rotina, preferência e disponibilidade.",
+          "itens": [
+            "Frutas e preparações caseiras podem entrar na rotação.",
+            "Observe rótulos e ingredientes quando houver alergias ou restrições."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Opções que cabem na rotina",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
     },
     {
       "id": "alimentacao-rapidas",
@@ -61,7 +279,61 @@
       "icone": "⚡",
       "ordem": 50,
       "publicado": true,
-      "tags": ["receitas_rapidas"]
+      "tags": [
+        "receitas_rapidas"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "organizar_alimentacao",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Receitas com poucos utensílios e ingredientes conhecidos podem ajudar a reduzir o esforço de preparo no dia a dia.",
+      "secoes": [
+        {
+          "titulo": "Menos etapas, mais praticidade",
+          "texto": "Preparações com poucos passos podem ajudar nos dias corridos.",
+          "itens": [
+            "Deixe ingredientes básicos acessíveis.",
+            "Aproveite preparações já prontas quando fizer sentido."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Menos etapas, mais praticidade",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
     },
     {
       "id": "alimentacao-marmitas",
@@ -73,7 +345,193 @@
       "icone": "▦",
       "ordem": 60,
       "publicado": true,
-      "tags": ["marmitas", "organizacao"]
+      "tags": [
+        "marmitas",
+        "organizacao"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Preparar alguns componentes com antecedência permite montar combinações diferentes ao longo da semana.",
+      "secoes": [
+        {
+          "titulo": "Organização sem rigidez",
+          "texto": "Preparar algumas bases com antecedência pode economizar tempo, sem exigir que todas as refeições sejam iguais.",
+          "itens": [
+            "Varie acompanhamentos e temperos.",
+            "Armazene e reaqueça os alimentos de forma segura."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Bases prontas para combinar",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-planejamento-semana",
+      "tipo": "alimentacao",
+      "categoria": "marmitas",
+      "titulo": "Planeje algumas bases, não a semana inteira",
+      "resumo": "Escolher duas ou três preparações-base pode facilitar combinações diferentes ao longo dos dias sem deixar a rotina engessada.",
+      "texto_apoio": "Organização flexível • adapte ao que já existe em casa.",
+      "icone": "▦",
+      "ordem": 65,
+      "publicado": true,
+      "tags": [
+        "organizacao",
+        "marmitas"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Escolher duas ou três preparações-base pode facilitar combinações diferentes ao longo dos dias sem deixar a rotina engessada.",
+      "secoes": [
+        {
+          "titulo": "Organização sem rigidez",
+          "texto": "Preparar algumas bases com antecedência pode economizar tempo, sem exigir que todas as refeições sejam iguais.",
+          "itens": [
+            "Varie acompanhamentos e temperos.",
+            "Armazene e reaqueça os alimentos de forma segura."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Planeje algumas bases, não a semana inteira",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-lista-compras",
+      "tipo": "alimentacao",
+      "categoria": "marmitas",
+      "titulo": "Uma lista de compras mais simples",
+      "resumo": "Separar a lista por grupos e conferir o que já existe em casa ajuda a reduzir esquecimentos e compras repetidas.",
+      "texto_apoio": "Ferramenta de organização, sem regras rígidas.",
+      "icone": "✓",
+      "ordem": 66,
+      "publicado": true,
+      "tags": [
+        "compras",
+        "organizacao"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Separar a lista por grupos e conferir o que já existe em casa ajuda a reduzir esquecimentos e compras repetidas.",
+      "secoes": [
+        {
+          "titulo": "Organização sem rigidez",
+          "texto": "Preparar algumas bases com antecedência pode economizar tempo, sem exigir que todas as refeições sejam iguais.",
+          "itens": [
+            "Varie acompanhamentos e temperos.",
+            "Armazene e reaqueça os alimentos de forma segura."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Uma lista de compras mais simples",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
     },
     {
       "id": "alimentacao-bebidas",
@@ -85,9 +543,764 @@
       "icone": "◫",
       "ordem": 70,
       "publicado": true,
-      "tags": ["sucos", "hidratacao"]
+      "tags": [
+        "sucos",
+        "hidratacao"
+      ],
+      "publico": {
+        "objetivos": [
+          "bem_estar",
+          "variar_refeicoes"
+        ],
+        "interesses": [
+          "sucos"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Água segue como base da hidratação; sucos e outras bebidas podem aparecer como parte das escolhas do dia.",
+      "secoes": [
+        {
+          "titulo": "Bebidas como parte da rotina",
+          "texto": "Sucos e outras bebidas podem ser uma opção de variedade, sem substituir a necessidade de água ao longo do dia.",
+          "itens": [
+            "Prefira higiene adequada das frutas.",
+            "Ajuste sabores sem transformar a bebida em obrigação."
+          ]
+        },
+        {
+          "titulo": "Como usar esta ideia",
+          "texto": "Use este conteúdo como referência flexível. As combinações podem mudar de acordo com disponibilidade, preferências culturais, rotina e acesso aos alimentos.",
+          "itens": []
+        },
+        {
+          "titulo": "Um passo simples para começar",
+          "texto": "Escolha uma pequena mudança possível para a sua rotina, observe como ela funciona no dia a dia e ajuste sem buscar perfeição.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Bebidas dentro de uma rotina variada",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
     },
-
+    {
+      "id": "alimentacao-cafe-preparo-noite",
+      "tipo": "alimentacao",
+      "categoria": "cafe_manha",
+      "titulo": "Deixe uma parte pronta na noite anterior",
+      "resumo": "Separar utensílios ou adiantar uma base simples pode reduzir decisões pela manhã e deixar o começo do dia mais tranquilo.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "☀",
+      "ordem": 110,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "cafe_manha",
+        "organizacao"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "cafe_manha",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Separar utensílios ou adiantar uma base simples pode reduzir decisões pela manhã e deixar o começo do dia mais tranquilo.",
+      "secoes": [
+        {
+          "titulo": "O que pode ser adiantado",
+          "texto": "Algumas bases podem ser organizadas antes, como fruta lavada, aveia separada ou itens já definidos para a manhã.",
+          "itens": [
+            "Guarde os alimentos de forma adequada.",
+            "Escolha apenas o que realmente facilitará seu dia."
+          ]
+        },
+        {
+          "titulo": "Evite complicar",
+          "texto": "A ideia não é montar uma rotina rígida. Preparar uma pequena parte já pode diminuir a correria.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Deixe uma parte pronta na noite anterior",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-almoco-aproveitamento",
+      "tipo": "alimentacao",
+      "categoria": "almoco",
+      "titulo": "Aproveite bases que você já tem",
+      "resumo": "Arroz, feijão, legumes, massas e outras bases já preparadas podem ser combinadas de formas diferentes para reduzir tempo na cozinha.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "◒",
+      "ordem": 120,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "almoco",
+        "aproveitamento"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada",
+          "variar_refeicoes"
+        ],
+        "interesses": [
+          "almoco",
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Arroz, feijão, legumes, massas e outras bases já preparadas podem ser combinadas de formas diferentes para reduzir tempo na cozinha.",
+      "secoes": [
+        {
+          "titulo": "Pense em bases",
+          "texto": "Em vez de preparar cada refeição do zero, algumas bases podem participar de mais de uma combinação.",
+          "itens": [
+            "Combine uma base com vegetais e uma fonte de proteína de sua preferência.",
+            "Mude temperos ou acompanhamentos para criar variedade."
+          ]
+        },
+        {
+          "titulo": "Conservação importa",
+          "texto": "Use recipientes adequados e observe tempo e condições de armazenamento dos alimentos preparados.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Aproveite bases que você já tem",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-jantar-reaproveitar",
+      "tipo": "alimentacao",
+      "categoria": "jantar",
+      "titulo": "Jantar sem começar do zero",
+      "resumo": "Uma refeição da noite pode aproveitar componentes do almoço ou preparações já prontas, sem precisar repetir exatamente o mesmo prato.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "☾",
+      "ordem": 130,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "jantar",
+        "organizacao"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "jantar",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Uma refeição da noite pode aproveitar componentes do almoço ou preparações já prontas, sem precisar repetir exatamente o mesmo prato.",
+      "secoes": [
+        {
+          "titulo": "Como aplicar na rotina",
+          "texto": "Use a ideia como referência flexível, levando em conta disponibilidade, cultura alimentar, preferências e organização da casa.",
+          "itens": [
+            "Escolha uma mudança pequena e possível.",
+            "Observe o que funciona e ajuste sem buscar perfeição."
+          ]
+        },
+        {
+          "titulo": "Para manter variedade",
+          "texto": "Alternar preparações, cores, texturas e alimentos ao longo da semana pode deixar a rotina mais interessante sem exigir regras rígidas.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Jantar sem começar do zero",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-lanche-fora",
+      "tipo": "alimentacao",
+      "categoria": "lanches",
+      "titulo": "Lanches simples para levar",
+      "resumo": "Ter uma ou duas opções fáceis de transportar pode ajudar em dias longos fora de casa, sem exigir um planejamento complicado.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "◇",
+      "ordem": 140,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "lanches",
+        "praticidade"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "bem_estar"
+        ],
+        "interesses": [
+          "lanches",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Ter uma ou duas opções fáceis de transportar pode ajudar em dias longos fora de casa, sem exigir um planejamento complicado.",
+      "secoes": [
+        {
+          "titulo": "Pense na praticidade",
+          "texto": "Escolha opções compatíveis com o tempo que ficarão fora de casa e com as condições de armazenamento disponíveis.",
+          "itens": [
+            "Frutas inteiras podem ser práticas.",
+            "Outras opções podem precisar de refrigeração; confira antes de levar."
+          ]
+        },
+        {
+          "titulo": "Tenha alternativas",
+          "texto": "Uma pequena lista de opções facilita variar sem depender sempre da mesma escolha.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Lanches simples para levar",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-rapida-componentes",
+      "tipo": "alimentacao",
+      "categoria": "receitas_rapidas",
+      "titulo": "Monte refeições rápidas por componentes",
+      "resumo": "Quando há pouco tempo, pensar em três ou quatro componentes simples pode ser mais prático do que procurar uma receita elaborada.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "⚡",
+      "ordem": 150,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "receitas_rapidas",
+        "praticidade"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "receitas_rapidas",
+          "almoco",
+          "jantar"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Quando há pouco tempo, pensar em três ou quatro componentes simples pode ser mais prático do que procurar uma receita elaborada.",
+      "secoes": [
+        {
+          "titulo": "Uma montagem simples",
+          "texto": "Combine uma base, vegetais ou fruta e uma fonte de proteína de acordo com sua rotina e preferência.",
+          "itens": [
+            "Use alimentos que já façam parte da casa.",
+            "Troque os componentes para não depender sempre da mesma combinação."
+          ]
+        },
+        {
+          "titulo": "Sem fórmula rígida",
+          "texto": "A composição pode mudar conforme cultura, acesso, apetite e disponibilidade.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Monte refeições rápidas por componentes",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-marmita-modular",
+      "tipo": "alimentacao",
+      "categoria": "marmitas",
+      "titulo": "Marmitas com combinações modulares",
+      "resumo": "Preparar algumas bases separadas permite montar refeições diferentes ao longo dos dias em vez de repetir sempre a mesma marmita.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "▦",
+      "ordem": 160,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "marmitas",
+        "planejamento"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada",
+          "variar_refeicoes"
+        ],
+        "interesses": [
+          "marmitas",
+          "almoco",
+          "jantar"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Preparar algumas bases separadas permite montar refeições diferentes ao longo dos dias em vez de repetir sempre a mesma marmita.",
+      "secoes": [
+        {
+          "titulo": "Monte um conjunto de bases",
+          "texto": "Você pode preparar alguns itens separadamente e combiná-los de formas diferentes.",
+          "itens": [
+            "Uma base de cereal ou massa.",
+            "Uma leguminosa ou outra fonte de proteína.",
+            "Vegetais ou acompanhamentos variados."
+          ]
+        },
+        {
+          "titulo": "Planejamento flexível",
+          "texto": "Faça apenas a quantidade que seja realista para sua casa e sua semana.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Marmitas com combinações modulares",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-sucos-fruta-inteira",
+      "tipo": "alimentacao",
+      "categoria": "sucos",
+      "titulo": "Sucos e frutas podem ter papéis diferentes",
+      "resumo": "Sucos podem fazer parte da rotina, e frutas inteiras também oferecem uma experiência diferente de textura e mastigação.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "◉",
+      "ordem": 170,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "sucos",
+        "variedade"
+      ],
+      "publico": {
+        "objetivos": [
+          "bem_estar",
+          "variar_refeicoes"
+        ],
+        "interesses": [
+          "sucos",
+          "lanches"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Sucos podem fazer parte da rotina, e frutas inteiras também oferecem uma experiência diferente de textura e mastigação.",
+      "secoes": [
+        {
+          "titulo": "Varie as formas",
+          "texto": "Você pode alternar água, frutas inteiras, vitaminas e sucos conforme preferência e contexto.",
+          "itens": [
+            "Não é necessário tratar suco como “detox”.",
+            "Evite transformar bebidas em regra ou obrigação."
+          ]
+        },
+        {
+          "titulo": "Observe sua rotina",
+          "texto": "Escolha opções que sejam práticas, agradáveis e compatíveis com as refeições do dia.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Sucos e frutas podem ter papéis diferentes",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-compras-categorias",
+      "tipo": "alimentacao",
+      "categoria": "marmitas",
+      "titulo": "Organize a lista de compras por categorias",
+      "resumo": "Separar a lista em grupos pode facilitar a compra e reduzir esquecimentos, especialmente quando você já sabe quais preparações pretende fazer.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "✓",
+      "ordem": 180,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "compras",
+        "organizacao"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "marmitas",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Separar a lista em grupos pode facilitar a compra e reduzir esquecimentos, especialmente quando você já sabe quais preparações pretende fazer.",
+      "secoes": [
+        {
+          "titulo": "Uma lista mais clara",
+          "texto": "Agrupe itens como hortifruti, grãos, laticínios ou alternativas, proteínas e itens de despensa conforme sua realidade.",
+          "itens": [
+            "Revise o que já existe em casa antes de comprar.",
+            "Priorize o que será realmente usado."
+          ]
+        },
+        {
+          "titulo": "Ajuste à sua casa",
+          "texto": "A melhor lista é aquela que considera orçamento, preferências, disponibilidade local e quantidade de pessoas.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Organize a lista de compras por categorias",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-despensa-base",
+      "tipo": "alimentacao",
+      "categoria": "receitas_rapidas",
+      "titulo": "Uma pequena despensa de apoio",
+      "resumo": "Ter algumas bases versáteis disponíveis pode ajudar a montar refeições simples quando não houver tempo para uma preparação longa.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "▣",
+      "ordem": 190,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "despensa",
+        "praticidade"
+      ],
+      "publico": {
+        "objetivos": [
+          "organizar_alimentacao",
+          "receitas_praticas",
+          "rotina_organizada"
+        ],
+        "interesses": [
+          "receitas_rapidas",
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Ter algumas bases versáteis disponíveis pode ajudar a montar refeições simples quando não houver tempo para uma preparação longa.",
+      "secoes": [
+        {
+          "titulo": "Escolha bases versáteis",
+          "texto": "Itens secos, congelados e conservados adequadamente podem ajudar em combinações rápidas.",
+          "itens": [
+            "Prefira alimentos que sua casa realmente utiliza.",
+            "Observe validade e armazenamento."
+          ]
+        },
+        {
+          "titulo": "Evite excesso",
+          "texto": "Não é necessário manter muitos produtos. Uma seleção pequena e rotativa costuma ser mais fácil de usar.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Uma pequena despensa de apoio",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-variedade-cores",
+      "tipo": "alimentacao",
+      "categoria": "almoco",
+      "titulo": "Variedade também pode começar pelas cores",
+      "resumo": "Observar diferentes cores de vegetais e frutas ao longo da semana pode ser uma forma simples e visual de lembrar da variedade.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "✦",
+      "ordem": 200,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "variedade",
+        "vegetais"
+      ],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar"
+        ],
+        "interesses": [
+          "almoco",
+          "jantar",
+          "lanches"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Observar diferentes cores de vegetais e frutas ao longo da semana pode ser uma forma simples e visual de lembrar da variedade.",
+      "secoes": [
+        {
+          "titulo": "Use como inspiração",
+          "texto": "A ideia das cores não é uma regra de quantidade, e sim um lembrete para explorar alimentos diferentes quando estiverem disponíveis.",
+          "itens": [
+            "Experimente cores diferentes ao longo dos dias.",
+            "Repita alimentos de que você gosta sem preocupação."
+          ]
+        },
+        {
+          "titulo": "Disponibilidade vem primeiro",
+          "texto": "É normal a variedade mudar conforme época, preço, região e rotina da família.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Variedade também pode começar pelas cores",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
+    {
+      "id": "alimentacao-cozinha-15-min",
+      "tipo": "alimentacao",
+      "categoria": "receitas_rapidas",
+      "titulo": "Organize 15 minutos de preparo",
+      "resumo": "Separar um curto período para lavar, cortar ou porcionar alguns itens pode facilitar refeições futuras sem exigir uma tarde inteira na cozinha.",
+      "texto_apoio": "Conteúdo educativo • adapte à sua realidade.",
+      "icone": "⌁",
+      "ordem": 210,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "organizacao",
+        "preparo"
+      ],
+      "publico": {
+        "objetivos": [
+          "rotina_organizada",
+          "organizar_alimentacao",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "receitas_rapidas",
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ]
+      },
+      "introducao": "Separar um curto período para lavar, cortar ou porcionar alguns itens pode facilitar refeições futuras sem exigir uma tarde inteira na cozinha.",
+      "secoes": [
+        {
+          "titulo": "Escolha uma única tarefa",
+          "texto": "Em vez de tentar adiantar tudo, escolha uma ação útil para os próximos dias.",
+          "itens": [
+            "Lavar alguns vegetais.",
+            "Separar porções de ingredientes.",
+            "Deixar uma base pronta."
+          ]
+        },
+        {
+          "titulo": "Pare quando for suficiente",
+          "texto": "O objetivo é facilitar a rotina, não transformar o preparo em obrigação prolongada.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Em caso de alergia ou restrição alimentar, confira ingredientes e rótulos antes de consumir."
+      ],
+      "experiencia": {
+        "tempo": "3–5 min de leitura",
+        "dificuldade": "Leitura simples",
+        "formato": "Guia prático"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Organize 15 minutos de preparo",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      }
+    },
     {
       "id": "exercicio-mobilidade-geral",
       "tipo": "exercicio",
@@ -98,11 +1311,100 @@
       "ordem": 10,
       "destaque": true,
       "publicado": true,
-      "niveis": ["iniciante", "intermediario", "experiente"],
-      "locais": ["casa", "academia", "ar_livre", "varia"],
-      "equipamentos": ["nenhum", "colchonete"],
-      "duracoes": ["ate_15", "15_30", "30_45"],
-      "tags": ["Sem equipamento", "Ritmo leve"]
+      "tags": [
+        "Sem equipamento",
+        "Ritmo leve"
+      ],
+      "movimentos_tags": [
+        "mobilidade"
+      ],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "constancia_exercicios",
+          "bem_estar"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15",
+          "15_30",
+          "30_45"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "ar_livre",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum",
+          "colchonete"
+        ]
+      },
+      "introducao": "Conteúdo leve de mobilidade geral para preparar o corpo para outras atividades ou criar uma pequena pausa de movimento.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Priorize movimentos suaves dentro de uma amplitude confortável.",
+          "itens": [
+            "Comece devagar.",
+            "Evite forçar posições.",
+            "Faça pausas quando precisar."
+          ]
+        },
+        {
+          "titulo": "Progressão",
+          "texto": "Quando a atividade estiver confortável e consistente, você pode explorar gradualmente outras durações ou variações adequadas ao seu nível.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço seguro e confortável.",
+        "Escolha uma variação compatível com seu nível.",
+        "Faça o movimento de forma controlada e sem pressa.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 45 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Movimentos para começar com calma",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Prepare um espaço seguro e confortável.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Movimentos principais",
+          "descricao": "Escolha uma variação compatível com seu nível.",
+          "duracao": "5–10 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Faça o movimento de forma controlada e sem pressa.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "1 min"
+        }
+      ]
     },
     {
       "id": "exercicio-forca-fundamentos",
@@ -113,11 +1415,201 @@
       "icone": "↔",
       "ordem": 20,
       "publicado": true,
-      "niveis": ["iniciante", "intermediario", "experiente"],
-      "locais": ["casa", "academia", "varia"],
-      "equipamentos": ["nenhum", "halteres", "elasticos", "equipamentos_academia"],
-      "duracoes": ["15_30", "30_45", "mais_45"],
-      "tags": ["Adaptável", "Progressivo"]
+      "tags": [
+        "Adaptável",
+        "Progressivo"
+      ],
+      "movimentos_tags": [
+        "agachamento",
+        "flexao",
+        "prancha"
+      ],
+      "publico": {
+        "objetivos": [
+          "melhorar_condicionamento",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "15_30",
+          "30_45",
+          "mais_45"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum",
+          "halteres",
+          "elasticos",
+          "academia"
+        ]
+      },
+      "introducao": "Conteúdos organizados por nível e recursos disponíveis, com foco em técnica, controle e alternativas mais simples.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Use variações compatíveis com sua experiência e com os recursos disponíveis.",
+          "itens": [
+            "Priorize controle do movimento.",
+            "Use uma versão mais simples quando necessário.",
+            "Descanse entre blocos."
+          ]
+        },
+        {
+          "titulo": "Progressão",
+          "texto": "Quando a atividade estiver confortável e consistente, você pode explorar gradualmente outras durações ou variações adequadas ao seu nível.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço seguro e confortável.",
+        "Escolha uma variação compatível com seu nível.",
+        "Faça o movimento de forma controlada e sem pressa.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "15–45+ min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Fundamentos de força com progressão gradual",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Prepare um espaço seguro e confortável.",
+          "duracao": "2–4 min"
+        },
+        {
+          "titulo": "Bloco principal",
+          "descricao": "Escolha uma variação compatível com seu nível.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Pausa e controle",
+          "descricao": "Faça o movimento de forma controlada e sem pressa.",
+          "duracao": "conforme necessário"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "2–4 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-circuito-curto-casa",
+      "tipo": "exercicio",
+      "categoria": "forca",
+      "titulo": "Circuito curto em casa, sem equipamento",
+      "resumo": "Uma proposta curta de movimentos gerais com pausas e alternativas simples, pensada para quem tem pouco tempo e nenhum equipamento.",
+      "icone": "↔",
+      "ordem": 25,
+      "publicado": true,
+      "tags": [
+        "Até 15 min",
+        "Sem equipamento",
+        "Casa"
+      ],
+      "movimentos_tags": [
+        "agachamento",
+        "prancha"
+      ],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario"
+        ],
+        "duracoes": [
+          "ate_15"
+        ],
+        "locais": [
+          "casa",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Uma proposta curta de movimentos gerais com pausas e alternativas simples, pensada para quem tem pouco tempo e nenhum equipamento.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Use variações compatíveis com sua experiência e com os recursos disponíveis.",
+          "itens": [
+            "Priorize controle do movimento.",
+            "Use uma versão mais simples quando necessário.",
+            "Descanse entre blocos."
+          ]
+        },
+        {
+          "titulo": "Progressão",
+          "texto": "Quando a atividade estiver confortável e consistente, você pode explorar gradualmente outras durações ou variações adequadas ao seu nível.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço seguro e confortável.",
+        "Escolha uma variação compatível com seu nível.",
+        "Faça o movimento de forma controlada e sem pressa.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Circuito curto em casa, sem equipamento",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Prepare um espaço seguro e confortável.",
+          "duracao": "2–4 min"
+        },
+        {
+          "titulo": "Bloco principal",
+          "descricao": "Escolha uma variação compatível com seu nível.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Pausa e controle",
+          "descricao": "Faça o movimento de forma controlada e sem pressa.",
+          "duracao": "conforme necessário"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "2–4 min"
+        }
+      ]
     },
     {
       "id": "exercicio-cardio-confortavel",
@@ -128,11 +1620,199 @@
       "icone": "≈",
       "ordem": 30,
       "publicado": true,
-      "niveis": ["iniciante", "intermediario", "experiente"],
-      "locais": ["casa", "academia", "ar_livre", "varia"],
-      "equipamentos": ["nenhum", "equipamentos_academia"],
-      "duracoes": ["ate_15", "15_30", "30_45"],
-      "tags": ["Confortável", "Sem foco em calorias"]
+      "tags": [
+        "Confortável",
+        "Sem foco em calorias"
+      ],
+      "movimentos_tags": [
+        "caminhada"
+      ],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "melhorar_condicionamento",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15",
+          "15_30",
+          "30_45"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "ar_livre",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum",
+          "academia"
+        ]
+      },
+      "introducao": "Caminhada e outras opções simples podem entrar aqui, respeitando espaço, experiência e ritmo individual.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha um ritmo em que você se sinta confortável e consiga reduzir a intensidade quando quiser.",
+          "itens": [
+            "Comece com períodos curtos.",
+            "Use pausas sempre que necessário.",
+            "Aumente a duração gradualmente se fizer sentido."
+          ]
+        },
+        {
+          "titulo": "Progressão",
+          "texto": "Quando a atividade estiver confortável e consistente, você pode explorar gradualmente outras durações ou variações adequadas ao seu nível.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço seguro e confortável.",
+        "Escolha uma variação compatível com seu nível.",
+        "Faça o movimento de forma controlada e sem pressa.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 45 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Movimento contínuo em ritmo confortável",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Começo leve",
+          "descricao": "Prepare um espaço seguro e confortável.",
+          "duracao": "2–5 min"
+        },
+        {
+          "titulo": "Ritmo confortável",
+          "descricao": "Escolha uma variação compatível com seu nível.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Faça o movimento de forma controlada e sem pressa.",
+          "duracao": "conforme conforto"
+        },
+        {
+          "titulo": "Desaceleração",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "2–5 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-caminhada-ar-livre",
+      "tipo": "exercicio",
+      "categoria": "cardio_leve",
+      "titulo": "Caminhada em ritmo confortável",
+      "resumo": "Uma opção simples ao ar livre para criar constância e aumentar o tempo em movimento sem precisar transformar cada sessão em desafio.",
+      "icone": "≈",
+      "ordem": 35,
+      "publicado": true,
+      "tags": [
+        "Ar livre",
+        "Ritmo confortável"
+      ],
+      "movimentos_tags": [
+        "caminhada"
+      ],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "melhorar_condicionamento",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "15_30",
+          "30_45"
+        ],
+        "locais": [
+          "ar_livre"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Uma opção simples ao ar livre para criar constância e aumentar o tempo em movimento sem precisar transformar cada sessão em desafio.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha um ritmo em que você se sinta confortável e consiga reduzir a intensidade quando quiser.",
+          "itens": [
+            "Comece com períodos curtos.",
+            "Use pausas sempre que necessário.",
+            "Aumente a duração gradualmente se fizer sentido."
+          ]
+        },
+        {
+          "titulo": "Progressão",
+          "texto": "Quando a atividade estiver confortável e consistente, você pode explorar gradualmente outras durações ou variações adequadas ao seu nível.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço seguro e confortável.",
+        "Escolha uma variação compatível com seu nível.",
+        "Faça o movimento de forma controlada e sem pressa.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "15–45 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Caminhada em ritmo confortável",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Começo leve",
+          "descricao": "Prepare um espaço seguro e confortável.",
+          "duracao": "2–5 min"
+        },
+        {
+          "titulo": "Ritmo confortável",
+          "descricao": "Escolha uma variação compatível com seu nível.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Faça o movimento de forma controlada e sem pressa.",
+          "duracao": "conforme conforto"
+        },
+        {
+          "titulo": "Desaceleração",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "2–5 min"
+        }
+      ]
     },
     {
       "id": "exercicio-alongamento",
@@ -143,11 +1823,98 @@
       "icone": "⌁",
       "ordem": 40,
       "publicado": true,
-      "niveis": ["iniciante", "intermediario", "experiente"],
-      "locais": ["casa", "academia", "ar_livre", "varia"],
-      "equipamentos": ["nenhum", "colchonete"],
-      "duracoes": ["ate_15", "15_30"],
-      "tags": ["Leve", "Amplitude confortável"]
+      "tags": [
+        "Leve",
+        "Amplitude confortável"
+      ],
+      "movimentos_tags": [
+        "alongamento"
+      ],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "bem_estar"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15",
+          "15_30"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "ar_livre",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum",
+          "colchonete"
+        ]
+      },
+      "introducao": "Uma área para conteúdos gerais de alongamento, sempre priorizando amplitude confortável e sem forçar posições.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Procure sensação confortável de alongamento, sem buscar dor ou amplitudes extremas.",
+          "itens": [
+            "Entre e saia das posições com calma.",
+            "Não force articulações.",
+            "Respire normalmente."
+          ]
+        },
+        {
+          "titulo": "Progressão",
+          "texto": "Quando a atividade estiver confortável e consistente, você pode explorar gradualmente outras durações ou variações adequadas ao seu nível.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço seguro e confortável.",
+        "Escolha uma variação compatível com seu nível.",
+        "Faça o movimento de forma controlada e sem pressa.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Alongamentos leves e sem pressa",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Prepare um espaço seguro e confortável.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Alongamentos principais",
+          "descricao": "Escolha uma variação compatível com seu nível.",
+          "duracao": "5–10 min"
+        },
+        {
+          "titulo": "Conforto e respiração",
+          "descricao": "Faça o movimento de forma controlada e sem pressa.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "1 min"
+        }
+      ]
     },
     {
       "id": "exercicio-pausa-ativa",
@@ -158,141 +1925,3438 @@
       "icone": "✦",
       "ordem": 50,
       "publicado": true,
-      "niveis": ["iniciante", "intermediario", "experiente"],
-      "locais": ["casa", "academia", "ar_livre", "varia"],
-      "equipamentos": ["nenhum"],
-      "duracoes": ["ate_15"],
-      "tags": ["Curto", "Sem equipamento"]
+      "tags": [
+        "Curto",
+        "Sem equipamento"
+      ],
+      "movimentos_tags": [
+        "mobilidade"
+      ],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "rotina_organizada",
+          "bem_estar"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "ar_livre",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Ideias curtas de movimento para interromper longos períodos sentado, sem transformar a pausa em treino intenso.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Pequenos momentos de movimento podem quebrar períodos longos sentado ou parado.",
+          "itens": [
+            "Escolha movimentos simples.",
+            "Mantenha intensidade leve.",
+            "Use a pausa como oportunidade de mudar de posição."
+          ]
+        },
+        {
+          "titulo": "Progressão",
+          "texto": "Quando a atividade estiver confortável e consistente, você pode explorar gradualmente outras durações ou variações adequadas ao seu nível.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço seguro e confortável.",
+        "Escolha uma variação compatível com seu nível.",
+        "Faça o movimento de forma controlada e sem pressa.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Pequenas pausas para se movimentar",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Comece com calma",
+          "descricao": "Prepare um espaço seguro e confortável.",
+          "duracao": "1 min"
+        },
+        {
+          "titulo": "Movimente-se",
+          "descricao": "Escolha uma variação compatível com seu nível.",
+          "duracao": "3–6 min"
+        },
+        {
+          "titulo": "Faça uma pausa",
+          "descricao": "Faça o movimento de forma controlada e sem pressa.",
+          "duracao": "1 min"
+        },
+        {
+          "titulo": "Retome sua rotina",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "—"
+        }
+      ]
     },
-
+    {
+      "id": "exercicio-mobilidade-manha",
+      "tipo": "exercicio",
+      "categoria": "mobilidade",
+      "titulo": "Mobilidade curta para começar o dia",
+      "resumo": "Uma sequência leve de movimentos articulares pode ajudar a sair da inatividade e começar o dia com mais movimento.",
+      "icone": "↔",
+      "ordem": 110,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Até 15 min",
+        "Sem equipamento",
+        "Leve"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "bem_estar",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15"
+        ],
+        "locais": [
+          "casa",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Uma sequência leve de movimentos articulares pode ajudar a sair da inatividade e começar o dia com mais movimento.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Comece com movimentos suaves de ombros e braços.",
+        "Inclua movimentos confortáveis de tronco e quadril.",
+        "Movimente tornozelos e pernas sem pressa.",
+        "Finalize respirando normalmente e percebendo se o corpo está confortável."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Mobilidade curta para começar o dia",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Comece com movimentos suaves de ombros e braços.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Movimentos principais",
+          "descricao": "Inclua movimentos confortáveis de tronco e quadril.",
+          "duracao": "5–10 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Movimente tornozelos e pernas sem pressa.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Finalize respirando normalmente e percebendo se o corpo está confortável.",
+          "duracao": "1 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-mobilidade-estudo",
+      "tipo": "exercicio",
+      "categoria": "mobilidade",
+      "titulo": "Mobilidade entre períodos sentado",
+      "resumo": "Uma pausa curta com movimentos simples pode quebrar longos períodos sentado em estudo, computador ou outras atividades.",
+      "icone": "↔",
+      "ordem": 120,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Até 15 min",
+        "Pausa",
+        "Sem equipamento"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "rotina_organizada",
+          "bem_estar"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15"
+        ],
+        "locais": [
+          "casa",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Uma pausa curta com movimentos simples pode quebrar longos períodos sentado em estudo, computador ou outras atividades.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Levante-se com calma e caminhe alguns passos.",
+        "Faça movimentos leves de ombros, braços e tronco.",
+        "Movimente quadris, joelhos e tornozelos dentro de uma amplitude confortável.",
+        "Retome sua atividade sem precisar transformar a pausa em treino intenso."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Mobilidade entre períodos sentado",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Levante-se com calma e caminhe alguns passos.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Movimentos principais",
+          "descricao": "Faça movimentos leves de ombros, braços e tronco.",
+          "duracao": "5–10 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Movimente quadris, joelhos e tornozelos dentro de uma amplitude confortável.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Retome sua atividade sem precisar transformar a pausa em treino intenso.",
+          "duracao": "1 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-forca-cadeira",
+      "tipo": "exercicio",
+      "categoria": "forca",
+      "titulo": "Força geral com apoio de cadeira",
+      "resumo": "Uma proposta simples de movimentos com apoio estável, útil para quem prefere começar com referências de equilíbrio e controle.",
+      "icone": "↔",
+      "ordem": 130,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Iniciante",
+        "Casa",
+        "Apoio estável"
+      ],
+      "movimentos_tags": [
+        "agachamento"
+      ],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante"
+        ],
+        "duracoes": [
+          "ate_15",
+          "15_30"
+        ],
+        "locais": [
+          "casa",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Uma proposta simples de movimentos com apoio estável, útil para quem prefere começar com referências de equilíbrio e controle.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Use uma cadeira firme e apoiada em superfície estável.",
+        "Faça movimentos de sentar e levantar dentro de uma amplitude confortável.",
+        "Alterne com empurrar a parede e elevações leves de panturrilha.",
+        "Descanse entre os movimentos e encerre se perder o controle ou sentir desconforto."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Inicial",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Força geral com apoio de cadeira",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Use uma cadeira firme e apoiada em superfície estável.",
+          "duracao": "2–4 min"
+        },
+        {
+          "titulo": "Bloco principal",
+          "descricao": "Faça movimentos de sentar e levantar dentro de uma amplitude confortável.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Pausa e controle",
+          "descricao": "Alterne com empurrar a parede e elevações leves de panturrilha.",
+          "duracao": "conforme necessário"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Descanse entre os movimentos e encerre se perder o controle ou sentir desconforto.",
+          "duracao": "2–4 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-forca-elastico",
+      "tipo": "exercicio",
+      "categoria": "forca",
+      "titulo": "Movimentos básicos com elástico",
+      "resumo": "Elásticos podem oferecer resistência leve a moderada em movimentos simples para braços, costas e pernas.",
+      "icone": "↔",
+      "ordem": 140,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Elástico",
+        "15–30 min",
+        "Força"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "melhorar_condicionamento",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario"
+        ],
+        "duracoes": [
+          "15_30",
+          "30_45"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "variado"
+        ],
+        "equipamentos": [
+          "elasticos"
+        ]
+      },
+      "introducao": "Elásticos podem oferecer resistência leve a moderada em movimentos simples para braços, costas e pernas.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Verifique se o elástico está íntegro e bem posicionado.",
+        "Escolha movimentos simples e uma resistência que permita controle.",
+        "Faça poucas repetições confortáveis e descanse.",
+        "Aumente a dificuldade somente quando a execução estiver estável e sem desconforto."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "15–45 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Movimentos básicos com elástico",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Verifique se o elástico está íntegro e bem posicionado.",
+          "duracao": "2–4 min"
+        },
+        {
+          "titulo": "Bloco principal",
+          "descricao": "Escolha movimentos simples e uma resistência que permita controle.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Pausa e controle",
+          "descricao": "Faça poucas repetições confortáveis e descanse.",
+          "duracao": "conforme necessário"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Aumente a dificuldade somente quando a execução estiver estável e sem desconforto.",
+          "duracao": "2–4 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-forca-halteres",
+      "tipo": "exercicio",
+      "categoria": "forca",
+      "titulo": "Rotina básica com halteres",
+      "resumo": "Uma sessão geral com halteres pode combinar movimentos para diferentes regiões do corpo sem precisar buscar cargas máximas.",
+      "icone": "↔",
+      "ordem": 150,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Halteres",
+        "30–45 min",
+        "Intermediário"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "melhorar_condicionamento",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "30_45",
+          "mais_45"
+        ],
+        "locais": [
+          "academia",
+          "casa",
+          "variado"
+        ],
+        "equipamentos": [
+          "halteres",
+          "academia"
+        ]
+      },
+      "introducao": "Uma sessão geral com halteres pode combinar movimentos para diferentes regiões do corpo sem precisar buscar cargas máximas.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Escolha cargas que permitam movimento controlado.",
+        "Combine movimentos de empurrar, puxar e pernas em versões conhecidas por você.",
+        "Faça pausas suficientes para manter boa execução.",
+        "Encerre a sessão antes de perder controle técnico ou sentir dor."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "30–45+ min",
+        "dificuldade": "Intermediário",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Rotina básica com halteres",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Escolha cargas que permitam movimento controlado.",
+          "duracao": "2–4 min"
+        },
+        {
+          "titulo": "Bloco principal",
+          "descricao": "Combine movimentos de empurrar, puxar e pernas em versões conhecidas por você.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Pausa e controle",
+          "descricao": "Faça pausas suficientes para manter boa execução.",
+          "duracao": "conforme necessário"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Encerre a sessão antes de perder controle técnico ou sentir dor.",
+          "duracao": "2–4 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-cardio-caminhada-intervalos",
+      "tipo": "exercicio",
+      "categoria": "cardio_leve",
+      "titulo": "Caminhada com mudanças leves de ritmo",
+      "resumo": "Alternar períodos confortáveis e um pouco mais rápidos pode trazer variedade à caminhada sem transformar a sessão em competição.",
+      "icone": "↔",
+      "ordem": 160,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Caminhada",
+        "15–45 min",
+        "Ritmo confortável"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "melhorar_condicionamento",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario"
+        ],
+        "duracoes": [
+          "15_30",
+          "30_45"
+        ],
+        "locais": [
+          "ar_livre",
+          "academia"
+        ],
+        "equipamentos": [
+          "nenhum",
+          "academia"
+        ]
+      },
+      "introducao": "Alternar períodos confortáveis e um pouco mais rápidos pode trazer variedade à caminhada sem transformar a sessão em competição.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço confortável e faça alguns movimentos leves para começar.",
+        "Realize os movimentos em ritmo controlado, com pausas quando necessário.",
+        "Finalize desacelerando e observe como você se sente.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "15–45 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Caminhada com mudanças leves de ritmo",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Começo leve",
+          "descricao": "Prepare um espaço confortável e faça alguns movimentos leves para começar.",
+          "duracao": "2–5 min"
+        },
+        {
+          "titulo": "Ritmo confortável",
+          "descricao": "Realize os movimentos em ritmo controlado, com pausas quando necessário.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Finalize desacelerando e observe como você se sente.",
+          "duracao": "conforme conforto"
+        },
+        {
+          "titulo": "Desaceleração",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "2–5 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-cardio-bicicleta",
+      "tipo": "exercicio",
+      "categoria": "cardio_leve",
+      "titulo": "Bicicleta em ritmo confortável",
+      "resumo": "Uma pedalada leve pode ser uma opção de movimento contínuo quando você tem acesso seguro a bicicleta ou equipamento estacionário.",
+      "icone": "↔",
+      "ordem": 170,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Bicicleta",
+        "Cardio leve",
+        "Ritmo confortável"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "melhorar_condicionamento"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "15_30",
+          "30_45",
+          "mais_45"
+        ],
+        "locais": [
+          "academia",
+          "ar_livre"
+        ],
+        "equipamentos": [
+          "academia",
+          "outros"
+        ]
+      },
+      "introducao": "Uma pedalada leve pode ser uma opção de movimento contínuo quando você tem acesso seguro a bicicleta ou equipamento estacionário.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Escolha um local seguro ou uma bicicleta estacionária ajustada.",
+        "Comece em ritmo fácil e mantenha uma cadência confortável.",
+        "Faça pausas quando necessário e evite disputar velocidade.",
+        "Finalize reduzindo o ritmo gradualmente."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "15–45+ min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Bicicleta em ritmo confortável",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Começo leve",
+          "descricao": "Escolha um local seguro ou uma bicicleta estacionária ajustada.",
+          "duracao": "2–5 min"
+        },
+        {
+          "titulo": "Ritmo confortável",
+          "descricao": "Comece em ritmo fácil e mantenha uma cadência confortável.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Faça pausas quando necessário e evite disputar velocidade.",
+          "duracao": "conforme conforto"
+        },
+        {
+          "titulo": "Desaceleração",
+          "descricao": "Finalize reduzindo o ritmo gradualmente.",
+          "duracao": "2–5 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-cardio-danca",
+      "tipo": "exercicio",
+      "categoria": "cardio_leve",
+      "titulo": "Movimento com música",
+      "resumo": "Dançar de forma livre pode ser uma maneira leve e divertida de aumentar o movimento em casa, respeitando espaço e conforto.",
+      "icone": "↔",
+      "ordem": 180,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Casa",
+        "Sem equipamento",
+        "Música"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "bem_estar",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15",
+          "15_30",
+          "30_45"
+        ],
+        "locais": [
+          "casa",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Dançar de forma livre pode ser uma maneira leve e divertida de aumentar o movimento em casa, respeitando espaço e conforto.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Escolha um espaço livre de objetos que possam atrapalhar.",
+        "Comece com passos simples e confortáveis.",
+        "Varie o ritmo conforme sua disposição, sem buscar movimentos difíceis.",
+        "Desacelere no final e faça uma pausa para recuperar o ritmo normal."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 45 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Movimento com música",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Começo leve",
+          "descricao": "Escolha um espaço livre de objetos que possam atrapalhar.",
+          "duracao": "2–5 min"
+        },
+        {
+          "titulo": "Ritmo confortável",
+          "descricao": "Comece com passos simples e confortáveis.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Varie o ritmo conforme sua disposição, sem buscar movimentos difíceis.",
+          "duracao": "conforme conforto"
+        },
+        {
+          "titulo": "Desaceleração",
+          "descricao": "Desacelere no final e faça uma pausa para recuperar o ritmo normal.",
+          "duracao": "2–5 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-alongamento-superior",
+      "tipo": "exercicio",
+      "categoria": "alongamento",
+      "titulo": "Alongamentos leves para parte superior",
+      "resumo": "Movimentos confortáveis para ombros, braços e tronco podem entrar em uma pausa curta ou no final de outra atividade.",
+      "icone": "↔",
+      "ordem": 190,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Até 15 min",
+        "Parte superior",
+        "Leve"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "bem_estar"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Movimentos confortáveis para ombros, braços e tronco podem entrar em uma pausa curta ou no final de outra atividade.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço confortável e faça alguns movimentos leves para começar.",
+        "Realize os movimentos em ritmo controlado, com pausas quando necessário.",
+        "Finalize desacelerando e observe como você se sente.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Alongamentos leves para parte superior",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Prepare um espaço confortável e faça alguns movimentos leves para começar.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Alongamentos principais",
+          "descricao": "Realize os movimentos em ritmo controlado, com pausas quando necessário.",
+          "duracao": "5–10 min"
+        },
+        {
+          "titulo": "Conforto e respiração",
+          "descricao": "Finalize desacelerando e observe como você se sente.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "1 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-alongamento-inferior",
+      "tipo": "exercicio",
+      "categoria": "alongamento",
+      "titulo": "Alongamentos leves para pernas",
+      "resumo": "Uma sequência curta e confortável para pernas pode ser usada como momento de desaceleração, sem forçar amplitudes.",
+      "icone": "↔",
+      "ordem": 200,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Pernas",
+        "Leve",
+        "Sem pressa"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "bem_estar"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15",
+          "15_30"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "ar_livre",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum",
+          "colchonete"
+        ]
+      },
+      "introducao": "Uma sequência curta e confortável para pernas pode ser usada como momento de desaceleração, sem forçar amplitudes.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço confortável e faça alguns movimentos leves para começar.",
+        "Realize os movimentos em ritmo controlado, com pausas quando necessário.",
+        "Finalize desacelerando e observe como você se sente.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Alongamentos leves para pernas",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Prepare um espaço confortável e faça alguns movimentos leves para começar.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Alongamentos principais",
+          "descricao": "Realize os movimentos em ritmo controlado, com pausas quando necessário.",
+          "duracao": "5–10 min"
+        },
+        {
+          "titulo": "Conforto e respiração",
+          "descricao": "Finalize desacelerando e observe como você se sente.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "1 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-pausa-escadas-opcional",
+      "tipo": "exercicio",
+      "categoria": "pausas_ativas",
+      "titulo": "Pausa ativa com caminhada curta",
+      "resumo": "Uma pequena caminhada pelo ambiente pode ser suficiente para interromper períodos muito longos parado, sem precisar montar um treino.",
+      "icone": "↔",
+      "ordem": 210,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Pausa ativa",
+        "Até 15 min",
+        "Caminhada"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "rotina_organizada",
+          "bem_estar"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "ate_15"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Uma pequena caminhada pelo ambiente pode ser suficiente para interromper períodos muito longos parado, sem precisar montar um treino.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Prepare um espaço confortável e faça alguns movimentos leves para começar.",
+        "Realize os movimentos em ritmo controlado, com pausas quando necessário.",
+        "Finalize desacelerando e observe como você se sente.",
+        "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Pausa ativa com caminhada curta",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Comece com calma",
+          "descricao": "Prepare um espaço confortável e faça alguns movimentos leves para começar.",
+          "duracao": "1 min"
+        },
+        {
+          "titulo": "Movimente-se",
+          "descricao": "Realize os movimentos em ritmo controlado, com pausas quando necessário.",
+          "duracao": "3–6 min"
+        },
+        {
+          "titulo": "Faça uma pausa",
+          "descricao": "Finalize desacelerando e observe como você se sente.",
+          "duracao": "1 min"
+        },
+        {
+          "titulo": "Retome sua rotina",
+          "descricao": "Interrompa se houver dor, tontura ou mal-estar e procure orientação de um adulto ou profissional qualificado quando necessário.",
+          "duracao": "—"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-equilibrio-basico",
+      "tipo": "exercicio",
+      "categoria": "mobilidade",
+      "titulo": "Coordenação e equilíbrio com apoio próximo",
+      "resumo": "Movimentos simples de coordenação podem ser feitos perto de uma parede ou apoio firme, priorizando controle e segurança.",
+      "icone": "↔",
+      "ordem": 220,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Coordenação",
+        "Equilíbrio",
+        "Até 15 min"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "movimentar_mais",
+          "bem_estar"
+        ],
+        "niveis": [
+          "iniciante",
+          "intermediario"
+        ],
+        "duracoes": [
+          "ate_15"
+        ],
+        "locais": [
+          "casa",
+          "academia",
+          "variado"
+        ],
+        "equipamentos": [
+          "nenhum"
+        ]
+      },
+      "introducao": "Movimentos simples de coordenação podem ser feitos perto de uma parede ou apoio firme, priorizando controle e segurança.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Fique perto de uma parede ou apoio estável.",
+        "Faça transferências leves de peso entre os pés.",
+        "Experimente pequenos movimentos de pés e braços sem fechar os olhos.",
+        "Pare se sentir instabilidade ou desconforto."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Adaptável",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Coordenação e equilíbrio com apoio próximo",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Fique perto de uma parede ou apoio estável.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Movimentos principais",
+          "descricao": "Faça transferências leves de peso entre os pés.",
+          "duracao": "5–10 min"
+        },
+        {
+          "titulo": "Ajuste do ritmo",
+          "descricao": "Experimente pequenos movimentos de pés e braços sem fechar os olhos.",
+          "duracao": "1–2 min"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Pare se sentir instabilidade ou desconforto.",
+          "duracao": "1 min"
+        }
+      ]
+    },
+    {
+      "id": "exercicio-academia-geral",
+      "tipo": "exercicio",
+      "categoria": "forca",
+      "titulo": "Sessão geral na academia",
+      "resumo": "Uma sessão simples pode usar poucos exercícios conhecidos, organizando o treino sem tentar usar todos os equipamentos disponíveis.",
+      "icone": "↔",
+      "ordem": 230,
+      "destaque": false,
+      "publicado": true,
+      "tags": [
+        "Academia",
+        "30–45+ min",
+        "Força"
+      ],
+      "movimentos_tags": [],
+      "publico": {
+        "objetivos": [
+          "melhorar_condicionamento",
+          "constancia_exercicios"
+        ],
+        "niveis": [
+          "intermediario",
+          "experiente"
+        ],
+        "duracoes": [
+          "30_45",
+          "mais_45"
+        ],
+        "locais": [
+          "academia"
+        ],
+        "equipamentos": [
+          "academia",
+          "halteres"
+        ]
+      },
+      "introducao": "Uma sessão simples pode usar poucos exercícios conhecidos, organizando o treino sem tentar usar todos os equipamentos disponíveis.",
+      "secoes": [
+        {
+          "titulo": "Como abordar",
+          "texto": "Escolha variações confortáveis e compatíveis com sua experiência. A proposta é criar regularidade, não competir com o próprio corpo.",
+          "itens": [
+            "Comece com movimentos controlados.",
+            "Use pausas quando precisar.",
+            "Prefira espaço estável e seguro."
+          ]
+        },
+        {
+          "titulo": "Progressão gradual",
+          "texto": "Quando a rotina estiver confortável, aumente a variedade ou a duração aos poucos, sem precisar avançar em tudo ao mesmo tempo.",
+          "itens": []
+        }
+      ],
+      "sequencia": [
+        "Escolha poucos movimentos que você já saiba executar com segurança.",
+        "Distribua os exercícios entre diferentes regiões do corpo.",
+        "Use pausas adequadas e cargas que permitam controle.",
+        "Se tiver dúvida sobre equipamento ou execução, peça orientação a um profissional responsável pelo local."
+      ],
+      "observacoes": [
+        "Conteúdo educativo e geral; não substitui orientação individual de profissional qualificado."
+      ],
+      "experiencia": {
+        "tempo": "30–45+ min",
+        "dificuldade": "Intermediário",
+        "formato": "Sequência guiada"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Sessão geral na academia",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "etapas": [
+        {
+          "titulo": "Preparação",
+          "descricao": "Escolha poucos movimentos que você já saiba executar com segurança.",
+          "duracao": "2–4 min"
+        },
+        {
+          "titulo": "Bloco principal",
+          "descricao": "Distribua os exercícios entre diferentes regiões do corpo.",
+          "duracao": "8–25 min"
+        },
+        {
+          "titulo": "Pausa e controle",
+          "descricao": "Use pausas adequadas e cargas que permitam controle.",
+          "duracao": "conforme necessário"
+        },
+        {
+          "titulo": "Finalização",
+          "descricao": "Se tiver dúvida sobre equipamento ou execução, peça orientação a um profissional responsável pelo local.",
+          "duracao": "2–4 min"
+        }
+      ]
+    },
     {
       "id": "receita-aveia-frutas",
       "tipo": "receita",
       "categoria": "cafe_manha",
-      "categorias": ["cafe_manha", "receitas_rapidas"],
+      "categorias": [
+        "cafe_manha",
+        "receitas_rapidas"
+      ],
       "titulo": "Aveia com frutas",
       "resumo": "Uma base simples que pode ser montada com frutas diferentes e complementos conforme preferência.",
       "icone": "☀",
       "ordem": 10,
       "destaque": true,
       "publicado": true,
-      "perfis_alimentares": ["variada", "vegetariana", "vegana"],
       "tempo_preparo": "ate_15",
       "ingredientes": "Aveia, fruta de sua preferência, leite ou bebida vegetal. Canela, sementes ou castanhas são opcionais, respeitando alergias.",
-      "preparo": ["Misture a aveia com o líquido escolhido.", "Adicione as frutas e os complementos preferidos."],
-      "tags": ["Até 15 min", "2 passos"]
+      "preparo": [
+        "Misture a aveia com o líquido escolhido.",
+        "Adicione as frutas e os complementos preferidos."
+      ],
+      "tags": [
+        "Até 15 min",
+        "2 passos"
+      ],
+      "ingredientes_tags": [
+        "aveia",
+        "frutas",
+        "leite",
+        "castanhas"
+      ],
+      "alergenos": [
+        "leite",
+        "castanhas"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "cafe_manha",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma base simples que pode ser montada com frutas diferentes e complementos conforme preferência.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Aveia com frutas",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Aveia em flocos",
+          "quantidade": "4 colheres (sopa)",
+          "observacao": ""
+        },
+        {
+          "item": "Fruta de sua preferência",
+          "quantidade": "1 unidade média ou 1 xícara picada",
+          "observacao": ""
+        },
+        {
+          "item": "Leite ou bebida vegetal",
+          "quantidade": "150 ml",
+          "observacao": "ajuste para a consistência desejada"
+        },
+        {
+          "item": "Canela",
+          "quantidade": "a gosto",
+          "observacao": "opcional"
+        },
+        {
+          "item": "Sementes ou castanhas",
+          "quantidade": "1 colher (sopa)",
+          "observacao": "opcional; respeite alergias"
+        }
+      ]
+    },
+    {
+      "id": "receita-tigela-frutas-iogurte-vegetal",
+      "tipo": "receita",
+      "categoria": "cafe_manha",
+      "categorias": [
+        "cafe_manha",
+        "receitas_rapidas"
+      ],
+      "titulo": "Frutas com iogurte vegetal e aveia",
+      "resumo": "Uma combinação rápida para variar o café da manhã com frutas e complementos escolhidos conforme preferência.",
+      "icone": "☀",
+      "ordem": 15,
+      "publicado": true,
+      "tags": [
+        "Até 15 min",
+        "Sem preparo longo"
+      ],
+      "ingredientes": "Frutas, iogurte vegetal e aveia. Sementes são opcionais, respeitando preferências e restrições.",
+      "preparo": [
+        "Corte as frutas.",
+        "Misture com o iogurte vegetal e finalize com aveia."
+      ],
+      "ingredientes_tags": [
+        "frutas",
+        "aveia"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes"
+        ],
+        "interesses": [
+          "cafe_manha",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma combinação rápida para variar o café da manhã com frutas e complementos escolhidos conforme preferência.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Frutas com iogurte vegetal e aveia",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Frutas variadas",
+          "quantidade": "1 xícara picada",
+          "observacao": ""
+        },
+        {
+          "item": "Iogurte vegetal",
+          "quantidade": "1 pote pequeno",
+          "observacao": ""
+        },
+        {
+          "item": "Aveia em flocos",
+          "quantidade": "2 colheres (sopa)",
+          "observacao": ""
+        },
+        {
+          "item": "Sementes",
+          "quantidade": "1 colher (chá)",
+          "observacao": "opcional; respeite alergias"
+        }
+      ]
     },
     {
       "id": "receita-bowl-arroz-feijao",
       "tipo": "receita",
       "categoria": "almoco",
-      "categorias": ["almoco", "jantar"],
+      "categorias": [
+        "almoco",
+        "jantar"
+      ],
       "titulo": "Bowl de arroz, feijão e vegetais",
       "resumo": "Uma montagem flexível que aproveita preparações comuns e permite variar vegetais e complementos.",
       "icone": "◒",
       "ordem": 20,
       "publicado": true,
-      "perfis_alimentares": ["variada", "vegetariana", "vegana"],
       "tempo_preparo": "15_30",
       "ingredientes": "Arroz, feijão ou outra leguminosa, vegetais e temperos. O complemento pode variar conforme seu perfil alimentar.",
-      "preparo": ["Aqueça as preparações já prontas ou cozinhe os componentes necessários.", "Distribua os ingredientes em uma tigela.", "Finalize com vegetais e temperos de preferência."],
-      "tags": ["15–30 min", "3 passos"]
+      "preparo": [
+        "Aqueça as preparações já prontas ou cozinhe os componentes necessários.",
+        "Distribua os ingredientes em uma tigela.",
+        "Finalize com vegetais e temperos de preferência."
+      ],
+      "tags": [
+        "15–30 min",
+        "3 passos"
+      ],
+      "ingredientes_tags": [
+        "arroz",
+        "feijao",
+        "vegetais"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "almoco",
+          "jantar"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "15_30"
+        ]
+      },
+      "introducao": "Uma montagem flexível que aproveita preparações comuns e permite variar vegetais e complementos.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "15–30 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Bowl de arroz, feijão e vegetais",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Arroz cozido",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Feijão ou outra leguminosa cozida",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Vegetais variados",
+          "quantidade": "1 xícara",
+          "observacao": "crus, cozidos ou assados"
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Complemento de sua preferência",
+          "quantidade": "opcional",
+          "observacao": "pode variar conforme seu perfil alimentar"
+        }
+      ]
     },
     {
       "id": "receita-frango-legumes",
       "tipo": "receita",
       "categoria": "almoco",
-      "categorias": ["almoco", "jantar", "receitas_rapidas"],
+      "categorias": [
+        "almoco",
+        "jantar",
+        "receitas_rapidas"
+      ],
       "titulo": "Frango com legumes na frigideira",
       "resumo": "Uma opção simples para perfil alimentar variado, combinando frango e vegetais em uma única preparação.",
       "icone": "◇",
       "ordem": 30,
       "publicado": true,
-      "perfis_alimentares": ["variada"],
       "tempo_preparo": "15_30",
       "ingredientes": "Frango em cubos, legumes variados, azeite e temperos. Combine com uma base que já faça parte da sua rotina.",
-      "preparo": ["Separe o frango e os legumes em pedaços de tamanho parecido.", "Cozinhe o frango em frigideira adequada até ficar completamente cozido.", "Adicione os legumes e cozinhe até o ponto desejado.", "Finalize com os temperos escolhidos."],
-      "tags": ["15–30 min", "4 passos"]
+      "preparo": [
+        "Separe o frango e os legumes em pedaços de tamanho parecido.",
+        "Cozinhe o frango em frigideira adequada até ficar completamente cozido.",
+        "Adicione os legumes e cozinhe até o ponto desejado.",
+        "Finalize com os temperos escolhidos."
+      ],
+      "tags": [
+        "15–30 min",
+        "4 passos"
+      ],
+      "ingredientes_tags": [
+        "frango",
+        "vegetais"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "almoco",
+          "jantar",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada"
+        ],
+        "tempo_preparo": [
+          "15_30"
+        ]
+      },
+      "introducao": "Uma opção simples para perfil alimentar variado, combinando frango e vegetais em uma única preparação.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Cozinhe ingredientes de origem animal completamente e siga cuidados de higiene durante o preparo.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "15–30 min",
+        "dificuldade": "Fácil a moderada",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Frango com legumes na frigideira",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 porções",
+      "ingredientes_lista": [
+        {
+          "item": "Frango em cubos",
+          "quantidade": "1 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Legumes variados",
+          "quantidade": "1 a 2 xícaras",
+          "observacao": ""
+        },
+        {
+          "item": "Azeite",
+          "quantidade": "1 fio",
+          "observacao": ""
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Arroz, massa ou outra base",
+          "quantidade": "opcional",
+          "observacao": "use algo que já faça parte da sua rotina"
+        }
+      ]
     },
     {
       "id": "receita-wrap",
       "tipo": "receita",
       "categoria": "lanches",
-      "categorias": ["lanches", "receitas_rapidas"],
+      "categorias": [
+        "lanches",
+        "receitas_rapidas"
+      ],
       "titulo": "Wrap com recheio variado",
       "resumo": "Uma estrutura prática com massa, vegetais e recheio escolhido conforme preferência alimentar.",
       "icone": "▱",
       "ordem": 40,
       "publicado": true,
-      "perfis_alimentares": ["variada", "vegetariana", "vegana"],
       "tempo_preparo": "ate_15",
       "ingredientes": "Wrap ou pão folha, vegetais e um recheio de preferência, como frango, queijo, homus, feijão ou tofu.",
-      "preparo": ["Separe os ingredientes já higienizados e preparados.", "Distribua o recheio sem sobrecarregar a massa.", "Enrole e sirva inteiro ou cortado ao meio."],
-      "tags": ["Até 15 min", "3 passos"]
+      "preparo": [
+        "Separe os ingredientes já higienizados e preparados.",
+        "Distribua o recheio sem sobrecarregar a massa.",
+        "Enrole e sirva inteiro ou cortado ao meio."
+      ],
+      "tags": [
+        "Até 15 min",
+        "3 passos"
+      ],
+      "ingredientes_tags": [
+        "trigo",
+        "vegetais"
+      ],
+      "alergenos": [
+        "gluten"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "lanches",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma estrutura prática com massa, vegetais e recheio escolhido conforme preferência alimentar.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Wrap com recheio variado",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Wrap ou pão folha",
+          "quantidade": "1 unidade",
+          "observacao": ""
+        },
+        {
+          "item": "Vegetais",
+          "quantidade": "1/2 a 1 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Recheio de sua preferência",
+          "quantidade": "1 porção",
+          "observacao": "frango, queijo, homus, feijão ou tofu"
+        },
+        {
+          "item": "Molho ou tempero",
+          "quantidade": "opcional",
+          "observacao": ""
+        }
+      ]
+    },
+    {
+      "id": "receita-sanduiche-homus",
+      "tipo": "receita",
+      "categoria": "lanches",
+      "categorias": [
+        "lanches",
+        "receitas_rapidas"
+      ],
+      "titulo": "Sanduíche com homus e vegetais",
+      "resumo": "Uma montagem rápida com pão, homus e vegetais, fácil de adaptar aos ingredientes disponíveis.",
+      "icone": "◇",
+      "ordem": 45,
+      "publicado": true,
+      "tags": [
+        "Até 15 min",
+        "Rápida"
+      ],
+      "ingredientes": "Pão, homus e vegetais de preferência. Confira o rótulo dos produtos prontos quando houver alergias ou restrições.",
+      "preparo": [
+        "Espalhe o homus no pão.",
+        "Acrescente os vegetais e monte o sanduíche."
+      ],
+      "ingredientes_tags": [
+        "trigo",
+        "grao_de_bico",
+        "vegetais"
+      ],
+      "alergenos": [
+        "gluten"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes"
+        ],
+        "interesses": [
+          "lanches",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma montagem rápida com pão, homus e vegetais, fácil de adaptar aos ingredientes disponíveis.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Sanduíche com homus e vegetais",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Pão",
+          "quantidade": "2 fatias",
+          "observacao": ""
+        },
+        {
+          "item": "Homus",
+          "quantidade": "2 colheres (sopa)",
+          "observacao": ""
+        },
+        {
+          "item": "Vegetais",
+          "quantidade": "a gosto",
+          "observacao": "folhas, tomate, cenoura ou outros"
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        }
+      ]
     },
     {
       "id": "receita-vitamina-banana-cacau",
       "tipo": "receita",
       "categoria": "sucos",
-      "categorias": ["sucos", "cafe_manha", "receitas_rapidas"],
+      "categorias": [
+        "sucos",
+        "cafe_manha",
+        "receitas_rapidas"
+      ],
       "titulo": "Vitamina de banana e cacau",
       "resumo": "Uma bebida simples com banana, líquido de preferência e cacau, sem promessa de efeito detox ou resultado específico.",
       "icone": "◫",
       "ordem": 50,
       "publicado": true,
-      "perfis_alimentares": ["variada", "vegetariana", "vegana"],
       "tempo_preparo": "ate_15",
       "ingredientes": "Banana, leite ou bebida vegetal e cacau em pó. Ajuste a consistência usando mais ou menos líquido.",
-      "preparo": ["Coloque os ingredientes no liquidificador.", "Bata até ficar homogêneo e sirva em seguida."],
-      "tags": ["Até 15 min", "2 passos"]
+      "preparo": [
+        "Coloque os ingredientes no liquidificador.",
+        "Bata até ficar homogêneo e sirva em seguida."
+      ],
+      "tags": [
+        "Até 15 min",
+        "2 passos"
+      ],
+      "ingredientes_tags": [
+        "banana",
+        "leite",
+        "cacau"
+      ],
+      "alergenos": [
+        "leite"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "sucos",
+          "cafe_manha",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma bebida simples com banana, líquido de preferência e cacau, sem promessa de efeito detox ou resultado específico.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Vitamina de banana e cacau",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 copo",
+      "ingredientes_lista": [
+        {
+          "item": "Banana",
+          "quantidade": "1 unidade",
+          "observacao": ""
+        },
+        {
+          "item": "Leite ou bebida vegetal",
+          "quantidade": "200 ml",
+          "observacao": ""
+        },
+        {
+          "item": "Cacau em pó",
+          "quantidade": "1 colher (chá)",
+          "observacao": ""
+        },
+        {
+          "item": "Canela",
+          "quantidade": "opcional",
+          "observacao": ""
+        }
+      ]
     },
     {
       "id": "receita-abacaxi-hortela",
       "tipo": "receita",
       "categoria": "sucos",
-      "categorias": ["sucos", "receitas_rapidas"],
+      "categorias": [
+        "sucos",
+        "receitas_rapidas"
+      ],
       "titulo": "Abacaxi com hortelã",
       "resumo": "Uma combinação refrescante para variar as bebidas, mantendo a água como principal opção de hidratação.",
       "icone": "●",
       "ordem": 60,
       "publicado": true,
-      "perfis_alimentares": ["variada", "vegetariana", "vegana"],
       "tempo_preparo": "ate_15",
       "ingredientes": "Abacaxi, água e folhas de hortelã. Gelo é opcional.",
-      "preparo": ["Bata o abacaxi com água até atingir a consistência desejada.", "Adicione hortelã no final e bata rapidamente."],
-      "tags": ["Até 15 min", "2 passos"]
+      "preparo": [
+        "Bata o abacaxi com água até atingir a consistência desejada.",
+        "Adicione hortelã no final e bata rapidamente."
+      ],
+      "tags": [
+        "Até 15 min",
+        "2 passos"
+      ],
+      "ingredientes_tags": [
+        "abacaxi",
+        "hortela"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma combinação refrescante para variar as bebidas, mantendo a água como principal opção de hidratação.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Abacaxi com hortelã",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 copos",
+      "ingredientes_lista": [
+        {
+          "item": "Abacaxi",
+          "quantidade": "1 xícara picada",
+          "observacao": ""
+        },
+        {
+          "item": "Água",
+          "quantidade": "150 a 250 ml",
+          "observacao": "ajuste conforme a textura"
+        },
+        {
+          "item": "Hortelã",
+          "quantidade": "algumas folhas",
+          "observacao": ""
+        },
+        {
+          "item": "Gelo",
+          "quantidade": "opcional",
+          "observacao": ""
+        }
+      ]
     },
     {
       "id": "receita-massa-legumes",
       "tipo": "receita",
       "categoria": "jantar",
-      "categorias": ["almoco", "jantar"],
+      "categorias": [
+        "almoco",
+        "jantar"
+      ],
       "titulo": "Massa com molho de tomate e legumes",
       "resumo": "Uma receita-base que aceita diferentes legumes e complementos conforme disponibilidade e preferência alimentar.",
       "icone": "≈",
       "ordem": 70,
       "publicado": true,
-      "perfis_alimentares": ["variada", "vegetariana", "vegana"],
       "tempo_preparo": "30_60",
       "ingredientes": "Massa, molho de tomate, cebola, legumes e ervas. Queijo ou alternativas vegetais são opcionais.",
-      "preparo": ["Cozinhe a massa conforme as instruções da embalagem.", "Refogue a cebola e os legumes escolhidos.", "Junte o molho de tomate e aqueça.", "Misture com a massa e finalize com ervas."],
-      "tags": ["30–60 min", "4 passos"]
+      "preparo": [
+        "Cozinhe a massa conforme as instruções da embalagem.",
+        "Refogue a cebola e os legumes escolhidos.",
+        "Junte o molho de tomate e aqueça.",
+        "Misture com a massa e finalize com ervas."
+      ],
+      "tags": [
+        "30–60 min",
+        "4 passos"
+      ],
+      "ingredientes_tags": [
+        "trigo",
+        "tomate",
+        "vegetais"
+      ],
+      "alergenos": [
+        "gluten"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "almoco",
+          "jantar"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "30_60"
+        ]
+      },
+      "introducao": "Uma receita-base que aceita diferentes legumes e complementos conforme disponibilidade e preferência alimentar.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "30–60 min",
+        "dificuldade": "Fácil a moderada",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Massa com molho de tomate e legumes",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 porções",
+      "ingredientes_lista": [
+        {
+          "item": "Massa",
+          "quantidade": "1 porção",
+          "observacao": ""
+        },
+        {
+          "item": "Molho de tomate",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Legumes variados",
+          "quantidade": "1 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Cebola",
+          "quantidade": "um pouco",
+          "observacao": "opcional"
+        },
+        {
+          "item": "Ervas e temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Queijo ou alternativa vegetal",
+          "quantidade": "opcional",
+          "observacao": ""
+        }
+      ]
     },
     {
       "id": "receita-iogurte-frutas",
       "tipo": "receita",
       "categoria": "lanches",
-      "categorias": ["lanches", "cafe_manha", "receitas_rapidas"],
+      "categorias": [
+        "lanches",
+        "cafe_manha",
+        "receitas_rapidas"
+      ],
       "titulo": "Iogurte com frutas e aveia",
       "resumo": "Uma montagem rápida que varia de acordo com as frutas disponíveis e preferências do usuário.",
       "icone": "✦",
       "ordem": 80,
       "publicado": true,
-      "perfis_alimentares": ["variada", "vegetariana"],
       "tempo_preparo": "ate_15",
       "ingredientes": "Iogurte, frutas e aveia. Sementes ou castanhas são opcionais, respeitando alergias e preferências.",
-      "preparo": ["Coloque o iogurte em uma tigela.", "Adicione frutas, aveia e os complementos escolhidos."],
-      "tags": ["Até 15 min", "2 passos"]
+      "preparo": [
+        "Coloque o iogurte em uma tigela.",
+        "Adicione frutas, aveia e os complementos escolhidos."
+      ],
+      "tags": [
+        "Até 15 min",
+        "2 passos"
+      ],
+      "ingredientes_tags": [
+        "leite",
+        "frutas",
+        "aveia"
+      ],
+      "alergenos": [
+        "leite"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "lanches",
+          "cafe_manha",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma montagem rápida que varia de acordo com as frutas disponíveis e preferências do usuário.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Os ingredientes podem ser ajustados conforme preferência e disponibilidade, desde que as substituições respeitem alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Iogurte com frutas e aveia",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Iogurte",
+          "quantidade": "1 pote pequeno",
+          "observacao": "use versão compatível com suas restrições"
+        },
+        {
+          "item": "Frutas",
+          "quantidade": "1 xícara picada",
+          "observacao": ""
+        },
+        {
+          "item": "Aveia",
+          "quantidade": "2 colheres (sopa)",
+          "observacao": ""
+        },
+        {
+          "item": "Sementes ou castanhas",
+          "quantidade": "opcional",
+          "observacao": "respeite alergias"
+        }
+      ]
+    },
+    {
+      "id": "receita-aveia-noturna",
+      "tipo": "receita",
+      "categoria": "cafe_manha",
+      "categorias": [
+        "cafe_manha",
+        "receitas_rapidas"
+      ],
+      "titulo": "Aveia preparada na geladeira",
+      "resumo": "Uma opção que pode ser montada na noite anterior e finalizada com frutas pela manhã.",
+      "icone": "☀",
+      "ordem": 110,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "ingredientes": "Aveia, leite ou bebida vegetal, fruta de sua preferência e canela. Sementes ou castanhas são opcionais, respeitando alergias.",
+      "preparo": [
+        "Misture aveia e o líquido escolhido em um recipiente com tampa.",
+        "Leve à geladeira e deixe refrigerado.",
+        "Na hora de consumir, adicione a fruta e outros complementos que fizerem sentido."
+      ],
+      "tags": [
+        "Até 15 min",
+        "Preparo antecipado"
+      ],
+      "ingredientes_tags": [
+        "aveia",
+        "leite",
+        "castanhas"
+      ],
+      "alergenos": [
+        "leite",
+        "castanhas"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "cafe_manha",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma opção que pode ser montada na noite anterior e finalizada com frutas pela manhã.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Aveia preparada na geladeira",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Aveia em flocos",
+          "quantidade": "4 colheres (sopa)",
+          "observacao": ""
+        },
+        {
+          "item": "Leite ou bebida vegetal",
+          "quantidade": "150 ml",
+          "observacao": ""
+        },
+        {
+          "item": "Fruta de sua preferência",
+          "quantidade": "1 porção",
+          "observacao": ""
+        },
+        {
+          "item": "Canela",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Sementes ou castanhas",
+          "quantidade": "opcional",
+          "observacao": "respeite alergias"
+        }
+      ]
+    },
+    {
+      "id": "receita-omelete-vegetais",
+      "tipo": "receita",
+      "categoria": "cafe_manha",
+      "categorias": [
+        "cafe_manha",
+        "almoco",
+        "jantar",
+        "receitas_rapidas"
+      ],
+      "titulo": "Omelete com vegetais",
+      "resumo": "Uma preparação simples com ovos e vegetais que pode entrar em diferentes momentos do dia.",
+      "icone": "◇",
+      "ordem": 120,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "ingredientes": "Ovos, tomate, cenoura ralada ou outros vegetais disponíveis, ervas e temperos.",
+      "preparo": [
+        "Bata os ovos em um recipiente.",
+        "Misture os vegetais escolhidos.",
+        "Cozinhe em frigideira adequada até os ovos estarem completamente cozidos.",
+        "Finalize com ervas ou temperos de sua preferência."
+      ],
+      "tags": [
+        "Até 15 min",
+        "4 passos"
+      ],
+      "ingredientes_tags": [
+        "ovo",
+        "vegetais"
+      ],
+      "alergenos": [
+        "ovo"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "cafe_manha",
+          "almoco",
+          "jantar",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma preparação simples com ovos e vegetais que pode entrar em diferentes momentos do dia.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil a moderada",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Omelete com vegetais",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Ovos",
+          "quantidade": "2 unidades",
+          "observacao": ""
+        },
+        {
+          "item": "Vegetais picados ou ralados",
+          "quantidade": "1/2 xícara",
+          "observacao": "tomate, cenoura ou outros disponíveis"
+        },
+        {
+          "item": "Ervas",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Azeite",
+          "quantidade": "um fio",
+          "observacao": "para a frigideira, se necessário"
+        }
+      ]
+    },
+    {
+      "id": "receita-cuscuz-vegetais",
+      "tipo": "receita",
+      "categoria": "almoco",
+      "categorias": [
+        "cafe_manha",
+        "almoco",
+        "jantar"
+      ],
+      "titulo": "Cuscuz com vegetais",
+      "resumo": "Uma base versátil que pode receber vegetais e outros acompanhamentos conforme a refeição.",
+      "icone": "◇",
+      "ordem": 130,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "15_30",
+      "ingredientes": "Flocos de milho para cuscuz, água, vegetais cozidos ou refogados e temperos. O acompanhamento pode variar conforme seu perfil alimentar.",
+      "preparo": [
+        "Prepare o cuscuz conforme as orientações da embalagem.",
+        "Prepare ou aqueça os vegetais escolhidos.",
+        "Sirva juntos e acrescente temperos ou acompanhamentos de sua preferência."
+      ],
+      "tags": [
+        "15–30 min",
+        "Versátil"
+      ],
+      "ingredientes_tags": [
+        "milho",
+        "vegetais"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "cafe_manha",
+          "almoco",
+          "jantar"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "15_30"
+        ]
+      },
+      "introducao": "Uma base versátil que pode receber vegetais e outros acompanhamentos conforme a refeição.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "15–30 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Cuscuz com vegetais",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 porções",
+      "ingredientes_lista": [
+        {
+          "item": "Flocos de milho para cuscuz",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Água",
+          "quantidade": "conforme a embalagem",
+          "observacao": ""
+        },
+        {
+          "item": "Vegetais cozidos ou refogados",
+          "quantidade": "1/2 a 1 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Acompanhamento",
+          "quantidade": "opcional",
+          "observacao": "pode variar conforme seu perfil alimentar"
+        }
+      ]
+    },
+    {
+      "id": "receita-grao-bico-pote",
+      "tipo": "receita",
+      "categoria": "almoco",
+      "categorias": [
+        "almoco",
+        "jantar",
+        "marmitas"
+      ],
+      "titulo": "Salada de grão-de-bico para marmita",
+      "resumo": "Uma combinação fria que pode ser preparada com antecedência e ajustada com vegetais disponíveis.",
+      "icone": "◇",
+      "ordem": 140,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "15_30",
+      "ingredientes": "Grão-de-bico cozido, tomate, cenoura, pepino ou outros vegetais, azeite, limão e temperos.",
+      "preparo": [
+        "Escorra o grão-de-bico já cozido.",
+        "Higienize e corte os vegetais.",
+        "Misture os ingredientes e tempere.",
+        "Mantenha refrigerado em recipiente adequado até o consumo."
+      ],
+      "tags": [
+        "15–30 min",
+        "Marmita"
+      ],
+      "ingredientes_tags": [
+        "grao_de_bico",
+        "vegetais"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "almoco",
+          "jantar",
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "15_30"
+        ]
+      },
+      "introducao": "Uma combinação fria que pode ser preparada com antecedência e ajustada com vegetais disponíveis.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "15–30 min",
+        "dificuldade": "Fácil a moderada",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Salada de grão-de-bico para marmita",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Grão-de-bico cozido",
+          "quantidade": "3/4 de xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Tomate",
+          "quantidade": "1/2 unidade",
+          "observacao": ""
+        },
+        {
+          "item": "Cenoura",
+          "quantidade": "1/2 unidade pequena",
+          "observacao": ""
+        },
+        {
+          "item": "Pepino ou outro vegetal",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Azeite",
+          "quantidade": "1 fio",
+          "observacao": ""
+        },
+        {
+          "item": "Limão",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        }
+      ]
+    },
+    {
+      "id": "receita-arroz-feijao-abobora",
+      "tipo": "receita",
+      "categoria": "almoco",
+      "categorias": [
+        "almoco",
+        "jantar",
+        "marmitas"
+      ],
+      "titulo": "Arroz, feijão e abóbora assada",
+      "resumo": "Uma combinação de alimentos conhecidos com um vegetal assado para variar textura e sabor.",
+      "icone": "◇",
+      "ordem": 150,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "30_60",
+      "ingredientes": "Arroz e feijão já preparados, abóbora em pedaços, azeite e temperos de sua preferência.",
+      "preparo": [
+        "Tempere a abóbora e asse até ficar macia.",
+        "Aqueça o arroz e o feijão de forma adequada.",
+        "Monte a refeição com a abóbora e outros vegetais que tiver disponíveis."
+      ],
+      "tags": [
+        "30–60 min",
+        "3 etapas"
+      ],
+      "ingredientes_tags": [
+        "arroz",
+        "feijao",
+        "abobora"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "almoco",
+          "jantar",
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "30_60"
+        ]
+      },
+      "introducao": "Uma combinação de alimentos conhecidos com um vegetal assado para variar textura e sabor.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "30–60 min",
+        "dificuldade": "Fácil a moderada",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Arroz, feijão e abóbora assada",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1 porção",
+      "ingredientes_lista": [
+        {
+          "item": "Arroz cozido",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Feijão cozido",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Abóbora em cubos",
+          "quantidade": "1 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Azeite",
+          "quantidade": "1 fio",
+          "observacao": ""
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        }
+      ]
+    },
+    {
+      "id": "receita-macarrao-lentilha",
+      "tipo": "receita",
+      "categoria": "jantar",
+      "categorias": [
+        "almoco",
+        "jantar"
+      ],
+      "titulo": "Macarrão com lentilha e molho de tomate",
+      "resumo": "Uma forma de variar a massa usando lentilha cozida junto ao molho de tomate.",
+      "icone": "◇",
+      "ordem": 160,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "30_60",
+      "ingredientes": "Macarrão, lentilha já cozida, molho de tomate, cebola ou alho e temperos. Use massa sem glúten se isso for necessário para sua restrição.",
+      "preparo": [
+        "Cozinhe o macarrão conforme a embalagem.",
+        "Aqueça o molho e misture a lentilha cozida.",
+        "Junte ao macarrão e finalize com os temperos escolhidos."
+      ],
+      "tags": [
+        "30–60 min",
+        "Vegetal"
+      ],
+      "ingredientes_tags": [
+        "trigo",
+        "lentilha",
+        "tomate"
+      ],
+      "alergenos": [
+        "gluten"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "almoco",
+          "jantar"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "30_60"
+        ]
+      },
+      "introducao": "Uma forma de variar a massa usando lentilha cozida junto ao molho de tomate.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "30–60 min",
+        "dificuldade": "Fácil a moderada",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Macarrão com lentilha e molho de tomate",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 porções",
+      "ingredientes_lista": [
+        {
+          "item": "Macarrão",
+          "quantidade": "1 porção",
+          "observacao": "use versão compatível com suas restrições"
+        },
+        {
+          "item": "Lentilha cozida",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Molho de tomate",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Cebola ou alho",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        }
+      ]
+    },
+    {
+      "id": "receita-pasta-feijao-sanduiche",
+      "tipo": "receita",
+      "categoria": "lanches",
+      "categorias": [
+        "lanches",
+        "receitas_rapidas"
+      ],
+      "titulo": "Sanduíche com pasta de feijão",
+      "resumo": "Uma pasta simples de feijão pode virar recheio para pão, wrap ou acompanhamento de vegetais.",
+      "icone": "◇",
+      "ordem": 170,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "ingredientes": "Feijão cozido e escorrido, limão, azeite, ervas e pão ou wrap. Adicione vegetais de sua preferência.",
+      "preparo": [
+        "Amasse o feijão com limão, azeite e temperos.",
+        "Espalhe a pasta no pão ou wrap.",
+        "Adicione vegetais e monte o lanche."
+      ],
+      "tags": [
+        "Até 15 min",
+        "3 passos"
+      ],
+      "ingredientes_tags": [
+        "feijao",
+        "trigo",
+        "vegetais"
+      ],
+      "alergenos": [
+        "gluten"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "lanches",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma pasta simples de feijão pode virar recheio para pão, wrap ou acompanhamento de vegetais.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Sanduíche com pasta de feijão",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 porções",
+      "ingredientes_lista": [
+        {
+          "item": "Feijão cozido e escorrido",
+          "quantidade": "1/2 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Limão",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Azeite",
+          "quantidade": "1 fio",
+          "observacao": ""
+        },
+        {
+          "item": "Ervas",
+          "quantidade": "a gosto",
+          "observacao": ""
+        },
+        {
+          "item": "Pão ou wrap",
+          "quantidade": "1 porção",
+          "observacao": ""
+        },
+        {
+          "item": "Vegetais",
+          "quantidade": "a gosto",
+          "observacao": ""
+        }
+      ]
+    },
+    {
+      "id": "receita-papaya-banana",
+      "tipo": "receita",
+      "categoria": "sucos",
+      "categorias": [
+        "sucos",
+        "cafe_manha",
+        "receitas_rapidas"
+      ],
+      "titulo": "Vitamina de mamão e banana",
+      "resumo": "Uma bebida cremosa com frutas, preparada rapidamente e fácil de adaptar ao tipo de leite ou bebida vegetal usado na casa.",
+      "icone": "◉",
+      "ordem": 180,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "ingredientes": "Mamão, banana e leite ou bebida vegetal. Canela é opcional.",
+      "preparo": [
+        "Coloque as frutas e o líquido no liquidificador.",
+        "Bata até ficar homogêneo e consuma após o preparo."
+      ],
+      "tags": [
+        "Até 15 min",
+        "2 passos"
+      ],
+      "ingredientes_tags": [
+        "frutas",
+        "leite"
+      ],
+      "alergenos": [
+        "leite"
+      ],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "sucos",
+          "cafe_manha",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma bebida cremosa com frutas, preparada rapidamente e fácil de adaptar ao tipo de leite ou bebida vegetal usado na casa.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Vitamina de mamão e banana",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 copos",
+      "ingredientes_lista": [
+        {
+          "item": "Mamão",
+          "quantidade": "1/2 unidade pequena ou 1 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Banana",
+          "quantidade": "1 unidade",
+          "observacao": ""
+        },
+        {
+          "item": "Leite ou bebida vegetal",
+          "quantidade": "200 ml",
+          "observacao": ""
+        },
+        {
+          "item": "Canela",
+          "quantidade": "opcional",
+          "observacao": ""
+        }
+      ]
+    },
+    {
+      "id": "receita-melancia-hortela",
+      "tipo": "receita",
+      "categoria": "sucos",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas"
+      ],
+      "titulo": "Melancia com hortelã",
+      "resumo": "Uma bebida simples de fruta com hortelã, sem promessas de “detox” ou efeitos especiais.",
+      "icone": "◉",
+      "ordem": 190,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "ingredientes": "Melancia sem sementes, folhas de hortelã e água se necessário para ajustar a textura.",
+      "preparo": [
+        "Higienize os ingredientes.",
+        "Bata a melancia com hortelã.",
+        "Sirva logo após o preparo."
+      ],
+      "tags": [
+        "Até 15 min",
+        "Sem “detox”"
+      ],
+      "ingredientes_tags": [
+        "melancia",
+        "hortela"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Uma bebida simples de fruta com hortelã, sem promessas de “detox” ou efeitos especiais.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Melancia com hortelã",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 copos",
+      "ingredientes_lista": [
+        {
+          "item": "Melancia sem sementes",
+          "quantidade": "2 xícaras em cubos",
+          "observacao": ""
+        },
+        {
+          "item": "Hortelã",
+          "quantidade": "algumas folhas",
+          "observacao": ""
+        },
+        {
+          "item": "Água",
+          "quantidade": "se necessário",
+          "observacao": "apenas para ajustar a textura"
+        },
+        {
+          "item": "Gelo",
+          "quantidade": "opcional",
+          "observacao": ""
+        }
+      ]
+    },
+    {
+      "id": "receita-batata-grao-bico-assado",
+      "tipo": "receita",
+      "categoria": "jantar",
+      "categorias": [
+        "almoco",
+        "jantar",
+        "marmitas"
+      ],
+      "titulo": "Batata e grão-de-bico assados com vegetais",
+      "resumo": "Uma preparação de forno que combina uma base vegetal, grão-de-bico e legumes em uma única assadeira.",
+      "icone": "◇",
+      "ordem": 200,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "30_60",
+      "ingredientes": "Batata em cubos, grão-de-bico cozido, vegetais variados, azeite e temperos.",
+      "preparo": [
+        "Distribua os ingredientes em assadeira adequada.",
+        "Tempere e asse até a batata e os vegetais estarem macios.",
+        "Misture na metade do tempo se necessário para assar por igual."
+      ],
+      "tags": [
+        "30–60 min",
+        "Assadeira"
+      ],
+      "ingredientes_tags": [
+        "batata",
+        "grao_de_bico",
+        "vegetais"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "receitas_praticas",
+          "variar_refeicoes",
+          "organizar_alimentacao"
+        ],
+        "interesses": [
+          "almoco",
+          "jantar",
+          "marmitas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana"
+        ],
+        "tempo_preparo": [
+          "30_60"
+        ]
+      },
+      "introducao": "Uma preparação de forno que combina uma base vegetal, grão-de-bico e legumes em uma única assadeira.",
+      "secoes": [
+        {
+          "titulo": "Como adaptar",
+          "texto": "Troque ingredientes conforme preferência e disponibilidade, mantendo atenção a alergias e restrições alimentares.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Confira ingredientes e rótulos em caso de alergias ou restrições.",
+        "Se você ainda não tem prática com faca, fogão ou forno, faça essa etapa com ajuda de um adulto responsável."
+      ],
+      "experiencia": {
+        "tempo": "30–60 min",
+        "dificuldade": "Fácil a moderada",
+        "formato": "Receita passo a passo"
+      },
+      "midia": {
+        "imagem_url": "",
+        "imagem_alt": "Imagem ilustrativa para Batata e grão-de-bico assados com vegetais",
+        "foco": "centro",
+        "proporcao_card": "4:3",
+        "proporcao_detalhe": "16:9"
+      },
+      "rendimento": "1–2 porções",
+      "ingredientes_lista": [
+        {
+          "item": "Batata em cubos",
+          "quantidade": "1 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Grão-de-bico cozido",
+          "quantidade": "3/4 de xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Vegetais variados",
+          "quantidade": "1 xícara",
+          "observacao": ""
+        },
+        {
+          "item": "Azeite",
+          "quantidade": "1 fio",
+          "observacao": ""
+        },
+        {
+          "item": "Temperos",
+          "quantidade": "a gosto",
+          "observacao": ""
+        }
+      ]
     }
   ]
 }

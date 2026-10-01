@@ -8,6 +8,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 import { carregarConteudos } from "./conteudos.js";
+import { personalizarConteudos } from "./personalizacao.js";
+import { listarFavoritos, listarProgresso } from "./biblioteca-usuario.js";
+import { aplicarCapa, criarBotaoFavorito, criarEstadoProgresso, criarFatosConteudo } from "./interface-biblioteca.js";
 
 const app = document.querySelector("[data-recipes-app]");
 const loading = document.querySelector("[data-recipes-loading]");
@@ -17,20 +20,13 @@ const recipesGrid = document.querySelector("[data-recipes-grid]");
 const filters = [...document.querySelectorAll("[data-recipes-filter]")];
 const emptyState = document.querySelector("[data-recipes-empty]");
 let cards = [];
+let currentUserId = null;
+let favoriteIds = new Set();
+let progressMap = new Map();
 
 const labels = {
-  perfil_alimentar: {
-    variada: "Variada",
-    vegetariana: "Vegetariana",
-    vegana: "Vegana",
-    outra: "Outra"
-  },
-  tempo_preparo: {
-    ate_15: "Até 15 minutos",
-    "15_30": "15–30 minutos",
-    "30_60": "30–60 minutos",
-    mais_60: "Mais de 60 minutos"
-  },
+  perfil_alimentar: { variada: "Variada", vegetariana: "Vegetariana", vegana: "Vegana", outra: "Outra" },
+  tempo_preparo: { ate_15: "Até 15 minutos", "15_30": "15–30 minutos", "30_60": "30–60 minutos", mais_60: "Mais de 60 minutos" },
   interesses_alimentares: {
     cafe_manha: "Café da manhã",
     almoco: "Almoço",
@@ -52,11 +48,9 @@ const visualClasses = {
 };
 
 const getLabel = (group, value) => labels[group]?.[value] || value || "Não informado";
-
-const listLabels = (group, values = []) => {
-  if (!Array.isArray(values) || !values.length) return "Não informado";
-  return values.map((value) => getLabel(group, value)).join(", ");
-};
+const listLabels = (group, values = []) => Array.isArray(values) && values.length
+  ? values.map((value) => getLabel(group, value)).join(", ")
+  : "Não informado";
 
 const setText = (selector, value, fallback = "Não informado") => {
   const element = document.querySelector(selector);
@@ -78,10 +72,7 @@ const createElement = (tag, className, text) => {
   return element;
 };
 
-const categoryLabel = (item) => {
-  const first = item.categoria || item.categorias?.[0];
-  return getLabel("interesses_alimentares", first);
-};
+const categoryLabel = (item) => getLabel("interesses_alimentares", item.categoria || item.categorias?.[0]);
 
 const renderRecipeCards = (items) => {
   if (!recipesGrid) return;
@@ -93,84 +84,60 @@ const renderRecipeCards = (items) => {
     const article = createElement("article", `recipe-card ${visualClasses[primaryCategory] || ""}`.trim());
     article.dataset.recipeCard = "";
     article.dataset.category = categories.join(" ");
-    article.dataset.profile = (item.perfis_alimentares || []).join(" ");
-    article.dataset.time = item.tempo_preparo || "";
+
+    const recommended = item.personalizacao?.recomendado === true && !item.personalizacao?.bloqueado;
+    article.classList.toggle("is-profile-match", recommended);
+    if (item.personalizacao?.motivos?.length) {
+      article.title = `Por que aparece aqui: ${item.personalizacao.motivos.join("; ")}.`;
+    }
 
     const visual = createElement("div", "recipe-card-visual");
-    visual.setAttribute("aria-hidden", "true");
-    visual.append(createElement("span", "", item.icone || "✦"));
+    const visualIcon = createElement("span", "", item.icone || "✦");
+    visualIcon.setAttribute("aria-hidden", "true");
+    visual.append(visualIcon);
+    aplicarCapa(visual, item);
+    if (currentUserId) {
+      const favorite = criarBotaoFavorito({ usuarioId: currentUserId, item, favoritos: favoriteIds, className: "recipe-card-favorite" });
+      visual.append(favorite);
+    }
 
     const body = createElement("div", "recipe-card-body");
     const meta = createElement("div", "recipe-card-meta");
     meta.append(createElement("span", "", categoryLabel(item)));
-    const badge = createElement("i", "", "Do seu perfil");
+    const badge = createElement("i", "", "Recomendado para você");
     badge.dataset.matchBadge = "";
-    badge.hidden = true;
+    badge.hidden = !recommended;
     meta.append(badge);
+    const progressState = criarEstadoProgresso(item, progressMap, "recipe-card-progress");
+    if (progressState) meta.append(progressState);
 
     body.append(meta);
     body.append(createElement("h3", "", item.titulo));
     body.append(createElement("p", "", item.resumo));
 
+    const experienceFacts = criarFatosConteudo(item, "recipe-experience-facts");
+    if (experienceFacts) body.append(experienceFacts);
     const facts = createElement("div", "recipe-facts");
-    const factsList = item.tags?.length
-      ? item.tags
-      : [getLabel("tempo_preparo", item.tempo_preparo)];
-    factsList.slice(0, 3).forEach((fact) => facts.append(createElement("span", "", fact)));
+    const factsList = item.tags?.length ? item.tags : [getLabel("tempo_preparo", item.tempo_preparo)];
+    factsList.slice(0, 2).forEach((fact) => facts.append(createElement("span", "", fact)));
     body.append(facts);
 
-    if (item.ingredientes || item.preparo?.length) {
-      const button = createElement("button", "recipe-open", "Ver receita");
-      button.type = "button";
-      button.dataset.recipeOpen = "";
-      button.setAttribute("aria-expanded", "false");
-      body.append(button);
-
-      const details = createElement("div", "recipe-details");
-      details.dataset.recipeDetails = "";
-      details.hidden = true;
-
-      if (item.ingredientes) {
-        details.append(createElement("strong", "", "Ingredientes-base"));
-        details.append(createElement("p", "", item.ingredientes));
-      }
-
-      if (item.preparo?.length) {
-        details.append(createElement("strong", "", "Preparo"));
-        const list = document.createElement("ol");
-        item.preparo.forEach((step) => list.append(createElement("li", "", step)));
-        details.append(list);
-      }
-
-      body.append(details);
+    if (item.personalizacao?.bloqueado && item.personalizacao.alertas?.length) {
+      const warning = createElement("small", "", "Confira suas preferências e restrições antes de escolher esta receita.");
+      warning.title = item.personalizacao.alertas.join("; ");
+      body.append(warning);
     }
+
+    const link = createElement("a", "recipe-open", "Ver receita completa →");
+    link.href = `./conteudo.html?id=${encodeURIComponent(item.id)}`;
+    link.setAttribute("aria-label", `Ver receita ${item.titulo}`);
+    body.append(link);
 
     article.append(visual, body);
     recipesGrid.append(article);
   });
 
   cards = [...recipesGrid.querySelectorAll("[data-recipe-card]")];
-};
-
-const timeScore = {
-  ate_15: 1,
-  "15_30": 2,
-  "30_60": 3,
-  mais_60: 4
-};
-
-const getCardCategories = (card) => (card.dataset.category || "").split(/\s+/).filter(Boolean);
-const getCardProfiles = (card) => (card.dataset.profile || "").split(/\s+/).filter(Boolean);
-
-const matchesProfile = (card, profile) => {
-  const profiles = getCardProfiles(card);
-  const profileMatch = !profile.foodProfile || profile.foodProfile === "outra" || !profiles.length || profiles.includes(profile.foodProfile);
-  const cardTime = card.dataset.time || "";
-  const timeMatch = !profile.prepTime || !cardTime || (timeScore[cardTime] || 99) <= (timeScore[profile.prepTime] || 99);
-  const categories = getCardCategories(card);
-  const interestMatch = !profile.interests.length || profile.interests.some((item) => categories.includes(item));
-
-  return profileMatch && timeMatch && interestMatch;
 };
 
 const renderProfile = (userData, profileData, user) => {
@@ -190,28 +157,9 @@ const renderProfile = (userData, profileData, user) => {
   addChip(foodProfile);
   addChip(prepTime);
   interests.slice(0, 2).forEach((interest) => addChip(getLabel("interesses_alimentares", interest)));
-
-  return {
-    foodProfile: profileData.perfil_alimentar || "",
-    prepTime: profileData.tempo_preparo || "",
-    interests
-  };
 };
 
-const personalizeCards = (profile) => {
-  if (!recipesGrid) return;
-
-  cards.forEach((card) => {
-    const isMatch = matchesProfile(card, profile);
-    card.classList.toggle("is-profile-match", isMatch);
-    const badge = card.querySelector("[data-match-badge]");
-    if (badge) badge.hidden = !isMatch;
-  });
-
-  [...cards]
-    .sort((a, b) => Number(!matchesProfile(a, profile)) - Number(!matchesProfile(b, profile)))
-    .forEach((card) => recipesGrid.append(card));
-};
+const getCardCategories = (card) => (card.dataset.category || "").split(/\s+/).filter(Boolean);
 
 const applyFilter = (filter) => {
   let visibleCount = 0;
@@ -236,19 +184,6 @@ filters.forEach((button) => {
   button.addEventListener("click", () => applyFilter(button.dataset.recipesFilter || "todos"));
 });
 
-recipesGrid?.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-recipe-open]");
-  if (!button) return;
-
-  const card = button.closest("[data-recipe-card]");
-  const details = card?.querySelector("[data-recipe-details]");
-  if (!details) return;
-
-  const willOpen = details.hidden;
-  details.hidden = !willOpen;
-  button.setAttribute("aria-expanded", String(willOpen));
-  button.textContent = willOpen ? "Fechar receita" : "Ver receita";
-});
 
 logoutButton?.addEventListener("click", async () => {
   try {
@@ -264,6 +199,7 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
+  currentUserId = user.uid;
   try {
     const [userSnapshot, profileSnapshot, contentResult] = await Promise.all([
       getDoc(doc(db, "usuarios", user.uid)),
@@ -281,9 +217,15 @@ onAuthStateChanged(auth, async (user) => {
       return;
     }
 
-    renderRecipeCards(contentResult.itens);
-    const profile = renderProfile(userData, profileData, user);
-    personalizeCards(profile);
+    const [favoritesResult, progressResult] = await Promise.allSettled([listarFavoritos(user.uid), listarProgresso(user.uid)]);
+    if (favoritesResult.status === "fulfilled") favoriteIds = new Set(favoritesResult.value.map((item) => item.conteudo_id || item.id));
+    else console.warn("Favoritos indisponíveis.", favoritesResult.reason);
+    if (progressResult.status === "fulfilled") progressMap = new Map(progressResult.value.map((item) => [item.conteudo_id || item.id, item]));
+    else console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
+
+    const personalized = personalizarConteudos(contentResult.itens, profileData);
+    renderRecipeCards(personalized);
+    renderProfile(userData, profileData, user);
     applyFilter("todos");
 
     if (loading) loading.hidden = true;

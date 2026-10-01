@@ -510,3 +510,17 @@
     flex-direction: column;
   }
 }
+
+.food-card-link {
+  align-self:flex-start;
+  margin-top:12px;
+  color:#16803A;
+  font-size:8.5px;
+  font-weight:800;
+}
+
+/* Estado do usuário nos cards */
+.food-card-visual{position:relative;background-size:cover;background-position:center}.food-card-visual.has-image>span{background:rgba(255,255,255,.22);backdrop-filter:blur(7px);box-shadow:0 8px 22px rgba(0,0,0,.12)}.food-card-favorite{position:absolute;top:10px;right:10px;width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.72);border-radius:50%;color:#66746C;background:rgba(255,255,255,.92);font:inherit;font-size:17px;cursor:pointer;box-shadow:0 7px 18px rgba(38,62,50,.08)}.food-card-favorite.is-favorite{color:#EC4899;background:#FFF}.food-card-favorite:disabled{opacity:.6;cursor:wait}.food-card-progress{padding:5px 7px;border-radius:999px;color:#167D43;background:rgba(34,197,94,.09);font-size:7px!important;font-weight:800}
+
+/* Metadados rápidos dos conteúdos */
+.food-card-facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}.food-card-facts span{padding:5px 7px;border-radius:999px;color:#45614F;background:#F1F8F2;font-size:7.5px;font-weight:700}.food-card-body>small{margin-top:9px}

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="Conteúdo personalizado do Active Vida Leve.">
+  <title>Conteúdo | Active Vida Leve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/conteudo.css">
+</head>
+<body class="content-page">
+  <header class="content-header">
+    <div class="container content-header-inner">
+      <a class="content-brand" href="./portal.html" aria-label="Active Vida Leve">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+      <nav class="content-nav" aria-label="Navegação do portal">
+        <a href="./portal.html">Início</a>
+        <a href="./buscar.html">Buscar</a>
+        <a href="./alimentacao.html">Alimentação</a>
+        <a href="./exercicios.html">Exercícios</a>
+        <a href="./receitas.html">Receitas</a>
+        <a href="./rotina.html">Minha rotina</a>
+      </nav>
+      <button class="content-logout" type="button" data-logout>Sair</button>
+    </div>
+  </header>
+
+  <div class="content-reading-progress" aria-hidden="true"><span data-reading-progress-bar></span></div>
+
+  <main data-content-app hidden>
+    <section class="content-hero" data-content-theme="alimentacao">
+      <div class="container">
+        <div class="content-breadcrumb">
+          <a href="./portal.html">Portal</a>
+          <span aria-hidden="true">›</span>
+          <a href="./alimentacao.html" data-area-link>Alimentação</a>
+          <span aria-hidden="true">›</span>
+          <span data-breadcrumb-title>Conteúdo</span>
+        </div>
+
+        <div class="content-hero-grid">
+          <div class="content-hero-copy">
+            <div class="content-meta-line">
+              <span data-content-type>ALIMENTAÇÃO</span>
+              <i data-recommended-badge hidden>Recomendado para seu perfil</i>
+            </div>
+            <h1 data-content-title>Conteúdo</h1>
+            <p data-content-summary></p>
+            <div class="content-tags" data-content-tags></div>
+            <div class="content-quick-facts" data-content-facts></div>
+            <div class="content-actions">
+              <button class="content-favorite-button" type="button" data-favorite-button aria-pressed="false">♡ Salvar nos favoritos</button>
+              <button class="content-complete-button" type="button" data-complete-button aria-pressed="false">✓ Marcar como concluído</button>
+              <a class="content-search-link" href="./buscar.html">⌕ Buscar outros conteúdos</a>
+            </div>
+            <div class="content-progress-status" data-progress-status>
+              <span data-progress-label>Novo conteúdo</span>
+              <div><i data-progress-status-bar></i></div>
+            </div>
+          </div>
+          <div class="content-hero-visual" aria-hidden="true"><span data-content-icon>✦</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container content-layout">
+      <article class="content-article">
+        <div class="content-intro" data-intro-block>
+          <span class="content-section-kicker">VISÃO GERAL</span>
+          <p data-content-intro></p>
+        </div>
+
+        <section class="content-recipe" data-recipe-section hidden>
+          <div class="content-block">
+            <span class="content-section-kicker">INGREDIENTES</span>
+            <h2>Ingredientes-base</h2>
+            <p data-content-ingredients></p>
+            <div class="content-ingredients-grid" data-content-ingredients-list hidden></div>
+          </div>
+          <div class="content-block">
+            <span class="content-section-kicker">PREPARO</span>
+            <h2>Passo a passo</h2>
+            <ol class="content-steps" data-content-preparation></ol>
+          </div>
+        </section>
+
+        <section class="content-exercise" data-exercise-section hidden>
+          <div class="content-block">
+            <span class="content-section-kicker">COMO COMEÇAR</span>
+            <h2>Uma sequência simples</h2>
+            <div class="content-exercise-steps" data-content-exercise-steps hidden></div>
+            <ol class="content-steps" data-content-sequence></ol>
+          </div>
+        </section>
+
+        <div data-content-sections></div>
+
+        <aside class="content-note" data-content-note hidden>
+          <strong>Antes de continuar</strong>
+          <ul data-content-observations></ul>
+        </aside>
+      </article>
+
+      <aside class="content-sidebar">
+        <div class="content-profile-card">
+          <span class="content-section-kicker">POR QUE APARECE AQUI</span>
+          <h2>Relacionado ao seu perfil</h2>
+          <p data-profile-explanation>Este conteúdo faz parte da biblioteca do portal.</p>
+          <div class="content-match-list" data-match-list></div>
+        </div>
+
+        <a class="content-back-card" href="./alimentacao.html" data-area-link-secondary>
+          <span data-area-label>Alimentação</span>
+          <strong>Ver outros conteúdos →</strong>
+        </a>
+      </aside>
+    </section>
+
+    <section class="content-related">
+      <div class="container">
+        <div class="content-related-heading">
+          <div>
+            <span class="content-section-kicker">CONTINUE EXPLORANDO</span>
+            <h2>Outros conteúdos para você</h2>
+          </div>
+          <a href="./alimentacao.html" data-area-link-tertiary>Ver todos →</a>
+        </div>
+        <div class="content-related-grid" data-related-grid></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="content-state" data-content-loading>
+    <span class="content-spinner" aria-hidden="true"></span>
+    <p>Carregando conteúdo…</p>
+  </div>
+
+  <div class="content-state" data-content-error hidden>
+    <strong>Conteúdo não encontrado.</strong>
+    <p>Ele pode ter sido removido ou ainda não estar publicado.</p>
+    <a href="./portal.html">Voltar ao portal</a>
+  </div>
+
+  <script type="module" src="./js/conteudo.js"></script>
+</body>
+</html>

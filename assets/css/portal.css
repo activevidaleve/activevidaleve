@@ -75,3 +75,225 @@
 @media (max-width:820px) { .portal-header-inner{grid-template-columns:auto 1fr}.portal-nav{grid-column:1/-1;grid-row:2;padding-bottom:9px}.portal-header-actions{justify-self:end}.portal-hero-inner,.portal-section-heading-row,.portal-profile-preview{grid-template-columns:1fr}.portal-recommendations{grid-template-columns:1fr}.portal-access-card{min-width:0;max-width:330px} }
 @media (max-width:640px) { .portal-header-inner{min-height:68px;padding-top:6px}.portal-brand{width:min(190px,52vw)}.portal-profile-pill strong{display:none}.portal-logout{padding-inline:11px}.portal-hero{padding:36px 0 34px}.portal-hero h1{letter-spacing:-1.4px}.portal-modules{grid-template-columns:1fr}.portal-module{min-height:220px}.portal-profile-preview{margin-inline:12px;padding:20px 16px}.portal-profile-grid{grid-template-columns:1fr 1fr}.portal-section{padding-top:38px} }
 @media (max-width:420px) { .portal-profile-grid{grid-template-columns:1fr} }
+
+.portal-search-cta{align-self:end;color:var(--indigo-500);font-size:9px;font-weight:800}.portal-library-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:25px}.portal-library-panel{padding:20px;border:1px solid rgba(38,62,50,.08);border-radius:24px;background:#FFF;box-shadow:0 13px 32px rgba(38,62,50,.045)}.portal-library-panel-heading{display:flex;align-items:end;justify-content:space-between;gap:12px}.portal-library-panel-heading span{color:var(--indigo-500);font-size:8px;font-weight:800;letter-spacing:1.2px}.portal-library-panel-heading h3{margin:5px 0 0;color:var(--text);font-size:18px}.portal-library-panel-heading>a{color:var(--indigo-500);font-size:8px;font-weight:700}.portal-library-list{display:grid;gap:8px;margin-top:15px}.portal-library-item{display:grid;grid-template-columns:36px minmax(0,1fr) auto;align-items:center;gap:10px;padding:10px;border:1px solid rgba(38,62,50,.07);border-radius:15px;background:#F8FAF8}.portal-library-item-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:12px;color:#FFF;background:var(--indigo-500);font-size:14px;font-weight:800}.portal-library-item[data-type="alimentacao"] .portal-library-item-icon{background:#22C55E}.portal-library-item[data-type="exercicio"] .portal-library-item-icon{background:#F97316}.portal-library-item[data-type="receita"] .portal-library-item-icon{background:#00C2A8}.portal-library-item strong,.portal-library-item span{display:block}.portal-library-item strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text);font-size:9.5px}.portal-library-item span{margin-top:2px;color:var(--text-muted);font-size:7.5px}.portal-library-item>a{color:var(--indigo-500);font-size:14px;font-weight:800}.portal-library-empty{margin:14px 0 0;color:var(--text-muted);font-size:9px;line-height:1.55}.portal-library-empty[hidden]{display:none}@media(max-width:820px){.portal-library-columns{grid-template-columns:1fr}.portal-search-cta{align-self:start}}
+/* =========================
+   PORTAL — HOME PERSONALIZADA
+   ========================= */
+.portal-search-shortcut {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 50%;
+  color: #FFF;
+  background: rgba(255,255,255,.1);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.portal-profile-pill {
+  text-decoration: none;
+}
+
+.portal-personalized {
+  position: relative;
+}
+
+.portal-content-grid,
+.portal-content-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.portal-content-card {
+  min-height: 258px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid rgba(38,62,50,.08);
+  border-radius: 22px;
+  background: #FFF;
+  box-shadow: 0 13px 32px rgba(38,62,50,.045);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.portal-content-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(79,70,229,.15);
+  box-shadow: 0 18px 38px rgba(38,62,50,.075);
+}
+
+.portal-content-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.portal-content-card-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: #FFF;
+  background: var(--indigo-500);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.portal-content-card[data-type="alimentacao"] .portal-content-card-icon {
+  background: var(--green-500);
+}
+
+.portal-content-card[data-type="exercicio"] .portal-content-card-icon {
+  background: var(--orange-500);
+}
+
+.portal-content-card[data-type="receita"] .portal-content-card-icon {
+  background: var(--teal-500);
+}
+
+.portal-content-card-meta span,
+.portal-content-card-meta small {
+  display: block;
+}
+
+.portal-content-card-meta span {
+  color: var(--indigo-500);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.portal-content-card[data-type="alimentacao"] .portal-content-card-meta span {
+  color: var(--green-500);
+}
+
+.portal-content-card[data-type="exercicio"] .portal-content-card-meta span {
+  color: var(--orange-500);
+}
+
+.portal-content-card[data-type="receita"] .portal-content-card-meta span {
+  color: var(--teal-500);
+}
+
+.portal-content-card-meta small {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 7.5px;
+}
+
+.portal-content-card h3 {
+  margin: 15px 0 0;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.portal-content-card > p {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 9.5px;
+  line-height: 1.6;
+}
+
+.portal-content-reason {
+  align-self: flex-start;
+  margin-top: 13px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  color: #5450B8;
+  background: rgba(79,70,229,.08);
+  font-size: 7.5px;
+  font-weight: 700;
+}
+
+.portal-content-card > a {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--indigo-500);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.portal-shelf-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.portal-shelf-heading > div > span {
+  color: var(--indigo-500);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.45px;
+}
+
+.portal-shelf-heading h2 {
+  margin: 7px 0 0;
+  color: var(--text);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.08;
+  letter-spacing: -1px;
+}
+
+.portal-shelf-heading > a {
+  flex: 0 0 auto;
+  color: var(--indigo-500);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.portal-continue[hidden] {
+  display: none;
+}
+
+@media (max-width: 1080px) {
+  .portal-content-grid,
+  .portal-content-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .portal-search-shortcut {
+    display: none;
+  }
+
+  .portal-shelf-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .portal-content-grid,
+  .portal-content-row {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-content-card {
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-content-card {
+    transition: none;
+  }
+}
+
+/* Capas, favoritos e estado de consumo */
+.portal-content-cover{position:relative;height:96px;display:grid;place-items:center;margin:-2px -2px 14px;border-radius:17px;background:linear-gradient(135deg,rgba(79,70,229,.08),rgba(79,70,229,.18));background-size:cover;background-position:center;overflow:hidden}.portal-content-card[data-type="alimentacao"] .portal-content-cover{background:linear-gradient(135deg,rgba(34,197,94,.09),rgba(126,217,87,.24))}.portal-content-card[data-type="exercicio"] .portal-content-cover{background:linear-gradient(135deg,rgba(249,115,22,.09),rgba(255,183,3,.24))}.portal-content-card[data-type="receita"] .portal-content-cover{background:linear-gradient(135deg,rgba(0,194,168,.09),rgba(18,179,214,.22))}.portal-content-cover.has-image{background-size:cover;background-position:center}.portal-content-cover.has-image .portal-content-card-icon{background:rgba(255,255,255,.2);backdrop-filter:blur(7px);box-shadow:0 8px 22px rgba(0,0,0,.12)}.portal-card-favorite{position:absolute;top:9px;right:9px;width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.7);border-radius:50%;color:#66746C;background:rgba(255,255,255,.9);font:inherit;font-size:17px;cursor:pointer;box-shadow:0 7px 18px rgba(38,62,50,.08)}.portal-card-favorite.is-favorite{color:#EC4899;background:#FFF}.portal-card-favorite:disabled{opacity:.6;cursor:wait}.portal-content-card-top{justify-content:space-between}.portal-card-state{padding:5px 7px;border-radius:999px;color:#167D43;background:rgba(34,197,94,.09);font-size:7px;font-weight:800}.portal-library-columns{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:1080px){.portal-library-columns{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:820px){.portal-library-columns{grid-template-columns:1fr}}
+
+/* Metadados rápidos dos cards personalizados */
+.portal-content-facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}.portal-content-facts span{padding:5px 7px;border-radius:999px;color:#59665F;background:#F3F5F3;font-size:7.2px;font-weight:700}

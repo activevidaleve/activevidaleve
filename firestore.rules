@@ -3,16 +3,20 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+    function autenticado() {
+      return request.auth != null;
+    }
+
     match /usuarios/{usuarioId} {
-      allow create: if request.auth != null
+      allow create: if autenticado()
                     && request.auth.uid == usuarioId
                     && request.resource.data.status_pagamento == "pendente"
                     && request.resource.data.status_acesso == "inativo";
 
-      allow read: if request.auth != null
+      allow read: if autenticado()
                   && request.auth.uid == usuarioId;
 
-      allow update: if request.auth != null
+      allow update: if autenticado()
                     && request.auth.uid == usuarioId
                     && !request.resource.data.diff(resource.data)
                          .affectedKeys()
@@ -24,27 +28,56 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    match /usuarios/{usuarioId}/favoritos/{conteudoId} {
+      allow read, create, update, delete: if autenticado()
+                                          && request.auth.uid == usuarioId;
+    }
+
+    match /usuarios/{usuarioId}/historico/{conteudoId} {
+      allow read, create, update, delete: if autenticado()
+                                          && request.auth.uid == usuarioId;
+    }
+
+    match /usuarios/{usuarioId}/progresso/{conteudoId} {
+      allow read, create, update, delete: if autenticado()
+                                          && request.auth.uid == usuarioId;
+    }
+
     match /perfis/{usuarioId} {
-      allow create, read, update: if request.auth != null
+      allow create, read, update: if autenticado()
                                   && request.auth.uid == usuarioId;
       allow delete: if false;
     }
 
     match /pagamentos/{pagamentoId} {
-      allow read: if request.auth != null
+      allow read: if autenticado()
                   && resource.data.usuario_id == request.auth.uid;
       allow write: if false;
     }
 
     match /assinaturas/{assinaturaId} {
-      allow read: if request.auth != null
+      allow read: if autenticado()
                   && resource.data.usuario_id == request.auth.uid;
       allow write: if false;
     }
 
-    match /conteudos/{conteudoId} {
-      allow read: if request.auth != null;
+    match /indicacoes/{indicacaoId} {
+      allow read: if autenticado()
+                  && (resource.data.indicador_id == request.auth.uid
+                      || resource.data.indicado_id == request.auth.uid);
       allow write: if false;
+    }
+
+    match /comissoes/{comissaoId} {
+      allow read: if autenticado()
+                  && resource.data.indicador_id == request.auth.uid;
+      allow write: if false;
+    }
+
+    match /conteudos/{conteudoId} {
+      allow get, list: if autenticado()
+                       && resource.data.publicado == true;
+      allow create, update, delete: if false;
     }
 
     match /{documento=**} {

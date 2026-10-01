@@ -8,6 +8,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 import { carregarConteudos } from "./conteudos.js";
+import { personalizarConteudos } from "./personalizacao.js";
+import { listarFavoritos, listarProgresso } from "./biblioteca-usuario.js";
+import { aplicarCapa, criarBotaoFavorito, criarEstadoProgresso, criarFatosConteudo } from "./interface-biblioteca.js";
 
 const app = document.querySelector("[data-food-app]");
 const loading = document.querySelector("[data-food-loading]");
@@ -17,6 +20,9 @@ const contentGrid = document.querySelector("[data-food-content-grid]");
 const filters = [...document.querySelectorAll("[data-food-filter]")];
 const emptyState = document.querySelector("[data-food-empty]");
 let contentCards = [];
+let currentUserId = null;
+let favoriteIds = new Set();
+let progressMap = new Map();
 
 const labels = {
   perfil_alimentar: {
@@ -88,22 +94,44 @@ const renderContentCards = (items) => {
     article.dataset.foodCard = "";
     article.dataset.category = item.categoria || "outros";
 
+    const recommended = item.personalizacao?.recomendado === true && !item.personalizacao?.bloqueado;
+    article.classList.toggle("is-profile-match", recommended);
+
+    if (item.personalizacao?.motivos?.length) {
+      article.title = `Por que aparece aqui: ${item.personalizacao.motivos.join("; ")}.`;
+    }
+
     const visual = createElement("div", "food-card-visual");
-    visual.setAttribute("aria-hidden", "true");
-    visual.append(createElement("span", "", item.icone || "✦"));
+    const visualIcon = createElement("span", "", item.icone || "✦");
+    visualIcon.setAttribute("aria-hidden", "true");
+    visual.append(visualIcon);
+    aplicarCapa(visual, item);
+    if (currentUserId) {
+      const favorite = criarBotaoFavorito({ usuarioId: currentUserId, item, favoritos: favoriteIds, className: "food-card-favorite" });
+      visual.append(favorite);
+    }
 
     const body = createElement("div", "food-card-body");
     const meta = createElement("div", "food-card-meta");
     meta.append(createElement("span", "", getLabel("interesses_alimentares", item.categoria)));
-    const badge = createElement("i", "", "Do seu perfil");
+    const badge = createElement("i", "", "Recomendado para você");
     badge.dataset.matchBadge = "";
-    badge.hidden = true;
+    badge.hidden = !recommended;
     meta.append(badge);
+    const progressState = criarEstadoProgresso(item, progressMap, "food-card-progress");
+    if (progressState) meta.append(progressState);
 
     body.append(meta);
     body.append(createElement("h3", "", item.titulo));
     body.append(createElement("p", "", item.resumo));
+    const facts = criarFatosConteudo(item, "food-card-facts");
+    if (facts) body.append(facts);
     body.append(createElement("small", "", item.texto_apoio || "Conteúdo educativo do portal."));
+
+    const link = createElement("a", "food-card-link", "Ler conteúdo →");
+    link.href = `./conteudo.html?id=${encodeURIComponent(item.id)}`;
+    link.setAttribute("aria-label", `Ler ${item.titulo}`);
+    body.append(link);
 
     article.append(visual, body);
     contentGrid.append(article);
@@ -132,25 +160,6 @@ const renderProfile = (userData, profileData, user) => {
   addProfileChip(foodProfile);
   addProfileChip(prepTime !== "Não informado" ? `Preparo: ${prepTime}` : "");
   interests.slice(0, 2).forEach((interest) => addProfileChip(getLabel("interesses_alimentares", interest)));
-
-  return interests;
-};
-
-const personalizeCards = (interests) => {
-  if (!contentGrid) return;
-  const selected = new Set(interests);
-
-  contentCards.forEach((card) => {
-    const category = card.dataset.category;
-    const isMatch = selected.has(category);
-    card.classList.toggle("is-profile-match", isMatch);
-    const badge = card.querySelector("[data-match-badge]");
-    if (badge) badge.hidden = !isMatch;
-  });
-
-  [...contentCards]
-    .sort((a, b) => Number(!selected.has(a.dataset.category)) - Number(!selected.has(b.dataset.category)))
-    .forEach((card) => contentGrid.append(card));
 };
 
 const applyFilter = (filter) => {
@@ -189,6 +198,7 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
+  currentUserId = user.uid;
   try {
     const [userSnapshot, profileSnapshot, contentResult] = await Promise.all([
       getDoc(doc(db, "usuarios", user.uid)),
@@ -206,9 +216,15 @@ onAuthStateChanged(auth, async (user) => {
       return;
     }
 
-    renderContentCards(contentResult.itens);
-    const interests = renderProfile(userData, profileData, user);
-    personalizeCards(interests);
+    const [favoritesResult, progressResult] = await Promise.allSettled([listarFavoritos(user.uid), listarProgresso(user.uid)]);
+    if (favoritesResult.status === "fulfilled") favoriteIds = new Set(favoritesResult.value.map((item) => item.conteudo_id || item.id));
+    else console.warn("Favoritos indisponíveis.", favoritesResult.reason);
+    if (progressResult.status === "fulfilled") progressMap = new Map(progressResult.value.map((item) => [item.conteudo_id || item.id, item]));
+    else console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
+
+    const personalized = personalizarConteudos(contentResult.itens, profileData);
+    renderContentCards(personalized);
+    renderProfile(userData, profileData, user);
     applyFilter("todos");
 
     if (loading) loading.hidden = true;

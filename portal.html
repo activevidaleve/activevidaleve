@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#4F46E5">
-  <meta name="description" content="Portal interno do Active Vida Leve.">
+  <meta name="description" content="Portal personalizado do Active Vida Leve.">
   <title>Portal | Active Vida Leve</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,7 @@
 
       <nav class="portal-nav" aria-label="Navegação do portal">
         <a class="is-active" href="./portal.html">Início</a>
+        <a href="./buscar.html">Buscar</a>
         <a href="./alimentacao.html">Alimentação</a>
         <a href="./exercicios.html">Exercícios</a>
         <a href="./receitas.html">Receitas</a>
@@ -30,10 +31,11 @@
       </nav>
 
       <div class="portal-header-actions">
-        <button class="portal-profile-pill" type="button" data-profile-pill aria-label="Perfil do usuário">
+        <a class="portal-search-shortcut" href="./buscar.html" aria-label="Buscar conteúdos">⌕</a>
+        <a class="portal-profile-pill" href="./rotina.html" aria-label="Abrir meu perfil">
           <span data-user-initial>U</span>
           <strong data-header-name>Usuário</strong>
-        </button>
+        </a>
         <button class="portal-logout" type="button" data-logout>Sair</button>
       </div>
     </div>
@@ -45,7 +47,7 @@
         <div class="portal-hero-copy">
           <span class="portal-eyebrow">SEU ESPAÇO ACTIVE</span>
           <h1>Olá, <strong data-user-first-name>Usuário</strong>.</h1>
-          <p>Organizamos esta área a partir das informações do seu perfil para facilitar sua navegação pelo portal.</p>
+          <p>Seu portal organiza conteúdos a partir das preferências, objetivos e disponibilidade que você informou no cadastro.</p>
           <div class="portal-profile-tags" data-profile-tags aria-label="Resumo do perfil"></div>
         </div>
 
@@ -53,17 +55,19 @@
           <span class="portal-access-dot" aria-hidden="true"></span>
           <div>
             <strong>Acesso liberado</strong>
-            <small data-access-description>Pagamento simulado aprovado</small>
+            <small data-access-description>Ambiente de desenvolvimento</small>
           </div>
         </aside>
       </div>
     </section>
 
     <section class="container portal-section portal-today" aria-labelledby="today-title">
-      <div class="portal-section-heading">
-        <span>PARA VOCÊ HOJE</span>
-        <h2 id="today-title">Comece pelo que combina com sua rotina.</h2>
-        <p>As sugestões abaixo usam apenas as preferências informadas no seu cadastro. Elas serão refinadas à medida que adicionarmos conteúdos reais.</p>
+      <div class="portal-section-heading portal-section-heading-row">
+        <div>
+          <span>PARA VOCÊ HOJE</span>
+          <h2 id="today-title">Um ponto de partida que combina com seu perfil.</h2>
+        </div>
+        <p>As sugestões são ordenadas pelo motor de personalização. Elas ajudam na navegação e não representam prescrição individual.</p>
       </div>
 
       <div class="portal-recommendations" data-recommendations>
@@ -84,22 +88,104 @@
         <article class="portal-recommendation portal-rec-routine">
           <div class="portal-rec-top"><span class="portal-rec-icon" aria-hidden="true">✓</span><span class="portal-rec-kicker">MINHA ROTINA</span></div>
           <h3 data-rec-routine-title>Seu perfil em um só lugar</h3>
-          <p data-rec-routine-text>Consulte objetivos, preferências e dados que ajudam a organizar sua experiência.</p>
+          <p data-rec-routine-text>Consulte objetivos, preferências e dados usados para organizar sua experiência.</p>
           <a href="./rotina.html">Ver minha rotina <span aria-hidden="true">→</span></a>
         </article>
+      </div>
+    </section>
+
+    <section class="container portal-section portal-personalized" aria-labelledby="personalized-title">
+      <div class="portal-section-heading portal-section-heading-row">
+        <div>
+          <span>DESCOBRIR ALGO NOVO</span>
+          <h2 id="personalized-title">Recomendações que se adaptam ao seu perfil e ao que você já explorou.</h2>
+        </div>
+        <a class="portal-search-cta" href="./buscar.html">Explorar biblioteca completa →</a>
+      </div>
+      <div class="portal-content-grid" data-personalized-grid aria-live="polite"></div>
+    </section>
+
+    <section class="container portal-section portal-continue" data-continue-section hidden aria-labelledby="continue-title">
+      <div class="portal-section-heading portal-section-heading-row">
+        <div>
+          <span>CONTINUE EXPLORANDO</span>
+          <h2 id="continue-title">Volte aos conteúdos que você abriu recentemente.</h2>
+        </div>
+        <a class="portal-search-cta" href="./buscar.html">Ver todos →</a>
+      </div>
+      <div class="portal-content-row" data-continue-grid></div>
+    </section>
+
+    <section class="container portal-section portal-shelf-section" aria-labelledby="exercise-shelf-title">
+      <div class="portal-shelf-heading">
+        <div>
+          <span>EXERCÍCIOS PARA SUA ROTINA</span>
+          <h2 id="exercise-shelf-title" data-exercise-shelf-title>Opções organizadas pelo seu tempo e nível.</h2>
+        </div>
+        <a href="./exercicios.html">Ver exercícios →</a>
+      </div>
+      <div class="portal-content-row" data-exercise-shelf></div>
+    </section>
+
+    <section class="container portal-section portal-shelf-section" aria-labelledby="recipe-shelf-title">
+      <div class="portal-shelf-heading">
+        <div>
+          <span>RECEITAS PARA O SEU PERFIL</span>
+          <h2 id="recipe-shelf-title" data-recipe-shelf-title>Ideias relacionadas às suas preferências.</h2>
+        </div>
+        <a href="./receitas.html">Ver receitas →</a>
+      </div>
+      <div class="portal-content-row" data-recipe-shelf></div>
+    </section>
+
+    <section class="container portal-section portal-shelf-section" aria-labelledby="food-shelf-title">
+      <div class="portal-shelf-heading">
+        <div>
+          <span>ALIMENTAÇÃO NO DIA A DIA</span>
+          <h2 id="food-shelf-title">Organização e variedade para sua rotina.</h2>
+        </div>
+        <a href="./alimentacao.html">Ver alimentação →</a>
+      </div>
+      <div class="portal-content-row" data-food-shelf></div>
+    </section>
+
+    <section class="container portal-section portal-library" aria-labelledby="portal-library-title">
+      <div class="portal-section-heading portal-section-heading-row">
+        <div><span>SUA BIBLIOTECA</span><h2 id="portal-library-title">Salvos, histórico e conteúdos concluídos.</h2></div>
+        <a class="portal-search-cta" href="./buscar.html">Buscar em todos os conteúdos →</a>
+      </div>
+
+      <div class="portal-library-columns">
+        <div class="portal-library-panel">
+          <div class="portal-library-panel-heading"><div><span>FAVORITOS</span><h3>Salvos por você</h3></div><a href="./buscar.html?favoritos=1">Ver todos</a></div>
+          <div class="portal-library-list" data-portal-favorites></div>
+          <p class="portal-library-empty" data-portal-favorites-empty>Salve conteúdos para encontrá-los rapidamente aqui.</p>
+        </div>
+
+        <div class="portal-library-panel">
+          <div class="portal-library-panel-heading"><div><span>HISTÓRICO</span><h3>Vistos recentemente</h3></div><a href="./buscar.html">Explorar</a></div>
+          <div class="portal-library-list" data-portal-history></div>
+          <p class="portal-library-empty" data-portal-history-empty>Os conteúdos que você abrir aparecerão aqui.</p>
+        </div>
+
+        <div class="portal-library-panel">
+          <div class="portal-library-panel-heading"><div><span>CONCLUÍDOS</span><h3>Finalizados por você</h3></div><a href="./buscar.html?concluidos=1">Ver todos</a></div>
+          <div class="portal-library-list" data-portal-completed></div>
+          <p class="portal-library-empty" data-portal-completed-empty>Ao marcar um conteúdo como concluído, ele aparecerá aqui.</p>
+        </div>
       </div>
     </section>
 
     <section class="container portal-section" aria-labelledby="portal-areas-title">
       <div class="portal-section-heading portal-section-heading-row">
         <div><span>ÁREAS DO PORTAL</span><h2 id="portal-areas-title">Tudo separado por tema.</h2></div>
-        <p>As páginas já estão abertas para continuarmos a construção sem criar novos links quebrados.</p>
+        <p>Use as áreas para navegar pela biblioteca completa ou ajuste suas preferências em Minha Rotina.</p>
       </div>
 
       <div class="portal-modules">
         <a class="portal-module portal-module-food" href="./alimentacao.html"><span class="portal-module-icon" aria-hidden="true">◒</span><span class="portal-module-label">ALIMENTAÇÃO</span><h3>Escolhas e conteúdos para sua rotina</h3><p>Organização alimentar, ideias de refeições e conteúdos selecionados pelo perfil.</p><span class="portal-module-action">Abrir área →</span></a>
         <a class="portal-module portal-module-workout" href="./exercicios.html"><span class="portal-module-icon" aria-hidden="true">↔</span><span class="portal-module-label">EXERCÍCIOS</span><h3>Movimento no seu ritmo</h3><p>Rotinas organizadas por nível, tempo disponível, local e equipamentos.</p><span class="portal-module-action">Abrir área →</span></a>
-        <a class="portal-module portal-module-recipes" href="./receitas.html"><span class="portal-module-icon" aria-hidden="true">▱</span><span class="portal-module-label">SUCOS &amp; RECEITAS</span><h3>Mais variedade no dia a dia</h3><p>Uma área visual para receitas rápidas, refeições e combinações práticas.</p><span class="portal-module-action">Abrir área →</span></a>
+        <a class="portal-module portal-module-recipes" href="./receitas.html"><span class="portal-module-icon" aria-hidden="true">▱</span><span class="portal-module-label">SUCOS &amp; RECEITAS</span><h3>Mais variedade no dia a dia</h3><p>Receitas e combinações práticas relacionadas às suas preferências.</p><span class="portal-module-action">Abrir área →</span></a>
         <a class="portal-module portal-module-routine" href="./rotina.html"><span class="portal-module-icon" aria-hidden="true">✓</span><span class="portal-module-label">MINHA ROTINA</span><h3>Seu perfil e preferências</h3><p>Objetivos, preferências e dados informados durante o cadastro.</p><span class="portal-module-action">Abrir área →</span></a>
       </div>
     </section>
@@ -108,8 +194,8 @@
       <div class="portal-profile-copy">
         <span>SEU PERFIL</span>
         <h2 id="profile-preview-title">Sua experiência já começa personalizada.</h2>
-        <p>Esses dados vêm do onboarding salvo no Firebase e serão usados para ordenar os conteúdos do portal.</p>
-        <a class="portal-profile-link" href="./rotina.html">Ver perfil completo →</a>
+        <p>Esses dados vêm do onboarding salvo no Firebase e são usados apenas para organizar conteúdos com maior afinidade.</p>
+        <a class="portal-profile-link" href="./rotina.html">Ver ou editar perfil →</a>
       </div>
       <div class="portal-profile-grid" data-profile-preview>
         <div><span>Nível</span><strong data-profile-level>—</strong></div>
@@ -122,7 +208,7 @@
 
   <div class="portal-loading" data-portal-loading>
     <span class="payment-spinner" aria-hidden="true"></span>
-    <p>Validando seu acesso…</p>
+    <p>Preparando seu portal…</p>
   </div>
 
   <script type="module" src="./js/portal.js"></script>
