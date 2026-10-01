@@ -3,6 +3,7 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase
 import { auth, db } from "./firebase.js";
 import { carregarConteudoPorId, carregarConteudos } from "./conteudos.js";
 import { avaliarConteudo, personalizarConteudos } from "./personalizacao.js";
+import { criarIntroducaoPersonalizada } from "./experiencia.js";
 import {
   alternarFavorito,
   definirConclusao,
@@ -256,7 +257,7 @@ const renderJuiceMedia = (item) => {
   setSlot("[data-juice-ready-image]", item.midia?.imagem_pronto_url || item.imagem_url, item.midia?.imagem_pronto_alt || item.imagem_alt, "Espaço reservado", "Imagem do produto pronto será inserida aqui.");
 };
 
-const renderContent = (item, profileData, sameTypeItems) => {
+const renderContent = (item, profileData, sameTypeItems, contexto = {}) => {
   const config = item.categoria === "suco_detox" ? areaConfig.suco_detox : (areaConfig[item.tipo] || areaConfig.alimentacao);
   const themeKey = item.categoria === "suco_detox" ? "suco_detox" : item.tipo;
   const theme = {
@@ -284,7 +285,7 @@ const renderContent = (item, profileData, sameTypeItems) => {
   setText("[data-breadcrumb-title]", item.titulo);
   setText("[data-content-summary]", item.resumo);
   setText("[data-content-icon]", item.icone || "✦");
-  setText("[data-content-intro]", item.introducao || item.resumo);
+  setText("[data-content-intro]", criarIntroducaoPersonalizada(item, profileData, contexto));
   renderTags(item);
   renderQuickFacts(item);
   renderJuiceMedia(item);
@@ -448,6 +449,7 @@ onAuthStateChanged(auth, async (user) => {
       const progress = progressResult.value;
       lastPersistedProgress = Number(progress?.progresso || 0);
       updateProgressUI(lastPersistedProgress, progress?.status || "novo");
+      setText("[data-content-intro]", criarIntroducaoPersonalizada(item, profileData, { status: progress?.status || "novo" }));
     } else {
       console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
       updateProgressUI(0, "novo");

@@ -46,10 +46,11 @@
     <section class="portal-hero">
       <div class="container portal-hero-inner">
         <div class="portal-hero-copy">
-          <span class="portal-eyebrow">SEU ESPAÇO ACTIVE</span>
+          <span class="portal-eyebrow" data-hero-eyebrow>SEU ESPAÇO ACTIVE</span>
           <h1>Olá, <strong data-user-first-name>Usuário</strong>.</h1>
-          <p>Seu portal organiza conteúdos a partir das preferências, objetivos e disponibilidade que você informou no cadastro.</p>
+          <p data-hero-description>Seu portal organiza conteúdos a partir das preferências, objetivos e disponibilidade que você informou no cadastro.</p>
           <div class="portal-profile-tags" data-profile-tags aria-label="Resumo do perfil"></div>
+          <div class="portal-experience-status"><span data-experience-stage>Experiência personalizada</span><small>Esta página pode mudar conforme você explora, salva e conclui conteúdos.</small></div>
         </div>
 
         <aside class="portal-access-card">
@@ -62,7 +63,7 @@
       </div>
     </section>
 
-    <section class="container portal-section portal-today" aria-labelledby="today-title">
+    <section class="container portal-section portal-today" data-section-key="today" aria-labelledby="today-title">
       <div class="portal-section-heading portal-section-heading-row">
         <div>
           <span>PARA VOCÊ HOJE</span>
@@ -95,29 +96,29 @@
       </div>
     </section>
 
-    <section class="container portal-section portal-personalized" aria-labelledby="personalized-title">
+    <section class="container portal-section portal-personalized" data-section-key="personalized" aria-labelledby="personalized-title">
       <div class="portal-section-heading portal-section-heading-row">
         <div>
-          <span>DESCOBRIR ALGO NOVO</span>
-          <h2 id="personalized-title">Recomendações que se adaptam ao seu perfil e ao que você já explorou.</h2>
+          <span data-personalized-eyebrow>DESCOBRIR ALGO NOVO</span>
+          <h2 id="personalized-title" data-personalized-title>Recomendações que se adaptam ao seu perfil e ao que você já explorou.</h2>
         </div>
         <a class="portal-search-cta" href="./buscar.html">Explorar biblioteca completa →</a>
       </div>
       <div class="portal-content-grid" data-personalized-grid aria-live="polite"></div>
     </section>
 
-    <section class="container portal-section portal-continue" data-continue-section hidden aria-labelledby="continue-title">
+    <section class="container portal-section portal-continue" data-section-key="continue" data-continue-section hidden aria-labelledby="continue-title">
       <div class="portal-section-heading portal-section-heading-row">
         <div>
           <span>CONTINUE EXPLORANDO</span>
-          <h2 id="continue-title">Volte aos conteúdos que você abriu recentemente.</h2>
+          <h2 id="continue-title" data-continue-title>Volte aos conteúdos que você abriu recentemente.</h2>
         </div>
         <a class="portal-search-cta" href="./buscar.html">Ver todos →</a>
       </div>
       <div class="portal-content-row" data-continue-grid></div>
     </section>
 
-    <section class="container portal-section portal-shelf-section" aria-labelledby="exercise-shelf-title">
+    <section class="container portal-section portal-shelf-section" data-section-key="exercise" aria-labelledby="exercise-shelf-title">
       <div class="portal-shelf-heading">
         <div>
           <span>EXERCÍCIOS PARA SUA ROTINA</span>
@@ -128,7 +129,7 @@
       <div class="portal-content-row" data-exercise-shelf></div>
     </section>
 
-    <section class="container portal-section portal-shelf-section" aria-labelledby="recipe-shelf-title">
+    <section class="container portal-section portal-shelf-section" data-section-key="recipe" aria-labelledby="recipe-shelf-title">
       <div class="portal-shelf-heading">
         <div>
           <span>RECEITAS PARA O SEU PERFIL</span>
@@ -139,29 +140,29 @@
       <div class="portal-content-row" data-recipe-shelf></div>
     </section>
 
-    <section class="container portal-section portal-shelf-section portal-juice-shelf" aria-labelledby="juice-shelf-title">
+    <section class="container portal-section portal-shelf-section portal-juice-shelf" data-section-key="juice" aria-labelledby="juice-shelf-title">
       <div class="portal-shelf-heading">
         <div>
           <span>SUCOS DETOX</span>
-          <h2 id="juice-shelf-title">Combinações frescas, sem promessas de “limpeza” do corpo.</h2>
+          <h2 id="juice-shelf-title" data-juice-shelf-title>Combinações frescas, sem promessas de “limpeza” do corpo.</h2>
         </div>
         <a href="./sucos.html">Ver 20 sucos →</a>
       </div>
       <div class="portal-content-row" data-juice-shelf></div>
     </section>
 
-    <section class="container portal-section portal-shelf-section" aria-labelledby="food-shelf-title">
+    <section class="container portal-section portal-shelf-section" data-section-key="food" aria-labelledby="food-shelf-title">
       <div class="portal-shelf-heading">
         <div>
           <span>ALIMENTAÇÃO NO DIA A DIA</span>
-          <h2 id="food-shelf-title">Organização e variedade para sua rotina.</h2>
+          <h2 id="food-shelf-title" data-food-shelf-title>Organização e variedade para sua rotina.</h2>
         </div>
         <a href="./alimentacao.html">Ver alimentação →</a>
       </div>
       <div class="portal-content-row" data-food-shelf></div>
     </section>
 
-    <section class="container portal-section portal-library" aria-labelledby="portal-library-title">
+    <section class="container portal-section portal-library" data-section-key="library" aria-labelledby="portal-library-title">
       <div class="portal-section-heading portal-section-heading-row">
         <div><span>SUA BIBLIOTECA</span><h2 id="portal-library-title">Salvos, histórico e conteúdos concluídos.</h2></div>
         <a class="portal-search-cta" href="./buscar.html">Buscar em todos os conteúdos →</a>
@@ -188,7 +189,7 @@
       </div>
     </section>
 
-    <section class="container portal-section" aria-labelledby="portal-areas-title">
+    <section class="container portal-section" data-section-key="areas" aria-labelledby="portal-areas-title">
       <div class="portal-section-heading portal-section-heading-row">
         <div><span>ÁREAS DO PORTAL</span><h2 id="portal-areas-title">Tudo separado por tema.</h2></div>
         <p>Use as áreas para navegar pela biblioteca completa ou ajuste suas preferências em Minha Rotina.</p>
@@ -202,7 +203,7 @@
       </div>
     </section>
 
-    <section class="container portal-profile-preview" aria-labelledby="profile-preview-title">
+    <section class="container portal-profile-preview" data-section-key="profile" aria-labelledby="profile-preview-title">
       <div class="portal-profile-copy">
         <span>SEU PERFIL</span>
         <h2 id="profile-preview-title">Sua experiência já começa personalizada.</h2>

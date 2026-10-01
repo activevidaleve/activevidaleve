@@ -8,8 +8,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 import { carregarConteudos } from "./conteudos.js";
-import { personalizarConteudos } from "./personalizacao.js";
-import { listarFavoritos, listarProgresso } from "./biblioteca-usuario.js";
+import { listarFavoritos, listarHistorico, listarProgresso, listarBuscas } from "./biblioteca-usuario.js";
+import { construirSinaisComportamento, determinarEstagioUsuario, ordenarPorExperiencia } from "./experiencia.js";
 import { aplicarCapa, criarBotaoFavorito, criarEstadoProgresso, criarFatosConteudo } from "./interface-biblioteca.js";
 
 const app = document.querySelector("[data-food-app]");
@@ -97,8 +97,8 @@ const renderContentCards = (items) => {
     const recommended = item.personalizacao?.recomendado === true && !item.personalizacao?.bloqueado;
     article.classList.toggle("is-profile-match", recommended);
 
-    if (item.personalizacao?.motivos?.length) {
-      article.title = `Por que aparece aqui: ${item.personalizacao.motivos.join("; ")}.`;
+    if (item.experiencia_usuario?.motivo || item.personalizacao?.motivos?.length) {
+      article.title = `Por que aparece aqui: ${item.experiencia_usuario?.motivo || item.personalizacao.motivos.join("; ")}.`;
     }
 
     const visual = createElement("div", "food-card-visual");
@@ -216,13 +216,27 @@ onAuthStateChanged(auth, async (user) => {
       return;
     }
 
-    const [favoritesResult, progressResult] = await Promise.allSettled([listarFavoritos(user.uid), listarProgresso(user.uid)]);
+    const [favoritesResult, progressResult, historyResult, searchesResult] = await Promise.allSettled([
+      listarFavoritos(user.uid),
+      listarProgresso(user.uid),
+      listarHistorico(user.uid, 20),
+      listarBuscas(user.uid, 12)
+    ]);
     if (favoritesResult.status === "fulfilled") favoriteIds = new Set(favoritesResult.value.map((item) => item.conteudo_id || item.id));
     else console.warn("Favoritos indisponíveis.", favoritesResult.reason);
     if (progressResult.status === "fulfilled") progressMap = new Map(progressResult.value.map((item) => [item.conteudo_id || item.id, item]));
     else console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
 
-    const personalized = personalizarConteudos(contentResult.itens, profileData);
+    const favorites = favoritesResult.status === "fulfilled" ? favoritesResult.value : [];
+    const progress = progressResult.status === "fulfilled" ? progressResult.value : [];
+    const history = historyResult.status === "fulfilled" ? historyResult.value : [];
+    const searches = searchesResult.status === "fulfilled" ? searchesResult.value : [];
+    const sinais = construirSinaisComportamento({ catalogo: contentResult.itens, favoritos: favorites, historico: history, progresso: progress, buscas: searches });
+    const estagio = determinarEstagioUsuario({ favoritos: favorites, historico: history, progresso: progress, buscas: searches });
+    setText("[data-food-hero-description]", estagio.id === "primeiros_passos"
+      ? "Começamos pelas preferências que você informou no cadastro. Conforme você explora o portal, a ordem dos conteúdos passa a considerar também seu uso."
+      : "A ordem desta área combina suas preferências do cadastro com conteúdos que você abriu, salvou, concluiu e buscou no portal.");
+    const personalized = ordenarPorExperiencia(contentResult.itens, { usuarioId: user.uid, profileData, sinais, estagio });
     renderContentCards(personalized);
     renderProfile(userData, profileData, user);
     applyFilter("todos");

@@ -2,13 +2,14 @@ import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 import { carregarConteudos } from "./conteudos.js";
-import { personalizarConteudos } from "./personalizacao.js";
 import { criarFatosConteudo } from "./interface-biblioteca.js";
+import { montarExperienciaHome } from "./experiencia.js";
 import {
   alternarFavorito,
   listarFavoritos,
   listarHistorico,
-  listarProgresso
+  listarProgresso,
+  listarBuscas
 } from "./biblioteca-usuario.js";
 
 const app = document.querySelector("[data-portal-app]");
@@ -22,7 +23,6 @@ const profileTags = document.querySelector("[data-profile-tags]");
 
 let currentUser = null;
 let favoriteIds = new Set();
-let historyIds = new Set();
 let progressMap = new Map();
 
 const mappings = {
@@ -30,17 +30,16 @@ const mappings = {
   dias_exercicio: { "1_2": "1–2 dias/semana", "3_4": "3–4 dias/semana", "5_mais": "5+ dias/semana" },
   duracao_treino: { ate_15: "Até 15 min", "15_30": "15–30 min", "30_45": "30–45 min", mais_45: "45+ min" },
   perfil_alimentar: { variada: "Variada", vegetariana: "Vegetariana", vegana: "Vegana", outra: "Outra" },
-  nivel_atividade: { pouco_ativo: "Pouco ativo", algumas_vezes_semana: "Algumas vezes por semana", ativo_frequente: "Ativo com frequência", muito_ativo: "Muito ativo" },
   local_exercicio: { casa: "Em casa", academia: "Academia", ar_livre: "Ao ar livre", variado: "Locais variados", varia: "Locais variados" }
 };
 
 const typeLabels = { alimentacao: "Alimentação", exercicio: "Exercício", receita: "Receita" };
 const mapped = (field, value) => mappings[field]?.[value] || value || "Não informado";
-const normalizeList = (value) => Array.isArray(value) ? value.filter(Boolean) : [];
 const titleCase = (value = "") => String(value).replace(/_/g, " ").replace(/\b\p{L}/gu, (char) => char.toUpperCase());
 const redirectToPayment = () => window.location.replace("./pagamento.html");
-const setText = (selector, value) => { const element = document.querySelector(selector); if (element) element.textContent = value; };
+const setText = (selector, value) => { const element = document.querySelector(selector); if (element) element.textContent = value || ""; };
 const getItemId = (item = {}) => String(item.conteudo_id || item.id || "").trim();
+const score = (item = {}) => Number(item.experiencia_usuario?.pontuacao ?? item.personalizacao?.pontuacao ?? 0);
 
 const setFavoriteButton = (button, id) => {
   const saved = favoriteIds.has(id);
@@ -99,7 +98,7 @@ const createContentCard = (item, options = {}) => {
   const meta = document.createElement("div");
   meta.className = "portal-content-card-meta";
   const kind = document.createElement("span");
-  kind.textContent = typeLabels[item.tipo] || "Conteúdo";
+  kind.textContent = item.categoria === "suco_detox" ? "Suco Detox" : (typeLabels[item.tipo] || "Conteúdo");
   const category = document.createElement("small");
   category.textContent = item.categoria ? titleCase(item.categoria) : "Active Vida Leve";
   meta.append(kind, category);
@@ -120,11 +119,11 @@ const createContentCard = (item, options = {}) => {
   const facts = criarFatosConteudo(item, "portal-content-facts");
   const reason = document.createElement("span");
   reason.className = "portal-content-reason";
-  const motive = item.personalizacao?.motivos?.[0];
-  reason.textContent = options.reason || (motive ? titleCase(motive) : "Selecionado para sua biblioteca");
+  const motive = options.reason || item.experiencia_usuario?.motivo || item.personalizacao?.motivos?.[0];
+  reason.textContent = motive ? titleCase(motive) : "Selecionado para o seu momento";
   const link = document.createElement("a");
   link.href = `./conteudo.html?id=${encodeURIComponent(id)}`;
-  link.textContent = options.action || "Abrir conteúdo →";
+  link.textContent = options.action || (progress?.status === "em_andamento" ? "Continuar →" : "Abrir conteúdo →");
 
   card.append(cover, top, title, summary);
   if (facts) card.append(facts);
@@ -162,11 +161,9 @@ const renderLibraryList = (selector, emptySelector, items = [], options = {}) =>
     const name = document.createElement("strong");
     name.textContent = item.titulo || "Conteúdo";
     const meta = document.createElement("span");
-    if (options.progress) {
-      meta.textContent = item.status === "concluido" ? "Concluído" : `${Number(item.progresso || 0)}% explorado`;
-    } else {
-      meta.textContent = typeLabels[item.tipo] || "Conteúdo";
-    }
+    meta.textContent = options.progress
+      ? (item.status === "concluido" ? "Concluído" : `${Number(item.progresso || 0)}% explorado`)
+      : (item.categoria === "suco_detox" ? "Suco Detox" : (typeLabels[item.tipo] || "Conteúdo"));
     copy.append(name, meta);
     const link = document.createElement("a");
     link.href = `./conteudo.html?id=${encodeURIComponent(getItemId(item))}`;
@@ -194,103 +191,97 @@ const buildProfileTags = (profileData) => {
   });
 };
 
-const fallbackRecommendations = (profileData) => {
-  const level = mapped("nivel_exercicio", profileData.nivel_exercicio);
-  const duration = mapped("duracao_treino", profileData.duracao_treino);
-  const location = mapped("local_exercicio", profileData.local_exercicio);
-  const foodInterests = normalizeList(profileData.interesses_alimentares);
-  const goals = normalizeList(profileData.objetivos);
-  setText("[data-rec-move-title]", level !== "Não informado" ? `${level}: comece no seu ritmo` : "Movimento no seu ritmo");
-  setText("[data-rec-move-text]", duration !== "Não informado"
-    ? `Conteúdos de ${duration.toLowerCase()} e ${location.toLowerCase()} aparecem com mais relevância para o seu perfil.`
-    : "Conteúdos são priorizados de acordo com seu nível, tempo e local disponíveis.");
-  const foodLabel = foodInterests.length ? foodInterests.slice(0, 2).map(titleCase).join(" e ") : "Receitas práticas";
-  setText("[data-rec-food-title]", `${foodLabel} em destaque`);
-  setText("[data-rec-food-text]", "Alimentação e receitas são ordenadas a partir dos interesses e preferências informados no cadastro.");
-  const goalLabel = goals.length ? titleCase(goals[0]) : "Sua rotina";
-  setText("[data-rec-routine-title]", goalLabel);
-  setText("[data-rec-routine-text]", goals.length
-    ? "Seu objetivo principal funciona como uma das referências para organizar os conteúdos do portal."
-    : "Consulte objetivos, preferências e dados que ajudam a organizar sua experiência.");
-};
+const setRecommendation = (selector, item, fallback) => {
+  const card = document.querySelector(selector);
+  if (!card) return;
+  const kicker = card.querySelector(".portal-rec-kicker");
+  const icon = card.querySelector(".portal-rec-icon");
+  const heading = card.querySelector("h3");
+  const paragraph = card.querySelector("p");
+  const link = card.querySelector("a");
 
-const recommendedPool = (items, profileData) => {
-  const personalized = personalizarConteudos(items, profileData).filter((item) => !item.personalizacao?.bloqueado);
-  const recommended = personalized.filter((item) => item.personalizacao?.recomendado);
-  return recommended.length ? recommended : personalized;
-};
-
-const adaptToUse = (items = []) => [...items].sort((a, b) => {
-  const idA = getItemId(a);
-  const idB = getItemId(b);
-  const progressA = progressMap.get(idA);
-  const progressB = progressMap.get(idB);
-  const score = (item, id, progress) => {
-    let value = Number(item.personalizacao?.pontuacao || 0);
-    if (favoriteIds.has(id)) value += 6;
-    if (progress?.status === "em_andamento") value += 8;
-    if (historyIds.has(id)) value -= 8;
-    if (progress?.status === "concluido") value -= 60;
-    return value;
-  };
-  return score(b, idB, progressB) - score(a, idA, progressA);
-});
-
-const buildRecommendations = (profileData, exerciseItems, foodItems, recipeItems) => {
-  fallbackRecommendations(profileData);
-  const exercise = adaptToUse(recommendedPool(exerciseItems, profileData))[0];
-  const food = adaptToUse(recommendedPool([...foodItems, ...recipeItems], profileData))[0];
-  if (exercise) {
-    setText("[data-rec-move-title]", exercise.titulo);
-    setText("[data-rec-move-text]", exercise.resumo);
-    const link = document.querySelector(".portal-rec-move a");
-    if (link) { link.href = `./conteudo.html?id=${encodeURIComponent(exercise.id)}`; link.firstChild.textContent = "Abrir conteúdo "; }
+  if (!item) {
+    if (kicker) kicker.textContent = fallback.kicker;
+    if (icon) icon.textContent = fallback.icon;
+    if (heading) heading.textContent = fallback.title;
+    if (paragraph) paragraph.textContent = fallback.text;
+    if (link) { link.href = fallback.href; link.firstChild.textContent = fallback.action; }
+    return;
   }
-  if (food) {
-    setText("[data-rec-food-title]", food.titulo);
-    setText("[data-rec-food-text]", food.resumo);
-    const link = document.querySelector(".portal-rec-food a");
-    if (link) { link.href = `./conteudo.html?id=${encodeURIComponent(food.id)}`; link.firstChild.textContent = food.tipo === "receita" ? "Ver receita " : "Abrir conteúdo "; }
+
+  const label = item.categoria === "suco_detox" ? "SUCO DETOX" : (typeLabels[item.tipo] || "CONTEÚDO").toUpperCase();
+  if (kicker) kicker.textContent = label;
+  if (icon) icon.textContent = item.icone || "✦";
+  if (heading) heading.textContent = item.titulo;
+  if (paragraph) paragraph.textContent = item.experiencia_usuario?.motivo ? `${item.experiencia_usuario.motivo}. ${item.resumo}` : item.resumo;
+  if (link) {
+    link.href = `./conteudo.html?id=${encodeURIComponent(getItemId(item))}`;
+    link.firstChild.textContent = item.tipo === "receita" ? "Ver receita " : "Abrir conteúdo ";
   }
 };
 
-const dedupeById = (items = []) => {
-  const seen = new Set();
-  return items.filter((item) => {
-    const id = getItemId(item);
-    if (!id || seen.has(id)) return false;
-    seen.add(id);
-    return true;
+const renderToday = (experience) => {
+  const exercise = experience.hoje?.exercicio || experience.secoes.exercise[0];
+  const food = experience.hoje?.alimentacao || [...experience.secoes.recipe, ...experience.secoes.food, ...experience.secoes.juice].sort((a, b) => score(b) - score(a))[0];
+  const discovery = experience.hoje?.descoberta || experience.secoes.personalized[0];
+
+  setRecommendation(".portal-rec-move", exercise, {
+    kicker: "MOVIMENTO", icon: "↔", title: "Movimento no seu ritmo",
+    text: "Conteúdos são escolhidos de acordo com seu nível e tempo disponível.", href: "./exercicios.html", action: "Explorar exercícios "
+  });
+  setRecommendation(".portal-rec-food", food, {
+    kicker: "ALIMENTAÇÃO", icon: "◒", title: "Ideias práticas para o dia a dia",
+    text: "Receitas e conteúdos são organizados conforme seus interesses.", href: "./alimentacao.html", action: "Explorar alimentação "
+  });
+  setRecommendation(".portal-rec-routine", discovery, {
+    kicker: "MINHA ROTINA", icon: "✓", title: "Seu perfil em um só lugar",
+    text: "Consulte objetivos e preferências usados para organizar sua experiência.", href: "./rotina.html", action: "Ver minha rotina "
   });
 };
 
-const buildPersonalizedHome = (profileData, foodItems, exerciseItems, recipeItems) => {
-  const exercises = adaptToUse(recommendedPool(exerciseItems, profileData));
-  const foods = adaptToUse(recommendedPool(foodItems, profileData));
-  const juiceItems = recipeItems.filter((item) => item.categoria === "suco_detox");
-  const regularRecipeItems = recipeItems.filter((item) => item.categoria !== "suco_detox");
-  const recipes = adaptToUse(recommendedPool(regularRecipeItems, profileData));
-  const juices = adaptToUse(recommendedPool(juiceItems, profileData));
-  const all = adaptToUse(recommendedPool([...exerciseItems, ...foodItems, ...recipeItems], profileData));
-  const balancedSelection = dedupeById([exercises[0], recipes[0], foods[0], ...all].filter(Boolean)).slice(0, 4);
-  renderContentGrid("[data-personalized-grid]", balancedSelection, { limit: 4, reason: "Recomendação ajustada ao seu perfil e uso" });
-  renderContentGrid("[data-exercise-shelf]", exercises, { limit: 4, action: "Ver exercício →" });
-  renderContentGrid("[data-recipe-shelf]", recipes, { limit: 4, action: "Ver receita →" });
-  renderContentGrid("[data-juice-shelf]", juices, { limit: 4, action: "Ver suco →" });
-  renderContentGrid("[data-food-shelf]", foods, { limit: 4, action: "Ler conteúdo →" });
-  const duration = mapped("duracao_treino", profileData.duracao_treino);
-  if (duration !== "Não informado") setText("[data-exercise-shelf-title]", `Opções que podem caber em ${duration.toLowerCase()}.`);
-  const foodProfile = mapped("perfil_alimentar", profileData.perfil_alimentar);
-  if (foodProfile !== "Não informado") setText("[data-recipe-shelf-title]", `Ideias relacionadas ao perfil ${foodProfile.toLowerCase()}.`);
-};
-
-const renderContinueSection = (progress = []) => {
+const renderContinueSection = (progress = [], catalogMap = new Map()) => {
   const section = document.querySelector("[data-continue-section]");
   if (!section) return;
-  const inProgress = progress.filter((item) => item.status === "em_andamento" && Number(item.progresso || 0) > 0);
+  const inProgress = progress
+    .filter((item) => item.status === "em_andamento" && Number(item.progresso || 0) > 0)
+    .map((item) => ({ ...(catalogMap.get(getItemId(item)) || item), ...item, id: getItemId(item) }))
+    .sort((a, b) => Number(b.progresso || 0) - Number(a.progresso || 0));
   if (!inProgress.length) { section.hidden = true; return; }
   renderContentGrid("[data-continue-grid]", inProgress, { limit: 4, action: "Continuar →" });
   section.hidden = false;
+};
+
+const applyExperienceText = (experience) => {
+  setText("[data-hero-eyebrow]", experience.textos.heroEyebrow);
+  setText("[data-hero-description]", experience.textos.heroText);
+  setText("[data-experience-stage]", experience.textos.stageLabel);
+  setText("[data-personalized-eyebrow]", experience.textos.personalizedEyebrow);
+  setText("[data-personalized-title]", experience.textos.personalizedTitle);
+  setText("[data-continue-title]", experience.textos.continueTitle);
+  setText("[data-exercise-shelf-title]", experience.textos.exerciseTitle);
+  setText("[data-recipe-shelf-title]", experience.textos.recipeTitle);
+  setText("[data-juice-shelf-title]", experience.textos.juiceTitle);
+  setText("[data-food-shelf-title]", experience.textos.foodTitle);
+};
+
+const reorderSections = (order = []) => {
+  if (!app) return;
+  order.forEach((key) => {
+    const section = app.querySelector(`[data-section-key="${key}"]`);
+    if (section) app.append(section);
+  });
+};
+
+const renderExperience = (experience, progress, catalogMap) => {
+  applyExperienceText(experience);
+  renderToday(experience);
+  renderContentGrid("[data-personalized-grid]", experience.secoes.personalized, { limit: 4 });
+  renderContentGrid("[data-exercise-shelf]", experience.secoes.exercise, { limit: 4, action: "Ver exercício →" });
+  renderContentGrid("[data-recipe-shelf]", experience.secoes.recipe, { limit: 4, action: "Ver receita →" });
+  renderContentGrid("[data-juice-shelf]", experience.secoes.juice, { limit: 4, action: "Ver suco →" });
+  renderContentGrid("[data-food-shelf]", experience.secoes.food, { limit: 4, action: "Ler conteúdo →" });
+  renderContinueSection(progress, catalogMap);
+  reorderSections(experience.sectionOrder);
 };
 
 logoutButton?.addEventListener("click", async () => {
@@ -334,24 +325,39 @@ onAuthStateChanged(auth, async (user) => {
     let favorites = [];
     let history = [];
     let progress = [];
-    const [favoritesResult, historyResult, progressResult] = await Promise.allSettled([
+    let searches = [];
+    const [favoritesResult, historyResult, progressResult, searchesResult] = await Promise.allSettled([
       listarFavoritos(user.uid),
-      listarHistorico(user.uid, 12),
-      listarProgresso(user.uid)
+      listarHistorico(user.uid, 20),
+      listarProgresso(user.uid),
+      listarBuscas(user.uid, 12)
     ]);
     if (favoritesResult.status === "fulfilled") favorites = favoritesResult.value;
     else console.warn("Favoritos indisponíveis.", favoritesResult.reason);
     if (historyResult.status === "fulfilled") history = historyResult.value;
     else console.warn("Histórico indisponível.", historyResult.reason);
     if (progressResult.status === "fulfilled") progress = progressResult.value;
-    else console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
+    else console.warn("Progresso indisponível até as regras do Firestore serem publicadas.", progressResult.reason);
+    if (searchesResult.status === "fulfilled") searches = searchesResult.value;
+    else console.warn("Sinais de busca indisponíveis até as regras do Firestore serem publicadas.", searchesResult.reason);
+
     favoriteIds = new Set(favorites.map(getItemId));
-    historyIds = new Set(history.map(getItemId));
     progressMap = new Map(progress.map((item) => [getItemId(item), item]));
 
-    buildRecommendations(profileData, exerciseResult.itens, foodResult.itens, recipeResult.itens);
-    buildPersonalizedHome(profileData, foodResult.itens, exerciseResult.itens, recipeResult.itens);
-    renderContinueSection(progress);
+    const catalog = [...foodResult.itens, ...exerciseResult.itens, ...recipeResult.itens];
+    const catalogMap = new Map(catalog.map((item) => [getItemId(item), item]));
+    const experience = montarExperienciaHome({
+      usuarioId: user.uid,
+      nome: name,
+      profileData,
+      catalogo: catalog,
+      favoritos: favorites,
+      historico: history,
+      progresso: progress,
+      buscas: searches
+    });
+
+    renderExperience(experience, progress, catalogMap);
     renderLibraryList("[data-portal-favorites]", "[data-portal-favorites-empty]", favorites);
     renderLibraryList("[data-portal-history]", "[data-portal-history-empty]", history);
     renderLibraryList("[data-portal-completed]", "[data-portal-completed-empty]", progress.filter((item) => item.status === "concluido"), { progress: true });

@@ -237,3 +237,36 @@ Não houve mudança nas regras do Firestore nesta versão.
 - cada suco reserva mídia separada para ingredientes e produto pronto (`imagem_ingredientes_url` e `imagem_pronto_url`);
 - atalho Sucos Detox adicionado à navegação e nova prateleira na home do portal;
 - total da biblioteca local: 80 conteúdos.
+
+## active_v34 — Motor de Experiência Personalizada
+
+A personalização deixou de ser apenas uma ordenação por perfil e ganhou uma camada de experiência individual em `js/experiencia.js`.
+
+A nova camada usa, quando disponíveis:
+- dados do cadastro e perfil;
+- favoritos;
+- histórico de conteúdos abertos;
+- progresso e conteúdos concluídos;
+- termos pesquisados no portal;
+- novidade do conteúdo e diversidade entre categorias.
+
+O portal classifica o momento de uso em quatro estágios internos (`primeiros_passos`, `descobrindo`, `em_ritmo` e `recorrente`). Esses estágios não criam metas de saúde; servem apenas para decidir como organizar a navegação e os textos da interface.
+
+A home agora pode mudar por usuário em:
+- texto de abertura e identificação do momento da experiência;
+- ordem das seções;
+- conteúdos mostrados em “Para você hoje”;
+- prateleiras que aparecem primeiro;
+- motivos exibidos nos cards;
+- equilíbrio entre continuidade, afinidade e descoberta;
+- redução de repetições do mesmo conteúdo entre seções.
+
+Conteúdos em andamento são priorizados em “Continue explorando”. Conteúdos concluídos deixam de ocupar as principais posições de descoberta para abrir espaço para opções novas. O algoritmo também usa um desempate estável por usuário e dia, evitando que usuários com perfis iguais recebam necessariamente a mesma sequência de cards, sem embaralhar a página a cada atualização.
+
+As páginas de Alimentação, Exercícios, Receitas, Sucos Detox e Busca usam a mesma camada comportamental para ordenar seus próprios conteúdos. A página individual também adapta a introdução ao perfil e ao estado de progresso daquele usuário.
+
+### Sinais de busca
+
+A subcoleção `usuarios/{uid}/buscas/{buscaId}` registra apenas o termo pesquisado, contagem e data da última ocorrência. Esses dados são usados para melhorar a ordem dos conteúdos para a própria conta. O arquivo `firestore.rules` foi atualizado para permitir que cada usuário leia e grave somente a própria subcoleção `buscas`.
+
+Para testar toda a personalização comportamental, publique as regras atuais do `firestore.rules` no Firebase antes dos testes. Caso as novas regras ainda não estejam publicadas, o portal continua funcionando com personalização baseada no cadastro e nos sinais que estiverem disponíveis.

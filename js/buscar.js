@@ -2,9 +2,9 @@ import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 import { carregarConteudos } from "./conteudos.js";
-import { personalizarConteudos } from "./personalizacao.js";
 import { criarFatosConteudo } from "./interface-biblioteca.js";
-import { alternarFavorito, listarFavoritos, listarProgresso } from "./biblioteca-usuario.js";
+import { alternarFavorito, listarFavoritos, listarHistorico, listarProgresso, listarBuscas, registrarBusca } from "./biblioteca-usuario.js";
+import { construirSinaisComportamento, determinarEstagioUsuario, ordenarPorExperiencia } from "./experiencia.js";
 
 const app = document.querySelector("[data-search-app]");
 const loading = document.querySelector("[data-search-loading]");
@@ -132,6 +132,16 @@ const render = () => {
     const link = document.createElement("a");
     link.href = `./conteudo.html?id=${encodeURIComponent(item.id)}`;
     link.textContent = progress?.status === "em_andamento" ? "Continuar conteúdo →" : "Abrir conteúdo →";
+    link.addEventListener("click", (event) => {
+      const rawTerm = input?.value?.trim() || "";
+      if (!currentUser || rawTerm.length < 2) return;
+      event.preventDefault();
+      const destination = link.href;
+      Promise.race([
+        registrarBusca(currentUser.uid, rawTerm).catch(() => null),
+        new Promise((resolve) => setTimeout(resolve, 220))
+      ]).finally(() => { window.location.href = destination; });
+    });
     card.append(cover, top, heading, summary);
     if (facts) card.append(facts);
     card.append(meta, link);
@@ -151,7 +161,15 @@ const render = () => {
   if (empty) empty.hidden = visible.length > 0;
 };
 
-form?.addEventListener("submit", (event) => { event.preventDefault(); render(); });
+form?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  render();
+  const rawTerm = input?.value?.trim() || "";
+  if (currentUser && rawTerm.length >= 2) {
+    try { await registrarBusca(currentUser.uid, rawTerm); }
+    catch (error) { console.warn("Não foi possível registrar a busca.", error); }
+  }
+});
 input?.addEventListener("input", render);
 
 typeButtons.forEach((button) => button.addEventListener("click", () => {
@@ -201,12 +219,13 @@ onAuthStateChanged(auth, async (user) => {
     const testAccess = profileData.acesso_teste === true && profileData.pagamento_teste_status === "aprovado";
     if (!productionAccess && !testAccess) { window.location.replace("./pagamento.html"); return; }
 
-    allItems = personalizarConteudos([...food.itens, ...workout.itens, ...recipes.itens], profileData)
-      .filter((item) => !item.personalizacao?.bloqueado);
+    const catalog = [...food.itens, ...workout.itens, ...recipes.itens];
 
-    const [favoritesResult, progressResult] = await Promise.allSettled([
+    const [favoritesResult, progressResult, historyResult, searchesResult] = await Promise.allSettled([
       listarFavoritos(user.uid),
-      listarProgresso(user.uid)
+      listarProgresso(user.uid),
+      listarHistorico(user.uid, 20),
+      listarBuscas(user.uid, 12)
     ]);
     if (favoritesResult.status === "fulfilled") {
       favoriteIds = new Set(favoritesResult.value.map((item) => item.conteudo_id || item.id));
@@ -218,6 +237,14 @@ onAuthStateChanged(auth, async (user) => {
     } else {
       console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
     }
+
+    const favorites = favoritesResult.status === "fulfilled" ? favoritesResult.value : [];
+    const progress = progressResult.status === "fulfilled" ? progressResult.value : [];
+    const history = historyResult.status === "fulfilled" ? historyResult.value : [];
+    const searches = searchesResult.status === "fulfilled" ? searchesResult.value : [];
+    const sinais = construirSinaisComportamento({ catalogo: catalog, favoritos: favorites, historico: history, progresso: progress, buscas: searches });
+    const estagio = determinarEstagioUsuario({ favoritos: favorites, historico: history, progresso: progress, buscas: searches });
+    allItems = ordenarPorExperiencia(catalog, { usuarioId: user.uid, profileData, sinais, estagio });
 
     const params = new URLSearchParams(window.location.search);
     const initialQuery = params.get("q") || "";

@@ -8,8 +8,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 import { carregarConteudos } from "./conteudos.js";
-import { personalizarConteudos } from "./personalizacao.js";
-import { listarFavoritos, listarProgresso } from "./biblioteca-usuario.js";
+import { listarFavoritos, listarHistorico, listarProgresso, listarBuscas } from "./biblioteca-usuario.js";
+import { construirSinaisComportamento, determinarEstagioUsuario, ordenarPorExperiencia } from "./experiencia.js";
 import { aplicarCapa, criarBotaoFavorito, criarEstadoProgresso, criarFatosConteudo } from "./interface-biblioteca.js";
 
 const app = document.querySelector("[data-recipes-app]");
@@ -87,8 +87,8 @@ const renderRecipeCards = (items) => {
 
     const recommended = item.personalizacao?.recomendado === true && !item.personalizacao?.bloqueado;
     article.classList.toggle("is-profile-match", recommended);
-    if (item.personalizacao?.motivos?.length) {
-      article.title = `Por que aparece aqui: ${item.personalizacao.motivos.join("; ")}.`;
+    if (item.experiencia_usuario?.motivo || item.personalizacao?.motivos?.length) {
+      article.title = `Por que aparece aqui: ${item.experiencia_usuario?.motivo || item.personalizacao.motivos.join("; ")}.`;
     }
 
     const visual = createElement("div", "recipe-card-visual");
@@ -217,14 +217,28 @@ onAuthStateChanged(auth, async (user) => {
       return;
     }
 
-    const [favoritesResult, progressResult] = await Promise.allSettled([listarFavoritos(user.uid), listarProgresso(user.uid)]);
+    const [favoritesResult, progressResult, historyResult, searchesResult] = await Promise.allSettled([
+      listarFavoritos(user.uid),
+      listarProgresso(user.uid),
+      listarHistorico(user.uid, 20),
+      listarBuscas(user.uid, 12)
+    ]);
     if (favoritesResult.status === "fulfilled") favoriteIds = new Set(favoritesResult.value.map((item) => item.conteudo_id || item.id));
     else console.warn("Favoritos indisponíveis.", favoritesResult.reason);
     if (progressResult.status === "fulfilled") progressMap = new Map(progressResult.value.map((item) => [item.conteudo_id || item.id, item]));
     else console.warn("Progresso indisponível até as novas regras do Firestore serem publicadas.", progressResult.reason);
 
     const regularRecipes = contentResult.itens.filter((item) => item.categoria !== "suco_detox");
-    const personalized = personalizarConteudos(regularRecipes, profileData);
+    const favorites = favoritesResult.status === "fulfilled" ? favoritesResult.value : [];
+    const progress = progressResult.status === "fulfilled" ? progressResult.value : [];
+    const history = historyResult.status === "fulfilled" ? historyResult.value : [];
+    const searches = searchesResult.status === "fulfilled" ? searchesResult.value : [];
+    const sinais = construirSinaisComportamento({ catalogo: regularRecipes, favoritos: favorites, historico: history, progresso: progress, buscas: searches });
+    const estagio = determinarEstagioUsuario({ favoritos: favorites, historico: history, progresso: progress, buscas: searches });
+    setText("[data-recipes-hero-description]", estagio.id === "primeiros_passos"
+      ? "Começamos pelas preferências alimentares, interesses e tempo de preparo que você informou no cadastro."
+      : "As receitas desta área passam a considerar tanto seu cadastro quanto temas que você buscou, abriu, salvou ou concluiu.");
+    const personalized = ordenarPorExperiencia(regularRecipes, { usuarioId: user.uid, profileData, sinais, estagio });
     renderRecipeCards(personalized);
     renderProfile(userData, profileData, user);
     applyFilter("todos");

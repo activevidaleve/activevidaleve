@@ -164,3 +164,46 @@ export const listarConcluidos = async (usuarioId, quantidade = 8) => {
   const itens = await listarProgresso(usuarioId);
   return itens.filter((item) => item.status === "concluido").slice(0, quantidade);
 };
+
+const idBusca = (termo = "") => String(termo)
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .trim()
+  .replace(/[^a-z0-9]+/g, "_")
+  .replace(/^_+|_+$/g, "")
+  .slice(0, 70);
+
+export const registrarBusca = async (usuarioId, termo) => {
+  const termoLimpo = String(termo || "").trim().replace(/\s+/g, " ").slice(0, 100);
+  const identificador = idBusca(termoLimpo);
+  if (!usuarioId || termoLimpo.length < 2 || !identificador) return;
+
+  const referencia = doc(db, "usuarios", usuarioId, "buscas", identificador);
+  await setDoc(referencia, {
+    termo: termoLimpo,
+    contagem: increment(1),
+    atualizado_em: serverTimestamp()
+  }, { merge: true });
+};
+
+export const listarBuscas = async (usuarioId, quantidade = 12) => {
+  if (!usuarioId) return [];
+  const referencia = collection(db, "usuarios", usuarioId, "buscas");
+  try {
+    const snapshot = await getDocs(query(referencia, orderBy("atualizado_em", "desc"), limit(quantidade)));
+    return snapshot.docs.map((item) => ({ id: item.id, ...item.data() }));
+  } catch (error) {
+    console.warn("Buscas ordenadas indisponíveis; carregando lista simples.", error);
+    const snapshot = await getDocs(referencia);
+    return snapshot.docs
+      .map((item) => ({ id: item.id, ...item.data() }))
+      .sort((a, b) => {
+        const aMs = a.atualizado_em?.toMillis?.() || 0;
+        const bMs = b.atualizado_em?.toMillis?.() || 0;
+        return bMs - aMs;
+      })
+      .slice(0, quantidade);
+  }
+};
+

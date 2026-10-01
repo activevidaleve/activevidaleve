@@ -299,3 +299,7 @@
 .portal-content-facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}.portal-content-facts span{padding:5px 7px;border-radius:999px;color:#59665F;background:#F3F5F3;font-size:7.2px;font-weight:700}
 
 .portal-juice-shelf .portal-shelf-heading>div>span{color:#65A30D}.portal-juice-shelf .portal-content-card-icon{background:#84CC16}.portal-juice-shelf .portal-content-card[data-type="receita"]{border-color:rgba(132,204,22,.12)}
+
+/* Experiência individual do usuário */
+.portal-experience-status{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}.portal-experience-status span{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border:1px solid rgba(79,70,229,.12);border-radius:999px;color:#4F46E5;background:rgba(255,255,255,.78);font-size:8px;font-weight:800;letter-spacing:.35px}.portal-experience-status small{color:var(--text-muted);font-size:8px;line-height:1.45}.portal-section[data-section-key]{scroll-margin-top:120px}
+@media(max-width:640px){.portal-experience-status{align-items:flex-start;flex-direction:column}.portal-experience-status small{max-width:280px}}
