@@ -7,15 +7,16 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
+import { carregarConteudos } from "./conteudos.js";
 
 const app = document.querySelector("[data-food-app]");
 const loading = document.querySelector("[data-food-loading]");
 const logoutButton = document.querySelector("[data-logout]");
 const profileChips = document.querySelector("[data-food-profile-chips]");
 const contentGrid = document.querySelector("[data-food-content-grid]");
-const contentCards = [...document.querySelectorAll("[data-food-card]")];
 const filters = [...document.querySelectorAll("[data-food-filter]")];
 const emptyState = document.querySelector("[data-food-empty]");
+let contentCards = [];
 
 const labels = {
   perfil_alimentar: {
@@ -41,6 +42,16 @@ const labels = {
   }
 };
 
+const cardClasses = {
+  cafe_manha: "food-card-breakfast",
+  almoco: "food-card-lunch",
+  jantar: "food-card-dinner",
+  lanches: "food-card-snack",
+  receitas_rapidas: "food-card-fast",
+  marmitas: "food-card-mealprep",
+  sucos: "food-card-juice"
+};
+
 const getLabel = (group, value) => labels[group]?.[value] || value || "Não informado";
 
 const listLabels = (values = []) => {
@@ -59,6 +70,46 @@ const addProfileChip = (text) => {
   chip.className = "food-profile-chip";
   chip.textContent = text;
   profileChips.append(chip);
+};
+
+const createElement = (tag, className, text) => {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text !== undefined) element.textContent = text;
+  return element;
+};
+
+const renderContentCards = (items) => {
+  if (!contentGrid) return;
+  contentGrid.innerHTML = "";
+
+  items.forEach((item) => {
+    const article = createElement("article", `food-content-card ${cardClasses[item.categoria] || ""}`.trim());
+    article.dataset.foodCard = "";
+    article.dataset.category = item.categoria || "outros";
+
+    const visual = createElement("div", "food-card-visual");
+    visual.setAttribute("aria-hidden", "true");
+    visual.append(createElement("span", "", item.icone || "✦"));
+
+    const body = createElement("div", "food-card-body");
+    const meta = createElement("div", "food-card-meta");
+    meta.append(createElement("span", "", getLabel("interesses_alimentares", item.categoria)));
+    const badge = createElement("i", "", "Do seu perfil");
+    badge.dataset.matchBadge = "";
+    badge.hidden = true;
+    meta.append(badge);
+
+    body.append(meta);
+    body.append(createElement("h3", "", item.titulo));
+    body.append(createElement("p", "", item.resumo));
+    body.append(createElement("small", "", item.texto_apoio || "Conteúdo educativo do portal."));
+
+    article.append(visual, body);
+    contentGrid.append(article);
+  });
+
+  contentCards = [...contentGrid.querySelectorAll("[data-food-card]")];
 };
 
 const renderProfile = (userData, profileData, user) => {
@@ -82,11 +133,6 @@ const renderProfile = (userData, profileData, user) => {
   addProfileChip(prepTime !== "Não informado" ? `Preparo: ${prepTime}` : "");
   interests.slice(0, 2).forEach((interest) => addProfileChip(getLabel("interesses_alimentares", interest)));
 
-  const timeHint = document.querySelector("[data-time-hint]");
-  if (timeHint && prepTime !== "Não informado") {
-    timeHint.textContent = `Seu perfil informa ${prepTime.toLowerCase()} disponíveis para preparo.`;
-  }
-
   return interests;
 };
 
@@ -102,13 +148,9 @@ const personalizeCards = (interests) => {
     if (badge) badge.hidden = !isMatch;
   });
 
-  const ordered = [...contentCards].sort((a, b) => {
-    const aMatch = selected.has(a.dataset.category) ? 0 : 1;
-    const bMatch = selected.has(b.dataset.category) ? 0 : 1;
-    return aMatch - bMatch;
-  });
-
-  ordered.forEach((card) => contentGrid.append(card));
+  [...contentCards]
+    .sort((a, b) => Number(!selected.has(a.dataset.category)) - Number(!selected.has(b.dataset.category)))
+    .forEach((card) => contentGrid.append(card));
 };
 
 const applyFilter = (filter) => {
@@ -148,9 +190,10 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   try {
-    const [userSnapshot, profileSnapshot] = await Promise.all([
+    const [userSnapshot, profileSnapshot, contentResult] = await Promise.all([
       getDoc(doc(db, "usuarios", user.uid)),
-      getDoc(doc(db, "perfis", user.uid))
+      getDoc(doc(db, "perfis", user.uid)),
+      carregarConteudos("alimentacao")
     ]);
 
     const userData = userSnapshot.exists() ? userSnapshot.data() : {};
@@ -163,6 +206,7 @@ onAuthStateChanged(auth, async (user) => {
       return;
     }
 
+    renderContentCards(contentResult.itens);
     const interests = renderProfile(userData, profileData, user);
     personalizeCards(interests);
     applyFilter("todos");

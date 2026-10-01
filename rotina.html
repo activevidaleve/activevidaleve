@@ -1,4 +1,259 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#4F46E5"><meta name="description" content="Esta área será o centro do perfil: objetivos, preferências e informações usadas para organizar o conteúdo do portal."><title>Minha Rotina | Active Vida Leve</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/global.css"><link rel="stylesheet" href="./assets/css/area.css"></head>
-<body class="area-page area-routine"><header class="area-header"><div class="container area-header-inner"><a class="area-brand" href="./portal.html" aria-label="Voltar ao portal"><img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198"></a><div class="area-header-actions"><a class="area-back" href="./portal.html">← Portal</a><button class="area-logout" type="button" data-logout>Sair</button></div></div></header><main class="area-main" data-area-app hidden><div class="container"><section class="area-hero"><div><span class="area-kicker">MINHA ROTINA</span><h1>Seu perfil e suas preferências.</h1><p>Esta área será o centro do perfil: objetivos, preferências e informações usadas para organizar o conteúdo do portal.</p></div><div class="area-visual" aria-hidden="true">✓</div></section><section class="area-content"><article class="area-panel"><h2>O que vamos construir aqui</h2><p>Essa primeira versão abre a navegação sem links quebrados. Os conteúdos reais entram nas próximas etapas.</p><div class="area-placeholder-list"><div class="area-placeholder-item"><strong>Editar preferências</strong><span>O usuário poderá atualizar objetivos, rotina e interesses sem refazer o cadastro.</span></div><div class="area-placeholder-item"><strong>Acompanhar escolhas</strong><span>Vamos preparar indicadores simples de uso e conteúdos visitados.</span></div><div class="area-placeholder-item"><strong>Personalização contínua</strong><span>As mudanças no perfil poderão reorganizar as sugestões exibidas no portal.</span></div></div></article><aside class="area-profile-card"><h2>Resumo atual</h2><p>Olá, <strong data-user-name>Usuário</strong>. Estes dados já vêm do seu perfil salvo no Firebase.</p><div class="area-profile-list"><div><span>Nível</span><strong data-area-level>—</strong></div><div><span>Tempo</span><strong data-area-duration>—</strong></div><div><span>Objetivos</span><strong data-area-goals>—</strong></div></div></aside></section></div></main><div class="area-loading" data-area-loading><span class="payment-spinner" aria-hidden="true"></span><p>Carregando sua área…</p></div><script type="module" src="./js/area.js"></script></body></html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="Minha rotina e preferências no Active Vida Leve.">
+  <title>Minha Rotina | Active Vida Leve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/area.css">
+  <link rel="stylesheet" href="./assets/css/rotina.css">
+</head>
+<body class="area-page area-routine rotina-page">
+  <header class="area-header">
+    <div class="container area-header-inner">
+      <a class="area-brand" href="./portal.html" aria-label="Voltar ao portal">
+        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
+      </a>
+      <div class="area-header-actions">
+        <a class="area-back" href="./portal.html">← Portal</a>
+        <button class="area-logout" type="button" data-logout>Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="rotina-main" data-rotina-app hidden>
+    <section class="rotina-hero">
+      <div class="container rotina-hero-inner">
+        <div>
+          <span class="rotina-kicker">MINHA ROTINA</span>
+          <h1>Seu perfil em um só lugar.</h1>
+          <p>Veja as informações que usamos para organizar sua experiência e atualize suas preferências quando sua rotina mudar.</p>
+        </div>
+        <aside class="rotina-status-card">
+          <span class="rotina-status-dot" aria-hidden="true"></span>
+          <div>
+            <strong data-user-name>Usuário</strong>
+            <small data-profile-state>Perfil sincronizado com o Firebase</small>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="container rotina-layout">
+      <section class="rotina-summary" aria-labelledby="rotina-summary-title">
+        <div class="rotina-section-heading">
+          <span>VISÃO GERAL</span>
+          <h2 id="rotina-summary-title">Seu perfil atual</h2>
+          <p>Esses dados são usados apenas para organizar conteúdos e filtros dentro do portal.</p>
+        </div>
+
+        <div class="rotina-summary-grid">
+          <article class="rotina-summary-card">
+            <span class="rotina-summary-label">ATIVIDADE</span>
+            <strong data-summary-activity>—</strong>
+            <small data-summary-days>—</small>
+          </article>
+          <article class="rotina-summary-card">
+            <span class="rotina-summary-label">EXERCÍCIOS</span>
+            <strong data-summary-level>—</strong>
+            <small data-summary-duration>—</small>
+          </article>
+          <article class="rotina-summary-card">
+            <span class="rotina-summary-label">ALIMENTAÇÃO</span>
+            <strong data-summary-food>—</strong>
+            <small data-summary-prep>—</small>
+          </article>
+          <article class="rotina-summary-card">
+            <span class="rotina-summary-label">OBJETIVOS</span>
+            <strong data-summary-goals>—</strong>
+            <small>Você pode atualizar até 3 objetivos.</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="rotina-editor" aria-labelledby="rotina-editor-title">
+        <div class="rotina-section-heading rotina-heading-row">
+          <div>
+            <span>EDITAR PERFIL</span>
+            <h2 id="rotina-editor-title">Ajuste suas preferências</h2>
+          </div>
+          <p>Salve somente quando quiser aplicar as mudanças às recomendações do portal.</p>
+        </div>
+
+        <form class="rotina-form" data-rotina-form novalidate>
+          <fieldset class="rotina-fieldset">
+            <legend>Dados do perfil</legend>
+            <p class="rotina-fieldset-help">Altura e peso são opcionais e não são usados para definir metas automáticas.</p>
+            <div class="rotina-fields-2">
+              <label class="rotina-field">
+                <span>Altura (cm)</span>
+                <input type="number" name="altura" min="80" max="230" inputmode="numeric" placeholder="Ex.: 170">
+              </label>
+              <label class="rotina-field">
+                <span>Peso (kg) <small>opcional</small></span>
+                <input type="number" name="peso" min="20" max="400" step="0.1" inputmode="decimal" placeholder="Ex.: 70">
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="rotina-fieldset">
+            <legend>Atividade e exercícios</legend>
+            <div class="rotina-fields-2">
+              <label class="rotina-field">
+                <span>Nível de atividade</span>
+                <select name="nivel_atividade" required>
+                  <option value="">Selecione</option>
+                  <option value="pouco_ativo">Pouco ativo</option>
+                  <option value="algumas_vezes_semana">Algumas vezes por semana</option>
+                  <option value="ativo_frequente">Ativo com frequência</option>
+                  <option value="muito_ativo">Muito ativo</option>
+                </select>
+              </label>
+              <label class="rotina-field">
+                <span>Nível de exercício</span>
+                <select name="nivel_exercicio" required>
+                  <option value="">Selecione</option>
+                  <option value="iniciante">Iniciante</option>
+                  <option value="intermediario">Intermediário</option>
+                  <option value="experiente">Experiente</option>
+                </select>
+              </label>
+              <label class="rotina-field">
+                <span>Dias por semana</span>
+                <select name="dias_exercicio" required>
+                  <option value="">Selecione</option>
+                  <option value="1_2">1–2 dias</option>
+                  <option value="3_4">3–4 dias</option>
+                  <option value="5_mais">5 ou mais dias</option>
+                </select>
+              </label>
+              <label class="rotina-field">
+                <span>Tempo disponível</span>
+                <select name="duracao_treino" required>
+                  <option value="">Selecione</option>
+                  <option value="ate_15">Até 15 min</option>
+                  <option value="15_30">15–30 min</option>
+                  <option value="30_45">30–45 min</option>
+                  <option value="mais_45">Mais de 45 min</option>
+                </select>
+              </label>
+              <label class="rotina-field rotina-field-wide">
+                <span>Onde costuma se exercitar?</span>
+                <select name="local_exercicio" required>
+                  <option value="">Selecione</option>
+                  <option value="casa">Em casa</option>
+                  <option value="academia">Academia</option>
+                  <option value="ar_livre">Ao ar livre</option>
+                  <option value="varia">Varia</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="rotina-checkbox-block">
+              <span>Equipamentos disponíveis</span>
+              <div class="rotina-chip-options">
+                <label><input type="checkbox" name="equipamentos" value="nenhum"><span>Nenhum</span></label>
+                <label><input type="checkbox" name="equipamentos" value="halteres"><span>Halteres</span></label>
+                <label><input type="checkbox" name="equipamentos" value="elasticos"><span>Elásticos</span></label>
+                <label><input type="checkbox" name="equipamentos" value="colchonete"><span>Colchonete</span></label>
+                <label><input type="checkbox" name="equipamentos" value="academia"><span>Academia</span></label>
+                <label><input type="checkbox" name="equipamentos" value="outros"><span>Outros</span></label>
+              </div>
+            </div>
+
+            <label class="rotina-field rotina-field-wide">
+              <span>Movimentos ou exercícios que prefere evitar <small>opcional</small></span>
+              <textarea name="exercicios_evitar" rows="3" maxlength="300" placeholder="Ex.: corrida, saltos, agachamentos profundos"></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="rotina-fieldset">
+            <legend>Objetivos</legend>
+            <p class="rotina-fieldset-help">Escolha até 3 opções. O portal usa essas escolhas para ordenar conteúdos.</p>
+            <div class="rotina-goal-options" data-goals>
+              <label><input type="checkbox" name="objetivos" value="movimentar_mais"><span>Me movimentar mais</span></label>
+              <label><input type="checkbox" name="objetivos" value="condicionamento"><span>Melhorar meu condicionamento</span></label>
+              <label><input type="checkbox" name="objetivos" value="constancia_exercicios"><span>Criar constância nos exercícios</span></label>
+              <label><input type="checkbox" name="objetivos" value="organizar_alimentacao"><span>Organizar melhor a alimentação</span></label>
+              <label><input type="checkbox" name="objetivos" value="receitas_praticas"><span>Aprender receitas práticas</span></label>
+              <label><input type="checkbox" name="objetivos" value="variar_refeicoes"><span>Ter mais variedade nas refeições</span></label>
+              <label><input type="checkbox" name="objetivos" value="rotina_organizada"><span>Criar uma rotina mais organizada</span></label>
+              <label><input type="checkbox" name="objetivos" value="bem_estar"><span>Melhorar hábitos de bem-estar</span></label>
+            </div>
+            <p class="rotina-inline-error" data-goal-error hidden>Escolha no máximo 3 objetivos.</p>
+          </fieldset>
+
+          <fieldset class="rotina-fieldset">
+            <legend>Alimentação</legend>
+            <div class="rotina-fields-2">
+              <label class="rotina-field">
+                <span>Perfil alimentar</span>
+                <select name="perfil_alimentar" required>
+                  <option value="">Selecione</option>
+                  <option value="variada">Variada</option>
+                  <option value="vegetariana">Vegetariana</option>
+                  <option value="vegana">Vegana</option>
+                  <option value="outra">Outra</option>
+                </select>
+              </label>
+              <label class="rotina-field">
+                <span>Tempo de preparo</span>
+                <select name="tempo_preparo" required>
+                  <option value="">Selecione</option>
+                  <option value="ate_15">Até 15 min</option>
+                  <option value="15_30">15–30 min</option>
+                  <option value="30_60">30–60 min</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="rotina-checkbox-block">
+              <span>Conteúdos que mais interessam</span>
+              <div class="rotina-chip-options rotina-chip-options-food">
+                <label><input type="checkbox" name="interesses_alimentares" value="cafe_manha"><span>Café da manhã</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="almoco"><span>Almoço</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="jantar"><span>Jantar</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="lanches"><span>Lanches</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="sucos"><span>Sucos</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="receitas_rapidas"><span>Receitas rápidas</span></label>
+                <label><input type="checkbox" name="interesses_alimentares" value="marmitas"><span>Marmitas</span></label>
+              </div>
+            </div>
+
+            <div class="rotina-fields-2">
+              <label class="rotina-field">
+                <span>Alimentos que prefere evitar <small>opcional</small></span>
+                <textarea name="alimentos_evitar" rows="3" maxlength="300" placeholder="Informe apenas se quiser"></textarea>
+              </label>
+              <label class="rotina-field">
+                <span>Alergias ou restrições alimentares <small>opcional</small></span>
+                <textarea name="restricoes_alimentares" rows="3" maxlength="300" placeholder="Informe apenas se quiser"></textarea>
+              </label>
+            </div>
+            <p class="rotina-note">As preferências ajudam a organizar o portal. Para alergias ou restrições, confira sempre ingredientes e orientações profissionais adequadas.</p>
+          </fieldset>
+
+          <div class="rotina-form-footer">
+            <div class="rotina-save-status" data-save-status aria-live="polite"></div>
+            <button class="rotina-save-button" type="submit" data-save-profile>Salvar alterações</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <div class="area-loading" data-rotina-loading>
+    <span class="payment-spinner" aria-hidden="true"></span>
+    <p>Carregando sua rotina…</p>
+  </div>
+
+  <script type="module" src="./js/rotina.js"></script>
+</body>
+</html>

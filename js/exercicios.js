@@ -7,15 +7,16 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
+import { carregarConteudos } from "./conteudos.js";
 
 const app = document.querySelector("[data-workout-app]");
 const loading = document.querySelector("[data-workout-loading]");
 const logoutButton = document.querySelector("[data-logout]");
 const profileChips = document.querySelector("[data-workout-profile-chips]");
 const contentGrid = document.querySelector("[data-workout-content-grid]");
-const contentCards = [...document.querySelectorAll("[data-workout-card]")];
 const filters = [...document.querySelectorAll("[data-workout-filter]")];
 const emptyState = document.querySelector("[data-workout-empty]");
+let contentCards = [];
 
 const labels = {
   nivel_exercicio: {
@@ -57,7 +58,22 @@ const labels = {
     variedade_refeicoes: "Ter mais variedade nas refeições",
     rotina_organizada: "Criar uma rotina mais organizada",
     bem_estar: "Melhorar hábitos de bem-estar"
+  },
+  categorias: {
+    mobilidade: "Mobilidade",
+    forca: "Força geral",
+    cardio_leve: "Cardio leve",
+    alongamento: "Alongamento",
+    pausas_ativas: "Pausas ativas"
   }
+};
+
+const cardClasses = {
+  mobilidade: "workout-card-mobility",
+  forca: "workout-card-strength",
+  cardio_leve: "workout-card-cardio",
+  alongamento: "workout-card-stretch",
+  pausas_ativas: "workout-card-break"
 };
 
 const getLabel = (group, value) => labels[group]?.[value] || value || "Não informado";
@@ -78,6 +94,53 @@ const addChip = (text) => {
   chip.className = "workout-profile-chip";
   chip.textContent = text;
   profileChips.append(chip);
+};
+
+const createElement = (tag, className, text) => {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text !== undefined) element.textContent = text;
+  return element;
+};
+
+const renderContentCards = (items) => {
+  if (!contentGrid) return;
+  contentGrid.innerHTML = "";
+
+  items.forEach((item) => {
+    const article = createElement("article", `workout-content-card ${cardClasses[item.categoria] || ""}`.trim());
+    article.dataset.workoutCard = "";
+    article.dataset.category = item.categoria || "outros";
+    article.dataset.level = (item.niveis || []).join(" ");
+    article.dataset.location = (item.locais || []).join(" ");
+    article.dataset.equipment = (item.equipamentos || []).join(" ");
+
+    const visual = createElement("div", "workout-card-visual");
+    visual.setAttribute("aria-hidden", "true");
+    visual.append(createElement("span", "", item.icone || "✦"));
+
+    const body = createElement("div", "workout-card-body");
+    const meta = createElement("div", "workout-card-meta");
+    meta.append(createElement("span", "", getLabel("categorias", item.categoria)));
+    const badge = createElement("i", "", "Combina com seu perfil");
+    badge.dataset.matchBadge = "";
+    badge.hidden = true;
+    meta.append(badge);
+
+    body.append(meta);
+    body.append(createElement("h3", "", item.titulo));
+    body.append(createElement("p", "", item.resumo));
+
+    const tags = createElement("div", "workout-card-tags");
+    (item.tags || []).slice(0, 3).forEach((tag) => tags.append(createElement("span", "", tag)));
+    if (!tags.children.length) tags.append(createElement("span", "", "Conteúdo geral"));
+    body.append(tags);
+
+    article.append(visual, body);
+    contentGrid.append(article);
+  });
+
+  contentCards = [...contentGrid.querySelectorAll("[data-workout-card]")];
 };
 
 const renderProfile = (userData, profileData, user) => {
@@ -104,17 +167,11 @@ const renderProfile = (userData, profileData, user) => {
   addChip(location);
   if (equipment.length) addChip(equipment.includes("nenhum") ? "Sem equipamento" : getLabel("equipamentos", equipment[0]));
 
-  const strengthEquipment = document.querySelector("[data-strength-equipment]");
-  if (strengthEquipment && equipment.length) {
-    strengthEquipment.textContent = equipment.includes("nenhum")
-      ? "Sem equipamento"
-      : getLabel("equipamentos", equipment[0]);
-  }
-
   return {
     level: profileData.nivel_exercicio || "",
     location: profileData.local_exercicio || "",
-    equipment
+    equipment,
+    duration: profileData.duracao_treino || ""
   };
 };
 
@@ -187,9 +244,10 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   try {
-    const [userSnapshot, profileSnapshot] = await Promise.all([
+    const [userSnapshot, profileSnapshot, contentResult] = await Promise.all([
       getDoc(doc(db, "usuarios", user.uid)),
-      getDoc(doc(db, "perfis", user.uid))
+      getDoc(doc(db, "perfis", user.uid)),
+      carregarConteudos("exercicio")
     ]);
 
     const userData = userSnapshot.exists() ? userSnapshot.data() : {};
@@ -202,6 +260,7 @@ onAuthStateChanged(auth, async (user) => {
       return;
     }
 
+    renderContentCards(contentResult.itens);
     const profile = renderProfile(userData, profileData, user);
     personalizeCards(profile);
     applyFilter("todos");

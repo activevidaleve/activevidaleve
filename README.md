@@ -1,4 +1,4 @@
-# Active Vida Leve — Baseline V18
+# Active Vida Leve — Baseline V24
 
 ## Estrutura atual
 - `index.html`: página inicial pública.
@@ -104,3 +104,39 @@ A área `exercicios.html` agora usa `js/exercicios.js` e `assets/css/exercicios.
 ## Sucos & Receitas — versão atual
 
 A área `receitas.html` agora inclui filtros por momento do dia, priorização por perfil alimentar, tempo disponível e interesses do onboarding, além de receitas editoriais expansíveis e avisos para restrições/alergias.
+
+## Minha Rotina — versão atual
+
+`rotina.html` agora permite visualizar e editar o perfil salvo em `perfis/{uid}` no Firestore. A página mantém autenticação e validação de acesso, limita a seleção a até 3 objetivos e atualiza os campos de movimento e alimentação sem permitir alteração dos estados de pagamento/acesso.
+## Conteúdos dinâmicos — versão atual
+
+As áreas `alimentacao.html`, `exercicios.html` e `receitas.html` não dependem mais de cards fixos no HTML. O módulo `js/conteudos.js` tenta carregar documentos publicados da coleção `conteudos` do Firestore e, enquanto a coleção estiver vazia, usa `dados/conteudos-exemplo.json` como fallback de desenvolvimento.
+
+### Estrutura recomendada de `conteudos/{conteudoId}`
+Campos comuns:
+- `tipo`: `alimentacao`, `exercicio` ou `receita`;
+- `categoria`: categoria principal;
+- `categorias`: categorias adicionais quando necessário;
+- `titulo`;
+- `resumo`;
+- `texto_apoio`;
+- `icone`;
+- `ordem`;
+- `destaque`;
+- `publicado`;
+- `tags`.
+
+Campos opcionais para personalização:
+- `perfis_alimentares`;
+- `tempo_preparo`;
+- `niveis`;
+- `locais`;
+- `equipamentos`;
+- `duracoes`;
+- `ingredientes`;
+- `preparo`.
+
+O arquivo `dados/conteudos-exemplo.json` serve como catálogo de demonstração e também como referência para cadastrar os primeiros documentos no Firestore. Quando existir pelo menos um documento publicado de determinado `tipo`, o conteúdo desse tipo passa a vir do Firestore.
+
+O navegador continua sem permissão para criar ou alterar documentos em `conteudos`; essa coleção é editorial e deve ser abastecida pelo console Firebase ou, futuramente, por uma área administrativa protegida/backend.
+

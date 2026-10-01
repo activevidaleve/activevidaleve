@@ -1,0 +1,412 @@
+/* =========================
+   MINHA ROTINA
+   ========================= */
+.rotina-main {
+  padding-bottom: 72px;
+  background: #F7F8F4;
+}
+
+.rotina-hero {
+  padding: 48px 0 36px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(79, 70, 229, .12), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(132, 204, 22, .12), transparent 25%),
+    linear-gradient(180deg, #FCFBF6, #F7F8F4);
+}
+
+.rotina-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 30px;
+  align-items: center;
+}
+
+.rotina-kicker,
+.rotina-section-heading > span,
+.rotina-summary-label {
+  color: #4F46E5;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.55px;
+}
+
+.rotina-hero h1 {
+  margin: 9px 0 0;
+  color: var(--text);
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1;
+  letter-spacing: -1.9px;
+}
+
+.rotina-hero p {
+  max-width: 730px;
+  margin: 14px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.rotina-status-card {
+  min-width: 240px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(79, 70, 229, .12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .86);
+  box-shadow: 0 14px 32px rgba(38, 62, 50, .06);
+}
+
+.rotina-status-dot {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 11px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 0 6px rgba(34, 197, 94, .1);
+}
+
+.rotina-status-card strong,
+.rotina-status-card small {
+  display: block;
+}
+
+.rotina-status-card strong {
+  color: var(--text);
+  font-size: 11px;
+}
+
+.rotina-status-card small {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 8.5px;
+}
+
+.rotina-layout {
+  padding-top: 44px;
+}
+
+.rotina-section-heading {
+  max-width: 760px;
+}
+
+.rotina-heading-row {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .65fr);
+  gap: 28px;
+  align-items: end;
+}
+
+.rotina-heading-row > p {
+  margin-bottom: 2px;
+}
+
+.rotina-section-heading h2 {
+  margin: 7px 0 0;
+  color: var(--text);
+  font-size: clamp(28px, 3.5vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -1.3px;
+}
+
+.rotina-section-heading p {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.rotina-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.rotina-summary-card {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid rgba(38, 62, 50, .08);
+  border-radius: 22px;
+  background: #FFF;
+  box-shadow: 0 12px 30px rgba(38, 62, 50, .05);
+}
+
+.rotina-summary-card strong {
+  margin-top: 16px;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.rotina-summary-card small {
+  margin-top: auto;
+  padding-top: 10px;
+  color: var(--text-muted);
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.rotina-editor {
+  margin-top: 46px;
+}
+
+.rotina-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.rotina-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 22px;
+  border: 1px solid rgba(38, 62, 50, .08);
+  border-radius: 24px;
+  background: #FFF;
+  box-shadow: 0 12px 30px rgba(38, 62, 50, .045);
+}
+
+.rotina-fieldset legend {
+  padding: 0 8px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.rotina-fieldset-help,
+.rotina-note {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 9.5px;
+  line-height: 1.6;
+}
+
+.rotina-note {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #F6F7F3;
+}
+
+.rotina-fields-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.rotina-field {
+  display: grid;
+  gap: 7px;
+}
+
+.rotina-field-wide {
+  grid-column: 1 / -1;
+}
+
+.rotina-field > span,
+.rotina-checkbox-block > span {
+  color: var(--text);
+  font-size: 9.5px;
+  font-weight: 700;
+}
+
+.rotina-field > span small {
+  color: var(--text-muted);
+  font-size: 8px;
+  font-weight: 500;
+}
+
+.rotina-field input,
+.rotina-field select,
+.rotina-field textarea {
+  width: 100%;
+  border: 1px solid #DDE5E0;
+  border-radius: 14px;
+  color: var(--text);
+  background: #FCFDFB;
+  font-family: inherit;
+  font-size: 10px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.rotina-field input,
+.rotina-field select {
+  min-height: 44px;
+  padding: 0 13px;
+}
+
+.rotina-field textarea {
+  resize: vertical;
+  min-height: 92px;
+  padding: 12px 13px;
+  line-height: 1.55;
+}
+
+.rotina-field input:focus,
+.rotina-field select:focus,
+.rotina-field textarea:focus {
+  border-color: rgba(79, 70, 229, .46);
+  background: #FFF;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, .08);
+}
+
+.rotina-checkbox-block {
+  margin-top: 17px;
+}
+
+.rotina-chip-options,
+.rotina-goal-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 9px;
+}
+
+.rotina-chip-options label,
+.rotina-goal-options label {
+  position: relative;
+  cursor: pointer;
+}
+
+.rotina-chip-options input,
+.rotina-goal-options input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rotina-chip-options span,
+.rotina-goal-options span {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid #DDE5E0;
+  border-radius: 999px;
+  color: #52605A;
+  background: #FCFDFB;
+  font-size: 9px;
+  font-weight: 600;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.rotina-chip-options input:checked + span,
+.rotina-goal-options input:checked + span {
+  border-color: rgba(79, 70, 229, .24);
+  color: #4338CA;
+  background: rgba(79, 70, 229, .08);
+}
+
+.rotina-chip-options-food input:checked + span {
+  border-color: rgba(34, 197, 94, .24);
+  color: #15803D;
+  background: rgba(34, 197, 94, .08);
+}
+
+.rotina-inline-error {
+  margin: 10px 0 0;
+  color: #DC2626;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.rotina-form-footer {
+  position: sticky;
+  bottom: 14px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 14px;
+  border: 1px solid rgba(38, 62, 50, .08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 14px 36px rgba(38, 62, 50, .08);
+  backdrop-filter: blur(12px);
+}
+
+.rotina-save-status {
+  color: var(--text-muted);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.rotina-save-status.is-success { color: #15803D; }
+.rotina-save-status.is-error { color: #DC2626; }
+
+.rotina-save-button {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, .36);
+  border-radius: 999px;
+  color: #FFF;
+  background: #4F46E5;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, .2);
+}
+
+.rotina-save-button:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+
+@media (max-width: 920px) {
+  .rotina-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .rotina-hero-inner,
+  .rotina-heading-row,
+  .rotina-fields-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .rotina-status-card {
+    min-width: 0;
+    max-width: 340px;
+  }
+
+  .rotina-field-wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .rotina-hero {
+    padding: 34px 0 28px;
+  }
+
+  .rotina-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rotina-summary-card {
+    min-height: 125px;
+  }
+
+  .rotina-fieldset {
+    padding: 18px 15px;
+  }
+
+  .rotina-form-footer {
+    align-items: stretch;
+    flex-direction: column;
+    bottom: 8px;
+  }
+
+  .rotina-save-button {
+    width: 100%;
+  }
+}

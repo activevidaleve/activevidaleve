@@ -1,0 +1,54 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /usuarios/{usuarioId} {
+      allow create: if request.auth != null
+                    && request.auth.uid == usuarioId
+                    && request.resource.data.status_pagamento == "pendente"
+                    && request.resource.data.status_acesso == "inativo";
+
+      allow read: if request.auth != null
+                  && request.auth.uid == usuarioId;
+
+      allow update: if request.auth != null
+                    && request.auth.uid == usuarioId
+                    && !request.resource.data.diff(resource.data)
+                         .affectedKeys()
+                         .hasAny([
+                           "status_pagamento",
+                           "status_acesso"
+                         ]);
+
+      allow delete: if false;
+    }
+
+    match /perfis/{usuarioId} {
+      allow create, read, update: if request.auth != null
+                                  && request.auth.uid == usuarioId;
+      allow delete: if false;
+    }
+
+    match /pagamentos/{pagamentoId} {
+      allow read: if request.auth != null
+                  && resource.data.usuario_id == request.auth.uid;
+      allow write: if false;
+    }
+
+    match /assinaturas/{assinaturaId} {
+      allow read: if request.auth != null
+                  && resource.data.usuario_id == request.auth.uid;
+      allow write: if false;
+    }
+
+    match /conteudos/{conteudoId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    match /{documento=**} {
+      allow read, write: if false;
+    }
+  }
+}

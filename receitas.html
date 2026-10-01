@@ -1,258 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#00C2A8">
-  <meta name="description" content="Área de sucos e receitas do Active Vida Leve, organizada a partir das preferências do perfil.">
-  <title>Sucos & Receitas | Active Vida Leve</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="./assets/css/global.css">
-  <link rel="stylesheet" href="./assets/css/area.css">
-  <link rel="stylesheet" href="./assets/css/receitas.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#00C2A8" name="theme-color"/>
+<meta content="Área de sucos e receitas do Active Vida Leve, organizada a partir das preferências do perfil." name="description"/>
+<title>Sucos &amp; Receitas | Active Vida Leve</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="./assets/css/global.css" rel="stylesheet"/>
+<link href="./assets/css/area.css" rel="stylesheet"/>
+<link href="./assets/css/receitas.css" rel="stylesheet"/>
 </head>
 <body class="area-page area-recipes recipes-page">
-  <header class="area-header">
-    <div class="container area-header-inner">
-      <a class="area-brand" href="./portal.html" aria-label="Voltar ao portal">
-        <img src="./assets/images/logo/active-vida-leve-horizontal.png" alt="Active Vida Leve" width="760" height="198">
-      </a>
-      <div class="area-header-actions">
-        <a class="area-back" href="./portal.html">← Portal</a>
-        <button class="area-logout" type="button" data-logout>Sair</button>
-      </div>
-    </div>
-  </header>
-
-  <main class="recipes-main" data-recipes-app hidden>
-    <section class="recipes-hero">
-      <div class="container recipes-hero-grid">
-        <div class="recipes-hero-copy">
-          <span class="recipes-eyebrow">SUCOS &amp; RECEITAS</span>
-          <h1>Receitas práticas para <strong data-user-name>você</strong>.</h1>
-          <p>Explore combinações simples e variadas. Os conteúdos mais próximos das preferências informadas no seu cadastro aparecem primeiro.</p>
-          <div class="recipes-profile-chips" data-recipes-profile-chips aria-label="Resumo do perfil alimentar"></div>
-        </div>
-
-        <div class="recipes-hero-visual" aria-hidden="true">
-          <div class="recipes-glass recipes-glass-green"></div>
-          <div class="recipes-glass recipes-glass-orange"></div>
-          <div class="recipes-bowl"><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container recipes-section" aria-labelledby="recipes-selection-title">
-      <div class="recipes-section-heading recipes-section-heading-split">
-        <div>
-          <span>SELEÇÃO PARA O SEU PERFIL</span>
-          <h2 id="recipes-selection-title">Ideias para diferentes momentos do dia.</h2>
-        </div>
-        <p>As receitas são exemplos editoriais do portal. Em caso de alergias ou restrições, confira sempre todos os ingredientes antes de preparar.</p>
-      </div>
-
-      <div class="recipes-filters" data-recipes-filters aria-label="Filtros de receitas">
-        <button type="button" class="is-active" data-recipes-filter="todos" aria-pressed="true">Todos</button>
-        <button type="button" data-recipes-filter="cafe_manha" aria-pressed="false">Café da manhã</button>
-        <button type="button" data-recipes-filter="almoco" aria-pressed="false">Almoço</button>
-        <button type="button" data-recipes-filter="jantar" aria-pressed="false">Jantar</button>
-        <button type="button" data-recipes-filter="lanches" aria-pressed="false">Lanches</button>
-        <button type="button" data-recipes-filter="sucos" aria-pressed="false">Sucos</button>
-        <button type="button" data-recipes-filter="receitas_rapidas" aria-pressed="false">Rápidas</button>
-      </div>
-
-      <div class="recipes-grid" data-recipes-grid>
-        <article class="recipe-card recipe-card-oats" data-recipe-card data-category="cafe_manha receitas_rapidas" data-profile="variada vegetariana vegana" data-time="ate_15">
-          <div class="recipe-card-visual" aria-hidden="true"><span>☀</span></div>
-          <div class="recipe-card-body">
-            <div class="recipe-card-meta"><span>Café da manhã</span><i data-match-badge hidden>Do seu perfil</i></div>
-            <h3>Aveia com banana e canela</h3>
-            <p>Uma combinação simples para preparar em poucos minutos e adaptar com frutas ou sementes disponíveis.</p>
-            <div class="recipe-facts"><span>Até 15 min</span><span>3 passos</span></div>
-            <button type="button" class="recipe-open" data-recipe-open aria-expanded="false">Ver receita</button>
-            <div class="recipe-details" data-recipe-details hidden>
-              <strong>Ingredientes-base</strong>
-              <p>Aveia, banana, leite ou bebida vegetal e canela. Frutas e sementes podem ser acrescentadas conforme preferência.</p>
-              <strong>Preparo</strong>
-              <ol><li>Aqueça a aveia com o líquido escolhido.</li><li>Adicione a banana amassada ou fatiada.</li><li>Finalize com canela e outros complementos de sua preferência.</li></ol>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card recipe-card-bowl" data-recipe-card data-category="almoco jantar" data-profile="variada vegetariana vegana" data-time="15_30">
-          <div class="recipe-card-visual" aria-hidden="true"><span>◒</span></div>
-          <div class="recipe-card-body">
-            <div class="recipe-card-meta"><span>Almoço ou jantar</span><i data-match-badge hidden>Do seu perfil</i></div>
-            <h3>Bowl de arroz, feijão e legumes</h3>
-            <p>Uma base conhecida organizada em bowl, com espaço para variar os legumes e temperos usados no dia.</p>
-            <div class="recipe-facts"><span>15–30 min</span><span>4 passos</span></div>
-            <button type="button" class="recipe-open" data-recipe-open aria-expanded="false">Ver receita</button>
-            <div class="recipe-details" data-recipe-details hidden>
-              <strong>Ingredientes-base</strong>
-              <p>Arroz, feijão, legumes cozidos ou assados, folhas e temperos. Use itens que já fazem parte da sua rotina.</p>
-              <strong>Preparo</strong>
-              <ol><li>Aqueça arroz e feijão já preparados.</li><li>Prepare ou aqueça os legumes.</li><li>Distribua os componentes em uma tigela.</li><li>Finalize com ervas, azeite ou temperos de preferência.</li></ol>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card recipe-card-chicken" data-recipe-card data-category="almoco jantar receitas_rapidas" data-profile="variada" data-time="15_30">
-          <div class="recipe-card-visual" aria-hidden="true"><span>◇</span></div>
-          <div class="recipe-card-body">
-            <div class="recipe-card-meta"><span>Refeição rápida</span><i data-match-badge hidden>Do seu perfil</i></div>
-            <h3>Frango com legumes na frigideira</h3>
-            <p>Uma preparação única de frigideira para combinar proteína, legumes e temperos em uma refeição prática.</p>
-            <div class="recipe-facts"><span>15–30 min</span><span>4 passos</span></div>
-            <button type="button" class="recipe-open" data-recipe-open aria-expanded="false">Ver receita</button>
-            <div class="recipe-details" data-recipe-details hidden>
-              <strong>Ingredientes-base</strong>
-              <p>Frango em cubos, legumes variados, azeite e temperos. Combine com arroz, massa ou outra base se desejar.</p>
-              <strong>Preparo</strong>
-              <ol><li>Corte o frango e os legumes em tamanhos semelhantes.</li><li>Doure o frango em frigideira aquecida.</li><li>Adicione os legumes e cozinhe até o ponto desejado.</li><li>Finalize com ervas e temperos.</li></ol>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card recipe-card-wrap" data-recipe-card data-category="lanches receitas_rapidas" data-profile="variada vegetariana vegana" data-time="ate_15">
-          <div class="recipe-card-visual" aria-hidden="true"><span>▱</span></div>
-          <div class="recipe-card-body">
-            <div class="recipe-card-meta"><span>Lanche</span><i data-match-badge hidden>Do seu perfil</i></div>
-            <h3>Wrap com recheio variado</h3>
-            <p>Uma estrutura simples: massa, recheio e vegetais. A proteína ou alternativa vegetal pode variar conforme seu perfil.</p>
-            <div class="recipe-facts"><span>Até 15 min</span><span>3 passos</span></div>
-            <button type="button" class="recipe-open" data-recipe-open aria-expanded="false">Ver receita</button>
-            <div class="recipe-details" data-recipe-details hidden>
-              <strong>Ingredientes-base</strong>
-              <p>Wrap ou pão folha, vegetais e um recheio de sua preferência, como frango, queijo, homus, feijão ou tofu.</p>
-              <strong>Preparo</strong>
-              <ol><li>Separe os ingredientes já higienizados e preparados.</li><li>Distribua o recheio sem sobrecarregar a massa.</li><li>Enrole e sirva inteiro ou cortado ao meio.</li></ol>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card recipe-card-smoothie" data-recipe-card data-category="sucos cafe_manha receitas_rapidas" data-profile="variada vegetariana vegana" data-time="ate_15">
-          <div class="recipe-card-visual" aria-hidden="true"><span>◫</span></div>
-          <div class="recipe-card-body">
-            <div class="recipe-card-meta"><span>Bebida</span><i data-match-badge hidden>Do seu perfil</i></div>
-            <h3>Vitamina de banana e cacau</h3>
-            <p>Uma bebida simples com banana, líquido de preferência e cacau, sem promessa de efeito “detox” ou resultado específico.</p>
-            <div class="recipe-facts"><span>Até 15 min</span><span>2 passos</span></div>
-            <button type="button" class="recipe-open" data-recipe-open aria-expanded="false">Ver receita</button>
-            <div class="recipe-details" data-recipe-details hidden>
-              <strong>Ingredientes-base</strong>
-              <p>Banana, leite ou bebida vegetal e cacau em pó. Ajuste a consistência usando mais ou menos líquido.</p>
-              <strong>Preparo</strong>
-              <ol><li>Coloque todos os ingredientes no liquidificador.</li><li>Bata até ficar homogêneo e sirva em seguida.</li></ol>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card recipe-card-juice" data-recipe-card data-category="sucos receitas_rapidas" data-profile="variada vegetariana vegana" data-time="ate_15">
-          <div class="recipe-card-visual" aria-hidden="true"><span>●</span></div>
-          <div class="recipe-card-body">
-            <div class="recipe-card-meta"><span>Suco</span><i data-match-badge hidden>Do seu perfil</i></div>
-            <h3>Abacaxi com hortelã</h3>
-            <p>Uma combinação refrescante para variar as bebidas do dia, mantendo a água como principal opção de hidratação.</p>
-            <div class="recipe-facts"><span>Até 15 min</span><span>2 passos</span></div>
-            <button type="button" class="recipe-open" data-recipe-open aria-expanded="false">Ver receita</button>
-            <div class="recipe-details" data-recipe-details hidden>
-              <strong>Ingredientes-base</strong>
-              <p>Abacaxi, água e folhas de hortelã. Gelo é opcional.</p>
-              <strong>Preparo</strong>
-              <ol><li>Bata o abacaxi com água até atingir a consistência desejada.</li><li>Adicione hortelã no final e bata rapidamente.</li></ol>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card recipe-card-pasta" data-recipe-card data-category="almoco jantar" data-profile="variada vegetariana vegana" data-time="30_60">
-          <div class="recipe-card-visual" aria-hidden="true"><span>≈</span></div>
-          <div class="recipe-card-body">
-            <div class="recipe-card-meta"><span>Refeição</span><i data-match-badge hidden>Do seu perfil</i></div>
-            <h3>Massa com molho de tomate e legumes</h3>
-            <p>Uma receita-base que aceita diferentes legumes e complementos conforme disponibilidade e preferência alimentar.</p>
-            <div class="recipe-facts"><span>30–60 min</span><span>4 passos</span></div>
-            <button type="button" class="recipe-open" data-recipe-open aria-expanded="false">Ver receita</button>
-            <div class="recipe-details" data-recipe-details hidden>
-              <strong>Ingredientes-base</strong>
-              <p>Massa, molho de tomate, cebola, legumes e ervas. Queijo ou alternativas vegetais são opcionais.</p>
-              <strong>Preparo</strong>
-              <ol><li>Cozinhe a massa conforme a embalagem.</li><li>Refogue cebola e os legumes escolhidos.</li><li>Junte o molho de tomate e aqueça.</li><li>Misture com a massa e finalize com ervas.</li></ol>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card recipe-card-yogurt" data-recipe-card data-category="lanches cafe_manha receitas_rapidas" data-profile="variada vegetariana" data-time="ate_15">
-          <div class="recipe-card-visual" aria-hidden="true"><span>✦</span></div>
-          <div class="recipe-card-body">
-            <div class="recipe-card-meta"><span>Lanche rápido</span><i data-match-badge hidden>Do seu perfil</i></div>
-            <h3>Iogurte com frutas e aveia</h3>
-            <p>Uma montagem rápida que pode variar de acordo com as frutas disponíveis e com as preferências do usuário.</p>
-            <div class="recipe-facts"><span>Até 15 min</span><span>2 passos</span></div>
-            <button type="button" class="recipe-open" data-recipe-open aria-expanded="false">Ver receita</button>
-            <div class="recipe-details" data-recipe-details hidden>
-              <strong>Ingredientes-base</strong>
-              <p>Iogurte, frutas e aveia. Sementes ou castanhas são opcionais, respeitando alergias e preferências.</p>
-              <strong>Preparo</strong>
-              <ol><li>Coloque o iogurte em uma tigela.</li><li>Adicione frutas, aveia e complementos escolhidos.</li></ol>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <p class="recipes-empty" data-recipes-empty hidden>Nenhuma receita desta categoria está disponível nesta versão.</p>
-    </section>
-
-    <section class="recipes-guide">
-      <div class="container recipes-section">
-        <div class="recipes-section-heading">
-          <span>COMO VAMOS ORGANIZAR</span>
-          <h2>Receitas para explorar, não regras para seguir.</h2>
-          <p>A proposta é facilitar escolhas e variar preparações. Não vamos transformar a área em contagem de calorias, dieta restritiva ou promessa de resultado corporal.</p>
-        </div>
-
-        <div class="recipes-guide-grid">
-          <article><span>01</span><h3>Tempo disponível</h3><p>Receitas mais curtas podem aparecer primeiro quando o perfil indica pouco tempo para cozinhar.</p></article>
-          <article><span>02</span><h3>Preferência alimentar</h3><p>O perfil ajuda a priorizar receitas compatíveis com alimentação variada, vegetariana ou vegana.</p></article>
-          <article><span>03</span><h3>Interesses</h3><p>Café da manhã, lanches, sucos e outros temas marcados no cadastro recebem maior destaque.</p></article>
-          <article><span>04</span><h3>Restrições exigem conferência</h3><p>Campos de alergia e restrição ajudam na organização, mas não substituem a leitura dos ingredientes nem orientação profissional quando necessária.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="container recipes-section recipes-profile-section" aria-labelledby="recipes-profile-title">
-      <div class="recipes-profile-panel">
-        <div class="recipes-profile-intro">
-          <span>SEU PERFIL ALIMENTAR</span>
-          <h2 id="recipes-profile-title">O que está orientando esta seleção.</h2>
-          <p>Essas informações vêm do cadastro e poderão ser alteradas em Minha Rotina.</p>
-          <a href="./rotina.html">Ver Minha Rotina →</a>
-        </div>
-
-        <div class="recipes-profile-data">
-          <div><span>Preferência alimentar</span><strong data-recipes-profile>—</strong></div>
-          <div><span>Tempo para preparo</span><strong data-recipes-time>—</strong></div>
-          <div class="recipes-profile-wide"><span>Interesses</span><strong data-recipes-interests>—</strong></div>
-          <div class="recipes-profile-wide"><span>Alimentos que prefere evitar</span><strong data-recipes-avoid>—</strong></div>
-          <div class="recipes-profile-wide"><span>Restrições ou alergias informadas</span><strong data-recipes-restrictions>—</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container recipes-note" aria-label="Aviso sobre receitas">
-      <strong>Antes de preparar</strong>
-      <p>Se você informou alergia, intolerância ou outra restrição, confira ingredientes, rótulos e possíveis contaminações cruzadas. Os exemplos desta página são conteúdos gerais e não substituem orientação individual.</p>
-    </section>
-  </main>
-
-  <div class="area-loading" data-recipes-loading>
-    <span class="payment-spinner" aria-hidden="true"></span>
-    <p>Organizando suas receitas…</p>
-  </div>
-
-  <script type="module" src="./js/receitas.js"></script>
+<header class="area-header">
+<div class="container area-header-inner">
+<a aria-label="Voltar ao portal" class="area-brand" href="./portal.html">
+<img alt="Active Vida Leve" height="198" src="./assets/images/logo/active-vida-leve-horizontal.png" width="760"/>
+</a>
+<div class="area-header-actions">
+<a class="area-back" href="./portal.html">← Portal</a>
+<button class="area-logout" data-logout="" type="button">Sair</button>
+</div>
+</div>
+</header>
+<main class="recipes-main" data-recipes-app="" hidden="">
+<section class="recipes-hero">
+<div class="container recipes-hero-grid">
+<div class="recipes-hero-copy">
+<span class="recipes-eyebrow">SUCOS &amp; RECEITAS</span>
+<h1>Receitas práticas para <strong data-user-name="">você</strong>.</h1>
+<p>Explore combinações simples e variadas. Os conteúdos mais próximos das preferências informadas no seu cadastro aparecem primeiro.</p>
+<div aria-label="Resumo do perfil alimentar" class="recipes-profile-chips" data-recipes-profile-chips=""></div>
+</div>
+<div aria-hidden="true" class="recipes-hero-visual">
+<div class="recipes-glass recipes-glass-green"></div>
+<div class="recipes-glass recipes-glass-orange"></div>
+<div class="recipes-bowl"><span></span><span></span><span></span></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="recipes-selection-title" class="container recipes-section">
+<div class="recipes-section-heading recipes-section-heading-split">
+<div>
+<span>SELEÇÃO PARA O SEU PERFIL</span>
+<h2 id="recipes-selection-title">Ideias para diferentes momentos do dia.</h2>
+</div>
+<p>As receitas são exemplos editoriais do portal. Em caso de alergias ou restrições, confira sempre todos os ingredientes antes de preparar.</p>
+</div>
+<div aria-label="Filtros de receitas" class="recipes-filters" data-recipes-filters="">
+<button aria-pressed="true" class="is-active" data-recipes-filter="todos" type="button">Todos</button>
+<button aria-pressed="false" data-recipes-filter="cafe_manha" type="button">Café da manhã</button>
+<button aria-pressed="false" data-recipes-filter="almoco" type="button">Almoço</button>
+<button aria-pressed="false" data-recipes-filter="jantar" type="button">Jantar</button>
+<button aria-pressed="false" data-recipes-filter="lanches" type="button">Lanches</button>
+<button aria-pressed="false" data-recipes-filter="sucos" type="button">Sucos</button>
+<button aria-pressed="false" data-recipes-filter="receitas_rapidas" type="button">Rápidas</button>
+</div>
+<div aria-live="polite" class="recipes-grid" data-recipes-grid=""></div>
+<p class="recipes-empty" data-recipes-empty="" hidden="">Nenhuma receita publicada nesta categoria.</p>
+</section>
+<section class="recipes-guide">
+<div class="container recipes-section">
+<div class="recipes-section-heading">
+<span>COMO VAMOS ORGANIZAR</span>
+<h2>Receitas para explorar, não regras para seguir.</h2>
+<p>A proposta é facilitar escolhas e variar preparações. Não vamos transformar a área em contagem de calorias, dieta restritiva ou promessa de resultado corporal.</p>
+</div>
+<div class="recipes-guide-grid">
+<article><span>01</span><h3>Tempo disponível</h3><p>Receitas mais curtas podem aparecer primeiro quando o perfil indica pouco tempo para cozinhar.</p></article>
+<article><span>02</span><h3>Preferência alimentar</h3><p>O perfil ajuda a priorizar receitas compatíveis com alimentação variada, vegetariana ou vegana.</p></article>
+<article><span>03</span><h3>Interesses</h3><p>Café da manhã, lanches, sucos e outros temas marcados no cadastro recebem maior destaque.</p></article>
+<article><span>04</span><h3>Restrições exigem conferência</h3><p>Campos de alergia e restrição ajudam na organização, mas não substituem a leitura dos ingredientes nem orientação profissional quando necessária.</p></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="recipes-profile-title" class="container recipes-section recipes-profile-section">
+<div class="recipes-profile-panel">
+<div class="recipes-profile-intro">
+<span>SEU PERFIL ALIMENTAR</span>
+<h2 id="recipes-profile-title">O que está orientando esta seleção.</h2>
+<p>Essas informações vêm do cadastro e poderão ser alteradas em Minha Rotina.</p>
+<a href="./rotina.html">Ver Minha Rotina →</a>
+</div>
+<div class="recipes-profile-data">
+<div><span>Preferência alimentar</span><strong data-recipes-profile="">—</strong></div>
+<div><span>Tempo para preparo</span><strong data-recipes-time="">—</strong></div>
+<div class="recipes-profile-wide"><span>Interesses</span><strong data-recipes-interests="">—</strong></div>
+<div class="recipes-profile-wide"><span>Alimentos que prefere evitar</span><strong data-recipes-avoid="">—</strong></div>
+<div class="recipes-profile-wide"><span>Restrições ou alergias informadas</span><strong data-recipes-restrictions="">—</strong></div>
+</div>
+</div>
+</section>
+<section aria-label="Aviso sobre receitas" class="container recipes-note">
+<strong>Antes de preparar</strong>
+<p>Se você informou alergia, intolerância ou outra restrição, confira ingredientes, rótulos e possíveis contaminações cruzadas. Os exemplos desta página são conteúdos gerais e não substituem orientação individual.</p>
+</section>
+</main>
+<div class="area-loading" data-recipes-loading="">
+<span aria-hidden="true" class="payment-spinner"></span>
+<p>Organizando suas receitas…</p>
+</div>
+<script src="./js/receitas.js" type="module"></script>
 </body>
 </html>

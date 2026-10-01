@@ -7,16 +7,16 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
+import { carregarConteudos } from "./conteudos.js";
 
 const app = document.querySelector("[data-recipes-app]");
 const loading = document.querySelector("[data-recipes-loading]");
 const logoutButton = document.querySelector("[data-logout]");
 const profileChips = document.querySelector("[data-recipes-profile-chips]");
 const recipesGrid = document.querySelector("[data-recipes-grid]");
-const cards = [...document.querySelectorAll("[data-recipe-card]")];
 const filters = [...document.querySelectorAll("[data-recipes-filter]")];
 const emptyState = document.querySelector("[data-recipes-empty]");
-const openButtons = [...document.querySelectorAll("[data-recipe-open]")];
+let cards = [];
 
 const labels = {
   perfil_alimentar: {
@@ -42,6 +42,15 @@ const labels = {
   }
 };
 
+const visualClasses = {
+  cafe_manha: "recipe-card-oats",
+  almoco: "recipe-card-bowl",
+  jantar: "recipe-card-pasta",
+  lanches: "recipe-card-wrap",
+  sucos: "recipe-card-juice",
+  receitas_rapidas: "recipe-card-smoothie"
+};
+
 const getLabel = (group, value) => labels[group]?.[value] || value || "Não informado";
 
 const listLabels = (group, values = []) => {
@@ -62,6 +71,87 @@ const addChip = (text) => {
   profileChips.append(chip);
 };
 
+const createElement = (tag, className, text) => {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text !== undefined) element.textContent = text;
+  return element;
+};
+
+const categoryLabel = (item) => {
+  const first = item.categoria || item.categorias?.[0];
+  return getLabel("interesses_alimentares", first);
+};
+
+const renderRecipeCards = (items) => {
+  if (!recipesGrid) return;
+  recipesGrid.innerHTML = "";
+
+  items.forEach((item) => {
+    const categories = item.categorias?.length ? item.categorias : [item.categoria].filter(Boolean);
+    const primaryCategory = item.categoria || categories[0] || "receitas_rapidas";
+    const article = createElement("article", `recipe-card ${visualClasses[primaryCategory] || ""}`.trim());
+    article.dataset.recipeCard = "";
+    article.dataset.category = categories.join(" ");
+    article.dataset.profile = (item.perfis_alimentares || []).join(" ");
+    article.dataset.time = item.tempo_preparo || "";
+
+    const visual = createElement("div", "recipe-card-visual");
+    visual.setAttribute("aria-hidden", "true");
+    visual.append(createElement("span", "", item.icone || "✦"));
+
+    const body = createElement("div", "recipe-card-body");
+    const meta = createElement("div", "recipe-card-meta");
+    meta.append(createElement("span", "", categoryLabel(item)));
+    const badge = createElement("i", "", "Do seu perfil");
+    badge.dataset.matchBadge = "";
+    badge.hidden = true;
+    meta.append(badge);
+
+    body.append(meta);
+    body.append(createElement("h3", "", item.titulo));
+    body.append(createElement("p", "", item.resumo));
+
+    const facts = createElement("div", "recipe-facts");
+    const factsList = item.tags?.length
+      ? item.tags
+      : [getLabel("tempo_preparo", item.tempo_preparo)];
+    factsList.slice(0, 3).forEach((fact) => facts.append(createElement("span", "", fact)));
+    body.append(facts);
+
+    if (item.ingredientes || item.preparo?.length) {
+      const button = createElement("button", "recipe-open", "Ver receita");
+      button.type = "button";
+      button.dataset.recipeOpen = "";
+      button.setAttribute("aria-expanded", "false");
+      body.append(button);
+
+      const details = createElement("div", "recipe-details");
+      details.dataset.recipeDetails = "";
+      details.hidden = true;
+
+      if (item.ingredientes) {
+        details.append(createElement("strong", "", "Ingredientes-base"));
+        details.append(createElement("p", "", item.ingredientes));
+      }
+
+      if (item.preparo?.length) {
+        details.append(createElement("strong", "", "Preparo"));
+        const list = document.createElement("ol");
+        item.preparo.forEach((step) => list.append(createElement("li", "", step)));
+        details.append(list);
+      }
+
+      body.append(details);
+    }
+
+    article.append(visual, body);
+    recipesGrid.append(article);
+  });
+
+  cards = [...recipesGrid.querySelectorAll("[data-recipe-card]")];
+};
+
 const timeScore = {
   ate_15: 1,
   "15_30": 2,
@@ -74,7 +164,7 @@ const getCardProfiles = (card) => (card.dataset.profile || "").split(/\s+/).filt
 
 const matchesProfile = (card, profile) => {
   const profiles = getCardProfiles(card);
-  const profileMatch = !profile.foodProfile || profile.foodProfile === "outra" || profiles.includes(profile.foodProfile);
+  const profileMatch = !profile.foodProfile || profile.foodProfile === "outra" || !profiles.length || profiles.includes(profile.foodProfile);
   const cardTime = card.dataset.time || "";
   const timeMatch = !profile.prepTime || !cardTime || (timeScore[cardTime] || 99) <= (timeScore[profile.prepTime] || 99);
   const categories = getCardCategories(card);
@@ -146,17 +236,18 @@ filters.forEach((button) => {
   button.addEventListener("click", () => applyFilter(button.dataset.recipesFilter || "todos"));
 });
 
-openButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const card = button.closest("[data-recipe-card]");
-    const details = card?.querySelector("[data-recipe-details]");
-    if (!details) return;
+recipesGrid?.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-recipe-open]");
+  if (!button) return;
 
-    const willOpen = details.hidden;
-    details.hidden = !willOpen;
-    button.setAttribute("aria-expanded", String(willOpen));
-    button.textContent = willOpen ? "Fechar receita" : "Ver receita";
-  });
+  const card = button.closest("[data-recipe-card]");
+  const details = card?.querySelector("[data-recipe-details]");
+  if (!details) return;
+
+  const willOpen = details.hidden;
+  details.hidden = !willOpen;
+  button.setAttribute("aria-expanded", String(willOpen));
+  button.textContent = willOpen ? "Fechar receita" : "Ver receita";
 });
 
 logoutButton?.addEventListener("click", async () => {
@@ -174,9 +265,10 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   try {
-    const [userSnapshot, profileSnapshot] = await Promise.all([
+    const [userSnapshot, profileSnapshot, contentResult] = await Promise.all([
       getDoc(doc(db, "usuarios", user.uid)),
-      getDoc(doc(db, "perfis", user.uid))
+      getDoc(doc(db, "perfis", user.uid)),
+      carregarConteudos("receita")
     ]);
 
     const userData = userSnapshot.exists() ? userSnapshot.data() : {};
@@ -189,6 +281,7 @@ onAuthStateChanged(auth, async (user) => {
       return;
     }
 
+    renderRecipeCards(contentResult.itens);
     const profile = renderProfile(userData, profileData, user);
     personalizeCards(profile);
     applyFilter("todos");
