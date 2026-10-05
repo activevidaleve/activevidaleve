@@ -34,15 +34,22 @@ const normalizeExperience = (data = {}) => {
 const normalizeMedia = (data = {}) => {
   const midia = data.midia && typeof data.midia === "object" ? data.midia : {};
   return {
-    imagem_url: String(midia.imagem_url || midia.imagem_pronto_url || data.imagem_url || "").trim(),
-    imagem_alt: String(midia.imagem_alt || midia.imagem_pronto_alt || data.imagem_alt || "").trim(),
+    imagem_url: String(midia.imagem_url || midia.imagem_apresentacao_url || midia.imagem_pronto_url || data.imagem_url || "").trim(),
+    imagem_alt: String(midia.imagem_alt || midia.imagem_apresentacao_alt || midia.imagem_pronto_alt || data.imagem_alt || "").trim(),
+    imagem_apresentacao_url: String(midia.imagem_apresentacao_url || data.imagem_apresentacao_url || "").trim(),
+    imagem_apresentacao_alt: String(midia.imagem_apresentacao_alt || data.imagem_apresentacao_alt || "").trim(),
     imagem_ingredientes_url: String(midia.imagem_ingredientes_url || data.imagem_ingredientes_url || "").trim(),
     imagem_ingredientes_alt: String(midia.imagem_ingredientes_alt || data.imagem_ingredientes_alt || "").trim(),
     imagem_pronto_url: String(midia.imagem_pronto_url || data.imagem_pronto_url || "").trim(),
     imagem_pronto_alt: String(midia.imagem_pronto_alt || data.imagem_pronto_alt || "").trim(),
     foco: String(midia.foco || "centro").trim(),
     proporcao_card: String(midia.proporcao_card || "4:3").trim(),
-    proporcao_detalhe: String(midia.proporcao_detalhe || "16:9").trim()
+    proporcao_detalhe: String(midia.proporcao_detalhe || "16:9").trim(),
+    legenda_apresentacao: String(midia.legenda_apresentacao || "").trim(),
+    legenda_ingredientes: String(midia.legenda_ingredientes || "").trim(),
+    legenda_pronto: String(midia.legenda_pronto || "").trim(),
+    brief_imagem_ingredientes: String(midia.brief_imagem_ingredientes || "").trim(),
+    brief_imagem_pronto: String(midia.brief_imagem_pronto || "").trim()
   };
 };
 
@@ -85,6 +92,8 @@ const normalize = (id, data = {}) => {
     destaque: data.destaque === true,
     publicado: data.publicado !== false,
     tags: asArray(data.tags),
+    perfil_sabor: String(data.perfil_sabor || "").trim(),
+    filtros_sabor: asArray(data.filtros_sabor),
     publico,
 
     // Compatibilidade com os componentes existentes enquanto a migração é gradual.

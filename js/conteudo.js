@@ -95,7 +95,8 @@ const renderQuickFacts = (item) => {
   const facts = [
     ["Tempo", item.experiencia?.tempo],
     ["Nível", item.experiencia?.dificuldade],
-    [item.tipo === "receita" ? "Rendimento" : "Formato", item.tipo === "receita" ? item.rendimento : item.experiencia?.formato]
+    [item.tipo === "receita" ? "Rendimento" : "Formato", item.tipo === "receita" ? item.rendimento : item.experiencia?.formato],
+    ...(item.categoria === "suco_detox" && item.perfil_sabor ? [["Perfil de sabor", item.perfil_sabor]] : [])
   ].filter(([, value]) => value);
 
   facts.forEach(([label, value]) => {
@@ -281,8 +282,31 @@ const renderJuiceMedia = (item) => {
     }
   };
 
-  setSlot("[data-juice-ingredients-image]", item.midia?.imagem_ingredientes_url, item.midia?.imagem_ingredientes_alt, "Espaço reservado", "Imagem dos ingredientes será inserida aqui.");
-  setSlot("[data-juice-ready-image]", item.midia?.imagem_pronto_url || item.imagem_url, item.midia?.imagem_pronto_alt || item.imagem_alt, "Espaço reservado", "Imagem do produto pronto será inserida aqui.");
+  const presentationUrl = item.midia?.imagem_apresentacao_url || item.imagem_url;
+  const presentationCard = document.querySelector("[data-juice-presentation-card]");
+  const readyCard = document.querySelector("[data-juice-ready-card]");
+  const presentationLabel = document.querySelector("[data-juice-presentation-label]");
+  section.classList.toggle("is-presentation", Boolean(presentationUrl));
+
+  if (presentationUrl) {
+    if (presentationCard) presentationCard.hidden = false;
+    if (readyCard) readyCard.hidden = true;
+    if (presentationLabel) presentationLabel.textContent = "APRESENTAÇÃO DA RECEITA";
+    setSlot(
+      "[data-juice-ingredients-image]",
+      presentationUrl,
+      item.midia?.imagem_apresentacao_alt || item.imagem_alt,
+      "Apresentação da receita",
+      item.midia?.legenda_apresentacao || "Ingredientes e bebida pronta na mesma imagem."
+    );
+    return;
+  }
+
+  if (presentationCard) presentationCard.hidden = false;
+  if (readyCard) readyCard.hidden = false;
+  if (presentationLabel) presentationLabel.textContent = "IMAGEM DOS INGREDIENTES";
+  setSlot("[data-juice-ingredients-image]", item.midia?.imagem_ingredientes_url, item.midia?.imagem_ingredientes_alt, "Foto dos ingredientes", item.midia?.legenda_ingredientes || "Imagem dos ingredientes será inserida aqui.");
+  setSlot("[data-juice-ready-image]", item.midia?.imagem_pronto_url, item.midia?.imagem_pronto_alt, "Foto do suco pronto", item.midia?.legenda_pronto || "Imagem do produto pronto será inserida aqui.");
 };
 
 const renderPersonalizedPresentation = (presentation = {}) => {

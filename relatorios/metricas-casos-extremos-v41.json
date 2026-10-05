@@ -59,9 +59,9 @@
   "longitudinal": {
     "contas": 120,
     "semanas": 26,
-    "media_conteudos_unicos": 63.14,
-    "min_conteudos_unicos": 58,
-    "max_conteudos_unicos": 66,
+    "media_conteudos_unicos": 61.08,
+    "min_conteudos_unicos": 55,
+    "max_conteudos_unicos": 65,
     "concluidos_reaparecendo": 0,
     "regressoes_estagio": 0,
     "taxa_recorrente": 1
@@ -69,7 +69,7 @@
   "comportamento": {
     "amostras": 180,
     "sobreposicao_apos_microinteracao": 0.9852,
-    "sobreposicao_apos_mudanca_persistente": 0.4596,
+    "sobreposicao_apos_mudanca_persistente": 0.4471,
     "taxa_inversao_exercicio_para_sucos": 1
   },
   "robustez": {

@@ -1,7 +1,7 @@
 {
-  "versao_esquema": 4,
-  "versao": "active_v33",
-  "observacao": "Rodada editorial dos conteúdos existentes + seção Sucos Detox com 20 receitas e espaços de mídia para ingredientes e produto pronto.",
+  "versao_esquema": 5,
+  "versao": "activevidaleve_v2",
+  "observacao": "Fechamento editorial e estrutural da seção Sucos Detox: 20 receitas revisadas individualmente, filtros por sabor e mídia dupla preparada para ingredientes e suco pronto.",
   "conteudos": [
     {
       "id": "alimentacao-cafe-variedade",
@@ -5794,7 +5794,7 @@
       "editorial_revisado": true
     },
     {
-      "id": "suco-detox-abacaxi-hortela-limao",
+      "id": "suco-detox-abacaxi-limao-hortela",
       "tipo": "receita",
       "categoria": "suco_detox",
       "categorias": [
@@ -5802,16 +5802,16 @@
         "receitas_rapidas",
         "suco_detox"
       ],
-      "titulo": "Abacaxi, hortelã e limão",
-      "resumo": "Uma combinação refrescante e cítrica, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
+      "titulo": "Abacaxi com Limão e Hortelã",
+      "resumo": "Abacaxi maduro, limão e hortelã em uma bebida leve, aromática e fácil de ajustar com água gelada.",
+      "texto_apoio": "Perfil de sabor: cítrico e refrescante • até 15 min • sem açúcar adicionado",
       "icone": "◉",
       "ordem": 310,
       "destaque": true,
       "publicado": true,
       "tempo_preparo": "ate_15",
       "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Abacaxi (2 fatias médias), Hortelã (6 folhas), Limão (1/2 unidade), Água gelada (200 ml).",
+      "ingredientes": "Abacaxi (2 fatias médias), Limão (1/2 unidade; suco), Hortelã (6 folhas), Água gelada (200 ml).",
       "ingredientes_lista": [
         {
           "item": "Abacaxi",
@@ -5819,13 +5819,13 @@
           "observacao": ""
         },
         {
-          "item": "Hortelã",
-          "quantidade": "6 folhas",
-          "observacao": ""
-        },
-        {
           "item": "Limão",
           "quantidade": "1/2 unidade",
+          "observacao": "suco"
+        },
+        {
+          "item": "Hortelã",
+          "quantidade": "6 folhas",
           "observacao": ""
         },
         {
@@ -5835,18 +5835,1249 @@
         }
       ],
       "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
+        "Higienize e prepare Abacaxi, Limão e Hortelã conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de abacaxi com limão e hortelã ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
       ],
       "tags": [
         "Suco detox",
         "Até 15 min",
-        "Sem açúcar adicionado"
+        "Sem açúcar adicionado",
+        "Cítrico e refrescante"
       ],
       "ingredientes_tags": [
         "abacaxi",
+        "limao",
+        "hortela"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "O abacaxi traz doçura natural, o limão equilibra com acidez e a hortelã deixa o aroma mais fresco.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se o abacaxi estiver bem doce, comece com menos limão e ajuste depois de provar.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Troque metade da água por água de coco para uma versão mais suave.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_1.png",
+        "imagem_alt": "Apresentação de Abacaxi com Limão e Hortelã, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_1.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Abacaxi com Limão e Hortelã.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Abacaxi com Limão e Hortelã",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Abacaxi com Limão e Hortelã pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Abacaxi com Limão e Hortelã no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Abacaxi com Limão e Hortelã no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "cítrico e refrescante",
+      "filtros_sabor": [
+        "refrescante",
+        "citrico",
+        "com_hortela"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-cenoura-laranja-gengibre",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Cenoura com Laranja e Gengibre",
+      "resumo": "Cenoura, laranja e uma pequena quantidade de gengibre formam um suco cítrico, encorpado e aromático.",
+      "texto_apoio": "Perfil de sabor: cítrico, adocicado e levemente picante • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 320,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Cenoura (1/2 unidade pequena; em rodelas), Laranja (2 unidades; sem sementes), Gengibre (1 lasca fina), Água (120 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Cenoura",
+          "quantidade": "1/2 unidade pequena",
+          "observacao": "em rodelas"
+        },
+        {
+          "item": "Laranja",
+          "quantidade": "2 unidades",
+          "observacao": "sem sementes"
+        },
+        {
+          "item": "Gengibre",
+          "quantidade": "1 lasca fina",
+          "observacao": ""
+        },
+        {
+          "item": "Água",
+          "quantidade": "120 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Cenoura, Laranja e Gengibre conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de cenoura com laranja e gengibre ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Cítrico, adocicado e levemente picante"
+      ],
+      "ingredientes_tags": [
+        "cenoura",
+        "laranja",
+        "gengibre"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "A laranja domina o sabor, a cenoura acrescenta corpo e o gengibre entra como nota aromática.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Use uma lasca pequena de gengibre na primeira vez e aumente somente depois de provar.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Substitua uma das laranjas por tangerina para mudar o aroma cítrico.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_2.png",
+        "imagem_alt": "Apresentação de Cenoura com Laranja e Gengibre, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_2.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Cenoura com Laranja e Gengibre.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Cenoura com Laranja e Gengibre",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Cenoura com Laranja e Gengibre pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Cenoura com Laranja e Gengibre no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Cenoura com Laranja e Gengibre no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "cítrico, adocicado e levemente picante",
+      "filtros_sabor": [
+        "citrico",
+        "com_gengibre",
+        "frutado"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-pepino-maca-verde-limao",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Pepino com Maçã Verde e Limão",
+      "resumo": "Pepino, maçã verde e limão criam uma combinação fresca, pouco doce e com acidez bem marcada.",
+      "texto_apoio": "Perfil de sabor: verde, leve e cítrico • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 330,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Pepino (1/3 unidade; com casca bem higienizada), Maçã verde (1 unidade pequena; sem sementes), Limão (1/2 unidade; suco), Água gelada (200 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Pepino",
+          "quantidade": "1/3 unidade",
+          "observacao": "com casca bem higienizada"
+        },
+        {
+          "item": "Maçã verde",
+          "quantidade": "1 unidade pequena",
+          "observacao": "sem sementes"
+        },
+        {
+          "item": "Limão",
+          "quantidade": "1/2 unidade",
+          "observacao": "suco"
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "200 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Pepino, Maçã verde e Limão conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de pepino com maçã verde e limão ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Verde, leve e cítrico"
+      ],
+      "ingredientes_tags": [
+        "pepino",
+        "maca_verde",
+        "limao"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "O pepino deixa a bebida leve, a maçã verde oferece um pouco de doçura e o limão fecha com um perfil mais cítrico.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se a maçã estiver muito ácida, reduza um pouco o limão antes de bater novamente.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente 3 folhas de hortelã para deixar o aroma mais fresco.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_3.png",
+        "imagem_alt": "Apresentação de Pepino com Maçã Verde e Limão, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_3.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Pepino com Maçã Verde e Limão.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Pepino com Maçã Verde e Limão",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Pepino com Maçã Verde e Limão pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Pepino com Maçã Verde e Limão no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Pepino com Maçã Verde e Limão no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "verde, leve e cítrico",
+      "filtros_sabor": [
+        "verde",
+        "refrescante",
+        "citrico"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-beterraba-cenoura-maca",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Beterraba com Cenoura e Maçã",
+      "resumo": "Beterraba, cenoura e maçã formam uma bebida de cor intensa, com doçura natural e sabor vegetal equilibrado.",
+      "texto_apoio": "Perfil de sabor: terroso, adocicado e frutado • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 340,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Beterraba (1/4 unidade pequena; crua e descascada), Cenoura (1/2 unidade pequena), Maçã (1/2 unidade; sem sementes), Água (200 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Beterraba",
+          "quantidade": "1/4 unidade pequena",
+          "observacao": "crua e descascada"
+        },
+        {
+          "item": "Cenoura",
+          "quantidade": "1/2 unidade pequena",
+          "observacao": ""
+        },
+        {
+          "item": "Maçã",
+          "quantidade": "1/2 unidade",
+          "observacao": "sem sementes"
+        },
+        {
+          "item": "Água",
+          "quantidade": "200 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Beterraba, Cenoura e Maçã conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de beterraba com cenoura e maçã ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Terroso, adocicado e frutado"
+      ],
+      "ingredientes_tags": [
+        "beterraba",
+        "cenoura",
+        "maca"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "A maçã suaviza o sabor da beterraba, enquanto a cenoura ajuda a dar corpo sem precisar adicionar açúcar.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Comece com pouca beterraba se você prefere sabores mais suaves.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente algumas gotas de limão para deixar o conjunto mais vivo.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_4.png",
+        "imagem_alt": "Apresentação de Beterraba com Cenoura e Maçã, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_4.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Beterraba com Cenoura e Maçã.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Beterraba com Cenoura e Maçã",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Beterraba com Cenoura e Maçã pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Beterraba com Cenoura e Maçã no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Beterraba com Cenoura e Maçã no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "terroso, adocicado e frutado",
+      "filtros_sabor": [
+        "frutado",
+        "refrescante"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-couve-abacaxi-limao",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Couve com Abacaxi e Limão",
+      "resumo": "Couve, abacaxi e limão em uma bebida verde com sabor tropical e acidez moderada.",
+      "texto_apoio": "Perfil de sabor: verde, tropical e cítrico • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 350,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Couve (1 folha pequena; sem talo grosso), Abacaxi (2 fatias médias), Limão (1/4 unidade; suco), Água gelada (200 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Couve",
+          "quantidade": "1 folha pequena",
+          "observacao": "sem talo grosso"
+        },
+        {
+          "item": "Abacaxi",
+          "quantidade": "2 fatias médias",
+          "observacao": ""
+        },
+        {
+          "item": "Limão",
+          "quantidade": "1/4 unidade",
+          "observacao": "suco"
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "200 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Couve, Abacaxi e Limão conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de couve com abacaxi e limão ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Verde, tropical e cítrico"
+      ],
+      "ingredientes_tags": [
+        "couve",
+        "abacaxi",
+        "limao"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "O abacaxi ajuda a equilibrar o sabor da couve e o limão acrescenta acidez sem dominar a combinação.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se o sabor verde ficar forte, use meia folha de couve ou aumente um pouco o abacaxi.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente 3 folhas de hortelã para um perfil mais refrescante.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_5.png",
+        "imagem_alt": "Apresentação de Couve com Abacaxi e Limão, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_5.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Couve com Abacaxi e Limão.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Couve com Abacaxi e Limão",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Couve com Abacaxi e Limão pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Couve com Abacaxi e Limão no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Couve com Abacaxi e Limão no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "verde, tropical e cítrico",
+      "filtros_sabor": [
+        "verde",
+        "citrico",
+        "refrescante"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-melancia-hortela",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Melancia com Hortelã",
+      "resumo": "Melancia gelada e hortelã em uma bebida simples, leve e com pouca necessidade de água adicionada.",
+      "texto_apoio": "Perfil de sabor: muito refrescante e suavemente doce • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 360,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Melancia (2 xícaras; em cubos), Hortelã (6 folhas), Água gelada (80 ml; opcional), Gelo (a gosto; opcional).",
+      "ingredientes_lista": [
+        {
+          "item": "Melancia",
+          "quantidade": "2 xícaras",
+          "observacao": "em cubos"
+        },
+        {
+          "item": "Hortelã",
+          "quantidade": "6 folhas",
+          "observacao": ""
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "80 ml",
+          "observacao": "opcional"
+        },
+        {
+          "item": "Gelo",
+          "quantidade": "a gosto",
+          "observacao": "opcional"
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Melancia e Hortelã conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de melancia com hortelã ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Muito refrescante e suavemente doce"
+      ],
+      "ingredientes_tags": [
+        "melancia",
+        "hortela"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Como a melancia já é muito suculenta, a hortelã entra principalmente para dar aroma e frescor.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se a melancia estiver muito madura e suculenta, dispense a água.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente algumas gotas de limão para trazer um contraste cítrico.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_6.png",
+        "imagem_alt": "Apresentação de Melancia com Hortelã, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_6.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Melancia com Hortelã.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Melancia com Hortelã",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Melancia com Hortelã pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Melancia com Hortelã no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Melancia com Hortelã no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "muito refrescante e suavemente doce",
+      "filtros_sabor": [
+        "refrescante",
+        "frutado",
+        "com_hortela"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-manga-curcuma-limao",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Manga com Cúrcuma e Limão",
+      "resumo": "Manga, limão e uma pequena quantidade de cúrcuma criam uma bebida amarela, cremosa e aromática.",
+      "texto_apoio": "Perfil de sabor: tropical, cítrico e especiado • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 370,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Manga (1/2 unidade média; madura), Limão (1/2 unidade; suco), Cúrcuma em pó (1/8 colher de chá), Água gelada (180 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Manga",
+          "quantidade": "1/2 unidade média",
+          "observacao": "madura"
+        },
+        {
+          "item": "Limão",
+          "quantidade": "1/2 unidade",
+          "observacao": "suco"
+        },
+        {
+          "item": "Cúrcuma em pó",
+          "quantidade": "1/8 colher de chá",
+          "observacao": ""
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "180 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Manga, Limão e Cúrcuma em pó conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de manga com cúrcuma e limão ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Tropical, cítrico e especiado"
+      ],
+      "ingredientes_tags": [
+        "manga",
+        "limao",
+        "curcuma_em_po"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "A manga oferece corpo e doçura, o limão equilibra e a cúrcuma deve aparecer apenas como nota de fundo.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Use pouca cúrcuma; a ideia é acrescentar aroma sem esconder o sabor da manga.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente 2 folhas de hortelã para uma versão mais fresca.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_7.png",
+        "imagem_alt": "Apresentação de Manga com Cúrcuma e Limão, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_7.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Manga com Cúrcuma e Limão.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Manga com Cúrcuma e Limão",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Manga com Cúrcuma e Limão pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Manga com Cúrcuma e Limão no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Manga com Cúrcuma e Limão no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "tropical, cítrico e especiado",
+      "filtros_sabor": [
+        "frutado",
+        "citrico"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-morango-banana-aveia",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Morango com Banana e Aveia",
+      "resumo": "Morango, banana e aveia formam uma bebida mais cremosa e encorpada, preparada sem açúcar adicionado.",
+      "texto_apoio": "Perfil de sabor: frutado, cremoso e suave • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 380,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Morango (6 unidades; higienizados), Banana (1/2 unidade; madura), Aveia em flocos (1 colher de sopa), Água gelada (180 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Morango",
+          "quantidade": "6 unidades",
+          "observacao": "higienizados"
+        },
+        {
+          "item": "Banana",
+          "quantidade": "1/2 unidade",
+          "observacao": "madura"
+        },
+        {
+          "item": "Aveia em flocos",
+          "quantidade": "1 colher de sopa",
+          "observacao": ""
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "180 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Morango, Banana e Aveia em flocos conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de morango com banana e aveia ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Frutado, cremoso e suave"
+      ],
+      "ingredientes_tags": [
+        "morango",
+        "banana",
+        "aveia_em_flocos"
+      ],
+      "alergenos": [
+        "aveia"
+      ],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "A banana dá cremosidade, o morango mantém o sabor frutado e a aveia aumenta a textura da bebida.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Para uma bebida mais leve, reduza a banana ou acrescente um pouco mais de água.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Use morangos congelados para deixar a bebida mais gelada e espessa.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Bebida cremosa preparada na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_8.png",
+        "imagem_alt": "Apresentação de Morango com Banana e Aveia, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_8.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Morango com Banana e Aveia.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Morango com Banana e Aveia",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Morango com Banana e Aveia pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Morango com Banana e Aveia no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Morango com Banana e Aveia no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "frutado, cremoso e suave",
+      "filtros_sabor": [
+        "frutado"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-laranja-gengibre-cenoura",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Laranja com Gengibre e Cenoura",
+      "resumo": "Uma versão mais cítrica da combinação de laranja, gengibre e cenoura, com destaque para o sabor da fruta.",
+      "texto_apoio": "Perfil de sabor: cítrico, vivo e levemente picante • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 390,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Laranja (3 unidades pequenas; sem sementes), Gengibre (1 lasca fina), Cenoura (1/3 unidade pequena), Água (80 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Laranja",
+          "quantidade": "3 unidades pequenas",
+          "observacao": "sem sementes"
+        },
+        {
+          "item": "Gengibre",
+          "quantidade": "1 lasca fina",
+          "observacao": ""
+        },
+        {
+          "item": "Cenoura",
+          "quantidade": "1/3 unidade pequena",
+          "observacao": ""
+        },
+        {
+          "item": "Água",
+          "quantidade": "80 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Laranja, Gengibre e Cenoura conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de laranja com gengibre e cenoura ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Cítrico, vivo e levemente picante"
+      ],
+      "ingredientes_tags": [
+        "laranja",
+        "gengibre",
+        "cenoura"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "Aqui a laranja aparece em maior proporção e a cenoura entra apenas para dar corpo, mantendo o conjunto bem cítrico.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se o gengibre estiver muito presente, aumente a quantidade de laranja em vez de adoçar.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente algumas gotas de limão para reforçar a acidez.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_9.png",
+        "imagem_alt": "Apresentação de Laranja com Gengibre e Cenoura, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_9.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Laranja com Gengibre e Cenoura.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Laranja com Gengibre e Cenoura",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Laranja com Gengibre e Cenoura pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Laranja com Gengibre e Cenoura no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Laranja com Gengibre e Cenoura no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "cítrico, vivo e levemente picante",
+      "filtros_sabor": [
+        "citrico",
+        "com_gengibre",
+        "frutado"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-kiwi-hortela-limao",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Kiwi com Hortelã e Limão",
+      "resumo": "Kiwi, hortelã e limão em uma bebida verde, aromática e com acidez evidente.",
+      "texto_apoio": "Perfil de sabor: ácido, verde e refrescante • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 400,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Kiwi (2 unidades; descascados), Hortelã (5 folhas), Limão (1/4 unidade; suco), Água gelada (200 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Kiwi",
+          "quantidade": "2 unidades",
+          "observacao": "descascados"
+        },
+        {
+          "item": "Hortelã",
+          "quantidade": "5 folhas",
+          "observacao": ""
+        },
+        {
+          "item": "Limão",
+          "quantidade": "1/4 unidade",
+          "observacao": "suco"
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "200 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Kiwi, Hortelã e Limão conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de kiwi com hortelã e limão ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Ácido, verde e refrescante"
+      ],
+      "ingredientes_tags": [
+        "kiwi",
         "hortela",
         "limao"
       ],
@@ -5871,26 +7102,31 @@
           "ate_15"
         ]
       },
-      "introducao": "Abacaxi, hortelã e limão tem um perfil de sabor refrescante e cítrica. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
+      "introducao": "O kiwi já traz bastante acidez, então o limão entra em pequena quantidade e a hortelã ajuda a deixar o conjunto mais fresco.",
       "secoes": [
         {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se o kiwi estiver bem ácido, use menos limão e um pouco mais de água.",
           "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
           ]
         },
         {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente meia maçã para deixar a bebida mais suave e frutada.",
+          "itens": []
+        },
+        {
           "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
           "itens": []
         }
       ],
       "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
       ],
       "experiencia": {
         "tempo": "Até 15 min",
@@ -5898,20 +7134,35 @@
         "formato": "Suco preparado na hora"
       },
       "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Abacaxi, hortelã e limão",
+        "imagem_url": "./assets/images/sucos-detox/detox_10.png",
+        "imagem_alt": "Apresentação de Kiwi com Hortelã e Limão, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_10.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Kiwi com Hortelã e Limão.",
         "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
         "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Abacaxi, hortelã e limão",
+        "imagem_ingredientes_alt": "Ingredientes da receita Kiwi com Hortelã e Limão",
         "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Abacaxi, hortelã e limão pronto"
+        "imagem_pronto_alt": "Bebida Kiwi com Hortelã e Limão pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Kiwi com Hortelã e Limão no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Kiwi com Hortelã e Limão no lado direito da mesma imagem."
       },
-      "editorial_revisado": true
+      "editorial_revisado": true,
+      "perfil_sabor": "ácido, verde e refrescante",
+      "filtros_sabor": [
+        "verde",
+        "citrico",
+        "refrescante",
+        "com_hortela"
+      ],
+      "editorial_versao": "detox_final_v3"
     },
     {
-      "id": "suco-detox-laranja-cenoura-gengibre",
+      "id": "suco-detox-mamao-laranja-limao",
       "tipo": "receita",
       "categoria": "suco_detox",
       "categorias": [
@@ -5919,31 +7170,31 @@
         "receitas_rapidas",
         "suco_detox"
       ],
-      "titulo": "Laranja, cenoura e gengibre",
-      "resumo": "Uma combinação cítrica e levemente picante, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
+      "titulo": "Mamão com Laranja e Limão",
+      "resumo": "Mamão, laranja e limão criam uma bebida cremosa, de sabor frutado e com acidez suficiente para equilibrar a doçura.",
+      "texto_apoio": "Perfil de sabor: frutado, cremoso e cítrico • até 15 min • sem açúcar adicionado",
       "icone": "◉",
-      "ordem": 320,
+      "ordem": 410,
       "destaque": false,
       "publicado": true,
       "tempo_preparo": "ate_15",
       "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Laranja (2 unidades), Cenoura (1/2 unidade pequena), Gengibre (1 lasca fina), Água (100 ml).",
+      "ingredientes": "Mamão (1 xícara; em cubos), Laranja (2 unidades; sem sementes), Limão (1/4 unidade; suco), Água (100 ml).",
       "ingredientes_lista": [
+        {
+          "item": "Mamão",
+          "quantidade": "1 xícara",
+          "observacao": "em cubos"
+        },
         {
           "item": "Laranja",
           "quantidade": "2 unidades",
-          "observacao": ""
+          "observacao": "sem sementes"
         },
         {
-          "item": "Cenoura",
-          "quantidade": "1/2 unidade pequena",
-          "observacao": ""
-        },
-        {
-          "item": "Gengibre",
-          "quantidade": "1 lasca fina",
-          "observacao": ""
+          "item": "Limão",
+          "quantidade": "1/4 unidade",
+          "observacao": "suco"
         },
         {
           "item": "Água",
@@ -5952,19 +7203,156 @@
         }
       ],
       "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
+        "Higienize e prepare Mamão, Laranja e Limão conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de mamão com laranja e limão ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
       ],
       "tags": [
         "Suco detox",
         "Até 15 min",
-        "Sem açúcar adicionado"
+        "Sem açúcar adicionado",
+        "Frutado, cremoso e cítrico"
       ],
       "ingredientes_tags": [
+        "mamao",
         "laranja",
-        "cenoura",
+        "limao"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "O mamão dá corpo, a laranja traz líquido e aroma e o limão impede que a bebida fique excessivamente doce.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se o mamão estiver muito maduro, aumente um pouco o limão ou a água para equilibrar.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Adicione uma pequena lasca de gengibre para um aroma mais marcante.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_11.png",
+        "imagem_alt": "Apresentação de Mamão com Laranja e Limão, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_11.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Mamão com Laranja e Limão.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Mamão com Laranja e Limão",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Mamão com Laranja e Limão pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Mamão com Laranja e Limão no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Mamão com Laranja e Limão no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "frutado, cremoso e cítrico",
+      "filtros_sabor": [
+        "frutado",
+        "citrico"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-maca-canela-gengibre",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Maçã com Canela e Gengibre",
+      "resumo": "Maçã, canela e gengibre em uma bebida aromática, leve e com especiarias em pequenas quantidades.",
+      "texto_apoio": "Perfil de sabor: frutado, aromático e especiado • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 420,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Maçã (1 unidade média; sem sementes), Canela em pó (1 pitada), Gengibre (1 lasca fina), Água gelada (220 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Maçã",
+          "quantidade": "1 unidade média",
+          "observacao": "sem sementes"
+        },
+        {
+          "item": "Canela em pó",
+          "quantidade": "1 pitada",
+          "observacao": ""
+        },
+        {
+          "item": "Gengibre",
+          "quantidade": "1 lasca fina",
+          "observacao": ""
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "220 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Maçã, Canela em pó e Gengibre conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de maçã com canela e gengibre ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Frutado, aromático e especiado"
+      ],
+      "ingredientes_tags": [
+        "maca",
+        "canela_em_po",
         "gengibre"
       ],
       "alergenos": [],
@@ -5988,26 +7376,31 @@
           "ate_15"
         ]
       },
-      "introducao": "Laranja, cenoura e gengibre tem um perfil de sabor cítrica e levemente picante. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
+      "introducao": "A maçã é a base da receita; canela e gengibre devem complementar o sabor, não dominar a bebida.",
       "secoes": [
         {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Comece com uma pitada pequena de canela e uma lasca fina de gengibre.",
           "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
           ]
         },
         {
+          "titulo": "Uma variação simples",
+          "texto": "Use maçã verde para uma versão mais ácida.",
+          "itens": []
+        },
+        {
           "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
           "itens": []
         }
       ],
       "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
       ],
       "experiencia": {
         "tempo": "Até 15 min",
@@ -6015,20 +7408,33 @@
         "formato": "Suco preparado na hora"
       },
       "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Laranja, cenoura e gengibre",
+        "imagem_url": "./assets/images/sucos-detox/detox_12.png",
+        "imagem_alt": "Apresentação de Maçã com Canela e Gengibre, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_12.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Maçã com Canela e Gengibre.",
         "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
         "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Laranja, cenoura e gengibre",
+        "imagem_ingredientes_alt": "Ingredientes da receita Maçã com Canela e Gengibre",
         "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Laranja, cenoura e gengibre pronto"
+        "imagem_pronto_alt": "Bebida Maçã com Canela e Gengibre pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Maçã com Canela e Gengibre no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Maçã com Canela e Gengibre no lado direito da mesma imagem."
       },
-      "editorial_revisado": true
+      "editorial_revisado": true,
+      "perfil_sabor": "frutado, aromático e especiado",
+      "filtros_sabor": [
+        "frutado",
+        "com_gengibre"
+      ],
+      "editorial_versao": "detox_final_v3"
     },
     {
-      "id": "suco-detox-melancia-limao-hortela",
+      "id": "suco-detox-abacaxi-pepino-hortela",
       "tipo": "receita",
       "categoria": "suco_detox",
       "categorias": [
@@ -6036,250 +7442,16 @@
         "receitas_rapidas",
         "suco_detox"
       ],
-      "titulo": "Melancia, limão e hortelã",
-      "resumo": "Uma combinação leve e refrescante, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
+      "titulo": "Abacaxi com Pepino e Hortelã",
+      "resumo": "Abacaxi, pepino e hortelã combinam doçura tropical, leveza e um aroma fresco.",
+      "texto_apoio": "Perfil de sabor: tropical, verde e refrescante • até 15 min • sem açúcar adicionado",
       "icone": "◉",
-      "ordem": 330,
+      "ordem": 430,
       "destaque": false,
       "publicado": true,
       "tempo_preparo": "ate_15",
       "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Melancia (2 xícaras em cubos), Limão (1/2 unidade), Hortelã (5 folhas), Água gelada (100 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Melancia",
-          "quantidade": "2 xícaras em cubos",
-          "observacao": ""
-        },
-        {
-          "item": "Limão",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Hortelã",
-          "quantidade": "5 folhas",
-          "observacao": ""
-        },
-        {
-          "item": "Água gelada",
-          "quantidade": "100 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "melancia",
-        "limao",
-        "hortela"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Melancia, limão e hortelã tem um perfil de sabor leve e refrescante. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Melancia, limão e hortelã",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Melancia, limão e hortelã",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Melancia, limão e hortelã pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-maca-pepino-limao",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Maçã, pepino e limão",
-      "resumo": "Uma combinação fresca e suavemente ácida, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 340,
-      "destaque": true,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Maçã (1 unidade), Pepino (1/3 de unidade), Limão (1/2 unidade), Água (200 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Maçã",
-          "quantidade": "1 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Pepino",
-          "quantidade": "1/3 de unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Limão",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "200 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "maca",
-        "pepino",
-        "limao"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Maçã, pepino e limão tem um perfil de sabor fresca e suavemente ácida. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Maçã, pepino e limão",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Maçã, pepino e limão",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Maçã, pepino e limão pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-abacaxi-couve-agua-coco",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Abacaxi, couve e água de coco",
-      "resumo": "Uma combinação tropical e herbácea, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 350,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Abacaxi (2 fatias médias), Couve (1 folha pequena), Água de coco (200 ml), Limão (1/4 de unidade).",
+      "ingredientes": "Abacaxi (2 fatias médias), Pepino (1/3 unidade), Hortelã (6 folhas), Água gelada (200 ml).",
       "ingredientes_lista": [
         {
           "item": "Abacaxi",
@@ -6287,502 +7459,35 @@
           "observacao": ""
         },
         {
-          "item": "Couve",
-          "quantidade": "1 folha pequena",
+          "item": "Pepino",
+          "quantidade": "1/3 unidade",
           "observacao": ""
         },
         {
-          "item": "Água de coco",
+          "item": "Hortelã",
+          "quantidade": "6 folhas",
+          "observacao": ""
+        },
+        {
+          "item": "Água gelada",
           "quantidade": "200 ml",
-          "observacao": ""
-        },
-        {
-          "item": "Limão",
-          "quantidade": "1/4 de unidade",
           "observacao": ""
         }
       ],
       "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
+        "Higienize e prepare Abacaxi, Pepino e Hortelã conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de abacaxi com pepino e hortelã ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
       ],
       "tags": [
         "Suco detox",
         "Até 15 min",
-        "Sem açúcar adicionado"
+        "Sem açúcar adicionado",
+        "Tropical, verde e refrescante"
       ],
       "ingredientes_tags": [
         "abacaxi",
-        "couve",
-        "agua_de_coco",
-        "limao"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Abacaxi, couve e água de coco tem um perfil de sabor tropical e herbácea. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Abacaxi, couve e água de coco",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Abacaxi, couve e água de coco",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Abacaxi, couve e água de coco pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-manga-maracuja",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Manga e maracujá",
-      "resumo": "Uma combinação tropical e aromática, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 360,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Manga (1/2 unidade média), Maracujá (1 unidade), Água (200 ml), Gelo (a gosto).",
-      "ingredientes_lista": [
-        {
-          "item": "Manga",
-          "quantidade": "1/2 unidade média",
-          "observacao": ""
-        },
-        {
-          "item": "Maracujá",
-          "quantidade": "1 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "200 ml",
-          "observacao": ""
-        },
-        {
-          "item": "Gelo",
-          "quantidade": "a gosto",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "manga",
-        "maracuja"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Manga e maracujá tem um perfil de sabor tropical e aromática. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Manga e maracujá",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Manga e maracujá",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Manga e maracujá pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-morango-laranja-hortela",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Morango, laranja e hortelã",
-      "resumo": "Uma combinação frutada e refrescante, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 370,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Morango (6 unidades), Laranja (2 unidades), Hortelã (4 folhas), Água (100 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Morango",
-          "quantidade": "6 unidades",
-          "observacao": ""
-        },
-        {
-          "item": "Laranja",
-          "quantidade": "2 unidades",
-          "observacao": ""
-        },
-        {
-          "item": "Hortelã",
-          "quantidade": "4 folhas",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "100 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "morango",
-        "laranja",
-        "hortela"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Morango, laranja e hortelã tem um perfil de sabor frutada e refrescante. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Morango, laranja e hortelã",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Morango, laranja e hortelã",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Morango, laranja e hortelã pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-beterraba-laranja-maca",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Beterraba, laranja e maçã",
-      "resumo": "Uma combinação terrosa, cítrica e adocicada, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 380,
-      "destaque": true,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Beterraba (1/4 de unidade pequena), Laranja (2 unidades), Maçã (1/2 unidade), Água (100 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Beterraba",
-          "quantidade": "1/4 de unidade pequena",
-          "observacao": ""
-        },
-        {
-          "item": "Laranja",
-          "quantidade": "2 unidades",
-          "observacao": ""
-        },
-        {
-          "item": "Maçã",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "100 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "beterraba",
-        "laranja",
-        "maca"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Beterraba, laranja e maçã tem um perfil de sabor terrosa, cítrica e adocicada. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Beterraba, laranja e maçã",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Beterraba, laranja e maçã",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Beterraba, laranja e maçã pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-pera-pepino-hortela",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Pera, pepino e hortelã",
-      "resumo": "Uma combinação suave e fresca, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 390,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Pera (1 unidade), Pepino (1/3 de unidade), Hortelã (5 folhas), Água (200 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Pera",
-          "quantidade": "1 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Pepino",
-          "quantidade": "1/3 de unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Hortelã",
-          "quantidade": "5 folhas",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "200 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "pera",
         "pepino",
         "hortela"
       ],
@@ -6807,26 +7512,31 @@
           "ate_15"
         ]
       },
-      "introducao": "Pera, pepino e hortelã tem um perfil de sabor suave e fresca. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
+      "introducao": "O abacaxi concentra o sabor, enquanto pepino e hortelã tornam a bebida mais leve e refrescante.",
       "secoes": [
         {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se o pepino estiver muito presente, aumente um pouco o abacaxi.",
           "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
           ]
         },
         {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente algumas gotas de limão para reforçar a acidez.",
+          "itens": []
+        },
+        {
           "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
           "itens": []
         }
       ],
       "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
       ],
       "experiencia": {
         "tempo": "Até 15 min",
@@ -6834,20 +7544,35 @@
         "formato": "Suco preparado na hora"
       },
       "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Pera, pepino e hortelã",
+        "imagem_url": "./assets/images/sucos-detox/detox_13.png",
+        "imagem_alt": "Apresentação de Abacaxi com Pepino e Hortelã, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_13.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Abacaxi com Pepino e Hortelã.",
         "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
         "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Pera, pepino e hortelã",
+        "imagem_ingredientes_alt": "Ingredientes da receita Abacaxi com Pepino e Hortelã",
         "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Pera, pepino e hortelã pronto"
+        "imagem_pronto_alt": "Bebida Abacaxi com Pepino e Hortelã pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Abacaxi com Pepino e Hortelã no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Abacaxi com Pepino e Hortelã no lado direito da mesma imagem."
       },
-      "editorial_revisado": true
+      "editorial_revisado": true,
+      "perfil_sabor": "tropical, verde e refrescante",
+      "filtros_sabor": [
+        "verde",
+        "refrescante",
+        "frutado",
+        "com_hortela"
+      ],
+      "editorial_versao": "detox_final_v3"
     },
     {
-      "id": "suco-detox-kiwi-maca-limao",
+      "id": "suco-detox-morango-laranja-chia",
       "tipo": "receita",
       "categoria": "suco_detox",
       "categorias": [
@@ -6855,53 +7580,54 @@
         "receitas_rapidas",
         "suco_detox"
       ],
-      "titulo": "Kiwi, maçã e limão",
-      "resumo": "Uma combinação ácida e frutada, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
+      "titulo": "Morango com Laranja e Chia",
+      "resumo": "Morango, laranja e chia formam uma bebida vermelha, frutada e com textura levemente encorpada.",
+      "texto_apoio": "Perfil de sabor: frutado, cítrico e levemente encorpado • até 15 min • sem açúcar adicionado",
       "icone": "◉",
-      "ordem": 400,
+      "ordem": 440,
       "destaque": false,
       "publicado": true,
       "tempo_preparo": "ate_15",
       "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Kiwi (2 unidades), Maçã (1/2 unidade), Limão (1/4 de unidade), Água (200 ml).",
+      "ingredientes": "Morango (6 unidades; higienizados), Laranja (2 unidades; sem sementes), Chia (1 colher de chá), Água (100 ml).",
       "ingredientes_lista": [
         {
-          "item": "Kiwi",
+          "item": "Morango",
+          "quantidade": "6 unidades",
+          "observacao": "higienizados"
+        },
+        {
+          "item": "Laranja",
           "quantidade": "2 unidades",
-          "observacao": ""
+          "observacao": "sem sementes"
         },
         {
-          "item": "Maçã",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Limão",
-          "quantidade": "1/4 de unidade",
+          "item": "Chia",
+          "quantidade": "1 colher de chá",
           "observacao": ""
         },
         {
           "item": "Água",
-          "quantidade": "200 ml",
+          "quantidade": "100 ml",
           "observacao": ""
         }
       ],
       "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
+        "Higienize e prepare Morango, Laranja e Chia conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de morango com laranja e chia ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
       ],
       "tags": [
         "Suco detox",
         "Até 15 min",
-        "Sem açúcar adicionado"
+        "Sem açúcar adicionado",
+        "Frutado, cítrico e levemente encorpado"
       ],
       "ingredientes_tags": [
-        "kiwi",
-        "maca",
-        "limao"
+        "morango",
+        "laranja",
+        "chia"
       ],
       "alergenos": [],
       "publico": {
@@ -6924,26 +7650,31 @@
           "ate_15"
         ]
       },
-      "introducao": "Kiwi, maçã e limão tem um perfil de sabor ácida e frutada. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
+      "introducao": "A laranja fornece a base líquida, o morango traz cor e sabor e a chia muda suavemente a textura quando repousa.",
       "secoes": [
         {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se preferir a textura mais líquida, use metade da quantidade de chia.",
           "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
           ]
         },
         {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente 2 folhas de hortelã para um aroma mais fresco.",
+          "itens": []
+        },
+        {
           "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
           "itens": []
         }
       ],
       "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
       ],
       "experiencia": {
         "tempo": "Até 15 min",
@@ -6951,20 +7682,33 @@
         "formato": "Suco preparado na hora"
       },
       "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Kiwi, maçã e limão",
+        "imagem_url": "./assets/images/sucos-detox/detox_14.png",
+        "imagem_alt": "Apresentação de Morango com Laranja e Chia, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_14.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Morango com Laranja e Chia.",
         "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
         "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Kiwi, maçã e limão",
+        "imagem_ingredientes_alt": "Ingredientes da receita Morango com Laranja e Chia",
         "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Kiwi, maçã e limão pronto"
+        "imagem_pronto_alt": "Bebida Morango com Laranja e Chia pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Morango com Laranja e Chia no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Morango com Laranja e Chia no lado direito da mesma imagem."
       },
-      "editorial_revisado": true
+      "editorial_revisado": true,
+      "perfil_sabor": "frutado, cítrico e levemente encorpado",
+      "filtros_sabor": [
+        "frutado",
+        "citrico"
+      ],
+      "editorial_versao": "detox_final_v3"
     },
     {
-      "id": "suco-detox-melao-limao-gengibre",
+      "id": "suco-detox-espinafre-abacaxi-gengibre",
       "tipo": "receita",
       "categoria": "suco_detox",
       "categorias": [
@@ -6972,26 +7716,301 @@
         "receitas_rapidas",
         "suco_detox"
       ],
-      "titulo": "Melão, limão e gengibre",
-      "resumo": "Uma combinação suave, cítrica e aromática, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
+      "titulo": "Espinafre com Abacaxi e Gengibre",
+      "resumo": "Espinafre, abacaxi e gengibre em uma bebida verde com sabor tropical e uma nota aromática discreta.",
+      "texto_apoio": "Perfil de sabor: verde, tropical e levemente picante • até 15 min • sem açúcar adicionado",
       "icone": "◉",
-      "ordem": 410,
+      "ordem": 450,
       "destaque": false,
       "publicado": true,
       "tempo_preparo": "ate_15",
       "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Melão (2 xícaras em cubos), Limão (1/2 unidade), Gengibre (1 lasca fina), Água (150 ml).",
+      "ingredientes": "Espinafre (1 xícara de folhas; bem higienizadas), Abacaxi (2 fatias médias), Gengibre (1 lasca fina), Água gelada (220 ml).",
       "ingredientes_lista": [
         {
-          "item": "Melão",
-          "quantidade": "2 xícaras em cubos",
+          "item": "Espinafre",
+          "quantidade": "1 xícara de folhas",
+          "observacao": "bem higienizadas"
+        },
+        {
+          "item": "Abacaxi",
+          "quantidade": "2 fatias médias",
           "observacao": ""
         },
         {
+          "item": "Gengibre",
+          "quantidade": "1 lasca fina",
+          "observacao": ""
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "220 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Espinafre, Abacaxi e Gengibre conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de espinafre com abacaxi e gengibre ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Verde, tropical e levemente picante"
+      ],
+      "ingredientes_tags": [
+        "espinafre",
+        "abacaxi",
+        "gengibre"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "O abacaxi suaviza o sabor do espinafre e o gengibre deve entrar em pouca quantidade para não dominar.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se você prefere um sabor verde mais discreto, comece com meia xícara de espinafre.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Adicione algumas gotas de limão para um contraste cítrico.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_15.png",
+        "imagem_alt": "Apresentação de Espinafre com Abacaxi e Gengibre, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_15.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Espinafre com Abacaxi e Gengibre.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Espinafre com Abacaxi e Gengibre",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Espinafre com Abacaxi e Gengibre pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Espinafre com Abacaxi e Gengibre no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Espinafre com Abacaxi e Gengibre no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "verde, tropical e levemente picante",
+      "filtros_sabor": [
+        "verde",
+        "com_gengibre",
+        "frutado"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-limao-pepino-gengibre",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Limão com Pepino e Gengibre",
+      "resumo": "Limão, pepino e gengibre em uma bebida bem fresca, com acidez nítida e gengibre em pequena quantidade.",
+      "texto_apoio": "Perfil de sabor: cítrico, verde e picante • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 460,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Limão (1/2 unidade; suco), Pepino (1/3 unidade), Gengibre (1 lasca fina), Água gelada (220 ml).",
+      "ingredientes_lista": [
+        {
           "item": "Limão",
           "quantidade": "1/2 unidade",
+          "observacao": "suco"
+        },
+        {
+          "item": "Pepino",
+          "quantidade": "1/3 unidade",
           "observacao": ""
+        },
+        {
+          "item": "Gengibre",
+          "quantidade": "1 lasca fina",
+          "observacao": ""
+        },
+        {
+          "item": "Água gelada",
+          "quantidade": "220 ml",
+          "observacao": ""
+        }
+      ],
+      "preparo": [
+        "Higienize e prepare Limão, Pepino e Gengibre conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de limão com pepino e gengibre ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
+      ],
+      "tags": [
+        "Suco detox",
+        "Até 15 min",
+        "Sem açúcar adicionado",
+        "Cítrico, verde e picante"
+      ],
+      "ingredientes_tags": [
+        "limao",
+        "pepino",
+        "gengibre"
+      ],
+      "alergenos": [],
+      "publico": {
+        "objetivos": [
+          "variar_refeicoes",
+          "bem_estar",
+          "receitas_praticas"
+        ],
+        "interesses": [
+          "sucos",
+          "receitas_rapidas"
+        ],
+        "perfis_alimentares": [
+          "variada",
+          "vegetariana",
+          "vegana",
+          "outra"
+        ],
+        "tempo_preparo": [
+          "ate_15"
+        ]
+      },
+      "introducao": "O pepino ajuda a diluir a acidez do limão e o gengibre entra apenas como detalhe aromático.",
+      "secoes": [
+        {
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Comece com menos limão e gengibre se você prefere sabores mais suaves.",
+          "itens": [
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
+          ]
+        },
+        {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente 3 folhas de hortelã para aumentar a sensação de frescor.",
+          "itens": []
+        },
+        {
+          "titulo": "Sobre o nome “detox”",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
+          "itens": []
+        }
+      ],
+      "observacoes": [
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
+      ],
+      "experiencia": {
+        "tempo": "Até 15 min",
+        "dificuldade": "Fácil",
+        "formato": "Suco preparado na hora"
+      },
+      "midia": {
+        "imagem_url": "./assets/images/sucos-detox/detox_16.png",
+        "imagem_alt": "Apresentação de Limão com Pepino e Gengibre, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_16.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Limão com Pepino e Gengibre.",
+        "foco": "centro",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
+        "imagem_ingredientes_url": "",
+        "imagem_ingredientes_alt": "Ingredientes da receita Limão com Pepino e Gengibre",
+        "imagem_pronto_url": "",
+        "imagem_pronto_alt": "Bebida Limão com Pepino e Gengibre pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Limão com Pepino e Gengibre no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Limão com Pepino e Gengibre no lado direito da mesma imagem."
+      },
+      "editorial_revisado": true,
+      "perfil_sabor": "cítrico, verde e picante",
+      "filtros_sabor": [
+        "verde",
+        "citrico",
+        "com_gengibre",
+        "refrescante"
+      ],
+      "editorial_versao": "detox_final_v3"
+    },
+    {
+      "id": "suco-detox-beterraba-laranja-gengibre",
+      "tipo": "receita",
+      "categoria": "suco_detox",
+      "categorias": [
+        "sucos",
+        "receitas_rapidas",
+        "suco_detox"
+      ],
+      "titulo": "Beterraba com Laranja e Gengibre",
+      "resumo": "Beterraba, laranja e gengibre formam uma bebida de cor intensa, com cítrico dominante e um toque terroso.",
+      "texto_apoio": "Perfil de sabor: terroso, cítrico e aromático • até 15 min • sem açúcar adicionado",
+      "icone": "◉",
+      "ordem": 470,
+      "destaque": false,
+      "publicado": true,
+      "tempo_preparo": "ate_15",
+      "rendimento": "1 copo grande (aprox. 300–400 ml)",
+      "ingredientes": "Beterraba (1/4 unidade pequena; crua e descascada), Laranja (2 unidades; sem sementes), Gengibre (1 lasca fina), Água (150 ml).",
+      "ingredientes_lista": [
+        {
+          "item": "Beterraba",
+          "quantidade": "1/4 unidade pequena",
+          "observacao": "crua e descascada"
+        },
+        {
+          "item": "Laranja",
+          "quantidade": "2 unidades",
+          "observacao": "sem sementes"
         },
         {
           "item": "Gengibre",
@@ -7005,19 +8024,20 @@
         }
       ],
       "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
+        "Higienize e prepare Beterraba, Laranja e Gengibre conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de beterraba com laranja e gengibre ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
       ],
       "tags": [
         "Suco detox",
         "Até 15 min",
-        "Sem açúcar adicionado"
+        "Sem açúcar adicionado",
+        "Terroso, cítrico e aromático"
       ],
       "ingredientes_tags": [
-        "melao",
-        "limao",
+        "beterraba",
+        "laranja",
         "gengibre"
       ],
       "alergenos": [],
@@ -7041,26 +8061,31 @@
           "ate_15"
         ]
       },
-      "introducao": "Melão, limão e gengibre tem um perfil de sabor suave, cítrica e aromática. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
+      "introducao": "A laranja ajuda a equilibrar a beterraba, enquanto o gengibre adiciona aroma sem precisar aparecer em grande quantidade.",
       "secoes": [
         {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se o sabor da beterraba estiver forte, reduza a quantidade ou acrescente mais laranja.",
           "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
           ]
         },
         {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente algumas gotas de limão para uma acidez mais marcada.",
+          "itens": []
+        },
+        {
           "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
           "itens": []
         }
       ],
       "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
       ],
       "experiencia": {
         "tempo": "Até 15 min",
@@ -7068,20 +8093,34 @@
         "formato": "Suco preparado na hora"
       },
       "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Melão, limão e gengibre",
+        "imagem_url": "./assets/images/sucos-detox/detox_17.png",
+        "imagem_alt": "Apresentação de Beterraba com Laranja e Gengibre, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_17.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Beterraba com Laranja e Gengibre.",
         "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
         "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Melão, limão e gengibre",
+        "imagem_ingredientes_alt": "Ingredientes da receita Beterraba com Laranja e Gengibre",
         "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Melão, limão e gengibre pronto"
+        "imagem_pronto_alt": "Bebida Beterraba com Laranja e Gengibre pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Beterraba com Laranja e Gengibre no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Beterraba com Laranja e Gengibre no lado direito da mesma imagem."
       },
-      "editorial_revisado": true
+      "editorial_revisado": true,
+      "perfil_sabor": "terroso, cítrico e aromático",
+      "filtros_sabor": [
+        "citrico",
+        "com_gengibre",
+        "frutado"
+      ],
+      "editorial_versao": "detox_final_v3"
     },
     {
-      "id": "suco-detox-uva-limao",
+      "id": "suco-detox-abacaxi-manga-limao",
       "tipo": "receita",
       "categoria": "suco_detox",
       "categorias": [
@@ -7089,752 +8128,53 @@
         "receitas_rapidas",
         "suco_detox"
       ],
-      "titulo": "Uva roxa, limão e água",
-      "resumo": "Uma combinação frutada e cítrica, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
+      "titulo": "Abacaxi com Manga e Limão",
+      "resumo": "Abacaxi, manga e limão em uma bebida tropical, encorpada e com equilíbrio entre doçura e acidez.",
+      "texto_apoio": "Perfil de sabor: tropical, frutado e cítrico • até 15 min • sem açúcar adicionado",
       "icone": "◉",
-      "ordem": 420,
+      "ordem": 480,
       "destaque": false,
       "publicado": true,
       "tempo_preparo": "ate_15",
       "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Uva roxa sem sementes (1 xícara), Limão (1/2 unidade), Água gelada (200 ml), Gelo (a gosto).",
-      "ingredientes_lista": [
-        {
-          "item": "Uva roxa sem sementes",
-          "quantidade": "1 xícara",
-          "observacao": ""
-        },
-        {
-          "item": "Limão",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Água gelada",
-          "quantidade": "200 ml",
-          "observacao": ""
-        },
-        {
-          "item": "Gelo",
-          "quantidade": "a gosto",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "uva_roxa_sem_sementes",
-        "limao"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Uva roxa, limão e água tem um perfil de sabor frutada e cítrica. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Uva roxa, limão e água",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Uva roxa, limão e água",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Uva roxa, limão e água pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-abacaxi-maracuja-hortela",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Abacaxi, maracujá e hortelã",
-      "resumo": "Uma combinação tropical e refrescante, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 430,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Abacaxi (2 fatias), Maracujá (1 unidade), Hortelã (5 folhas), Água (200 ml).",
+      "ingredientes": "Abacaxi (1 fatia média), Manga (1/2 unidade pequena; madura), Limão (1/2 unidade; suco), Água gelada (180 ml).",
       "ingredientes_lista": [
         {
           "item": "Abacaxi",
-          "quantidade": "2 fatias",
+          "quantidade": "1 fatia média",
           "observacao": ""
         },
         {
-          "item": "Maracujá",
-          "quantidade": "1 unidade",
-          "observacao": ""
+          "item": "Manga",
+          "quantidade": "1/2 unidade pequena",
+          "observacao": "madura"
         },
         {
-          "item": "Hortelã",
-          "quantidade": "5 folhas",
-          "observacao": ""
+          "item": "Limão",
+          "quantidade": "1/2 unidade",
+          "observacao": "suco"
         },
         {
-          "item": "Água",
-          "quantidade": "200 ml",
+          "item": "Água gelada",
+          "quantidade": "180 ml",
           "observacao": ""
         }
       ],
       "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
+        "Higienize e prepare Abacaxi, Manga e Limão conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de abacaxi com manga e limão ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
       ],
       "tags": [
         "Suco detox",
         "Até 15 min",
-        "Sem açúcar adicionado"
+        "Sem açúcar adicionado",
+        "Tropical, frutado e cítrico"
       ],
       "ingredientes_tags": [
         "abacaxi",
-        "maracuja",
-        "hortela"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Abacaxi, maracujá e hortelã tem um perfil de sabor tropical e refrescante. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Abacaxi, maracujá e hortelã",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Abacaxi, maracujá e hortelã",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Abacaxi, maracujá e hortelã pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-cenoura-maca-laranja",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Cenoura, maçã e laranja",
-      "resumo": "Uma combinação frutada e levemente vegetal, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 440,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Cenoura (1/2 unidade pequena), Maçã (1/2 unidade), Laranja (2 unidades), Água (100 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Cenoura",
-          "quantidade": "1/2 unidade pequena",
-          "observacao": ""
-        },
-        {
-          "item": "Maçã",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Laranja",
-          "quantidade": "2 unidades",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "100 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "cenoura",
-        "maca",
-        "laranja"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Cenoura, maçã e laranja tem um perfil de sabor frutada e levemente vegetal. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Cenoura, maçã e laranja",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Cenoura, maçã e laranja",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Cenoura, maçã e laranja pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-goiaba-limao-hortela",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Goiaba, limão e hortelã",
-      "resumo": "Uma combinação frutada e aromática, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 450,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Goiaba (1 unidade pequena), Limão (1/2 unidade), Hortelã (4 folhas), Água (250 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Goiaba",
-          "quantidade": "1 unidade pequena",
-          "observacao": ""
-        },
-        {
-          "item": "Limão",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Hortelã",
-          "quantidade": "4 folhas",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "250 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "goiaba",
-        "limao",
-        "hortela"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Goiaba, limão e hortelã tem um perfil de sabor frutada e aromática. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Goiaba, limão e hortelã",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Goiaba, limão e hortelã",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Goiaba, limão e hortelã pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-mamao-laranja",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Mamão e laranja",
-      "resumo": "Uma combinação cremosa e cítrica, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 460,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Mamão (1 xícara em cubos), Laranja (2 unidades), Água (100 ml), Gelo (a gosto).",
-      "ingredientes_lista": [
-        {
-          "item": "Mamão",
-          "quantidade": "1 xícara em cubos",
-          "observacao": ""
-        },
-        {
-          "item": "Laranja",
-          "quantidade": "2 unidades",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "100 ml",
-          "observacao": ""
-        },
-        {
-          "item": "Gelo",
-          "quantidade": "a gosto",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "mamao",
-        "laranja"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Mamão e laranja tem um perfil de sabor cremosa e cítrica. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Mamão e laranja",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Mamão e laranja",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Mamão e laranja pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-manga-limao-hortela",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Manga, limão e hortelã",
-      "resumo": "Uma combinação tropical, cítrica e fresca, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 470,
-      "destaque": false,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Manga (1/2 unidade), Limão (1/2 unidade), Hortelã (5 folhas), Água (200 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Manga",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Limão",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Hortelã",
-          "quantidade": "5 folhas",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "200 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
         "manga",
-        "limao",
-        "hortela"
-      ],
-      "alergenos": [],
-      "publico": {
-        "objetivos": [
-          "variar_refeicoes",
-          "bem_estar",
-          "receitas_praticas"
-        ],
-        "interesses": [
-          "sucos",
-          "receitas_rapidas"
-        ],
-        "perfis_alimentares": [
-          "variada",
-          "vegetariana",
-          "vegana",
-          "outra"
-        ],
-        "tempo_preparo": [
-          "ate_15"
-        ]
-      },
-      "introducao": "Manga, limão e hortelã tem um perfil de sabor tropical, cítrica e fresca. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
-      "secoes": [
-        {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
-          "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
-          ]
-        },
-        {
-          "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
-          "itens": []
-        }
-      ],
-      "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
-      ],
-      "experiencia": {
-        "tempo": "Até 15 min",
-        "dificuldade": "Fácil",
-        "formato": "Suco preparado na hora"
-      },
-      "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Manga, limão e hortelã",
-        "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
-        "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Manga, limão e hortelã",
-        "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Manga, limão e hortelã pronto"
-      },
-      "editorial_revisado": true
-    },
-    {
-      "id": "suco-detox-maca-couve-limao",
-      "tipo": "receita",
-      "categoria": "suco_detox",
-      "categorias": [
-        "sucos",
-        "receitas_rapidas",
-        "suco_detox"
-      ],
-      "titulo": "Maçã, couve e limão",
-      "resumo": "Uma combinação frutada e herbácea, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
-      "icone": "◉",
-      "ordem": 480,
-      "destaque": true,
-      "publicado": true,
-      "tempo_preparo": "ate_15",
-      "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Maçã (1 unidade), Couve (1 folha pequena), Limão (1/2 unidade), Água (250 ml).",
-      "ingredientes_lista": [
-        {
-          "item": "Maçã",
-          "quantidade": "1 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Couve",
-          "quantidade": "1 folha pequena",
-          "observacao": ""
-        },
-        {
-          "item": "Limão",
-          "quantidade": "1/2 unidade",
-          "observacao": ""
-        },
-        {
-          "item": "Água",
-          "quantidade": "250 ml",
-          "observacao": ""
-        }
-      ],
-      "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
-      ],
-      "tags": [
-        "Suco detox",
-        "Até 15 min",
-        "Sem açúcar adicionado"
-      ],
-      "ingredientes_tags": [
-        "maca",
-        "couve",
         "limao"
       ],
       "alergenos": [],
@@ -7858,26 +8198,31 @@
           "ate_15"
         ]
       },
-      "introducao": "Maçã, couve e limão tem um perfil de sabor frutada e herbácea. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
+      "introducao": "Manga e abacaxi trazem texturas e doçuras diferentes; o limão ajuda a deixar o conjunto menos pesado.",
       "secoes": [
         {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se a manga estiver muito madura, use um pouco mais de limão ou água para equilibrar.",
           "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
           ]
         },
         {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente 3 folhas de hortelã para uma versão mais fresca.",
+          "itens": []
+        },
+        {
           "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
           "itens": []
         }
       ],
       "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
       ],
       "experiencia": {
         "tempo": "Até 15 min",
@@ -7885,20 +8230,34 @@
         "formato": "Suco preparado na hora"
       },
       "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Maçã, couve e limão",
+        "imagem_url": "./assets/images/sucos-detox/detox_18.png",
+        "imagem_alt": "Apresentação de Abacaxi com Manga e Limão, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_18.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Abacaxi com Manga e Limão.",
         "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
         "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Maçã, couve e limão",
+        "imagem_ingredientes_alt": "Ingredientes da receita Abacaxi com Manga e Limão",
         "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Maçã, couve e limão pronto"
+        "imagem_pronto_alt": "Bebida Abacaxi com Manga e Limão pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Abacaxi com Manga e Limão no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Abacaxi com Manga e Limão no lado direito da mesma imagem."
       },
-      "editorial_revisado": true
+      "editorial_revisado": true,
+      "perfil_sabor": "tropical, frutado e cítrico",
+      "filtros_sabor": [
+        "frutado",
+        "citrico",
+        "refrescante"
+      ],
+      "editorial_versao": "detox_final_v3"
     },
     {
-      "id": "suco-detox-melancia-morango-limao",
+      "id": "suco-detox-melancia-pepino-limao",
       "tipo": "receita",
       "categoria": "suco_detox",
       "categorias": [
@@ -7906,52 +8265,53 @@
         "receitas_rapidas",
         "suco_detox"
       ],
-      "titulo": "Melancia, morango e limão",
-      "resumo": "Uma combinação frutada e refrescante, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
+      "titulo": "Melancia com Pepino e Limão",
+      "resumo": "Melancia, pepino e limão criam uma bebida leve, gelada e pouco concentrada, com acidez moderada.",
+      "texto_apoio": "Perfil de sabor: muito refrescante, leve e cítrico • até 15 min • sem açúcar adicionado",
       "icone": "◉",
       "ordem": 490,
       "destaque": false,
       "publicado": true,
       "tempo_preparo": "ate_15",
       "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Melancia (1 1/2 xícara em cubos), Morango (5 unidades), Limão (1/2 unidade), Água (100 ml).",
+      "ingredientes": "Melancia (1 1/2 xícara; em cubos), Pepino (1/4 unidade), Limão (1/2 unidade; suco), Água gelada (100 ml; opcional).",
       "ingredientes_lista": [
         {
           "item": "Melancia",
-          "quantidade": "1 1/2 xícara em cubos",
-          "observacao": ""
+          "quantidade": "1 1/2 xícara",
+          "observacao": "em cubos"
         },
         {
-          "item": "Morango",
-          "quantidade": "5 unidades",
+          "item": "Pepino",
+          "quantidade": "1/4 unidade",
           "observacao": ""
         },
         {
           "item": "Limão",
           "quantidade": "1/2 unidade",
-          "observacao": ""
+          "observacao": "suco"
         },
         {
-          "item": "Água",
+          "item": "Água gelada",
           "quantidade": "100 ml",
-          "observacao": ""
+          "observacao": "opcional"
         }
       ],
       "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
+        "Higienize e prepare Melancia, Pepino e Limão conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de melancia com pepino e limão ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
       ],
       "tags": [
         "Suco detox",
         "Até 15 min",
-        "Sem açúcar adicionado"
+        "Sem açúcar adicionado",
+        "Muito refrescante, leve e cítrico"
       ],
       "ingredientes_tags": [
         "melancia",
-        "morango",
+        "pepino",
         "limao"
       ],
       "alergenos": [],
@@ -7975,26 +8335,31 @@
           "ate_15"
         ]
       },
-      "introducao": "Melancia, morango e limão tem um perfil de sabor frutada e refrescante. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
+      "introducao": "A melancia fornece quase todo o líquido da receita, o pepino reforça a leveza e o limão acrescenta contraste.",
       "secoes": [
         {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Se a melancia estiver muito suculenta, não é necessário adicionar água.",
           "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
           ]
         },
         {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente algumas folhas de hortelã para um aroma mais fresco.",
+          "itens": []
+        },
+        {
           "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
           "itens": []
         }
       ],
       "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
       ],
       "experiencia": {
         "tempo": "Até 15 min",
@@ -8002,20 +8367,34 @@
         "formato": "Suco preparado na hora"
       },
       "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Melancia, morango e limão",
+        "imagem_url": "./assets/images/sucos-detox/detox_19.png",
+        "imagem_alt": "Apresentação de Melancia com Pepino e Limão, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_19.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Melancia com Pepino e Limão.",
         "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
         "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Melancia, morango e limão",
+        "imagem_ingredientes_alt": "Ingredientes da receita Melancia com Pepino e Limão",
         "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Melancia, morango e limão pronto"
+        "imagem_pronto_alt": "Bebida Melancia com Pepino e Limão pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Melancia com Pepino e Limão no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Melancia com Pepino e Limão no lado direito da mesma imagem."
       },
-      "editorial_revisado": true
+      "editorial_revisado": true,
+      "perfil_sabor": "muito refrescante, leve e cítrico",
+      "filtros_sabor": [
+        "refrescante",
+        "verde",
+        "citrico"
+      ],
+      "editorial_versao": "detox_final_v3"
     },
     {
-      "id": "suco-detox-tangerina-cenoura-gengibre",
+      "id": "suco-detox-couve-maca-gengibre",
       "tipo": "receita",
       "categoria": "suco_detox",
       "categorias": [
@@ -8023,26 +8402,26 @@
         "receitas_rapidas",
         "suco_detox"
       ],
-      "titulo": "Tangerina, cenoura e gengibre",
-      "resumo": "Uma combinação cítrica e aromática, preparada com ingredientes simples e água. “Detox” é o nome popular da seção, não uma promessa de eliminar toxinas.",
-      "texto_apoio": "Bebida para variar sabores • não substitui água nem refeições.",
+      "titulo": "Couve com Maçã e Gengibre",
+      "resumo": "Couve, maçã e gengibre em uma bebida verde de sabor frutado e com um toque aromático discreto.",
+      "texto_apoio": "Perfil de sabor: verde, frutado e levemente picante • até 15 min • sem açúcar adicionado",
       "icone": "◉",
       "ordem": 500,
       "destaque": false,
       "publicado": true,
       "tempo_preparo": "ate_15",
       "rendimento": "1 copo grande (aprox. 300–400 ml)",
-      "ingredientes": "Tangerina (3 unidades), Cenoura (1/2 unidade pequena), Gengibre (1 lasca fina), Água (100 ml).",
+      "ingredientes": "Couve (1 folha pequena; sem talo grosso), Maçã verde (1 unidade pequena; sem sementes), Gengibre (1 lasca fina), Água gelada (220 ml).",
       "ingredientes_lista": [
         {
-          "item": "Tangerina",
-          "quantidade": "3 unidades",
-          "observacao": ""
+          "item": "Couve",
+          "quantidade": "1 folha pequena",
+          "observacao": "sem talo grosso"
         },
         {
-          "item": "Cenoura",
-          "quantidade": "1/2 unidade pequena",
-          "observacao": ""
+          "item": "Maçã verde",
+          "quantidade": "1 unidade pequena",
+          "observacao": "sem sementes"
         },
         {
           "item": "Gengibre",
@@ -8050,25 +8429,26 @@
           "observacao": ""
         },
         {
-          "item": "Água",
-          "quantidade": "100 ml",
+          "item": "Água gelada",
+          "quantidade": "220 ml",
           "observacao": ""
         }
       ],
       "preparo": [
-        "Higienize bem os ingredientes e corte quando necessário.",
-        "Coloque os ingredientes no liquidificador com a água ou outro líquido indicado.",
-        "Bata até ficar homogêneo. Ajuste a quantidade de água ou gelo conforme a textura desejada.",
-        "Sirva logo após o preparo. Se não houver necessidade de coar, mantenha a polpa para aproveitar mais da parte fibrosa dos ingredientes."
+        "Higienize e prepare Couve, Maçã verde e Gengibre conforme indicado na lista de ingredientes.",
+        "Coloque os ingredientes no liquidificador e adicione a água aos poucos.",
+        "Bata até a mistura de couve com maçã e gengibre ficar uniforme; ajuste a textura com um pouco mais de água se necessário.",
+        "Sirva logo após o preparo, com gelo se desejar; coar é opcional."
       ],
       "tags": [
         "Suco detox",
         "Até 15 min",
-        "Sem açúcar adicionado"
+        "Sem açúcar adicionado",
+        "Verde, frutado e levemente picante"
       ],
       "ingredientes_tags": [
-        "tangerina",
-        "cenoura",
+        "couve",
+        "maca_verde",
         "gengibre"
       ],
       "alergenos": [],
@@ -8092,26 +8472,31 @@
           "ate_15"
         ]
       },
-      "introducao": "Tangerina, cenoura e gengibre tem um perfil de sabor cítrica e aromática. A proposta é oferecer uma bebida simples e refrescante dentro de uma alimentação variada.",
+      "introducao": "A maçã suaviza o sabor da couve e o gengibre entra em pouca quantidade para dar aroma sem dominar.",
       "secoes": [
         {
-          "titulo": "Como ajustar o sabor",
-          "texto": "A quantidade de água, gelo, limão, ervas e gengibre pode ser adaptada ao paladar. Comece com menos dos ingredientes mais intensos e ajuste depois.",
+          "titulo": "Ajuste ao seu paladar",
+          "texto": "Para um sabor verde mais suave, use meia folha de couve.",
           "itens": [
-            "Não é necessário adicionar açúcar para que a receita funcione.",
-            "Se preferir uma textura mais leve, acrescente água aos poucos."
+            "A quantidade de água pode variar conforme a maturação e a suculência dos ingredientes.",
+            "Prove antes de aumentar limão, gengibre, cúrcuma ou ervas, que têm sabor mais intenso."
           ]
         },
         {
+          "titulo": "Uma variação simples",
+          "texto": "Acrescente algumas gotas de limão para uma versão mais cítrica.",
+          "itens": []
+        },
+        {
           "titulo": "Sobre o nome “detox”",
-          "texto": "Neste portal, “detox” é apenas um nome popular para a seção de sucos com frutas, verduras e ervas. A bebida não “limpa” o organismo nem substitui o trabalho natural do fígado e dos rins.",
+          "texto": "No Active Vida Leve, “detox” é apenas o nome popular desta coleção de bebidas com frutas, folhas, raízes e ervas. Elas não “limpam” o organismo nem substituem o funcionamento natural do fígado e dos rins.",
           "itens": []
         }
       ],
       "observacoes": [
-        "Lave frutas, folhas e utensílios antes do preparo.",
-        "Confira ingredientes individualmente em caso de alergia, restrição alimentar ou sensibilidade.",
-        "Sucos não precisam substituir refeições nem ser usados como estratégia de restrição alimentar."
+        "Higienize frutas, folhas, raízes, utensílios e superfícies antes do preparo.",
+        "Confira cada ingrediente em caso de alergia, intolerância, restrição alimentar ou orientação profissional específica.",
+        "A receita é uma opção de bebida e não precisa substituir água ou refeições."
       ],
       "experiencia": {
         "tempo": "Até 15 min",
@@ -8119,17 +8504,31 @@
         "formato": "Suco preparado na hora"
       },
       "midia": {
-        "imagem_url": "",
-        "imagem_alt": "Suco pronto: Tangerina, cenoura e gengibre",
+        "imagem_url": "./assets/images/sucos-detox/detox_20.png",
+        "imagem_alt": "Apresentação de Couve com Maçã e Gengibre, com ingredientes à esquerda e a bebida pronta à direita.",
+        "imagem_apresentacao_url": "./assets/images/sucos-detox/detox_20.png",
+        "imagem_apresentacao_alt": "Ingredientes e bebida pronta da receita Couve com Maçã e Gengibre.",
         "foco": "centro",
-        "proporcao_card": "4:3",
-        "proporcao_detalhe": "16:9",
+        "proporcao_card": "1374:1145",
+        "proporcao_detalhe": "1374:1145",
         "imagem_ingredientes_url": "",
-        "imagem_ingredientes_alt": "Ingredientes de Tangerina, cenoura e gengibre",
+        "imagem_ingredientes_alt": "Ingredientes da receita Couve com Maçã e Gengibre",
         "imagem_pronto_url": "",
-        "imagem_pronto_alt": "Copo de Tangerina, cenoura e gengibre pronto"
+        "imagem_pronto_alt": "Bebida Couve com Maçã e Gengibre pronta em um copo",
+        "legenda_apresentacao": "Ingredientes à esquerda e bebida pronta à direita, no padrão visual oficial dos Sucos Detox.",
+        "legenda_ingredientes": "Ingredientes exibidos na metade esquerda da imagem de apresentação.",
+        "legenda_pronto": "Bebida pronta exibida na metade direita da imagem de apresentação.",
+        "brief_imagem_ingredientes": "Composição visual dos ingredientes de Couve com Maçã e Gengibre no lado esquerdo.",
+        "brief_imagem_pronto": "Bebida pronta de Couve com Maçã e Gengibre no lado direito da mesma imagem."
       },
-      "editorial_revisado": true
+      "editorial_revisado": true,
+      "perfil_sabor": "verde, frutado e levemente picante",
+      "filtros_sabor": [
+        "verde",
+        "com_gengibre",
+        "frutado"
+      ],
+      "editorial_versao": "detox_final_v3"
     }
   ]
 }

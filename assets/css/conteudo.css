@@ -206,3 +206,8 @@
   .content-personalized-points{grid-template-columns:1fr}
 }
 
+
+/* SUCOS DETOX — refinamento editorial final */
+.content-juice-media-card{position:relative;overflow:hidden}.content-juice-media-card::after{content:"MÍDIA PREPARADA";position:absolute;top:11px;right:12px;padding:4px 6px;border-radius:999px;background:rgba(132,204,22,.09);color:#65A30D;font-size:6px;font-weight:800;letter-spacing:.65px}.content-juice-image-slot{min-height:220px}.content-juice-image-slot::before{content:"";position:absolute;inset:12px;border:1px dashed rgba(101,163,13,.16);border-radius:12px;pointer-events:none}.content-juice-image-slot{position:relative}.content-juice-image-slot.has-image::before{display:none}@media(max-width:680px){.content-juice-image-slot{min-height:190px}}
+
+.content-juice-media.is-presentation{grid-template-columns:1fr}.content-juice-media.is-presentation .content-juice-image-slot{min-height:0;aspect-ratio:1374/1145;background-size:cover;background-position:center}.content-juice-media-card[hidden]{display:none}

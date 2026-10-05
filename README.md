@@ -1,4 +1,4 @@
-# Active Vida Leve — Baseline V38
+# Active Vida Leve — Baseline ativa (activevidaleve_v2)
 
 ## Estrutura atual
 - `index.html`: página inicial pública.
@@ -426,3 +426,18 @@ Arquivos de validação:
 - `testes/validar-casos-extremos-evolucao.mjs`;
 - `relatorios/validacao-casos-extremos-evolucao-v41.md`;
 - `relatorios/metricas-casos-extremos-v41.json`.
+
+## Sucos Detox — fechamento editorial e estrutural (activevidaleve_v2)
+
+A seção `sucos.html` foi fechada como um núcleo editorial próprio do portal:
+- 20 receitas revisadas individualmente, sem textos/preparos duplicados;
+- perfil de sabor e filtros próprios para refrescantes, cítricos, frutados, verdes e opções com gengibre;
+- preparo específico para cada combinação, com ajuste ao paladar e uma variação simples;
+- linguagem responsável para o termo “detox”, sem promessa de emagrecimento, limpeza do organismo ou substituição de refeições;
+- apresentação visual final dos 20 Sucos Detox em `assets/images/sucos-detox/detox_1.png` a `detox_20.png`;
+- cada imagem segue o padrão oficial 1374×1145 PNG, com ingredientes à esquerda, bebida pronta à direita e faixa inferior de identificação;
+- briefs editoriais e textos alternativos já cadastrados para facilitar a futura produção das imagens;
+- cards mantêm a ordem personalizada pelo motor de experiência antes da aplicação dos filtros manuais;
+- página individual exibe os dois espaços de mídia e o conteúdo completo da receita;
+- teste dedicado em `testes/validar-sucos-detox.mjs`.
+

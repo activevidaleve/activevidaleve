@@ -14,8 +14,26 @@ const logout = document.querySelector("[data-logout]");
 const headerName = document.querySelector("[data-header-name]");
 const userInitial = document.querySelector("[data-user-initial]");
 const chips = document.querySelector("[data-juices-profile-chips]");
+const filters = document.querySelector("[data-juices-filters]");
+const count = document.querySelector("[data-juices-count]");
+
 let favoriteIds = new Set();
 let progressMap = new Map();
+let orderedItems = [];
+let activeFilter = "todos";
+let currentUserId = "";
+
+const labels = {
+  variada: "Alimentação variada",
+  vegetariana: "Vegetariana",
+  vegana: "Vegana",
+  outra: "Preferência personalizada",
+  ate_15: "Até 15 min",
+  ate_20: "Até 20 min",
+  15_30: "15–30 min",
+  sucos: "Interesse em sucos",
+  receitas_rapidas: "Receitas rápidas"
+};
 
 const make = (tag, className, text) => {
   const element = document.createElement(tag);
@@ -24,21 +42,29 @@ const make = (tag, className, text) => {
   return element;
 };
 
-const setMedia = (slot, url, label, alt) => {
+const displayLabel = (value) => labels[value] || String(value).replaceAll("_", " ").replace(/^./, (letter) => letter.toUpperCase());
+
+const setMedia = (slot, url, label, alt, fallbackText) => {
   if (url) {
     slot.classList.add("has-image");
     slot.style.backgroundImage = `linear-gradient(135deg,rgba(38,62,50,.02),rgba(38,62,50,.10)),url("${String(url).replaceAll('"', '%22')}")`;
     slot.setAttribute("role", "img");
     slot.setAttribute("aria-label", alt || label);
-  } else {
-    slot.append(make("span", "", label), make("small", "", "Espaço reservado para a imagem."));
+    return;
   }
+  slot.append(make("span", "", label), make("small", "", fallbackText || "Espaço reservado para a imagem."));
 };
 
-const render = (userId, items) => {
+const matchesFilter = (item) => {
+  if (activeFilter === "todos") return true;
+  return Array.isArray(item.filtros_sabor) && item.filtros_sabor.includes(activeFilter);
+};
+
+const render = () => {
   if (!grid) return;
   grid.innerHTML = "";
 
+  const items = orderedItems.filter(matchesFilter);
   items.forEach((item) => {
     const card = make("article", "juice-card");
     const recommended = item.personalizacao?.recomendado && !item.personalizacao?.bloqueado;
@@ -46,21 +72,37 @@ const render = (userId, items) => {
     if (item.experiencia_usuario?.motivo) card.title = `Por que aparece aqui: ${item.experiencia_usuario.motivo}.`;
 
     const media = make("div", "juice-card-media");
-    const ingredients = make("div", "juice-media-slot");
-    setMedia(ingredients, item.midia?.imagem_ingredientes_url, "INGREDIENTES", item.midia?.imagem_ingredientes_alt);
-    const ready = make("div", "juice-media-slot");
-    setMedia(ready, item.midia?.imagem_pronto_url || item.imagem_url, "SUCO PRONTO", item.midia?.imagem_pronto_alt || item.imagem_alt);
-    const favorite = criarBotaoFavorito({ usuarioId: userId, item, favoritos: favoriteIds, className: "juice-card-favorite" });
-    ready.append(favorite);
-    media.append(ingredients, ready);
+    const presentationUrl = item.midia?.imagem_apresentacao_url || item.imagem_url;
+    if (presentationUrl) {
+      media.classList.add("is-presentation");
+      const presentation = make("div", "juice-media-slot juice-media-slot--presentation");
+      setMedia(
+        presentation,
+        presentationUrl,
+        "APRESENTAÇÃO DA RECEITA",
+        item.midia?.imagem_apresentacao_alt || item.imagem_alt,
+        item.midia?.legenda_apresentacao || "Ingredientes e bebida pronta."
+      );
+      presentation.append(criarBotaoFavorito({ usuarioId: currentUserId, item, favoritos: favoriteIds, className: "juice-card-favorite" }));
+      media.append(presentation);
+    } else {
+      const ingredients = make("div", "juice-media-slot");
+      setMedia(ingredients, item.midia?.imagem_ingredientes_url, "INGREDIENTES", item.midia?.imagem_ingredientes_alt, item.midia?.legenda_ingredientes || "Foto dos ingredientes será inserida aqui.");
+      const ready = make("div", "juice-media-slot");
+      setMedia(ready, item.midia?.imagem_pronto_url, "SUCO PRONTO", item.midia?.imagem_pronto_alt, item.midia?.legenda_pronto || "Foto do suco pronto será inserida aqui.");
+      ready.append(criarBotaoFavorito({ usuarioId: currentUserId, item, favoritos: favoriteIds, className: "juice-card-favorite" }));
+      media.append(ingredients, ready);
+    }
 
     const body = make("div", "juice-card-body");
     const meta = make("div", "juice-card-meta");
     meta.append(make("span", "", "SUCO DETOX"));
     if (recommended) meta.append(make("i", "", "Do seu perfil"));
-    body.append(meta, make("h3", "", item.titulo), make("p", "", item.resumo));
+    body.append(meta, make("h3", "", item.titulo));
+    if (item.perfil_sabor) body.append(make("small", "juice-card-flavor", item.perfil_sabor));
+    body.append(make("p", "", item.resumo));
 
-    const reason = make("small", "juice-card-reason", item.experiencia_usuario?.motivo || "Selecionado para variar sua biblioteca de receitas");
+    const reason = make("small", "juice-card-reason", item.experiencia_usuario?.motivo || "Uma opção para variar sabores dentro da sua biblioteca.");
     body.append(reason);
 
     const facts = make("div", "juice-card-facts");
@@ -77,6 +119,7 @@ const render = (userId, items) => {
     grid.append(card);
   });
 
+  if (count) count.textContent = `${items.length} ${items.length === 1 ? "receita" : "receitas"}`;
   if (empty) empty.hidden = items.length > 0;
 };
 
@@ -88,8 +131,20 @@ const renderProfile = (profile) => {
     profile.tempo_preparo,
     ...(Array.isArray(profile.interesses_alimentares) ? profile.interesses_alimentares : [])
   ].filter(Boolean).slice(0, 4);
-  values.forEach((value) => chips.append(make("span", "", String(value).replaceAll("_", " "))));
+
+  values.forEach((value) => chips.append(make("span", "", displayLabel(value))));
 };
+
+filters?.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-juice-filter]");
+  if (!button) return;
+  activeFilter = button.dataset.juiceFilter || "todos";
+  filters.querySelectorAll("[data-juice-filter]").forEach((candidate) => {
+    candidate.classList.toggle("is-active", candidate === button);
+    candidate.setAttribute("aria-pressed", String(candidate === button));
+  });
+  render();
+});
 
 logout?.addEventListener("click", async () => {
   try { await signOut(auth); } finally { window.location.replace("./login.html"); }
@@ -134,9 +189,10 @@ onAuthStateChanged(auth, async (user) => {
         ? "As combinações são organizadas a partir das preferências do seu cadastro. “Detox” é apenas o nome popular da seção: os sucos não eliminam toxinas e não substituem refeições."
         : "A ordem dos sucos também considera o que você vem buscando, abrindo e salvando. “Detox” continua sendo apenas o nome popular da seção, sem promessa de limpeza do organismo.";
     }
-    const personalized = ordenarPorExperiencia(juices, { usuarioId: user.uid, profileData: profile, sinais: signals, estagio: stage });
 
-    render(user.uid, personalized);
+    currentUserId = user.uid;
+    orderedItems = ordenarPorExperiencia(juices, { usuarioId: user.uid, profileData: profile, sinais: signals, estagio: stage });
+    render();
     renderProfile(profile);
 
     const name = userData.nome || user.displayName?.split(/\s+/)[0] || "Usuário";
