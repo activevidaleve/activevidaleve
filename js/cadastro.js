@@ -31,6 +31,8 @@ if (form) {
   const firebaseStatus = form.querySelector("[data-firebase-status]");
   const authStatus = form.querySelector("[data-auth-status]");
   const googleButton = form.querySelector("[data-google-auth]");
+  const googleAccountState = form.querySelector("[data-google-account-state]");
+  const googleAccountEmail = form.querySelector("[data-google-account-email]");
   const passwordFields = [...form.querySelectorAll("[data-password-field]")];
   const ageGuidance = form.querySelector("[data-age-guidance]");
   const birthDateDisplay = form.querySelector("[data-birth-date-display]");
@@ -38,6 +40,8 @@ if (form) {
   const birthDateNative = form.querySelector("[data-birth-date-native]");
   const introTitle = document.querySelector("[data-intro-title]");
   const introAccent = document.querySelector("[data-intro-accent]");
+  const introImageDesktop = document.querySelector("[data-intro-image-desktop]");
+  const introImageMobile = document.querySelector("[data-intro-image-mobile]");
   const benefitTitles = [...document.querySelectorAll("[data-benefit-title]")];
   const benefitTexts = [...document.querySelectorAll("[data-benefit-text]")];
   const benefitIcons = [...document.querySelectorAll("[data-benefit-icon]")];
@@ -534,6 +538,12 @@ if (form) {
     if (introTitle) introTitle.textContent = title;
     if (introAccent) introAccent.textContent = accent;
 
+    const imageStep = Math.min(currentStep, 5);
+    const desktopImage = `./assets/images/cadastro-etapas/etapa-${imageStep}-desktop.webp`;
+    const mobileImage = `./assets/images/cadastro-etapas/etapa-${imageStep}-mobile.webp`;
+    if (introImageDesktop) introImageDesktop.src = desktopImage;
+    if (introImageMobile) introImageMobile.srcset = mobileImage;
+
     benefits.forEach((benefit, index) => {
       if (benefitTitles[index]) benefitTitles[index].textContent = benefit.title;
       if (benefitTexts[index]) benefitTexts[index].textContent = benefit.text;
@@ -589,7 +599,9 @@ if (form) {
     });
 
     passwordFields.forEach((field) => { field.hidden = true; });
-    setStatus(authStatus);
+    if (googleAccountEmail) googleAccountEmail.textContent = user.email || "Conta Google conectada";
+    if (googleAccountState) googleAccountState.hidden = false;
+    setStatus(authStatus, "Conta Google conectada. Complete as informações abaixo para continuar.", "success");
   };
 
   const normalizeReferral = () => {

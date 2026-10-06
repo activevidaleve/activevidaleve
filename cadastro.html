@@ -30,8 +30,16 @@
   <main class="signup-main">
     <div class="container signup-layout">
       <aside class="signup-intro" aria-label="Sobre o cadastro">
-        <span class="signup-eyebrow">SEU PERFIL ACTIVE</span>
-        <h1><span data-intro-title>Seu acesso começa</span> <strong data-intro-accent>com o seu perfil.</strong></h1>
+        <div class="signup-intro-hero">
+          <picture class="signup-intro-media" aria-hidden="true">
+            <source data-intro-image-mobile media="(max-width: 900px)" srcset="./assets/images/cadastro-etapas/etapa-1-mobile.webp">
+            <img data-intro-image-desktop src="./assets/images/cadastro-etapas/etapa-1-desktop.webp" alt="" loading="eager" decoding="async">
+          </picture>
+          <div class="signup-intro-copy">
+            <span class="signup-eyebrow">SEU PERFIL ACTIVE</span>
+            <h1><span data-intro-title>Seu acesso começa</span> <strong data-intro-accent>com o seu perfil.</strong></h1>
+          </div>
+        </div>
 
         <div class="signup-progress-wrap">
           <div class="signup-progress-copy">
