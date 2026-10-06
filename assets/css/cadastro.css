@@ -298,9 +298,10 @@
 .signup-step-heading p {
   max-width: 700px;
   margin: 10px 0 0;
-  color: var(--text-muted);
-  font-size: 12.5px;
-  line-height: 1.65;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
 }
 
 .form-grid {
@@ -905,9 +906,30 @@
   margin: 0;
 }
 
-.signup-footer-inner a {
+.signup-home-btn {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 16px;
+  border: 1px solid rgba(79, 70, 229, .22);
+  border-radius: 12px;
   color: var(--indigo-500);
+  background: rgba(255, 255, 255, .8);
   font-weight: 700;
+  text-decoration: none;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.signup-home-btn:hover {
+  border-color: rgba(79, 70, 229, .38);
+  background: rgba(79, 70, 229, .06);
+  transform: translateY(-1px);
+}
+
+.signup-home-btn:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, .14);
 }
 
 .sr-only {
