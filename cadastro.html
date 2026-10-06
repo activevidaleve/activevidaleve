@@ -407,10 +407,16 @@
           </section>
 
           <section class="signup-step signup-summary-step" data-step="6" aria-labelledby="resumo-titulo" hidden>
-            <div class="signup-step-heading">
-              <span class="signup-step-kicker">PERFIL CONCLUÍDO</span>
-              <h2 id="resumo-titulo">Seu perfil está pronto</h2>
-              <p>Confira um resumo. Nesta versão, os dados ficam apenas nesta página e ainda não são enviados ao Firebase.</p>
+            <div class="signup-step-heading signup-step-heading-visual">
+              <div class="signup-step-heading-copy">
+                <span class="signup-step-kicker">PERFIL CONCLUÍDO</span>
+                <h2 id="resumo-titulo">Seu perfil está pronto</h2>
+                <p>Confira um resumo. Nesta versão, os dados ficam apenas nesta página e ainda não são enviados ao Firebase.</p>
+              </div>
+              <picture class="signup-step-heading-media">
+                <source media="(max-width: 900px)" srcset="./assets/images/cadastro-etapas/etapa-6-mobile.webp">
+                <img src="./assets/images/cadastro-etapas/etapa-6-desktop.webp" alt="" loading="lazy" decoding="async">
+              </picture>
             </div>
 
             <div class="profile-summary" data-profile-summary></div>
