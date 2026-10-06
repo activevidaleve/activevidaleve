@@ -1092,7 +1092,7 @@
   }
 
   .signup-intro-copy {
-    min-height: 220px;
+    padding-bottom: 18px;
   }
 
   .signup-intro h1 {
@@ -1168,8 +1168,7 @@
   }
 
   .signup-intro-copy {
-    min-height: 190px;
-    padding: 20px 18px 22px;
+    padding: 20px 18px 16px;
   }
 
   .signup-benefits {
@@ -1242,8 +1241,7 @@
   }
 
   .signup-intro-copy {
-    min-height: 166px;
-    padding: 17px 16px 19px;
+    padding: 17px 16px 14px;
   }
 
 
