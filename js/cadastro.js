@@ -31,8 +31,6 @@ if (form) {
   const firebaseStatus = form.querySelector("[data-firebase-status]");
   const authStatus = form.querySelector("[data-auth-status]");
   const googleButton = form.querySelector("[data-google-auth]");
-  const googleAccountState = form.querySelector("[data-google-account-state]");
-  const googleAccountEmail = form.querySelector("[data-google-account-email]");
   const passwordFields = [...form.querySelectorAll("[data-password-field]")];
   const ageGuidance = form.querySelector("[data-age-guidance]");
   const birthDateDisplay = form.querySelector("[data-birth-date-display]");
@@ -591,9 +589,7 @@ if (form) {
     });
 
     passwordFields.forEach((field) => { field.hidden = true; });
-    if (googleAccountEmail) googleAccountEmail.textContent = user.email || "Conta Google conectada";
-    if (googleAccountState) googleAccountState.hidden = false;
-    setStatus(authStatus, "Conta Google conectada. Complete as informações abaixo para continuar.", "success");
+    setStatus(authStatus);
   };
 
   const normalizeReferral = () => {
