@@ -35,6 +35,9 @@ if (form) {
   const googleAccountEmail = form.querySelector("[data-google-account-email]");
   const passwordFields = [...form.querySelectorAll("[data-password-field]")];
   const ageGuidance = form.querySelector("[data-age-guidance]");
+  const birthDateDisplay = form.querySelector("[data-birth-date-display]");
+  const birthDatePicker = form.querySelector("[data-birth-date-picker]");
+  const birthDateNative = form.querySelector("[data-birth-date-native]");
 
   const stepNames = [
     "Sua conta",
@@ -50,6 +53,42 @@ if (form) {
   let isSaving = false;
 
   const getField = (name) => form.elements.namedItem(name);
+
+  const maskBirthDate = (value) => {
+    const digits = value.replace(/\D/g, "").slice(0, 8);
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 4) return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+  };
+
+  const birthDateDisplayToIso = (value) => {
+    const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value.trim());
+    if (!match) return "";
+
+    const day = Number(match[1]);
+    const month = Number(match[2]);
+    const year = Number(match[3]);
+    const date = new Date(year, month - 1, day);
+
+    if (
+      date.getFullYear() !== year ||
+      date.getMonth() !== month - 1 ||
+      date.getDate() !== day
+    ) return "";
+
+    return `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  };
+
+  const birthDateIsoToDisplay = (value) => {
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+    return match ? `${match[3]}/${match[2]}/${match[1]}` : "";
+  };
+
+  const syncBirthDateFromDisplay = () => {
+    if (!birthDateDisplay || !birthDateNative) return;
+    birthDateDisplay.value = maskBirthDate(birthDateDisplay.value);
+    birthDateNative.value = birthDateDisplayToIso(birthDateDisplay.value);
+  };
 
   const setStatus = (element, message = "", type = "") => {
     if (!element) return;
@@ -105,8 +144,8 @@ if (form) {
       ["nome", "sobrenome", "email", "senha", "confirmar_senha", "data_nascimento", "aceite_termos"].forEach(clearError);
 
       const requiredTextFields = authMethod === "google"
-        ? ["nome", "sobrenome", "email", "data_nascimento"]
-        : ["nome", "sobrenome", "email", "senha", "confirmar_senha", "data_nascimento"];
+        ? ["nome", "sobrenome", "email"]
+        : ["nome", "sobrenome", "email", "senha", "confirmar_senha"];
 
       requiredTextFields.forEach((name) => {
         const field = getField(name);
@@ -136,9 +175,15 @@ if (form) {
         }
       }
 
+      syncBirthDateFromDisplay();
       const birthDate = getField("data_nascimento");
+      const birthDateText = birthDateDisplay?.value.trim() || "";
       const age = getAge();
-      if (birthDate?.value && (age === null || age < 0 || age > 120)) {
+
+      if (!birthDateText) {
+        setError("data_nascimento", "Preencha este campo para continuar.");
+        valid = false;
+      } else if (!birthDate?.value || age === null || age < 0 || age > 120) {
         setError("data_nascimento", "Informe uma data de nascimento válida.");
         valid = false;
       }
@@ -575,7 +620,47 @@ if (form) {
     if (target.name) clearError(target.name);
   });
 
-  getField("data_nascimento")?.addEventListener("change", updateAgeGuidance);
+  if (birthDateNative) {
+    const today = new Date();
+    const minimumDate = new Date(today.getFullYear() - 120, today.getMonth(), today.getDate());
+    const toIsoDate = (date) => [
+      date.getFullYear(),
+      String(date.getMonth() + 1).padStart(2, "0"),
+      String(date.getDate()).padStart(2, "0")
+    ].join("-");
+
+    birthDateNative.max = toIsoDate(today);
+    birthDateNative.min = toIsoDate(minimumDate);
+
+    birthDateNative.addEventListener("change", () => {
+      if (birthDateDisplay) birthDateDisplay.value = birthDateIsoToDisplay(birthDateNative.value);
+      clearError("data_nascimento");
+      updateAgeGuidance();
+    });
+  }
+
+  birthDateDisplay?.addEventListener("input", () => {
+    syncBirthDateFromDisplay();
+    clearError("data_nascimento");
+    updateAgeGuidance();
+  });
+
+  birthDateDisplay?.addEventListener("blur", syncBirthDateFromDisplay);
+
+  birthDatePicker?.addEventListener("click", () => {
+    if (!birthDateNative) return;
+
+    try {
+      if (typeof birthDateNative.showPicker === "function") {
+        birthDateNative.showPicker();
+      } else {
+        birthDateNative.click();
+      }
+    } catch {
+      birthDateNative.click();
+    }
+  });
+
   paymentButton?.addEventListener("click", saveProfile);
 
   normalizeReferral();

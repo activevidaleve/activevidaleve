@@ -141,9 +141,27 @@
 
               <label class="field field-full">
                 <span>Data de nascimento</span>
-                <input type="date" name="data_nascimento" required>
-                <small class="field-hint">Usaremos a idade apenas para organizar uma experiência adequada à sua faixa etária.</small>
-                <small class="field-error" data-error-for="data_nascimento"></small>
+                <div class="date-field-control" data-date-field>
+                  <input
+                    class="date-display-input"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="bday"
+                    maxlength="10"
+                    placeholder="DD/MM/AAAA"
+                    aria-label="Data de nascimento no formato dia, mês e ano"
+                    aria-describedby="data-nascimento-hint data-nascimento-error"
+                    data-birth-date-display
+                  >
+                  <button class="date-picker-button" type="button" aria-label="Abrir calendário para escolher a data de nascimento" data-birth-date-picker>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M7 2v3M17 2v3M3.5 9h17M5.5 4h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/>
+                    </svg>
+                  </button>
+                  <input class="date-picker-native" type="date" name="data_nascimento" tabindex="-1" aria-hidden="true" data-birth-date-native>
+                </div>
+                <small class="field-hint" id="data-nascimento-hint">Usaremos a idade apenas para organizar uma experiência adequada à sua faixa etária.</small>
+                <small class="field-error" id="data-nascimento-error" data-error-for="data_nascimento"></small>
               </label>
             </div>
 
