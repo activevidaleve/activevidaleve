@@ -33,6 +33,23 @@
         <span class="signup-eyebrow">SEU PERFIL ACTIVE</span>
         <h1><span data-intro-title>Seu acesso começa</span> <strong data-intro-accent>com o seu perfil.</strong></h1>
 
+        <div class="signup-progress-wrap">
+          <div class="signup-progress-copy">
+            <span data-step-label>Etapa 1 de 5</span>
+            <strong data-step-name>Sua conta</strong>
+          </div>
+          <div class="signup-progress-track" aria-hidden="true">
+            <span class="signup-progress-fill" data-progress-fill></span>
+          </div>
+          <div class="signup-step-dots" aria-hidden="true">
+            <span class="is-active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
         <div class="signup-benefits" aria-label="Benefícios do perfil">
           <div class="signup-benefit">
             <span class="signup-benefit-icon" data-benefit-icon="1" aria-hidden="true"></span>
@@ -59,29 +76,12 @@
       </aside>
 
       <section class="signup-card" aria-labelledby="cadastro-titulo">
-        <div class="signup-progress-wrap">
-          <div class="signup-progress-copy">
-            <span data-step-label>Etapa 1 de 5</span>
-            <strong data-step-name>Sua conta</strong>
-          </div>
-          <div class="signup-progress-track" aria-hidden="true">
-            <span class="signup-progress-fill" data-progress-fill></span>
-          </div>
-          <div class="signup-step-dots" aria-hidden="true">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-
         <form class="signup-form" id="signup-form" novalidate>
           <section class="signup-step is-active" data-step="1" aria-labelledby="cadastro-titulo">
             <div class="signup-step-heading">
               <span class="signup-step-kicker">ETAPA 01</span>
               <h2 id="cadastro-titulo">Vamos começar pelo básico</h2>
-              <p>Crie sua conta com Google ou com e-mail e senha. Depois seguimos com as informações do seu perfil.</p>
+              <p>Crie sua conta com Google ou utilize seu número de celular ou e-mail e senha. Depois seguimos com as informações do seu perfil.</p>
             </div>
 
             <button class="google-auth-btn" type="button" data-google-auth>

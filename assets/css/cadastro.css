@@ -136,7 +136,7 @@
 .signup-benefits {
   display: grid;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 12px;
 }
 
 .signup-benefit {
@@ -202,8 +202,10 @@
 }
 
 .signup-progress-wrap {
-  padding: 22px 26px 20px;
-  border-bottom: 1px solid #E7ECE9;
+  margin-top: 18px;
+  padding: 16px 18px 14px;
+  border: 1px solid rgba(38, 62, 50, .08);
+  border-radius: 18px;
   background: linear-gradient(135deg, rgba(79, 70, 229, .06), rgba(132, 204, 22, .05));
 }
 
@@ -948,6 +950,10 @@
     font-size: clamp(36px, 6vw, 52px);
   }
 
+  .signup-progress-wrap {
+    grid-column: 1 / -1;
+  }
+
   .signup-benefits {
     grid-column: 1 / -1;
     grid-template-columns: repeat(3, 1fr);
@@ -1007,7 +1013,7 @@
   }
 
   .signup-progress-wrap {
-    padding: 18px 18px 16px;
+    padding: 15px 16px 13px;
   }
 
   .signup-form {
