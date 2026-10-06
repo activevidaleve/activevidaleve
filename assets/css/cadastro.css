@@ -132,18 +132,11 @@
   color: var(--orange-500);
 }
 
-.signup-intro > p {
-  max-width: 560px;
-  margin: 20px 0 0;
-  color: var(--text-muted);
-  font-size: 14px;
-  line-height: 1.7;
-}
 
 .signup-benefits {
   display: grid;
   gap: 12px;
-  margin-top: 30px;
+  margin-top: 18px;
 }
 
 .signup-benefit {
@@ -1020,7 +1013,6 @@
   }
 
   .signup-intro h1,
-  .signup-intro > p,
   .signup-eyebrow {
     grid-column: 1 / -1;
   }
@@ -1143,9 +1135,6 @@
     letter-spacing: -1.4px;
   }
 
-  .signup-intro > p {
-    font-size: 14px;
-  }
 
   .signup-card {
     border-radius: 20px;

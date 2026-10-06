@@ -38,6 +38,8 @@ if (form) {
   const birthDateDisplay = form.querySelector("[data-birth-date-display]");
   const birthDatePicker = form.querySelector("[data-birth-date-picker]");
   const birthDateNative = form.querySelector("[data-birth-date-native]");
+  const introTitle = document.querySelector("[data-intro-title]");
+  const introAccent = document.querySelector("[data-intro-accent]");
   const benefitTitles = [...document.querySelectorAll("[data-benefit-title]")];
   const benefitTexts = [...document.querySelectorAll("[data-benefit-text]")];
   const benefitIcons = [...document.querySelectorAll("[data-benefit-icon]")];
@@ -142,6 +144,15 @@ if (form) {
         <path d="M7 15h3"></path>
       </svg>
     `
+  };
+
+  const stepIntro = {
+    1: ["Seu acesso começa", "com o seu perfil."],
+    2: ["Agora vamos conhecer", "melhor sua rotina."],
+    3: ["Escolha o que faz", "mais sentido para você."],
+    4: ["Vamos encaixar os exercícios", "na sua rotina."],
+    5: ["Conte o que combina", "com sua alimentação."],
+    6: ["Seu perfil está pronto.", "Falta liberar o acesso."]
   };
 
   const stepBenefits = {
@@ -519,7 +530,11 @@ if (form) {
   };
 
   const updateStepBenefits = () => {
+    const [title, accent] = stepIntro[currentStep] || stepIntro[1];
     const benefits = stepBenefits[currentStep] || stepBenefits[1];
+
+    if (introTitle) introTitle.textContent = title;
+    if (introAccent) introAccent.textContent = accent;
 
     benefits.forEach((benefit, index) => {
       if (benefitTitles[index]) benefitTitles[index].textContent = benefit.title;
