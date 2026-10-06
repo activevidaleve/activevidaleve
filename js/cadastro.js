@@ -538,7 +538,7 @@ if (form) {
     if (introTitle) introTitle.textContent = title;
     if (introAccent) introAccent.textContent = accent;
 
-    const imageStep = Math.min(currentStep, 5);
+    const imageStep = Math.min(currentStep, 6);
     const desktopImage = `./assets/images/cadastro-etapas/etapa-${imageStep}-desktop.webp`;
     const mobileImage = `./assets/images/cadastro-etapas/etapa-${imageStep}-mobile.webp`;
     if (introImageDesktop) introImageDesktop.src = desktopImage;

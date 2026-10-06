@@ -973,24 +973,6 @@
   grid-column: 1 / -1;
 }
 
-.summary-explanation {
-  margin-top: 18px;
-  padding: 16px;
-  border-radius: 17px;
-  background: linear-gradient(135deg, rgba(79, 70, 229, .07), rgba(132, 204, 22, .08));
-}
-
-.summary-explanation strong {
-  color: var(--indigo-500);
-  font-size: 13px;
-}
-
-.summary-explanation p {
-  margin: 6px 0 0;
-  color: var(--text-muted);
-  font-size: 12px;
-  line-height: 1.6;
-}
 
 .signup-payment-btn {
   width: 100%;
