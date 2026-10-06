@@ -25,7 +25,7 @@
 .rotina-section-heading > span,
 .rotina-summary-label {
   color: #4F46E5;
-  font-size: 9px;
+  font-size:11px;
   font-weight: 800;
   letter-spacing: 1.55px;
 }
@@ -53,9 +53,9 @@
   gap: 12px;
   padding: 16px 18px;
   border: 1px solid rgba(79, 70, 229, .12);
-  border-radius: 20px;
+  border-radius:var(--ui-card-radius);
   background: rgba(255, 255, 255, .86);
-  box-shadow: 0 14px 32px rgba(38, 62, 50, .06);
+  box-shadow:var(--ui-card-shadow);
 }
 
 .rotina-status-dot {
@@ -80,7 +80,7 @@
 .rotina-status-card small {
   margin-top: 2px;
   color: var(--text-muted);
-  font-size: 8.5px;
+  font-size:10.5px;
 }
 
 .rotina-layout {
@@ -131,9 +131,9 @@
   flex-direction: column;
   padding: 18px;
   border: 1px solid rgba(38, 62, 50, .08);
-  border-radius: 22px;
-  background: #FFF;
-  box-shadow: 0 12px 30px rgba(38, 62, 50, .05);
+  border-radius:var(--ui-card-radius);
+  background:var(--ui-card-bg);
+  box-shadow:var(--ui-card-shadow);
 }
 
 .rotina-summary-card strong {
@@ -147,13 +147,13 @@
   margin-top: auto;
   padding-top: 10px;
   color: var(--text-muted);
-  font-size: 9px;
+  font-size:11px;
   line-height: 1.5;
 }
 
 .rotina-editor {
   margin-top: 46px;
-}
+border-radius:var(--ui-panel-radius);border:1px solid var(--ui-card-border);box-shadow:var(--ui-panel-shadow);}
 
 .rotina-form {
   display: grid;
@@ -182,9 +182,9 @@
 .rotina-note {
   margin: 0 0 16px;
   color: var(--text-muted);
-  font-size: 11.5px;
+  font-size:13.5px;
   line-height: 1.6;
-}
+border-radius:var(--ui-card-radius);border:1px solid var(--ui-card-border);box-shadow:var(--ui-card-shadow);}
 
 .rotina-note {
   margin: 16px 0 0;
@@ -211,13 +211,13 @@
 .rotina-field > span,
 .rotina-checkbox-block > span {
   color: var(--text);
-  font-size: 11.5px;
+  font-size:13.5px;
   font-weight: 700;
 }
 
 .rotina-field > span small {
   color: var(--text-muted);
-  font-size: 8px;
+  font-size:10px;
   font-weight: 500;
 }
 
@@ -230,7 +230,7 @@
   color: var(--text);
   background: #FCFDFB;
   font-family: inherit;
-  font-size: 12px;
+  font-size:14px;
   outline: none;
   transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
@@ -291,7 +291,7 @@
   border-radius: 999px;
   color: #52605A;
   background: #FCFDFB;
-  font-size: 9px;
+  font-size:11px;
   font-weight: 600;
   transition: border-color .2s ease, background .2s ease, color .2s ease;
 }
@@ -312,7 +312,7 @@
 .rotina-inline-error {
   margin: 10px 0 0;
   color: #DC2626;
-  font-size: 9px;
+  font-size:11px;
   font-weight: 600;
 }
 
@@ -334,7 +334,7 @@
 
 .rotina-save-status {
   color: var(--text-muted);
-  font-size: 9px;
+  font-size:11px;
   line-height: 1.4;
 }
 
@@ -349,7 +349,7 @@
   color: #FFF;
   background: #4F46E5;
   font-family: inherit;
-  font-size: 12px;
+  font-size:14px;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(79, 70, 229, .2);

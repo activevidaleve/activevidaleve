@@ -113,10 +113,10 @@
 .signup-intro-hero {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(79, 70, 229, .14);
+  border: 1px solid var(--ui-card-border);
   border-radius: 22px;
   background: #F7FAF7;
-  box-shadow: 0 16px 28px -24px rgba(38, 62, 50, .30);
+  box-shadow: var(--ui-panel-shadow);
   isolation: isolate;
 }
 
@@ -350,10 +350,10 @@
   position: relative;
   overflow: hidden;
   padding-bottom: 0;
-  border: 1px solid rgba(79, 70, 229, .14);
+  border: 1px solid var(--ui-card-border);
   border-radius: 22px;
   background: #F7FAF7;
-  box-shadow: 0 16px 28px -24px rgba(38, 62, 50, .30);
+  box-shadow: var(--ui-panel-shadow);
   isolation: isolate;
 }
 

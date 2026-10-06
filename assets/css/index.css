@@ -155,7 +155,7 @@
   }
 
   .main-nav a {
-    font-size: 12.5px;
+    font-size:14.5px;
   }
 
   .header-actions .btn-small {
@@ -285,7 +285,7 @@
   position: absolute;
   inset: 0;
   z-index: 3;
-}
+border-radius:var(--ui-panel-radius);border:1px solid var(--ui-card-border);box-shadow:var(--ui-panel-shadow);}
 
 .slide-panel::after {
   content: "";
@@ -509,7 +509,7 @@
 
   .slide-kicker {
     margin-bottom: 12px;
-    font-size: 12px;
+    font-size:14px;
     letter-spacing: 1.8px;
   }
 
@@ -591,7 +591,7 @@
 
   .slide-kicker {
     margin-bottom: 6px;
-    font-size: 9px;
+    font-size:11px;
   }
 
   .slide-headline-row {
@@ -661,7 +661,7 @@
     min-width: 98px;
     max-width: 106px;
     min-height: 38px;
-    font-size: 12px;
+    font-size:14px;
   }
 
   .slide-copy p {
@@ -873,9 +873,9 @@
   min-height: 0;
   padding: 20px 92px 20px 88px;
   border: 1px solid rgba(38, 62, 50, .08);
-  border-radius: 24px;
+  border-radius:var(--ui-card-radius);
   background: rgba(255, 255, 255, .92);
-  box-shadow: 0 14px 34px rgba(38, 62, 50, .06);
+  box-shadow:var(--ui-card-shadow);
   backdrop-filter: blur(8px);
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
@@ -965,7 +965,7 @@
   }
 
   .section-eyebrow {
-    font-size: 12px;
+    font-size:14px;
     letter-spacing: 1.8px;
   }
 
@@ -1032,7 +1032,7 @@
 
   .section-eyebrow {
     margin-bottom: 10px;
-    font-size: 9px;
+    font-size:11px;
   }
 
   .section-heading h2 {
@@ -1080,7 +1080,7 @@
 
   .step-card p {
     margin-top: 5px;
-    font-size: 12.5px;
+    font-size:14.5px;
     line-height: 1.42;
   }
 
@@ -1333,7 +1333,7 @@
 
 .content-card-label {
   color: var(--section-accent);
-  font-size: 9px;
+  font-size:11px;
   font-weight: 800;
   letter-spacing: 1.4px;
 }
@@ -1351,7 +1351,7 @@
 .screen-card p {
   margin: 0;
   color: var(--text-muted);
-  font-size: 12.5px;
+  font-size:14.5px;
   line-height: 1.55;
 }
 
@@ -1367,7 +1367,7 @@
   align-self: flex-start;
   background: var(--section-accent);
   color: var(--white);
-  font-size: 11.5px;
+  font-size:13.5px;
   font-weight: 700;
   box-shadow: 0 8px 18px color-mix(in srgb, var(--section-accent) 22%, transparent);
   transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
@@ -1524,7 +1524,7 @@
 
 .screen-kicker {
   color: var(--mockup-accent);
-  font-size: 9px;
+  font-size:11px;
   font-weight: 800;
   letter-spacing: 1.4px;
 }
@@ -1626,9 +1626,9 @@
 .screen-workout-card {
   padding: 10px;
   border: 1px solid rgba(38, 62, 50, .07);
-  border-radius: 16px;
+  border-radius:var(--ui-card-radius);
   background: rgba(255, 255, 255, .88);
-}
+box-shadow:var(--ui-card-shadow);}
 
 .screen-stat-card strong {
   width: 38px;
@@ -1821,11 +1821,11 @@
   flex-direction: column;
   padding: 20px;
   border: 1px solid color-mix(in srgb, var(--feedback-accent) 14%, #E7ECE9);
-  border-radius: 24px;
+  border-radius:var(--ui-card-radius);
   background:
     radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--feedback-accent) 10%, transparent), transparent 30%),
     linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(252, 251, 246, .98));
-  box-shadow: 0 14px 32px rgba(38, 62, 50, .06);
+  box-shadow:var(--ui-card-shadow);
 }
 
 .feedback-card:nth-child(4n + 2) { --feedback-accent: #F43F5E; }
@@ -1869,7 +1869,7 @@
   display: block;
   margin-top: 4px;
   color: var(--feedback-accent);
-  font-size: 9px;
+  font-size:11px;
   font-weight: 800;
   letter-spacing: 1.1px;
   text-transform: uppercase;
@@ -1885,7 +1885,7 @@
   border-radius: 999px;
   color: #617369;
   background: #EEF2F0;
-  font-size: 7.5px;
+  font-size:9.5px;
   font-weight: 800;
   letter-spacing: .7px;
 }
@@ -1915,7 +1915,7 @@
   padding-top: 13px;
   border-top: 1px solid #E7ECE9;
   color: #87978F;
-  font-size: 9px;
+  font-size:11px;
   font-weight: 700;
   letter-spacing: .4px;
 }
@@ -2037,7 +2037,7 @@
 .faq-helper p {
   margin: 3px 0 0;
   color: var(--text-muted);
-  font-size: 11.5px;
+  font-size:13.5px;
   line-height: 1.45;
 }
 
@@ -2135,7 +2135,7 @@
 
 .faq-category {
   color: var(--section-title-highlight);
-  font-size: 8.5px;
+  font-size:10.5px;
   font-weight: 800;
   letter-spacing: 1.35px;
 }
@@ -2151,7 +2151,7 @@
   padding-top: 12px;
   border-top: 1px solid rgba(38, 62, 50, .07);
   color: var(--text-muted);
-  font-size: 12.5px;
+  font-size:14.5px;
   line-height: 1.62;
 }
 
@@ -2202,9 +2202,9 @@
   align-items: center;
   padding: 36px;
   border: 1px solid rgba(255, 255, 255, .16);
-  border-radius: 34px;
+  border-radius:var(--ui-panel-radius);
   background: rgba(255, 255, 255, .07);
-  box-shadow: 0 24px 54px rgba(34, 28, 112, .2);
+  box-shadow:var(--ui-panel-shadow);
   backdrop-filter: blur(10px);
 }
 
@@ -2265,7 +2265,7 @@
   border-radius: 50%;
   color: #4338CA;
   background: #DDFBCF;
-  font-size: 12px;
+  font-size:14px;
   font-style: normal;
   font-weight: 900;
 }
@@ -2280,7 +2280,7 @@
 
 .final-cta-action-label {
   color: #DDFBCF;
-  font-size: 9px;
+  font-size:11px;
   font-weight: 800;
   letter-spacing: 1.6px;
 }
@@ -2332,7 +2332,7 @@
   margin-top: 12px;
   color: rgba(255, 255, 255, .58);
   text-align: center;
-  font-size: 12px;
+  font-size:14px;
 }
 
 /* RODAPÉ */
@@ -2409,7 +2409,7 @@
 .footer-nav a {
   position: relative;
   color: #AEBDB5;
-  font-size: 11.5px;
+  font-size:13.5px;
   transition: color .2s ease, transform .2s ease;
 }
 
@@ -2431,7 +2431,7 @@
 .footer-bottom p {
   margin: 0;
   color: #809188;
-  font-size: 11.5px;
+  font-size:13.5px;
   line-height: 1.55;
 }
 
@@ -2684,7 +2684,7 @@
 
 @media (max-width: 420px) {
   .section-tag {
-    font-size: 9px;
+    font-size:11px;
     letter-spacing: 1.6px;
   }
 
@@ -2739,7 +2739,7 @@
   }
 
   .screen-kicker {
-    font-size: 8px;
+    font-size:10px;
     letter-spacing: 1.2px;
   }
 
@@ -2782,7 +2782,7 @@
   .final-cta-points span {
     min-height: 31px;
     padding-inline: 10px;
-    font-size: 12px;
+    font-size:14px;
   }
 
   .final-cta-action-panel {
@@ -2818,7 +2818,7 @@
   }
 
   .feedback-card > p {
-    font-size: 12.5px;
+    font-size:14.5px;
     line-height: 1.6;
   }
 
@@ -2862,11 +2862,11 @@
     width: 36px;
     height: 36px;
     border-radius: 12px;
-    font-size: 12px;
+    font-size:14px;
   }
 
   .faq-category {
-    font-size: 8px;
+    font-size:10px;
   }
 
   .faq-summary-copy strong {

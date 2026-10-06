@@ -23,6 +23,17 @@
   --text-muted: #617369;
   --white: #FFFFFF;
   --container: 1200px;
+
+  /* Padrão visual global derivado do cadastro */
+  --ui-text-meta: 11px;
+  --ui-text-detail: 13px;
+  --ui-text-body: 14px;
+  --ui-card-bg: rgba(255, 255, 255, .88);
+  --ui-card-border: rgba(79, 70, 229, .12);
+  --ui-card-radius: 18px;
+  --ui-panel-radius: 22px;
+  --ui-card-shadow: 0 14px 30px rgba(38, 62, 50, .07);
+  --ui-panel-shadow: 0 16px 32px -22px rgba(38, 62, 50, .28);
 }
 
 * {
