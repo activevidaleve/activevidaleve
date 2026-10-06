@@ -38,6 +38,41 @@ if (form) {
   const birthDateDisplay = form.querySelector("[data-birth-date-display]");
   const birthDatePicker = form.querySelector("[data-birth-date-picker]");
   const birthDateNative = form.querySelector("[data-birth-date-native]");
+  const benefitTitles = [...document.querySelectorAll("[data-benefit-title]")];
+  const benefitTexts = [...document.querySelectorAll("[data-benefit-text]")];
+
+  const stepBenefits = {
+    1: [
+      ["Seu portal, do seu jeito", "Suas respostas ajudam a organizar uma experiência mais alinhada à sua rotina."],
+      ["Tudo organizado em um só lugar", "Alimentação, exercícios, receitas e rotina reunidos para facilitar suas escolhas."],
+      ["Você continua no controle", "Suas preferências podem ser revistas e atualizadas depois dentro do portal."]
+    ],
+    2: [
+      ["Conteúdo mais compatível com você", "Seu nível de atividade e sua rotina ajudam o portal a priorizar conteúdos mais adequados ao seu momento."],
+      ["Menos tempo procurando", "O perfil ajuda a destacar o que tende a fazer mais sentido para você dentro da biblioteca."],
+      ["Um perfil que acompanha sua rotina", "Se seus hábitos mudarem, você poderá atualizar suas informações dentro do portal."]
+    ],
+    3: [
+      ["Foque no que importa agora", "Seus objetivos ajudam a organizar o conteúdo em torno das prioridades que você escolher."],
+      ["Uma seleção mais relevante", "O portal pode destacar exercícios, receitas e conteúdos alinhados aos seus interesses atuais."],
+      ["Evolua no seu ritmo", "Seus objetivos podem mudar com o tempo, e o perfil pode acompanhar essas mudanças."]
+    ],
+    4: [
+      ["Exercícios que cabem no seu dia", "Tempo disponível, local e equipamentos ajudam a priorizar opções mais práticas para sua rotina."],
+      ["Mais facilidade para começar", "Em vez de procurar entre tudo, você encontra primeiro opções mais compatíveis com suas escolhas."],
+      ["Sua rotina pode mudar", "Dias, locais e equipamentos poderão ser atualizados sempre que sua realidade mudar."]
+    ],
+    5: [
+      ["Receitas mais próximas do seu gosto", "Preferências e interesses alimentares ajudam a destacar conteúdos mais relevantes para você."],
+      ["Menos tempo procurando", "Receitas e conteúdos podem ser organizados considerando suas escolhas e o tempo que você tem para preparar."],
+      ["Tudo conectado à sua rotina", "Alimentação, exercícios, receitas e rotina trabalham juntos dentro da mesma experiência."]
+    ],
+    6: [
+      ["Seu perfil está quase pronto", "Suas respostas já estão organizadas para formar uma experiência mais relevante dentro do Active Vida Leve."],
+      ["Tudo em um só lugar", "Alimentação, exercícios, receitas, Sucos Detox e rotina reunidos no mesmo portal."],
+      ["Próximo passo: liberar seu acesso", "Confira seu perfil e continue para a etapa de pagamento para avançar no acesso ao portal."]
+    ]
+  };
 
   const stepNames = [
     "Sua conta",
@@ -380,6 +415,15 @@ if (form) {
     }
   };
 
+  const updateStepBenefits = () => {
+    const benefits = stepBenefits[currentStep] || stepBenefits[1];
+
+    benefits.forEach(([title, text], index) => {
+      if (benefitTitles[index]) benefitTitles[index].textContent = title;
+      if (benefitTexts[index]) benefitTexts[index].textContent = text;
+    });
+  };
+
   const showStep = (step) => {
     currentStep = step;
 
@@ -393,6 +437,7 @@ if (form) {
     if (currentStep === 2) updateAgeGuidance();
     if (currentStep === 6) buildSummary();
 
+    updateStepBenefits();
     updateProgress();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
