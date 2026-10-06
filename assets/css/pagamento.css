@@ -73,7 +73,7 @@
 
 .payment-eyebrow {
   color: var(--indigo-500);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 1.8px;
 }
@@ -116,7 +116,7 @@
 .payment-account-card span,
 .payment-account-card small {
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .payment-account-card strong {
@@ -144,13 +144,13 @@
 .payment-dev-note p {
   margin: 7px 0 0;
   color: var(--text-muted);
-  font-size: 10.5px;
+  font-size: 12.5px;
   line-height: 1.6;
 }
 
 .payment-dev-note code {
   color: #4338CA;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .payment-card {
@@ -170,7 +170,7 @@
 
 .payment-card-top span:not(.test-pill) {
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .payment-card-top h2 {
@@ -198,7 +198,7 @@
 .payment-price small {
   display: block;
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .payment-price strong {
@@ -287,7 +287,7 @@
 .payment-method small {
   margin-top: 2px;
   color: var(--text-muted);
-  font-size: 9.5px;
+  font-size: 11.5px;
 }
 
 .payment-actions {
@@ -334,7 +334,7 @@
   border-radius: 999px;
   color: var(--text-muted);
   background: #F8FAF8;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -343,7 +343,7 @@
   margin: 16px 0 0;
   padding: 13px 14px;
   border-radius: 15px;
-  font-size: 10.5px;
+  font-size: 12.5px;
   line-height: 1.55;
 }
 
@@ -356,7 +356,7 @@
   display: inline-flex;
   margin-top: 17px;
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
 }
 

@@ -32,23 +32,23 @@
 .content-block h2 { margin:7px 0 0; color:var(--text); font-size:25px; line-height:1.1; letter-spacing:-.7px; }
 .content-block p { margin:11px 0 0; color:var(--text-muted); font-size:13px; line-height:1.75; }
 .content-steps { margin:16px 0 0; padding:0; counter-reset:steps; list-style:none; display:grid; gap:10px; }
-.content-steps li { counter-increment:steps; position:relative; min-height:42px; padding:11px 12px 11px 52px; border-radius:15px; color:#52635A; background:#F7F9F7; font-size:10px; line-height:1.55; }
+.content-steps li { counter-increment:steps; position:relative; min-height:42px; padding:11px 12px 11px 52px; border-radius:15px; color:#52635A; background:#F7F9F7; font-size:12px; line-height:1.55; }
 .content-steps li::before { content:counter(steps); position:absolute; left:10px; top:9px; width:26px; height:26px; display:grid; place-items:center; border-radius:9px; color:#FFF; background:var(--content-accent); font-size:8px; font-weight:800; }
-.content-info-list { margin:14px 0 0; padding-left:19px; color:var(--text-muted); font-size:10px; line-height:1.65; }
+.content-info-list { margin:14px 0 0; padding-left:19px; color:var(--text-muted); font-size:12px; line-height:1.65; }
 .content-info-list li + li { margin-top:6px; }
 .content-note { margin-top:30px; padding:18px 20px; border:1px solid color-mix(in srgb,var(--content-accent) 14%,transparent); border-radius:19px; background:var(--content-soft); }
-.content-note strong { color:var(--text); font-size:10px; }
+.content-note strong { color:var(--text); font-size:12px; }
 .content-note ul { margin:8px 0 0; padding-left:17px; color:var(--text-muted); font-size:9px; line-height:1.6; }
 .content-sidebar { position:sticky; top:98px; display:grid; gap:14px; }
 .content-profile-card { padding:21px; border-radius:23px; }
 .content-profile-card h2 { margin:7px 0 0; color:var(--text); font-size:18px; line-height:1.18; }
-.content-profile-card > p { margin:9px 0 0; color:var(--text-muted); font-size:9.5px; line-height:1.6; }
+.content-profile-card > p { margin:9px 0 0; color:var(--text-muted); font-size:11.5px; line-height:1.6; }
 .content-match-list { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
 .content-match-list span { padding:6px 8px; border-radius:999px; color:var(--content-accent); background:var(--content-soft); font-size:7.5px; font-weight:700; }
 .content-back-card { display:block; padding:18px 20px; border-radius:20px; }
 .content-back-card span,.content-back-card strong { display:block; }
 .content-back-card span { color:var(--text-muted); font-size:8px; }
-.content-back-card strong { margin-top:4px; color:var(--content-accent); font-size:10px; }
+.content-back-card strong { margin-top:4px; color:var(--content-accent); font-size:12px; }
 .content-related { margin-top:46px; padding:42px 0 68px; background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.65)); }
 .content-related-heading { display:flex; align-items:end; justify-content:space-between; gap:20px; }
 .content-related-heading h2 { margin:7px 0 0; color:var(--text); font-size:30px; line-height:1.08; letter-spacing:-1px; }
@@ -61,7 +61,7 @@
 .content-related-card p { margin:8px 0 0; color:var(--text-muted); font-size:9px; line-height:1.55; }
 .content-related-card strong { margin-top:auto; padding-top:14px; color:var(--content-accent); font-size:8.5px; }
 .content-state { min-height:65vh; display:grid; place-items:center; align-content:center; gap:11px; padding:30px; text-align:center; }
-.content-state p { margin:0; color:var(--text-muted); font-size:10px; }
+.content-state p { margin:0; color:var(--text-muted); font-size:12px; }
 .content-state strong { color:var(--text); font-size:18px; }
 .content-state a { padding:10px 14px; border-radius:999px; color:#FFF; background:var(--indigo-500); font-size:9px; font-weight:700; }
 .content-spinner { width:24px; height:24px; border:3px solid rgba(79,70,229,.16); border-top-color:var(--indigo-500); border-radius:50%; animation:content-spin .8s linear infinite; }
@@ -82,7 +82,7 @@
 /* =========================
    EXPERIÊNCIA DE CONTEÚDO — V32
    ========================= */
-.content-quick-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}.content-quick-fact{min-width:118px;padding:10px 12px;border:1px solid rgba(38,62,50,.07);border-radius:15px;background:rgba(255,255,255,.78)}.content-quick-fact span,.content-quick-fact strong{display:block}.content-quick-fact span{color:var(--text-muted);font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.75px}.content-quick-fact strong{margin-top:3px;color:var(--text);font-size:9.5px}.content-ingredients-grid{display:grid;gap:8px;margin-top:16px}.content-ingredient-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:11px 13px;border:1px solid rgba(38,62,50,.07);border-radius:14px;background:#F8FAF8}.content-ingredient-item strong,.content-ingredient-item small{display:block}.content-ingredient-item strong{color:var(--text);font-size:10px}.content-ingredient-item small{margin-top:3px;color:var(--text-muted);font-size:8px;line-height:1.45}.content-ingredient-item>span{color:var(--content-accent);font-size:9px;font-weight:800;text-align:right}.content-exercise-steps{display:grid;gap:10px;margin-top:16px}.content-exercise-step{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding:14px;border:1px solid rgba(38,62,50,.07);border-radius:17px;background:#F8FAF8}.content-exercise-step-number{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;color:#FFF;background:var(--content-accent);font-size:9px;font-weight:800}.content-exercise-step-header{display:flex;align-items:center;justify-content:space-between;gap:10px}.content-exercise-step-header h3{margin:0;color:var(--text);font-size:14px;line-height:1.25}.content-exercise-step-header span{flex:0 0 auto;padding:5px 7px;border-radius:999px;color:var(--content-accent);background:var(--content-soft);font-size:7.5px;font-weight:800}.content-exercise-step p{margin:6px 0 0;color:var(--text-muted);font-size:9.5px;line-height:1.6}
+.content-quick-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}.content-quick-fact{min-width:118px;padding:10px 12px;border:1px solid rgba(38,62,50,.07);border-radius:15px;background:rgba(255,255,255,.78)}.content-quick-fact span,.content-quick-fact strong{display:block}.content-quick-fact span{color:var(--text-muted);font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.75px}.content-quick-fact strong{margin-top:3px;color:var(--text);font-size:11.5px}.content-ingredients-grid{display:grid;gap:8px;margin-top:16px}.content-ingredient-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:11px 13px;border:1px solid rgba(38,62,50,.07);border-radius:14px;background:#F8FAF8}.content-ingredient-item strong,.content-ingredient-item small{display:block}.content-ingredient-item strong{color:var(--text);font-size:12px}.content-ingredient-item small{margin-top:3px;color:var(--text-muted);font-size:8px;line-height:1.45}.content-ingredient-item>span{color:var(--content-accent);font-size:9px;font-weight:800;text-align:right}.content-exercise-steps{display:grid;gap:10px;margin-top:16px}.content-exercise-step{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding:14px;border:1px solid rgba(38,62,50,.07);border-radius:17px;background:#F8FAF8}.content-exercise-step-number{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;color:#FFF;background:var(--content-accent);font-size:9px;font-weight:800}.content-exercise-step-header{display:flex;align-items:center;justify-content:space-between;gap:10px}.content-exercise-step-header h3{margin:0;color:var(--text);font-size:14px;line-height:1.25}.content-exercise-step-header span{flex:0 0 auto;padding:5px 7px;border-radius:999px;color:var(--content-accent);background:var(--content-soft);font-size:7.5px;font-weight:800}.content-exercise-step p{margin:6px 0 0;color:var(--text-muted);font-size:11.5px;line-height:1.6}
 @media(max-width:520px){.content-quick-fact{flex:1 1 110px}.content-ingredient-item{grid-template-columns:1fr}.content-ingredient-item>span{text-align:left}.content-exercise-step{grid-template-columns:34px minmax(0,1fr);padding:12px}.content-exercise-step-number{width:34px;height:34px}.content-exercise-step-header{align-items:flex-start;flex-direction:column;gap:5px}}
 
 /* SUCOS DETOX — mídia reservada */
@@ -129,7 +129,7 @@
   max-width:760px;
   margin:12px 0 0;
   color:var(--text-muted);
-  font-size:10.5px;
+  font-size:12.5px;
   line-height:1.72;
 }
 .content-personalized-chips{
