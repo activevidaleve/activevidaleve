@@ -264,7 +264,14 @@ document.addEventListener("keydown", (event) => {
 });
 
 modeButtons.forEach((button) => {
-  button.addEventListener("click", () => applyLoginMode(button.dataset.loginModalMode));
+  button.addEventListener("click", () => {
+    if (button.dataset.loginModalMode === "phone") {
+      setStatus("Login por celular em breve", "loading");
+      return;
+    }
+
+    applyLoginMode("email");
+  });
 });
 
 identifierInput.addEventListener("input", () => {
@@ -286,7 +293,7 @@ form.addEventListener("submit", async (event) => {
   if (isBusy || !validate()) return;
 
   if (loginMode === "phone") {
-    setStatus("O login por celular será conectado ao Firebase na próxima etapa.", "loading");
+    setStatus("Login por celular em breve", "loading");
     return;
   }
 
