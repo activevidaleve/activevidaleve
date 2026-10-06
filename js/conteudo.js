@@ -490,12 +490,12 @@ completeButton?.addEventListener("click", async () => {
 });
 
 logoutButton?.addEventListener("click", async () => {
-  try { await signOut(auth); } finally { window.location.replace("./login.html"); }
+  try { await signOut(auth); } finally { window.location.replace("./index.html?login=1"); }
 });
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.replace("./login.html");
+    window.location.replace("./index.html?login=1");
     return;
   }
 

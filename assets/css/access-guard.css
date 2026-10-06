@@ -1,0 +1,3 @@
+html[data-access-guard="pending"] body {
+  visibility: hidden;
+}

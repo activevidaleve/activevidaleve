@@ -147,11 +147,11 @@ filters?.addEventListener("click", (event) => {
 });
 
 logout?.addEventListener("click", async () => {
-  try { await signOut(auth); } finally { window.location.replace("./login.html"); }
+  try { await signOut(auth); } finally { window.location.replace("./index.html?login=1"); }
 });
 
 onAuthStateChanged(auth, async (user) => {
-  if (!user) { window.location.replace("./login.html"); return; }
+  if (!user) { window.location.replace("./index.html?login=1"); return; }
 
   try {
     const [userSnapshot, profileSnapshot, contentResult] = await Promise.all([

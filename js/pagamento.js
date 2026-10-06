@@ -96,7 +96,7 @@ rejectedButton?.addEventListener("click", () => saveSimulation("recusado", false
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.replace("./login.html");
+    window.location.replace("./index.html?login=1");
     return;
   }
 

@@ -373,3 +373,12 @@ forgotButton.addEventListener("click", async () => {
 });
 
 applyLoginMode("email");
+
+const loginParams = new URLSearchParams(window.location.search);
+if (loginParams.get("login") === "1") {
+  openModal();
+  loginParams.delete("login");
+  const nextQuery = loginParams.toString();
+  const cleanUrl = `${window.location.pathname}${nextQuery ? `?${nextQuery}` : ""}${window.location.hash}`;
+  window.history.replaceState({}, "", cleanUrl);
+}

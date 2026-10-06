@@ -212,11 +212,11 @@ completedButton?.addEventListener("click", () => {
 });
 
 logoutButton?.addEventListener("click", async () => {
-  try { await signOut(auth); } finally { window.location.replace("./login.html"); }
+  try { await signOut(auth); } finally { window.location.replace("./index.html?login=1"); }
 });
 
 onAuthStateChanged(auth, async (user) => {
-  if (!user) { window.location.replace("./login.html"); return; }
+  if (!user) { window.location.replace("./index.html?login=1"); return; }
   currentUser = user;
 
   try {
