@@ -29,25 +29,17 @@
 
   <main class="login-main">
     <div class="container login-layout">
-      <section class="login-intro" aria-labelledby="login-page-title">
-        <div class="login-intro-hero">
-          <picture class="login-intro-media" aria-hidden="true">
+      <section class="login-card" aria-labelledby="login-card-title">
+        <div class="login-card-heading login-card-heading-hero">
+          <picture class="login-card-heading-media" aria-hidden="true">
             <source media="(max-width: 900px)" srcset="./assets/images/login/login-hero-mobile.webp">
             <img src="./assets/images/login/login-hero-desktop.webp" alt="" loading="eager" decoding="async">
           </picture>
-          <div class="login-intro-copy">
-            <span class="login-eyebrow">BEM-VINDO DE VOLTA</span>
-            <h1 id="login-page-title">Entre e continue sua <strong>rotina Active.</strong></h1>
-            <p>Use sua conta para acessar o portal, consultar seu perfil e continuar de onde parou.</p>
+          <div class="login-card-heading-copy">
+            <span>ACESSAR MINHA CONTA</span>
+            <h2 id="login-card-title">Entrar no Active Vida Leve</h2>
+            <p>Escolha uma das opções abaixo para continuar.</p>
           </div>
-        </div>
-      </section>
-
-      <section class="login-card" aria-labelledby="login-card-title">
-        <div class="login-card-heading">
-          <span>ACESSAR MINHA CONTA</span>
-          <h2 id="login-card-title">Entrar no Active Vida Leve</h2>
-          <p>Escolha uma das opções abaixo para continuar.</p>
         </div>
 
         <button class="login-google" type="button" data-login-google>
@@ -97,7 +89,7 @@
 
         <div class="login-account-note">
           <span>Novo por aqui?</span>
-          <a href="./cadastro.html">Criar minha conta</a>
+          <a class="login-account-link" href="./cadastro.html">Criar minha conta</a>
         </div>
       </section>
     </div>
@@ -106,7 +98,7 @@
   <footer class="login-footer">
     <div class="container login-footer-inner">
       <p>© 2026 Active Vida Leve.</p>
-      <a href="./index.html">Voltar para o início</a>
+      <a class="login-home-btn" href="./index.html">Voltar para o início</a>
     </div>
   </footer>
 
