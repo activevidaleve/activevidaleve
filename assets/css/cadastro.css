@@ -112,11 +112,12 @@
 
 .signup-eyebrow,
 .signup-step-kicker {
-  display: inline-block;
   color: var(--indigo-500);
-  font-size: 12px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, .30);
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: 1.8px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
 }
 
 .signup-intro h1 {
@@ -309,13 +310,20 @@
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(247, 250, 247, .60) 0%, rgba(247, 250, 247, .50) 38%, rgba(247, 250, 247, .38) 100%),
-    linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, 0));
+    linear-gradient(90deg,
+      rgba(247, 250, 247, .96) 0%,
+      rgba(247, 250, 247, .92) 28%,
+      rgba(247, 250, 247, .78) 48%,
+      rgba(247, 250, 247, .48) 66%,
+      rgba(247, 250, 247, .16) 82%,
+      rgba(247, 250, 247, .04) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, 0));
 }
 
 .signup-step-heading-copy {
   position: relative;
   z-index: 2;
+  width: min(68%, 760px);
   padding: 22px 20px 24px;
   display: flex;
   flex-direction: column;
@@ -348,12 +356,7 @@
   font-size: clamp(26px, 3vw, 34px);
   line-height: 1.08;
   letter-spacing: -1.2px;
-  text-shadow:
-    -1px -1px 0 rgba(255, 255, 255, .88),
-     1px -1px 0 rgba(255, 255, 255, .88),
-    -1px  1px 0 rgba(255, 255, 255, .88),
-     1px  1px 0 rgba(255, 255, 255, .88),
-     0 1px 2px rgba(255, 255, 255, .70);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, .32);
 }
 
 .signup-step-heading p {
@@ -363,12 +366,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 1.6;
-  text-shadow:
-    -1px -1px 0 rgba(255, 255, 255, .86),
-     1px -1px 0 rgba(255, 255, 255, .86),
-    -1px  1px 0 rgba(255, 255, 255, .86),
-     1px  1px 0 rgba(255, 255, 255, .86),
-     0 1px 2px rgba(255, 255, 255, .68);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, .28);
 }
 
 .form-grid {
@@ -1129,6 +1127,7 @@
   }
 
   .signup-step-heading-copy {
+    width: min(78%, 680px);
     padding: 20px 18px 22px;
   }
 
@@ -1166,7 +1165,19 @@
     border-radius: 18px;
   }
 
+  .signup-step-heading-visual::before {
+    background:
+      linear-gradient(180deg,
+        rgba(247, 250, 247, .92) 0%,
+        rgba(247, 250, 247, .86) 36%,
+        rgba(247, 250, 247, .72) 62%,
+        rgba(247, 250, 247, .42) 82%,
+        rgba(247, 250, 247, .18) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, 0));
+  }
+
   .signup-step-heading-copy {
+    width: 100%;
     padding: 18px 16px 20px;
   }
 
