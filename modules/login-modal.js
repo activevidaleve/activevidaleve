@@ -14,6 +14,7 @@ const modalMarkup = `
   <div class="login-modal" data-login-modal hidden>
     <button class="login-modal-backdrop" type="button" data-login-modal-close aria-label="Fechar login"></button>
     <section class="login-modal-panel" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
+      <div class="login-modal-content">
       <button class="login-modal-close" type="button" data-login-modal-close aria-label="Fechar login">×</button>
 
       <div class="login-modal-hero">
@@ -75,6 +76,7 @@ const modalMarkup = `
       <div class="login-modal-account-note">
         <span>Novo por aqui?</span>
         <a href="./cadastro.html">Criar minha conta</a>
+      </div>
       </div>
     </section>
   </div>`;

@@ -43,6 +43,11 @@ body.login-modal-open {
   transform-origin: center;
 }
 
+.login-modal-content {
+  width: 125%;
+  zoom: .8;
+}
+
 .login-modal-close {
   position: absolute;
   top: 14px;
