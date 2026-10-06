@@ -143,17 +143,12 @@
   z-index: 2;
   width: min(78%, 620px);
   padding: 24px 22px 20px;
-}
-
-.login-card-heading > span {
-  color: var(--indigo-500);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 1.8px;
+  display: grid;
+  gap: 15px;
 }
 
 .login-card-heading h2 {
-  margin: 10px 0 0;
+  margin: 0;
   color: var(--text);
   font-size: clamp(32px, 4.4vw, 54px);
   line-height: .98;
@@ -162,8 +157,8 @@
 
 .login-card-heading p {
   max-width: 560px;
-  margin: 18px 0 0;
-  color: var(--text-muted);
+  margin: 0;
+  color: var(--indigo-500);
   font-size: 14px;
   line-height: 1.7;
 }
@@ -444,7 +439,10 @@
 @media (max-width: 900px) {
   .login-main { padding-top: 34px; }
   .login-layout { max-width: 720px; }
-  .login-card-heading-copy { width: min(84%, 600px); }
+  .login-card-heading-copy {
+    width: min(84%, 600px);
+    gap: 12px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -462,9 +460,13 @@
         rgba(247, 250, 247, .58) 72%,
         rgba(247, 250, 247, .24) 100%);
   }
-  .login-card-heading-copy { width: 100%; padding: 20px 18px 18px; }
+  .login-card-heading-copy {
+    width: 100%;
+    padding: 20px 18px 18px;
+    gap: 10px;
+  }
   .login-card-heading h2 { font-size: 28px; letter-spacing: -1.2px; }
-  .login-card-heading p { font-size: 14.5px; margin-top: 14px; }
+  .login-card-heading p { font-size: 14.5px; }
   .login-form-row { align-items: flex-start; flex-direction: column; gap: 8px; }
   .login-footer-inner { flex-direction: column; align-items: center; text-align: center; }
 }
