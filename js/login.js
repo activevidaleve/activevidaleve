@@ -23,7 +23,13 @@ const status = document.querySelector("[data-login-status]");
 const emailInput = form?.elements?.email;
 const passwordInput = form?.elements?.senha;
 const rememberInput = form?.elements?.lembrar;
+const loginModeButtons = [...document.querySelectorAll("[data-login-mode]")];
+const identifierLabel = document.querySelector("[data-login-identifier-label]");
+const identifierInput = document.querySelector("[data-login-identifier]");
+const passwordField = document.querySelector("[data-password-field]");
+const emailOptions = document.querySelector("[data-email-options]");
 
+let loginMode = "email";
 let isBusy = false;
 let initialAuthResolved = false;
 
@@ -45,6 +51,40 @@ const clearErrors = () => {
   setError("senha");
 };
 
+const formatPhone = (value = "") => {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length <= 2) return digits;
+  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+};
+
+const applyLoginMode = (mode) => {
+  loginMode = mode === "phone" ? "phone" : "email";
+  clearErrors();
+  setStatus("");
+
+  loginModeButtons.forEach((button) => {
+    const active = button.dataset.loginMode === loginMode;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+
+  if (identifierLabel) identifierLabel.textContent = loginMode === "phone" ? "Número de celular" : "E-mail";
+
+  if (identifierInput) {
+    identifierInput.value = "";
+    identifierInput.type = loginMode === "phone" ? "tel" : "email";
+    identifierInput.inputMode = loginMode === "phone" ? "tel" : "email";
+    identifierInput.autocomplete = loginMode === "phone" ? "tel" : "email";
+    identifierInput.placeholder = loginMode === "phone" ? "(31) 99999-9999" : "voce@exemplo.com";
+  }
+
+  if (passwordField) passwordField.hidden = loginMode === "phone";
+  if (emailOptions) emailOptions.hidden = loginMode === "phone";
+  if (submitButton) submitButton.textContent = loginMode === "phone" ? "Continuar com celular" : "Entrar";
+};
+
 const setBusy = (busy) => {
   isBusy = busy;
   if (submitButton) submitButton.disabled = busy;
@@ -57,6 +97,18 @@ const validate = () => {
   let valid = true;
   const email = emailInput?.value?.trim() || "";
   const password = passwordInput?.value || "";
+
+  if (loginMode === "phone") {
+    const digits = email.replace(/\D/g, "");
+    if (!digits) {
+      setError("email", "Informe seu número de celular.");
+      valid = false;
+    } else if (digits.length < 10) {
+      setError("email", "Informe um número de celular válido.");
+      valid = false;
+    }
+    return valid;
+  }
 
   if (!email) {
     setError("email", "Informe seu e-mail.");
@@ -103,6 +155,11 @@ form?.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (isBusy || !validate()) return;
 
+  if (loginMode === "phone") {
+    setStatus("O login por celular está pronto visualmente e será conectado ao Firebase na próxima etapa.", "loading");
+    return;
+  }
+
   setBusy(true);
   setStatus("Entrando na sua conta…", "loading");
 
@@ -148,6 +205,16 @@ googleButton?.addEventListener("click", async () => {
   }
 });
 
+loginModeButtons.forEach((button) => {
+  button.addEventListener("click", () => applyLoginMode(button.dataset.loginMode));
+});
+
+identifierInput?.addEventListener("input", () => {
+  if (loginMode === "phone") {
+    identifierInput.value = formatPhone(identifierInput.value);
+  }
+});
+
 forgotButton?.addEventListener("click", async () => {
   if (isBusy) return;
   const email = emailInput?.value?.trim() || "";
@@ -189,6 +256,8 @@ passwordToggle?.addEventListener("click", () => {
 form?.addEventListener("input", (event) => {
   if (event.target?.name) setError(event.target.name);
 });
+
+applyLoginMode("email");
 
 onAuthStateChanged(auth, async (user) => {
   if (!initialAuthResolved) {

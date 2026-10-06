@@ -30,31 +30,15 @@
   <main class="login-main">
     <div class="container login-layout">
       <section class="login-intro" aria-labelledby="login-page-title">
-        <span class="login-eyebrow">BEM-VINDO DE VOLTA</span>
-        <h1 id="login-page-title">Entre e continue sua <strong>rotina Active.</strong></h1>
-        <p>Use sua conta para acessar o portal, consultar seu perfil e continuar de onde parou.</p>
-
-        <div class="login-benefits" aria-label="Recursos da conta">
-          <div class="login-benefit">
-            <span aria-hidden="true">01</span>
-            <div>
-              <strong>Seu perfil fica conectado</strong>
-              <p>As preferências preenchidas no cadastro ficam vinculadas à sua conta.</p>
-            </div>
-          </div>
-          <div class="login-benefit">
-            <span aria-hidden="true">02</span>
-            <div>
-              <strong>Acesso em qualquer dispositivo</strong>
-              <p>Entre novamente usando o mesmo e-mail ou sua conta Google.</p>
-            </div>
-          </div>
-          <div class="login-benefit">
-            <span aria-hidden="true">03</span>
-            <div>
-              <strong>Portal personalizado</strong>
-              <p>O conteúdo interno poderá ser organizado conforme o seu perfil.</p>
-            </div>
+        <div class="login-intro-hero">
+          <picture class="login-intro-media" aria-hidden="true">
+            <source media="(max-width: 900px)" srcset="./assets/images/login/login-hero-mobile.webp">
+            <img src="./assets/images/login/login-hero-desktop.webp" alt="" loading="eager" decoding="async">
+          </picture>
+          <div class="login-intro-copy">
+            <span class="login-eyebrow">BEM-VINDO DE VOLTA</span>
+            <h1 id="login-page-title">Entre e continue sua <strong>rotina Active.</strong></h1>
+            <p>Use sua conta para acessar o portal, consultar seu perfil e continuar de onde parou.</p>
           </div>
         </div>
       </section>
@@ -67,20 +51,30 @@
         </div>
 
         <button class="login-google" type="button" data-login-google>
-          <span class="login-google-icon" aria-hidden="true">G</span>
-          Continuar com Google
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.23-.2-1.78H12v3.42h5.52a4.77 4.77 0 0 1-2.05 3.04l-.02.11 2.98 2.31.21.02c1.92-1.77 2.96-4.38 2.96-7.12Z"/>
+            <path fill="#34A853" d="M12 22c2.7 0 4.96-.89 6.62-2.43l-3.17-2.44c-.85.58-2 .98-3.45.98-2.6 0-4.8-1.76-5.59-4.19l-.1.01-3.1 2.4-.04.09A10 10 0 0 0 12 22Z"/>
+            <path fill="#FBBC05" d="M6.41 13.92A6 6 0 0 1 6.08 12c0-.67.12-1.32.32-1.92l-.01-.13-3.14-2.44-.1.05A10 10 0 0 0 2 12c0 1.6.38 3.12 1.17 4.44l3.24-2.52Z"/>
+            <path fill="#EA4335" d="M12 5.89c1.88 0 3.15.81 3.88 1.48l2.8-2.73C16.96 3.03 14.7 2 12 2a10 10 0 0 0-8.83 5.56l3.23 2.52C7.2 7.65 9.4 5.9 12 5.9Z"/>
+          </svg>
+          <span>Continuar com Google</span>
         </button>
 
-        <div class="login-divider"><span>ou entre com e-mail</span></div>
+        <div class="login-divider"><span>ou use seu e-mail ou celular</span></div>
+
+        <div class="login-method-switch" role="group" aria-label="Escolha como entrar">
+          <button class="is-active" type="button" data-login-mode="email" aria-pressed="true">E-mail</button>
+          <button type="button" data-login-mode="phone" aria-pressed="false">Celular</button>
+        </div>
 
         <form class="login-form" data-login-form novalidate>
           <label class="login-field">
-            <span>E-mail</span>
-            <input type="email" name="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+            <span data-login-identifier-label>E-mail</span>
+            <input type="email" name="email" autocomplete="email" placeholder="voce@exemplo.com" required data-login-identifier>
             <small class="login-field-error" data-error-for="email"></small>
           </label>
 
-          <label class="login-field">
+          <label class="login-field" data-password-field>
             <span>Senha</span>
             <div class="login-password-wrap">
               <input type="password" name="senha" autocomplete="current-password" placeholder="Digite sua senha" required>
@@ -89,7 +83,7 @@
             <small class="login-field-error" data-error-for="senha"></small>
           </label>
 
-          <div class="login-form-row">
+          <div class="login-form-row" data-email-options>
             <label class="login-remember">
               <input type="checkbox" name="lembrar" checked>
               <span>Manter conectado</span>
