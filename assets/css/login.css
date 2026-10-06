@@ -78,7 +78,7 @@
 }
 
 .login-main {
-  padding: 44px 0 64px;
+  padding: 44px 0 var(--ui-space-compact);
 }
 
 .login-layout {
@@ -87,7 +87,7 @@
 }
 
 .login-card {
-  padding: 18px 18px 28px;
+  padding: 18px 18px var(--ui-space-compact);
   border: 1px solid rgba(38, 62, 50, .08);
   border-radius: var(--ui-panel-radius);
   background: rgba(255, 255, 255, .96);
@@ -376,8 +376,8 @@
   display: flex;
   justify-content: center;
   gap: 7px;
-  margin-top: 22px;
-  padding-top: 20px;
+  margin-top: var(--ui-space-compact);
+  padding-top: var(--ui-space-compact);
   border-top: 1px solid #E8ECEA;
   color: var(--text-muted);
   font-size: 14.5px;
@@ -394,14 +394,14 @@
 }
 
 .login-footer {
-  padding: 22px 0 28px;
+  padding: var(--ui-space-compact) 0 var(--ui-space-compact);
 }
 
 .login-footer-inner {
   display: flex;
   justify-content: space-between;
-  gap: 18px;
-  padding-top: 20px;
+  gap: var(--ui-space-compact);
+  padding-top: var(--ui-space-compact);
   border-top: 1px solid rgba(38, 62, 50, .09);
   color: #829087;
   font-size:13.5px;
@@ -458,7 +458,7 @@
   .login-header-actions > span { display: none; }
   .login-header-actions .btn { min-height: 38px; padding-inline: 15px; font-size: 13px; }
   .login-main { padding: 28px 0 40px; }
-  .login-card { padding: 14px 14px 24px; border-radius: 24px; }
+  .login-card { padding: 14px 14px var(--ui-space-compact); border-radius: 24px; }
   .login-card-heading-hero::before {
     background:
       linear-gradient(180deg,
