@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/login-modal.css">
   <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
@@ -26,7 +27,7 @@
         <a href="#conteudos">Conteúdos</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-login btn-small" href="./login.html">Entrar</a>
+        <a class="btn btn-login btn-small" href="./login.html" data-login-modal-open>Entrar</a>
         <a class="btn btn-signup btn-small" href="./cadastro.html">Cadastro</a>
       </div>
     </div>
@@ -887,7 +888,7 @@
             <p>Crie seu acesso para acompanhar a evolução do portal.</p>
             <div class="final-cta-actions">
               <a class="btn final-primary" href="./cadastro.html">Criar minha conta</a>
-              <a class="btn final-secondary" href="./login.html">Já tenho acesso</a>
+              <a class="btn final-secondary" href="./login.html" data-login-modal-open>Já tenho acesso</a>
             </div>
             <small>Leva poucos minutos para começar.</small>
           </div>
@@ -924,7 +925,7 @@
         <nav class="footer-nav" aria-label="Acesso ao portal">
           <h2>Acesso</h2>
           <a href="./cadastro.html">Criar conta</a>
-          <a href="./login.html">Entrar</a>
+          <a href="./login.html" data-login-modal-open>Entrar</a>
           <a href="#inicio">Voltar ao início</a>
         </nav>
       </div>
@@ -936,6 +937,7 @@
     </div>
   </footer>
 
+  <script type="module" src="./modules/login-modal.js"></script>
   <script type="module" src="./js/index.js"></script>
 </body>
 </html>
