@@ -40,37 +40,140 @@ if (form) {
   const birthDateNative = form.querySelector("[data-birth-date-native]");
   const benefitTitles = [...document.querySelectorAll("[data-benefit-title]")];
   const benefitTexts = [...document.querySelectorAll("[data-benefit-text]")];
+  const benefitIcons = [...document.querySelectorAll("[data-benefit-icon]")];
+
+  const benefitIconSvg = {
+    user: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path>
+        <path d="M4.75 19.25a7.25 7.25 0 0 1 14.5 0"></path>
+      </svg>
+    `,
+    grid: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="4" y="4" width="6" height="6" rx="1.5"></rect>
+        <rect x="14" y="4" width="6" height="6" rx="1.5"></rect>
+        <rect x="4" y="14" width="6" height="6" rx="1.5"></rect>
+        <rect x="14" y="14" width="6" height="6" rx="1.5"></rect>
+      </svg>
+    `,
+    sliders: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 7h16"></path>
+        <path d="M4 17h16"></path>
+        <circle cx="9" cy="7" r="2"></circle>
+        <circle cx="15" cy="17" r="2"></circle>
+      </svg>
+    `,
+    target: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="7"></circle>
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M15.5 8.5 20 4"></path>
+        <path d="M16 4h4v4"></path>
+      </svg>
+    `,
+    searchCheck: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="10.5" cy="10.5" r="6.5"></circle>
+        <path d="m16 16 4 4"></path>
+        <path d="m8.5 10.5 1.5 1.5 3-3"></path>
+      </svg>
+    `,
+    refresh: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 6v5h-5"></path>
+        <path d="M4 18v-5h5"></path>
+        <path d="M6.9 9A7 7 0 0 1 18 7.8L20 11"></path>
+        <path d="M17.1 15A7 7 0 0 1 6 16.2L4 13"></path>
+      </svg>
+    `,
+    sparkles: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path class="icon-fill" d="M12 4.3 13.8 9l4.7 1.8-4.7 1.8L12 17.3l-1.8-4.7-4.7-1.8L10.2 9 12 4.3Z"></path>
+        <path class="icon-fill" d="m18.5 4 0.9 2.1L21.5 7l-2.1 0.9L18.5 10l-0.9-2.1L15.5 7l2.1-0.9L18.5 4Z"></path>
+        <path class="icon-fill" d="m18.8 13.5 1.1 2.5 2.5 1.1-2.5 1.1-1.1 2.5-1.1-2.5-2.5-1.1 2.5-1.1 1.1-2.5Z"></path>
+      </svg>
+    `,
+    bars: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect class="icon-fill" x="4" y="13" width="3.4" height="7" rx="1.2"></rect>
+        <rect class="icon-fill" x="10.3" y="9" width="3.4" height="11" rx="1.2"></rect>
+        <rect class="icon-fill" x="16.6" y="5" width="3.4" height="15" rx="1.2"></rect>
+      </svg>
+    `,
+    clock: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="8"></circle>
+        <path d="M12 7.5v5l3.5 2"></path>
+      </svg>
+    `,
+    playCircle: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="8"></circle>
+        <path class="icon-fill" d="m10 8.8 5.8 3.2L10 15.2V8.8Z"></path>
+      </svg>
+    `,
+    utensils: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 4v8"></path>
+        <path d="M4.5 4v4a2.5 2.5 0 0 0 5 0V4"></path>
+        <path d="M7 12v8"></path>
+        <path d="m19.5 4-4 7h3v9"></path>
+      </svg>
+    `,
+    link: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M10.5 13.5 13.5 10.5"></path>
+        <path d="m8.4 15.6-1.7 1.7a4 4 0 1 1-5.7-5.7l3.2-3.2a4 4 0 0 1 5.7 0"></path>
+        <path d="m15.6 8.4 1.7-1.7a4 4 0 1 1 5.7 5.7l-3.2 3.2a4 4 0 0 1-5.7 0"></path>
+      </svg>
+    `,
+    badgeCheck: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3.8 14.3 5l2.6-.2.8 2.5 2.1 1.6-1 2.4 1 2.4-2.1 1.6-.8 2.5-2.6-.2L12 20.2l-2.3-1.2-2.6.2-.8-2.5-2.1-1.6 1-2.4-1-2.4 2.1-1.6.8-2.5 2.6.2L12 3.8Z"></path>
+        <path d="m9.1 12.2 1.9 1.9 3.9-4"></path>
+      </svg>
+    `,
+    card: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+        <path d="M3 10.5h18"></path>
+        <path d="M7 15h3"></path>
+      </svg>
+    `
+  };
 
   const stepBenefits = {
     1: [
-      ["Seu portal, do seu jeito", "Suas respostas ajudam a organizar uma experiência mais alinhada à sua rotina."],
-      ["Tudo organizado em um só lugar", "Alimentação, exercícios, receitas e rotina reunidos para facilitar suas escolhas."],
-      ["Você continua no controle", "Suas preferências podem ser revistas e atualizadas depois dentro do portal."]
+      { title: "Seu portal, do seu jeito", text: "Suas respostas ajudam a organizar uma experiência mais alinhada à sua rotina.", icon: "user", color: "#7C5CFF" },
+      { title: "Tudo organizado em um só lugar", text: "Alimentação, exercícios, receitas e rotina reunidos para facilitar suas escolhas.", icon: "grid", color: "#14C8B0" },
+      { title: "Você continua no controle", text: "Suas preferências podem ser revistas e atualizadas depois dentro do portal.", icon: "sliders", color: "#FF7E73" }
     ],
     2: [
-      ["Conteúdo mais compatível com você", "Seu nível de atividade e sua rotina ajudam o portal a priorizar conteúdos mais adequados ao seu momento."],
-      ["Menos tempo procurando", "O perfil ajuda a destacar o que tende a fazer mais sentido para você dentro da biblioteca."],
-      ["Um perfil que acompanha sua rotina", "Se seus hábitos mudarem, você poderá atualizar suas informações dentro do portal."]
+      { title: "Conteúdo mais compatível com você", text: "Seu nível de atividade e sua rotina ajudam o portal a priorizar conteúdos mais adequados ao seu momento.", icon: "target", color: "#33A1FF" },
+      { title: "Menos tempo procurando", text: "O perfil ajuda a destacar o que tende a fazer mais sentido para você dentro da biblioteca.", icon: "sparkles", color: "#2FD3BD" },
+      { title: "Um perfil que acompanha sua rotina", text: "Se seus hábitos mudarem, você poderá atualizar suas informações dentro do portal.", icon: "bars", color: "#FF6F7D" }
     ],
     3: [
-      ["Foque no que importa agora", "Seus objetivos ajudam a organizar o conteúdo em torno das prioridades que você escolher."],
-      ["Uma seleção mais relevante", "O portal pode destacar exercícios, receitas e conteúdos alinhados aos seus interesses atuais."],
-      ["Evolua no seu ritmo", "Seus objetivos podem mudar com o tempo, e o perfil pode acompanhar essas mudanças."]
+      { title: "Foque no que importa agora", text: "Seus objetivos ajudam a organizar o conteúdo em torno das prioridades que você escolher.", icon: "target", color: "#2EA0FF" },
+      { title: "Uma seleção mais relevante", text: "O portal pode destacar exercícios, receitas e conteúdos alinhados aos seus interesses atuais.", icon: "searchCheck", color: "#49B95E" },
+      { title: "Evolua no seu ritmo", text: "Seus objetivos podem mudar com o tempo, e o perfil pode acompanhar essas mudanças.", icon: "refresh", color: "#FFB81F" }
     ],
     4: [
-      ["Exercícios que cabem no seu dia", "Tempo disponível, local e equipamentos ajudam a priorizar opções mais práticas para sua rotina."],
-      ["Mais facilidade para começar", "Em vez de procurar entre tudo, você encontra primeiro opções mais compatíveis com suas escolhas."],
-      ["Sua rotina pode mudar", "Dias, locais e equipamentos poderão ser atualizados sempre que sua realidade mudar."]
+      { title: "Exercícios que cabem no seu dia", text: "Tempo disponível, local e equipamentos ajudam a priorizar opções mais práticas para sua rotina.", icon: "clock", color: "#8A7CFF" },
+      { title: "Mais facilidade para começar", text: "Em vez de procurar entre tudo, você encontra primeiro opções mais compatíveis com suas escolhas.", icon: "playCircle", color: "#31D1D4" },
+      { title: "Sua rotina pode mudar", text: "Dias, locais e equipamentos poderão ser atualizados sempre que sua realidade mudar.", icon: "refresh", color: "#FF992E" }
     ],
     5: [
-      ["Receitas mais próximas do seu gosto", "Preferências e interesses alimentares ajudam a destacar conteúdos mais relevantes para você."],
-      ["Menos tempo procurando", "Receitas e conteúdos podem ser organizados considerando suas escolhas e o tempo que você tem para preparar."],
-      ["Tudo conectado à sua rotina", "Alimentação, exercícios, receitas e rotina trabalham juntos dentro da mesma experiência."]
+      { title: "Receitas mais próximas do seu gosto", text: "Preferências e interesses alimentares ajudam a destacar conteúdos mais relevantes para você.", icon: "utensils", color: "#BACA2B" },
+      { title: "Menos tempo procurando", text: "Receitas e conteúdos podem ser organizados considerando suas escolhas e o tempo que você tem para preparar.", icon: "searchCheck", color: "#26A9F5" },
+      { title: "Tudo conectado à sua rotina", text: "Alimentação, exercícios, receitas e rotina trabalham juntos dentro da mesma experiência.", icon: "link", color: "#EF77A9" }
     ],
     6: [
-      ["Seu perfil está quase pronto", "Suas respostas já estão organizadas para formar uma experiência mais relevante dentro do Active Vida Leve."],
-      ["Tudo em um só lugar", "Alimentação, exercícios, receitas, Sucos Detox e rotina reunidos no mesmo portal."],
-      ["Próximo passo: liberar seu acesso", "Confira seu perfil e continue para a etapa de pagamento para avançar no acesso ao portal."]
+      { title: "Seu perfil está quase pronto", text: "Suas respostas já estão organizadas para formar uma experiência mais relevante dentro do Active Vida Leve.", icon: "badgeCheck", color: "#A9C485" },
+      { title: "Tudo em um só lugar", text: "Alimentação, exercícios, receitas, Sucos Detox e rotina reunidos no mesmo portal.", icon: "grid", color: "#6E93FF" },
+      { title: "Próximo passo: liberar seu acesso", text: "Confira seu perfil e continue para a etapa de pagamento para avançar no acesso ao portal.", icon: "card", color: "#FFA27E" }
     ]
   };
 
@@ -418,9 +521,14 @@ if (form) {
   const updateStepBenefits = () => {
     const benefits = stepBenefits[currentStep] || stepBenefits[1];
 
-    benefits.forEach(([title, text], index) => {
-      if (benefitTitles[index]) benefitTitles[index].textContent = title;
-      if (benefitTexts[index]) benefitTexts[index].textContent = text;
+    benefits.forEach((benefit, index) => {
+      if (benefitTitles[index]) benefitTitles[index].textContent = benefit.title;
+      if (benefitTexts[index]) benefitTexts[index].textContent = benefit.text;
+
+      if (benefitIcons[index]) {
+        benefitIcons[index].innerHTML = benefitIconSvg[benefit.icon] || "";
+        benefitIcons[index].style.setProperty("--benefit-icon-color", benefit.color);
+      }
     });
   };
 

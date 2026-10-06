@@ -159,23 +159,31 @@
 }
 
 .signup-benefit-icon {
+  --benefit-icon-color: var(--indigo-500);
   width: 44px;
   height: 44px;
   display: grid;
   place-items: center;
   border-radius: 14px;
   color: var(--white);
-  background: var(--indigo-500);
-  font-size: 13px;
-  font-weight: 800;
+  background: var(--benefit-icon-color);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16);
 }
 
-.signup-benefit:nth-child(2) .signup-benefit-icon {
-  background: var(--teal-500);
+.signup-benefit-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
-.signup-benefit:nth-child(3) .signup-benefit-icon {
-  background: var(--orange-500);
+.signup-benefit-icon svg .icon-fill {
+  fill: currentColor;
+  stroke: none;
 }
 
 .signup-benefit strong {
@@ -1036,6 +1044,11 @@
   .signup-benefit-icon {
     width: 38px;
     height: 38px;
+  }
+
+  .signup-benefit-icon svg {
+    width: 18px;
+    height: 18px;
   }
 
   .signup-privacy-note {
